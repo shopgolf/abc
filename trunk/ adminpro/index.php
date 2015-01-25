@@ -200,6 +200,6 @@ if (defined('ENVIRONMENT'))
  *
  */
 require_once BASEPATH.'core/CodeIgniter.php';
-
+require_once APPPATH.'libraries/function.php';
 /* End of file index.php */
 /* Location: ./index.php */
