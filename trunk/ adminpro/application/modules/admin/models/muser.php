@@ -1,8 +1,9 @@
 <?php
-class Muser extends Model_base{
+class Muser extends MY_Model{
+	public $table = 'tbl_users';
 	public function __construct(){
 		parent:: __construct();
-		$this->table = 'tbl_users';
+		
 	}
 
 	//check from login

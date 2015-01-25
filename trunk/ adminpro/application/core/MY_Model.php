@@ -52,7 +52,7 @@ class MY_Model extends CI_Model{
 			return TRUE;
 		}else{
 			return FALSE;
-		};
+		}
 	}
 	/*
 		* This is function delete_rule data
@@ -63,7 +63,7 @@ class MY_Model extends CI_Model{
 		if(!$where){
 			return FALSE;
 		}
-		$this->db->where->($where);
+		$this->db->where($where);
 		if($this->db->delete($this->table)){
 			return TRUE;
 		}else{
@@ -97,7 +97,7 @@ class MY_Model extends CI_Model{
 		if(!$where){
 			return FALSE;
 		}
-		$this->db->where->($where);
+		$this->db->where($where);
 		$this->db->select($field);
 		$query = $this->db->get($this->table);
 		if($query->num_rows() > 0){
@@ -153,7 +153,7 @@ class MY_Model extends CI_Model{
 		$this->get_list_input($param);
 		$query = $this->db->get($this->table);
 		return $query->result_array();
-	};
+	}
 	/*
 		* This is function get list
 		* Variable param is an array conditions
@@ -164,5 +164,5 @@ class MY_Model extends CI_Model{
 		$this->get_list_input($param);
 		$query = $this->db->get($this->table);
 		return $query->num_rows();
-	};
+	}
 }
