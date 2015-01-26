@@ -5,11 +5,11 @@
         <title>AdminLTE | Log in</title>
         <meta content='width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no' name='viewport'>
         <!-- bootstrap 3.0.2 -->
-        <link href="../../css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+        <link href="<?php echo base_url('assets/admin');?>/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
         <!-- font Awesome -->
-        <link href="../../css/font-awesome.min.css" rel="stylesheet" type="text/css" />
+        <link href="<?php echo base_url('assets/admin');?>/css/font-awesome.min.css" rel="stylesheet" type="text/css" />
         <!-- Theme style -->
-        <link href="../../css/AdminLTE.css" rel="stylesheet" type="text/css" />
+        <link href="<?php echo base_url('assets/admin');?>/css/AdminLTE.css" rel="stylesheet" type="text/css" />
 
         <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
         <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -35,28 +35,71 @@
                     </div>
                 </div>
                 <div class="footer">                                                               
-                    <button type="submit" class="btn bg-olive btn-block">Sign me in</button>  
-                    
-                    <p><a href="#">I forgot my password</a></p>
-                    
-                    <a href="register.html" class="text-center">Register a new membership</a>
+                    <button type="submit" class="btn bg-olive btn-block ok">Sign me in</button>  
                 </div>
             </form>
-
-            <div class="margin text-center">
-                <span>Sign in using social networks</span>
-                <br/>
-                <button class="btn bg-light-blue btn-circle"><i class="fa fa-facebook"></i></button>
-                <button class="btn bg-aqua btn-circle"><i class="fa fa-twitter"></i></button>
-                <button class="btn bg-red btn-circle"><i class="fa fa-google-plus"></i></button>
-
-            </div>
         </div>
-
 
         <!-- jQuery 2.0.2 -->
         <script src="http://ajax.googleapis.com/ajax/libs/jquery/2.0.2/jquery.min.js"></script>
         <!-- Bootstrap -->
-        <script src="../../js/bootstrap.min.js" type="text/javascript"></script>     
+        <script src="<?php echo base_url('assets/admin');?>/js/bootstrap.min.js" type="text/javascript"></script>
+        <script type="text/javascript">
+            $(document).ready(function(e) {
+             $('.ok').click(function(){
+                var user = $('#userid').val();
+                var pass = $('#password').val();
+                var type = 'abc'; 
+                if(user == ""){
+                    $('.warning').removeClass('alert-info');
+                    $('.warning').addClass('alert-danger');          
+                    $('.warning').html('Please Enter User !');
+                    $('#userid').focus();
+                    return false;
+                }
+                if(pass  == ""){
+                    $('.warning').removeClass('alert-info');
+                    $('.warning').addClass('alert-danger');
+                    $('.warning').html('Please Enter password !');
+                    $('#password').focus();
+                    return false;
+                }
+                $.ajax({
+                    'url' :  '<?php echo base_url() ;?>admin/login',
+                    'type' : 'post',
+                    'data' : 'type='+type+'&username='+user+'&password='+pass,
+                    'async' : 'false',
+                    beforeSend : function(){
+                        //$("#result_login").html("Đang load dữ liệu...");
+                        //<img class='check_suscess' src='"+links+"public/admin/images/load_form.gif' />
+                        $('.warning').removeClass('alert-info')
+                        $('.warning').removeClass('alert')
+                        $('.warning').removeClass('alert-danger')
+                        $('.warning').html('<img src="<?php echo base_url();?>assets/admin/layout/img/loading_128.gif" width="100" height="50px" />');
+                    },
+                    success: function(result){
+                        if(result === 'false'){
+                            $('.warning').removeClass('alert-info');
+                            $('.warning').addClass('alert-danger');
+                            $('.warning').addClass('alert');
+                            $('.warning').html('Wrong username or password !');
+                            return false;
+                        }else if(result === 'notactive'){
+                            $('.warning').removeClass('alert-info');
+                            $('.warning').addClass('alert-danger');
+                            $('.warning').addClass('alert');
+                            $('.warning').html('This account is not activated yet! Please check email or contact Administrator. Thanks!');
+                            return false;
+                        }
+                        else if(result === 'true'){
+                            window.location.replace('index'); 
+                        }
+                    }
+                });
+                return false;
+            });
+        });
+
+        </script>     
     </body>
 </html>
