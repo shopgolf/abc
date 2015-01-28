@@ -8,7 +8,6 @@ class Login extends CI_Controller{
 	public function index(){
 		$data['title'] = 'Login Form';
 		if(!empty($this->input->post('type'))){
-			debug('ok');
 			$user  = $this->fillter($this->input->post('username'));
 			$pass  = $this->fillter($this->input->post('password'));
 			$check = $this->muser->check_login($user,$pass);

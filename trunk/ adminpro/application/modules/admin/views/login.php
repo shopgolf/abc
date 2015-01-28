@@ -22,13 +22,14 @@
 
         <div class="form-box" id="login-box">
             <div class="header">Sign In</div>
-            <form action="../../index.html" method="post">
+            <form action="" method="post">
                 <div class="body bg-gray">
+                    <div class="alert warning" style="text-align:center;"></div>
                     <div class="form-group">
-                        <input type="text" name="userid" class="form-control" placeholder="User ID"/>
+                        <input type="text" id = "userid" name="userid" class="form-control" placeholder="User ID"/>
                     </div>
                     <div class="form-group">
-                        <input type="password" name="password" class="form-control" placeholder="Password"/>
+                        <input type="password" id ="password" name="password" class="form-control" placeholder="Password"/>
                     </div>          
                     <div class="form-group">
                         <input type="checkbox" name="remember_me"/> Remember me

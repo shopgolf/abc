@@ -11,7 +11,7 @@ class Muser extends MY_Model{
 		$this->db->where('user_name',$user);
 		$this->db->where('user_password',md5($pass));
 		$result = $this->db->get($this->table);
-		$info = $result->row_array();		
+		$info = $result->row_array();
 		if($result->num_rows() == 0){
 			return FALSE;
 		}else if($info['user_activation'] == 2){
