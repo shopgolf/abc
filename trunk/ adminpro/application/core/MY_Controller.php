@@ -3,7 +3,7 @@ class My_controller extends CI_Controller{
 	public function __construct(){
 		parent:: __construct();
 	}
-  //this is function fetch contetn
+  //this is function fetch contents
   public function fetch($template = null,$data = array()){
     ob_start();
     $this->load->view($template,$data);

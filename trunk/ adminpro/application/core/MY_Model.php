@@ -133,7 +133,7 @@ class MY_Model extends CI_Model{
 			$this->db->where($param['where']);
 		}
 		// order by 
-		// example ($input['order'] = array('id','DESC'))
+		// example ($param['order'] = array('id','DESC'))
 		if(isset($param['order'][0]) && $param['order'][1]){
 			$this->db->order_by($param['order'][0],$param['param'][1]);
 		}else{
