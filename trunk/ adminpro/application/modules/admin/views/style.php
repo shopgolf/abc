@@ -15,3 +15,5 @@
 <link href="<?php echo base_url('assets/admin');?>/css/bootstrap-wysihtml5/bootstrap3-wysihtml5.min.css" rel="stylesheet" type="text/css" />
 <!-- Theme style -->
 <link href="<?php echo base_url('assets/admin');?>/css/AdminLTE.css" rel="stylesheet" type="text/css" />
+<!-- Custom style -->
+<link href="<?php echo base_url('assets/admin');?>/css/custom.css" rel="stylesheet" type="text/css" />

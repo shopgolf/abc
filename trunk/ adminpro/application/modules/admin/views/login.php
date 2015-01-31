@@ -76,7 +76,7 @@
                         $('.warning').removeClass('alert-info')
                         $('.warning').removeClass('alert')
                         $('.warning').removeClass('alert-danger')
-                        $('.warning').html('<img src="<?php echo base_url();?>assets/admin/layout/img/loading_128.gif" width="100" height="50px" />');
+                        $('.warning').html('<img src="<?php echo base_url();?>assets/admin/img/Progressbar.gif" width="100" height="50px" />');
                     },
                     success: function(result){
                         if(result === 'false'){
