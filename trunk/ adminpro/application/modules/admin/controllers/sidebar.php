@@ -13,13 +13,16 @@ class Sidebar extends CI_Controller {
 
 	public function __construct(){
 		parent::__construct();
+		$this->load->model('options_model');
 	}
 
 	public function index()
 	{
-		
+		$test = $this->options_model->get_option(array('option_name =' => 'admin_menu_setting'),'option_value');
+		debug($test);
 	}
 
+	
 }
 
 /* End of file sidebar.php */

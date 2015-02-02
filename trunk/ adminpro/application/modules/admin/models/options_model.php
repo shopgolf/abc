@@ -28,14 +28,22 @@ class Options_model extends MY_Model {
 			$result          = $this->insert($data);
 		}
 		return $result;
-	};
+	}
+	// this is function get options
 	public function get_option($name,$value){
-		$name  = trim($name);
 		$record = $this->get_info_rule($name,$value);
 		if(!empty($record)){
-			$option_value = $record[0]['option_value'];
+			$option_value = unserialize($record['option_value']);
+			if ($option_value == false){
+				$option_value = $records['option_value'];
+			}
+			return $option_value;
+		}else{
+			return null;
 		}
-	};
+	}
+	//this is function update options
+	
 }
 
 /* End of file options_model.php */
