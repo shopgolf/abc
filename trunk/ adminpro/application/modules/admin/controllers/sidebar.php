@@ -17,9 +17,8 @@ class Sidebar extends CI_Controller {
 	}
 
 	public function index()
-	{
-		$test = $this->options_model->get_option(array('option_name =' => 'admin_menu_setting'),'option_value');
-		debug($test);
+	{		
+		$menu = $this->options_model->get_option('admin_menu_setting');
 	}
 
 	

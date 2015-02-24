@@ -30,8 +30,9 @@ class Options_model extends MY_Model {
 		return $result;
 	}
 	// this is function get options
-	public function get_option($name,$value){
-		$record = $this->get_info_rule($name,$value);
+	public function get_option($name){
+		$name = trim($name);
+		$record = $this->get_info_rule(array('option_name' => $name),'option_value');
 		if(!empty($record)){
 			$option_value = unserialize($record['option_value']);
 			if ($option_value == false){
@@ -43,7 +44,38 @@ class Options_model extends MY_Model {
 		}
 	}
 	//this is function update options
-	
+	public function update_option($name,$value){
+		if(is_array($value) && empty($value)){
+			$value = '';
+		}
+
+		$name = trim($name);
+		$serialized_value = $value;
+
+		if(is_array($value) && is_object($value)){
+			$serialized_value = serialize($value);
+		}
+
+		$old = $this->get_option(array('option_name' => $name),'option_value');
+
+		if($serialized_value === $old)
+			return false;
+
+		if($old === null)
+			return $this->add_option($name,$serialized_value);
+
+		$result = $this->update_rule(array('option_name' => $name),array('option_value ' => $serialized_value));
+
+		return $result;
+
+	}
+	//this is function delete option
+	public function delete_option($name){
+		$name = trim($name);
+		$result = $this->delete_rule(array('option_name' => $name));
+		return $result;
+	}
+
 }
 
 /* End of file options_model.php */
