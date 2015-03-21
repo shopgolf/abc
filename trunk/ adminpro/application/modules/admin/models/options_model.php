@@ -9,9 +9,6 @@
  * @phone       0944418192
  *
  */
-global $option_datas;
-
-$option_datas = array();
 
 class Options_model extends MY_Model {
 	public $table = 'tbl_options';

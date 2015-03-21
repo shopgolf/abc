@@ -9,13 +9,13 @@
         <!-- sidebar menu: : style can be found in sidebar.less -->
         <ul class="sidebar-menu">
             <li class="active">
-                <a href="index.html">
-                    <i class="fa fa-dashboard"></i> <span>Dashboard</span>
+                <a href="<?php echo base_url('admin/home');?>">
+                    <i class="fa fa-dashboard" style="color:#1dcfbf"></i> <span>Dashboard</span>
                 </a>
             </li>
             <li>
-                <a href="<?php echo base_url('admin/sidebar');?>">
-                    <i class="fa fa-bars"></i> <span>Admin Menu</span>                 
+                <a href="<?php echo base_url('admin/users');?>">
+                    <i class="fa fa-user" style="color:#e07901"></i> <span>Users</span>                 
                 </a>
             </li>
         </ul>

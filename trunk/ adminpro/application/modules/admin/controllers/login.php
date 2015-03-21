@@ -19,8 +19,9 @@ class Login extends MY_Controller{
 			else{
 				echo 'true';
 				$session = array(
-					'session_user'  => $check['user_name'],
-					'session_level' => $check['user_role'],
+					'session_user'     => $check['user_name'],
+					'session_level'    => $check['user_role'],
+					'session_fullname' => $check['user_fullname'],
 				);
 				$this->session->set_userdata($session);
 			}	

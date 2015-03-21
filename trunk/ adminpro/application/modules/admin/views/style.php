@@ -5,6 +5,9 @@
 <link href="<?php echo base_url('assets/admin');?>/css/ionicons.min.css" rel="stylesheet" type="text/css" />
 <!-- Morris chart -->
 <link href="<?php echo base_url('assets/admin');?>/css/morris/morris.css" rel="stylesheet" type="text/css" />
+<!--datatables-->
+<!--<link rel="stylesheet" href="<?php echo base_url('assets/admin')?>/css/datatables/dataTables.bootstrap.css">-->
+<!--<link rel="stylesheet" href="<?php echo base_url('assets/admin')?>/css/datatables/jquery.dataTables.css">-->
 <!-- jvectormap -->
 <link href="<?php echo base_url('assets/admin');?>/css/jvectormap/jquery-jvectormap-1.2.2.css" rel="stylesheet" type="text/css" />
 <!-- fullCalendar -->
