@@ -7,7 +7,7 @@
 </div>
 <div class="row" style="margin-bottom: 20px;">
     <div class="col-md-6">
-        <div class="btn-group" id="bulk-action-container" style="display: inline-block;">
+        <div class="btn-group" id="bulk-action-container" style="display: none;">
             <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
                 Bulk Actions  <span class="caret"></span>
             </button>
@@ -49,57 +49,102 @@
 </div>
 <div class="row">
     <div class="col-sm-12">
-    	<form action="">
+    	<form action="" method="post">
     		<div class="table-responsive">
-                <table class="table table-bordered table-hover"  id="example" class="display" cellspacing="0">
-                	<thead>
-	                	<tr>
-	                		<th>#</th>
-	                		<th><input type="checkbox"></th>
-	                		<th>Username</th>
-	                		<th>Fullname</th>
-	                		<th>Email</th>
-	                		<th>Role</th>
-	                		<th>Activation</th>
-	                		<th>Action</th>
-	                	</tr>	
-                	</thead>
-                	<tbody>
-                		<?php $stt = 1?>
-                		<?php if(!empty($result) && is_array($result)){ foreach($result as $value):?>
-	                		<tr>
-	                			<td><?php echo $stt++?></td>
-	                			<td><input type="checkbox" name="id[]" value="<?php echo $value['id']?>"></td>
-	                			<td><?php echo $value['user_name'];?></td>
-	                			<td><?php echo $value['user_fullname'];?></td>
-	                			<td><?php echo $value['user_email'];?></td>
-	                			<td><?php echo $value['user_role'];?></td>
-	                			<td>
-	                				<?php if($value['user_role'] == 1){ ?>
-	                					<a href="javascript:void(0);" class=" label label-success"> Activated</a>
-	                				<?php }else{ ?>
-	                					<a href="javascript:void(0);" class="label label-danger"> Not Activated</a>	
-	                				<?php } ?>
-	                			</td>
-	                			<td>
-	                				<button type="button" class="btn btn-primary btn-xs"><i class="fa fa-files-o"></i></button>
-	                				<button type="button" class="btn btn-info btn-xs"><i class="fa fa-pencil"></i></button>
-	                				<button type="button" class="btn btn-danger btn-xs"><i class="fa fa-minus-circle"></i></button>
-	                			</td>
-	                		</tr>
-                		<?php endforeach; }else{ ?>
-							<tr>
-								<td colspan="8" style="text-align:center;">Data empty!</td>
-							</tr>
-						<?php } ?>
-                	</tbody>
+                <table  class="table table-bordered table-hover" >
+                    <thead>
+                        <tr>
+                            <th>#</th>
+                            <th><input type="checkbox" id="check-all"></th>
+                            <th>Username</th>
+                            <th>Fullname</th>
+                            <th>Email</th>
+                            <th>Role</th>
+                            <th>Activation</th>
+                            <th>Action</th>
+                        </tr>   
+                    </thead>
+                    <tbody id="result">
+                    </tbody>
                 </table>
+                <ul class="pagination pull-right"></ul>
             </div>
     	</form>
     </div>
 </div>
 <script>
-jQuery(document).ready(function(){
-	$('#example').dataTable();
-});
+    jQuery(document).ready(function($) {      
+        
+        $('#check-all').on('ifChecked', function(event){
+            $('input[name="id\[\]"]').iCheck('check');
+            $('#bulk-action-container').show();
+        });
+
+        $('#check-all').on('ifUnchecked', function(event){
+            $('input[name="id\[\]"]').iCheck('uncheck');
+            $('#bulk-action-container').hide();
+        });
+       
+    });
+    
+    // ajax pagination
+  
+    function load_result(page){
+        var base_url = '<?php echo base_url();?>';
+        var html = "";
+        page = page || 0;
+        $.post(base_url+'admin/users/index/'+page, {ajax:true}, function(data) {
+           if(data.results != ''){
+                var stt = 1;
+                var arr = [];
+                $.each(data.role, function(index, val) {
+                    arr[val.role_id] = val.role_name;
+                });
+                $.each(data.results, function(index, val) {
+                    html += '<tr>';
+                        html += '<td>'+ stt++ +'</td>';
+                        html += '<td><input type="checkbox" class="check-list" name="id[]" value="'+val.id+'"></td>';
+                        html += '<td>'+val.user_name+'</td>';
+                        html += '<td>'+val.user_fullname+'</td>';
+                        html += '<td>'+val.user_email+'</td>';
+                        html += '<td>'+arr[val.user_role]+'</td>';
+                        html += '<td>';
+                            if(val.user_activation == 1){
+                                html +='<a href="javascript:void(0)" class=" label label-success">Activated</a>';
+                            }else{
+                                html += '<a href="javascript:void(0);" class="label label-danger"> Not Activated</a>';
+                            }
+                        html += '</td>';
+                        html += '<td>'; 
+                            html += ' <button type="button" class="btn btn-primary btn-xs"><i class="fa fa-files-o"></i></button>';
+                            html += ' <button type="button" class="btn btn-info btn-xs"><i class="fa fa-pencil"></i></button> ';
+                            html += ' <button type="button" class="btn btn-danger btn-xs"><i class="fa fa-minus-circle"></i></button> ';
+                        html += '</td>';
+                    html += '</tr>';
+                });
+           }else{
+                html += '<tr>';
+                    html += '<td colspan="8" style="text-align:center;">Data empty!</td>';
+                html += '</tr>'; 
+           }
+           $('#result').html(html);
+           $('.pagination').html(data.pagination);
+           //$('.content input[type="checkbox"]').iCheck({checkboxClass: 'icheckbox_minimal'});
+        },'json');
+    }
+
+    load_result();
+
+    $('.pagination').on('click', 'li a', function(event) {
+        event.preventDefault();
+        var link = $(this).attr("href").split(/\//g).pop();
+        load_result(link);
+        return false;
+    });
+
+    function Add(){
+        $('.content').load('<?php echo base_url("admin/users/add"); ?>',function(){
+            
+        });
+    }
 </script>

@@ -11,6 +11,7 @@
  */
 class MY_Model extends CI_Model{
 	public $table = '';
+	public $key   = '';
 	public function __construct(){
 		parent:: __construct();
 		$this->load->database();
@@ -138,7 +139,7 @@ class MY_Model extends CI_Model{
 			$this->db->order_by($param['order'][0],$param['param'][1]);
 		}else{
 			// desc id record
-			$this->db->order_by('id','DESC');
+			$this->db->order_by($this->key,'DESC');
 		}
 		if(isset($param['limit'][0]) && $param['limit'][1]){
 			$this->db->limit($param['limit'][0],$param['limit'][1]);
@@ -155,7 +156,7 @@ class MY_Model extends CI_Model{
 		return $query->result_array();
 	}
 	/*
-		* This is function get list
+		* This is function get total
 		* Variable param is an array conditions
 		* example $param['where'] = array('id',$id)
 		* result numrows record table
@@ -164,5 +165,9 @@ class MY_Model extends CI_Model{
 		$this->get_list_input($param);
 		$query = $this->db->get($this->table);
 		return $query->num_rows();
+	}
+
+	public function count_all(){
+		return $this->db->count_all($this->table);
 	}
 }

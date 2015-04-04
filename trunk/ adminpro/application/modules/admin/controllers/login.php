@@ -20,6 +20,7 @@ class Login extends MY_Controller{
 				echo 'true';
 				$session = array(
 					'session_user'     => $check['user_name'],
+					'session_user_id'  => $check['id'],
 					'session_level'    => $check['user_role'],
 					'session_fullname' => $check['user_fullname'],
 				);

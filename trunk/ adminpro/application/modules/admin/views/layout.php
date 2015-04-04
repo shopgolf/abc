@@ -29,7 +29,7 @@
                         <div class="btn-group">
                             <a type="button" name="" class="btn btn-default btn-index" onclick="Search_modal()" style="display: inline-block;"><i class="fa fa-search"></i> Search</a>
                             <a type="button" name="" class="btn btn-default btn-index" onclick="cancel_Search()" style="display: inline-block;"><i class="fa fa-times"></i></a>
-                        </div>                                                                            
+                        </div> 
                         <a type="button" name="" class="btn btn-primary btn-index" onclick="Add();" style="display: inline-block;"><i class="fa fa-plus"></i> New</a>                                                                            
                         <a type="button" name="" class="btn btn-primary btn-add" onclick="New();" style="display: none;"><i class="fa fa-check-circle"></i> Save</a>                                                                            
                         <a type="button" name="" class="btn btn-default btn-add" onclick="back_to_list();" style="display: none;"><i class="fa fa-times-circle"></i> Cancel</a>                                                                            
