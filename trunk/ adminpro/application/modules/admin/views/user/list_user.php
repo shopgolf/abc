@@ -28,7 +28,7 @@
                 <span class="caret"></span>
             </button>
             <ul class="dropdown-menu" role="menu">
-                <li><a href="http://localhost/pageflex/admin/?admin-page=galleries"> All</a></li>
+                <li><a href="<?php echo base_url('admin/users/index');?>"> All</a></li>
                 <li><a href="javascript:view_allstatus(1,'published');"> Published</a></li>
                 <li><a href="javascript:view_allstatus(2,'unpublished');"> Unpublished</a></li>
             </ul>
@@ -40,7 +40,12 @@
              	<div class="form-inline" id="pagingControl">
 	            <div class="form-group">
                     <label for="Page">Page: </label>
-                    <select class="form-control" data-url="http://localhost/pageflex/admin/?admin-page=galleries&amp;action=index&amp;page=" onchange="return false;"><option value="1" selected="selected">1</option>         </select>
+                    <select class="page form-control" >
+                        <option selected="selected" value="1">1</option> 
+                        <option  value="2">2</option>         
+                        <option  value="3">3</option>         
+                    </select>
+                    <input type="hidden" value="1" class="page-hidden">
                 </div>
              </div>
           	</div>        
@@ -89,14 +94,15 @@
     
     // ajax pagination
   
-    function load_result(page){
+    function load_result(page,change_page){
         var base_url = '<?php echo base_url();?>';
         var html = "";
         page = page || 0;
-        $.post(base_url+'admin/users/index/'+page, {ajax:true}, function(data) {
+        change_page = change_page || 1;
+        $.post(base_url+'admin/users/index/'+page, {ajax:true,data:change_page}, function(data) {
            if(data.results != ''){
-                var stt = 1;
-                var arr = [];
+                var stt       = 1;
+                var arr       = [];
                 $.each(data.role, function(index, val) {
                     arr[val.role_id] = val.role_name;
                 });
@@ -110,9 +116,13 @@
                         html += '<td>'+arr[val.user_role]+'</td>';
                         html += '<td>';
                             if(val.user_activation == 1){
-                                html +='<a href="javascript:void(0)" class=" label label-success">Activated</a>';
+                                html += '<span id="change-'+val.id+'">';
+                                    html +='<a href="javascript:change_status('+val.id+',2);" class="label label-success">Activated</a>';
+                                html += '</span>';
                             }else{
-                                html += '<a href="javascript:void(0);" class="label label-danger"> Not Activated</a>';
+                                html += '<span id="change-'+val.id+'">';
+                                    html +='<a href="javascript:change_status('+val.id+',1);" class="label label-danger"> Not Activated</a>';
+                                html += '</span>';
                             }
                         html += '</td>';
                         html += '<td>'; 
@@ -129,22 +139,52 @@
            }
            $('#result').html(html);
            $('.pagination').html(data.pagination);
-           //$('.content input[type="checkbox"]').iCheck({checkboxClass: 'icheckbox_minimal'});
+           $('.content input[type="checkbox"]').iCheck({checkboxClass: 'icheckbox_minimal'});
         },'json');
     }
 
     load_result();
 
-    $('.pagination').on('click', 'li a', function(event) {
-        event.preventDefault();
+    // pagination click
+    $('.pagination').on('click', '.click a', function(event) {
         var link = $(this).attr("href").split(/\//g).pop();
-        load_result(link);
+        var data = $('.page-hidden').attr('value');
+        load_result(link,data);
         return false;
     });
-
-    function Add(){
-        $('.content').load('<?php echo base_url("admin/users/add"); ?>',function(){
-            
+    //page pagination
+    $('.page').change(function(event) {
+        var base_url = '<?php echo base_url(); ?>';
+        var data = $(this).val();
+        $('.page-hidden').attr('value',data);
+        load_result(false,data);
+        return false;
+    });
+   
+    function change_status(id,status){
+        var base_url = '<?php echo base_url("admin/users/change_status");?>'; 
+        $.post(base_url,{action:true,id:id,status:status}, function(results) {
+            var html = '';
+            if(status == 1){
+                html += '<a href="javascript:change_status('+id+',2);" class="label label-success">Activation</a>';
+            }else{
+                html += '<a href="javascript:change_status('+id+',1)" class="label label-danger">Not Activation</a>'; 
+            }
+            $("#change-"+id).html(html);
         });
     }
+
+    function view_allstatus(id,status){
+        var base_url = '<?php echo base_url("admin/users/index");?>'; 
+        $.post(base_url,{action:'view-status',id:id,status:status}, function(results) {
+            var html = '';
+            if(id == 1){
+                $('#view-title').html('Activated');
+            }else if(id == 2){
+                $('#view-title').html('Not Activated');
+            }
+            load_result();
+        });
+    }
+
 </script>

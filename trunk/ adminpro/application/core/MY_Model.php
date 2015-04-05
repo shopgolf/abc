@@ -36,7 +36,7 @@ class MY_Model extends CI_Model{
 			return FALSE;
 		}
 		$where = array();
-		$where['id'] = $id;
+		$where[''.$this->key.''] = $id;
 		return $this->update_rule($where,$data);
 	}
 	/*
@@ -136,12 +136,12 @@ class MY_Model extends CI_Model{
 		// order by 
 		// example ($param['order'] = array('id','DESC'))
 		if(isset($param['order'][0]) && $param['order'][1]){
-			$this->db->order_by($param['order'][0],$param['param'][1]);
+			$this->db->order_by($param['order'][0],$param['order'][1]);
 		}else{
 			// desc id record
 			$this->db->order_by($this->key,'DESC');
 		}
-		if(isset($param['limit'][0]) && $param['limit'][1]){
+		if(isset($param['limit'])){
 			$this->db->limit($param['limit'][0],$param['limit'][1]);
 		}
 	}
@@ -153,6 +153,7 @@ class MY_Model extends CI_Model{
 	public function get_list($param = array()){
 		$this->get_list_input($param);
 		$query = $this->db->get($this->table);
+		//return $this->db->last_query();
 		return $query->result_array();
 	}
 	/*

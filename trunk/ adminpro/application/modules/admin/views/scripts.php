@@ -5,7 +5,7 @@
 <script src="<?php echo base_url('assets/admin');?>/js/bootstrap.min.js" type="text/javascript"></script>
 <!-- Morris.js charts -->
 <script src="//cdnjs.cloudflare.com/ajax/libs/raphael/2.1.0/raphael-min.js"></script>
-<script src="<?php echo base_url('assets/admin');?>/js/plugins/morris/morris.min.js" type="text/javascript"></script>
+<!--<script src="<?php echo base_url('assets/admin');?>/js/plugins/morris/morris.min.js" type="text/javascript"></script><--></-->
 <!-- Sparkline -->
 <script src="<?php echo base_url('assets/admin');?>/js/plugins/sparkline/jquery.sparkline.min.js" type="text/javascript"></script>
 <!-- jvectormap -->
@@ -30,7 +30,7 @@
 <script src="<?php echo base_url('assets/admin');?>/js/AdminLTE/app.js" type="text/javascript"></script>
 
 <!-- AdminLTE dashboard demo (This is only for demo purposes) -->
-<script src="<?php echo base_url('assets/admin');?>/js/AdminLTE/dashboard.js" type="text/javascript"></script>     
+<!--<script src="<?php echo base_url('assets/admin');?>/js/AdminLTE/dashboard.js" type="text/javascript"></script>-->     
 
 <!-- AdminLTE for demo purposes -->
 <script src="<?php echo base_url('assets/admin');?>/js/AdminLTE/demo.js" type="text/javascript"></script>

@@ -31,11 +31,6 @@ class Muser extends MY_Model{
 		$result = $this->db->get($this->table);
 		return($result->num_rows() == 0) ? true : false;
 	}
-	
-	public function get_role(){
-
-		$this->get_list();
-	}
 
 	public function check_email($email,$id = ''){
 		if($id != ''){
@@ -55,5 +50,16 @@ class Muser extends MY_Model{
             $str .= $chars[rand(0, $size - 1)];
         }
         return $str . microtime();
+    }
+    
+    public function save($id=false,$data=array()){
+    	if(!$id){
+    		return $this->insert($this->table,$data);
+    	}
+    	$result = $this->update($id,$data);
+    	if($result){
+    		return $id;
+    	}
+    	return false;
     } 
 }
