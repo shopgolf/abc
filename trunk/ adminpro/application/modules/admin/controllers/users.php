@@ -17,7 +17,7 @@
 			$data['template']          = 'user/list_user';
 			$config['base_url']        = base_url()."admin/users/index";
 			$config['total_rows']      = $this->muser->count_all();
-			$config['per_page']        = !empty($this->input->post('data'))?$this->input->post('data'):0;
+			$config['per_page']        = !empty($this->input->post('data'))?$this->input->post('data'):'10';
 			$config['uri_segment']     = '4';
 			$config['first_link']      = '<<';
 			$config['last_link']       = '>>';
@@ -40,7 +40,6 @@
 			$start                     = $this->uri->segment(4)?$this->uri->segment(4):0;
 			$param                     = array();
 			$param['select']           = array('user_name','user_fullname','user_email','id','user_role','user_activation');
-			$param['limit']            = array($config['per_page'] ,$start);
 			if(!empty($this->input->post('action')) && $this->input->post('action') === 'view-status'){
 				if(!empty($this->input->post('id'))){
 					$id = (int)$this->input->post('id');
@@ -48,7 +47,8 @@
 						'user_activation' => $id,
 					);
 				}
-			}	
+			}
+			$param['limit']            = array($config['per_page'] ,$start);	
 			$data['result']            = $this->muser->get_list($param);
 			//debug($data['result']);
 			$data['role']              = $this->role_model->get_role();

@@ -176,6 +176,7 @@
 
     function view_allstatus(id,status){
         var base_url = '<?php echo base_url("admin/users/index");?>'; 
+
         $.post(base_url,{action:'view-status',id:id,status:status}, function(results) {
             var html = '';
             if(id == 1){
@@ -183,7 +184,7 @@
             }else if(id == 2){
                 $('#view-title').html('Not Activated');
             }
-            load_result();
+            //load_result();
         });
     }
 
