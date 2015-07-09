@@ -1,0 +1,70 @@
+@charset "utf-8";
+* {
+	margin:0;
+	padding:0;
+}
+
+div.wrap_banner{
+	background:url(../images/frame.png) no-repeat;
+	border:1px solid #;
+    height: 271px; 
+    width: 595px;      
+    position: relative;
+	z-index: 99;	
+}
+div.overlay{ /* banner*/
+    background: url("../images/overlay.png") no-repeat scroll center 0 transparent;
+    height: 100%;
+    position: absolute;
+    width: 100%;
+    z-index: 99;
+   
+}
+#pikame{
+	list-style : none;
+}
+div.wrap_banner img{ /*Hình banner middle*/
+    height: 271px; 
+    width: 595px; 
+}
+
+ul#nav-slider{
+	list-style-type: none;	
+	height:inherit;
+	padding-top:3px;
+	padding-left:5px;
+	margin:auto;
+	list-style : none;
+	
+}
+ul#nav-slider li{
+	width: 18px;
+	height: 17px;
+	float: right;
+	text-align: center;
+	border-radius :12px;
+	margin-left : 3px;
+}
+ul#nav-slider li,ul#nav-slider:hover li.activeSlide{	
+	/*text-decoration: none;*/
+	cursor: pointer;
+	/*border: 1px solid #DCDFE3;*/
+	background : #e2e2e2;
+}
+
+ul#nav-slider li:hover,ul#nav-slider li.activeSlide,ul#nav-slider:hover li.activeSlide:hover{
+	
+	background:#aa92e5;
+	}
+div.slider img{
+	width: 297px;
+	height: 220px;
+}
+.container-nude{
+	left: 3px;
+	bottom: 6px; 
+	position: absolute;
+	z-index: 100;
+	width: 97%;	
+	height:22px;
+}

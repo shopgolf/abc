@@ -1,0 +1,69 @@
+/* CSS Document */
+
+.glossymenu{
+	margin: 0px 0 0px 0;
+	padding: 0;
+	width: 257px;
+	border-bottom-width: 0;
+}
+.glossymenu a.menuitem{
+	background: #ffffff url(../images/hd_list.gif) no-repeat;
+	color: #acacac;
+	font-size:13px;
+	font-weight:bold;
+	display: block;
+	position: relative;
+	width: auto;
+	padding: 7px 0 7px 28px;
+	text-decoration: none;
+	margin:0 0 3px 0;
+}
+
+.glossymenu a.menuitem:visited, .glossymenu .menuitem:active{
+	color: #ff7800;
+	font-size:13px;
+	font-weight:bold;
+}
+
+.glossymenu a.menuitem .statusicon{
+	position: absolute;
+	top: 5px;
+	right: 5px;
+	border: none;
+}
+.glossymenu a.menuitem:hover{
+	background: url(../images/hd_list_over.gif) no-repeat;
+	text-decoration: none;
+	color:#ff7800;
+	font-size:13px;
+}
+
+.glossymenu div.submenu{
+	background: none;
+}
+
+.glossymenu div.submenu ul{
+	list-style-type: none;
+	margin: 0;
+	padding: 0;
+}
+
+.glossymenu div.submenu ul li{
+	background: url(../images/bg_sup.gif) no-repeat;
+}
+.glossymenu div.submenu ul li a{
+	font-size:13px;
+	color: #a0a4ab;
+	text-decoration: none;
+	margin: 0;
+	padding: 7px 0 7px 35px;
+	display: block;
+}
+
+.glossymenu div.submenu ul li a:hover{
+	background: url(../images/bg_sup.gif) no-repeat;
+	font-size:13px;
+	color:#ffffff;
+	text-decoration: none;
+}
+
