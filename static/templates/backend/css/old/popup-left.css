@@ -1,0 +1,59 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : Apr 4, 2015, 10:53:50 AM
+    Author     : phuc
+*/
+
+#footerSlideContainer {
+position: fixed;
+bottom: -41px;
+width: 20%;
+right: 10px;
+font-size: 0.8em;
+height: 40px;
+font-size: 14px;
+  background: #fff;
+z-index: 300;
+-webkit-background-clip: padding-box;
+-webkit-border-radius: 10px;
+-moz-border-radius: 10px;
+border-radius: 10px;
+box-shadow: 0 0 13px rgba(35, 31, 32, 0.3);
+-webkit-transition: all 2s ease;
+-moz-transition: all 2s ease;
+transition: all 2s ease;
+-webkit-box-sizing: border-box;
+-moz-box-sizing: border-box;
+box-sizing: border-box;
+}
+.popup-header {
+padding: 12px 5px 0 14px;
+-webkit-transition: all 2s ease;
+-moz-transition: all 2s ease;
+transition: all 2s ease;
+}
+.popup-header p {
+font-family: 'ProximaNova-Semibold', Helvetica, Arial, Verdana, Tahoma, sans-serif;
+font-weight: normal;
+font-size: 15px;
+}
+.popup-closure {
+background: url("http://www.freevectors.net/assets/images/popup-closure.svg") 45% 50% no-repeat;
+cursor: pointer;
+width: 30px;
+height: 30px;
+position: absolute;
+top: -7px;
+right: -4px;
+-webkit-background-clip: padding-box;
+-webkit-border-radius: 3px;
+-moz-border-radius: 3px;
+border-radius: 3px;
+-webkit-transition: all 2s ease;
+-moz-transition: all 2s ease;
+transition: all 2s ease;
+}

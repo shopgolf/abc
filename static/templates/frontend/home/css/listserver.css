@@ -1,0 +1,97 @@
+.ha_mid_m{
+        width:800px;
+    }
+    .tintuc_title_l{
+        width:305px;
+    }
+    .listserver0, .listserver1, .listserver0_hot, .listserver1_hot, .listserver0_baotri, .listserver1_baotri,.listserver1_hot_baotri,.listserver0_hot_baotri {
+        float: left;
+        width: 250px;
+        height: 33px;
+        
+        margin: 0 20px 12px 10px;
+        font-size: 18px;
+        font-weight: bold;
+        color: #e6c2c2;
+        text-align: center;
+        padding: 5px 0 0 0;
+    }
+
+    .listserver0, .listserver1{
+        background: url(/dang-nhap/layout/images/sk_list.gif) no-repeat;
+    }
+    .listserver0_hot, .listserver1_hot {
+        background: url(/dang-nhap/layout/images/sk_list_hot.gif) no-repeat;
+    }
+    .listserver0_baotri, .listserver1_baotri, .listserver1_hot_baotri,.listserver0_hot_baotri {
+        background: url(/dang-nhap/layout/images/sk_list_baotri.gif) no-repeat;
+        text-transform: uppercase;
+    }
+    .listserver0 a, .listserver1 a, .listserver0_hot a, .listserver1_hot a ,.listserver0_baotri a ,.listserver1_baotri a, .listserver1_hot_baotri a,.listserver0_hot_baotri a{
+        color: wheat;
+        float: left;
+        padding: 4px 24px;
+        font-size:16px;
+    }
+
+    .listserver0 a:hover,.listserver1 a:hover, .listserver0_hot a:hover,.listserver1_hot a:hover,.listserver0_hot_baotri a:hover{
+        text-decoration: none;
+        color:red;
+        font-style: bold;
+    }
+    #tc_right{
+        height: 1011px;
+    }
+    .giftcode_b{
+        padding: 5px 9px;
+        color: white;
+        text-align: center;
+        font-weight: bold;
+        text-transform: uppercase;
+        font-size: 28px;
+        border-style: outset;
+        background: url(../images/news_title.gif) no-repeat;
+        vertical-align: top;
+    }
+    .giftcode_c{
+        padding: 10px 10px;
+        color: red;
+        text-align: center;
+        font-weight: bold;
+        text-transform: uppercase;
+        font-size: 28px;
+    }
+    .giftcode_n{
+        font-size: 16px;
+        color:black;
+        text-align: center;
+        background: url(../images/danhdau.gif) no-repeat 100px 0px;
+        padding:11px;
+        font-weight: bold;
+        text-decoration: underline;
+    }
+    .giftcode_u{
+        text-align: center;
+        color:blue;
+        font-weight: bold;
+    }
+    .register_row {
+        margin: 30px;
+        width: 100%;
+        font-size: 15px;
+    }
+    .register_row .label-register {
+        width: 200px;
+        padding: 0 20px;
+        font-weight: bold;
+    }
+    .list {
+        background-color: #180402;
+        border: 1px solid #bd1511;
+        border-radius: 3px;
+        color: #ffe57b;
+        font-weight: 500;
+        height: 30px;
+        padding-left: 5px;
+        width: 210px;
+    }
