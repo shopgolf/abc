@@ -1,0 +1,59 @@
+#tc_right {
+    height: 900px;
+}
+#form_giftcode input[type="text"], select{
+  padding:15px 0px 15px 8px;
+  border-radius:5px;
+//  box-shadow:inset 4px 6px 10px -4px rgba(0,0,0,0.3), 0 1px 1px -1px rgba(255,255,255,0.3);
+  background:url('/static/templates/frontend/home/images/giftcode/bg.jpg') no-repeat;
+  border:1px solid rgba(0,0,0,1);
+  margin:0 0 10px 188px;
+  color:white;
+  text-shadow:#000 0px 1px 5px;
+  text-transform: uppercase;
+  text-align: center;
+}
+select{
+    width:43.6%;padding-left:60px;
+}
+option{
+    background-color:#211113;
+}
+#form_giftcode input[type="text"]{
+    width:42%;
+}
+
+#form_giftcode input[type="submit"]{
+  width:44%;
+  padding:15px;
+  border-radius:5px;
+  font:14px Oswald;
+  color:#FFF;
+  text-transform:uppercase;
+  text-shadow:#000 0px 1px 5px;
+  border:1px solid #000;
+  margin: 0 0 10px 188px;
+  background:url('/static/templates/frontend/home/images/giftcode/bg.jpg') repeat-x;
+}
+
+#form_giftcode input[type="submit"]:hover{
+  cursor:pointer;
+}
+#form_giftcode h1{
+    text-align: center;
+}
+::-webkit-input-placeholder {
+   color: white;
+}
+
+:-moz-placeholder { /* Firefox 18- */
+   color: white;  
+}
+
+::-moz-placeholder {  /* Firefox 19+ */
+   color: white;  
+}
+
+:-ms-input-placeholder {  
+   color: white;  
+}
