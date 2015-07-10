@@ -69,8 +69,8 @@
 .option3 .navbar-right{
 	margin-right: 0;
 }
-.option3 #main-menu .navbar-right .group-button-header:hover{
-	background: #FFF;
+.option3 #main-menu .navbar .navbar-nav>.group-button-header:hover{
+	background: transparent;
 }
 .option3 .link-buytheme .fa{
 	line-height: inherit;
@@ -203,7 +203,7 @@
 }
 .option3 #main-menu .navbar .navbar-nav>li>a{
 	margin: 14px 0;
-	padding: 0 30px;
+	padding: 0 20px;
 	text-transform: uppercase;
 	line-height: 11px;
 	font-family: 'OpenSans-Bold';
