@@ -1,0 +1,121 @@
+@media projection, screen { /* Use class for showing/hiding tab content, so that visibility can be better controlled in different media types... */
+    .tabs2-hide {
+        display: none;
+    }
+}
+
+/* Hide useless elements in print layouts... */
+@media print {
+    .tabs2-nav {
+        display: none;
+		
+    }
+}
+
+/* Skin */
+.tabs2-nav {
+	float:left;
+	width:645px;
+	height:44px;
+	background:url(../images/news_title.gif) no-repeat;
+	list-style: none;
+	padding: 0 0 0px 0PX;
+}
+.tabs2-nav:after { /* clearing without presentational markup, IE gets extra treatment */
+    display: block;
+    clear: both;
+    content: " ";
+}
+.tabs2-nav li {
+    float: left;
+    margin: 0 5px 0 0;
+    min-width: 113px; /* be nice to Opera */
+	font-size:15px;
+	font-family: "Myriad Pro", "Myriad Pro Cond", "Myriad Pro Light";
+	text-transform:uppercase;
+	font-weight:bold;
+}
+.tabs2-nav a, .tabs2-nav a span {
+    display: block;
+    padding: 0 5px;
+    background: url(../images/tab.png) no-repeat;
+}
+.tabs2-nav a {
+    position: relative;
+    top: 0px;
+    z-index: 2;
+    padding-left: 0;
+    color: #ffb4b4;
+    line-height: 1.2;
+    text-align: center;
+    text-decoration: none;
+    white-space: nowrap; /* required in IE 6 */    
+}
+.tabs2-nav .tabs2-selected a {
+    color: #ffffff;
+}
+.tabs2-nav .tabs2-selected a, .tabs2-nav a:hover, .tabs2-nav a:focus, .tabs2-nav a:active {
+    background-position: 100% -45px;
+    outline: 0; /* prevent dotted border in Firefox */
+	color:#ffffff;
+}
+.tabs2-nav a, .tabs2-nav .tabs2-disabled a:hover, .tabs2-nav .tabs2-disabled a:focus, .tabs2-nav .tabs2-disabled a:active {
+    background-position: 100% -90px;
+}
+.tabs2-nav a span {
+    width: 108px; /* IE 6 treats width as min-width */
+    min-width: 108px;
+    height: 30px; /* IE 6 treats height as min-height */
+    min-height: 28px;
+    padding-top: 14PX;
+    padding-right: 0;
+}
+*>.tabs2-nav a span { /* hide from IE 6 */
+    width: auto;
+    height: auto;
+}
+.tabs2-nav .tabs2-selected a span {
+    padding-top: 14PX;
+}
+.tabs2-nav .tabs2-selected a span, .tabs2-nav a:hover span, .tabs2-nav a:focus span, .tabs2-nav a:active span {
+    background-position: 0 -45px;
+}
+.tabs2-nav a span, .tabs2-nav .tabs2-disabled a:hover span, .tabs2-nav .tabs2-disabled a:focus span, .tabs2-nav .tabs2-disabled a:active span {
+    background-position: 0 0;
+}
+.tabs2-nav .tabs2-selected a:link, .tabs2-nav .tabs2-selected a:visited, .tabs2-nav .tabs2-disabled a:link, .tabs2-nav .tabs2-disabled a:visited { /* @ Opera, use pseudo classes otherwise it confuses cursor... */
+    cursor: text;
+}
+.tabs2-nav a:hover, .tabs2-nav a:focus, .tabs2-nav a:active { /* @ Opera, we need to be explicit again here now... */
+    cursor: pointer;
+}
+.tabs2-nav .tabs2-disabled {
+    opacity: .4;
+}
+
+.tabs2-container {
+	float:left;
+	width:645px;
+}
+* html .tabs2-container {
+	float:left;
+	width:645px;
+}
+
+.add{
+	float:right;
+	padding:0px 10px 0 0;
+}
+.add a{
+        float: right;
+        width: 90px;
+        height: 20px;
+        background: url(../images/add.png) right no-repeat;
+}
+.add a:hover{
+	float:right;
+	width:90px;
+	height:20px;
+	background:url(../images/add_over.png) right no-repeat;
+}
+
