@@ -83,3 +83,4 @@ $lang['info']                   =   'Thông tin';
 $lang['customers']              =   'Khách hàng';
 $lang['address']                =   'Địa chỉ';
 $lang['phone']                  =   'Điện thoại';
+$lang['accept']                 =   'Xác nhận';

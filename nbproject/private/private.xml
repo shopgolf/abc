@@ -3,15 +3,21 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/D:/sourceweb/SVN/OTHERS/shoppings.dev/www/application/views/templates/backend/header_guest.php</file>
-            <file>file:/D:/sourceweb/SVN/OTHERS/shoppings.dev/www/static/templates/backend/css/AdminLTE.min.css</file>
-            <file>file:/D:/sourceweb/SVN/OTHERS/shoppings.dev/www/application/views/auth/stats/dashboard.php</file>
-            <file>file:/D:/sourceweb/SVN/OTHERS/shoppings.dev/www/static/templates/backend/css/bootstrap.min.css</file>
+            <file>file:/D:/sourceweb/SVN/OTHERS/shoppings.dev/www/application/views/templates/backend/datatables_index.php</file>
+            <file>file:/D:/sourceweb/SVN/OTHERS/shoppings.dev/www/application/views/auth/stats/showall.tpl</file>
+            <file>file:/D:/sourceweb/SVN/OTHERS/shoppings.dev/www/application/views/templates/backend/header.tpl</file>
             <file>file:/D:/sourceweb/SVN/OTHERS/shoppings.dev/www/application/models/stats_model.php</file>
-            <file>file:/D:/sourceweb/SVN/OTHERS/shoppings.dev/www/application/views/auth/stats/showall.php</file>
+            <file>file:/D:/sourceweb/SVN/OTHERS/shoppings.dev/www/application/views/templates/backend/modal.php</file>
+            <file>file:/D:/sourceweb/SVN/OTHERS/shoppings.dev/www/application/configs/define.php</file>
+            <file>file:/D:/sourceweb/SVN/OTHERS/shoppings.dev/www/application/language/vietnamese/backend_lang.php</file>
+            <file>file:/D:/sourceweb/SVN/OTHERS/shoppings.dev/www/application/language/vietnamese/stats_lang.php</file>
+            <file>file:/D:/sourceweb/SVN/OTHERS/shoppings.dev/www/application/views/auth/stats/dashboard.tpl</file>
             <file>file:/D:/sourceweb/SVN/OTHERS/shoppings.dev/www/application/controllers/auth/stats.php</file>
+            <file>file:/D:/sourceweb/SVN/OTHERS/shoppings.dev/www/application/views/templates/backend/body.tpl</file>
+            <file>file:/D:/sourceweb/SVN/OTHERS/shoppings.dev/www/application/views/templates/backend/footer.tpl</file>
             <file>file:/D:/sourceweb/SVN/OTHERS/shoppings.dev/www/application/core/MY_Model.php</file>
             <file>file:/D:/sourceweb/SVN/OTHERS/shoppings.dev/www/application/models/checkout_model.php</file>
+            <file>file:/D:/sourceweb/SVN/OTHERS/shoppings.dev/www/application/views/templates/backend/modal.tpl</file>
         </group>
     </open-files>
 </project-private>

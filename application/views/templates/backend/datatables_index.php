@@ -6,6 +6,4 @@
 <?php endif; ?>
 
 <?php $this->load->view('templates/backend/hook'); ?>
-<?php $this->load->view('templates/backend/modal'); ?>
-<?php //$this->load->view('templates/backend/hook_js'); ?>
 <?php $this->load->view('templates/backend/footer'); ?>

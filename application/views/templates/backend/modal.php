@@ -12,3 +12,9 @@
     <button class="btn" data-dismiss="modal" aria-hidden="true">Bỏ qua</button>
   </div>
 </div>
+<script>
+	function delete_confirm(url){
+		$("button[my-type=delete_confirm]").attr('onclick', 'window.location="'+url+'"');
+		return true;
+	}
+</script>

@@ -1,4 +1,8 @@
 <?php
-define("STATIC_BK" , "/static/templates/backend/");
-define("BACKEND" , $_SERVER['HTTP_HOST'].'/auth');
-define("FRONTEND",$_SERVER['HTTP_HOST']);
+$define = array(
+    "STATIC_BK"     =>  "/static/templates/backend",
+    "BACKEND"       =>  "/auth",
+    "FRONTEND"      =>  $_SERVER['HTTP_HOST'],
+);
+
+define("STATIC_URL" , json_encode($define));

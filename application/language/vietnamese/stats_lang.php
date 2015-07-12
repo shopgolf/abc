@@ -13,6 +13,4 @@ $lang['stats_group']				= 'Nhóm tài khoản';
 $lang['stats_role']					= 'Nhóm quyền';
 $lang['stats_deactive'] 			= 'Chưa kích hoạt';
 $lang['stats_active'] 				= 'Kích hoạt';
-$lang['stats_news_last_top']		= '(10) Bài viết mới nhất';
-$lang['stats_news_top_hits']		= '(10) Bài viết view cao nhất';
-$lang['stats_view_news_daily']      = 'Thống kê view bài viết theo ngày';
+$lang['stats_cart']				= 'Đơn hàng mới';
