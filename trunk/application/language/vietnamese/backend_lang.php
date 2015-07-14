@@ -72,15 +72,15 @@ $lang['description']            =   'Mô tả';
 $lang['link_detail']            =   'Link chi tiết';
 $lang['link_img']               =   'Link ảnh';
 
-$lang['product_code']           =   'Mã hàng';
+$lang['product_code']           =   'Mã sản phẩm';
 $lang['product_name']           =   'Tên sản phẩm';
 $lang['quantity']               =   'Số lượng';
 $lang['net_fare']               =   'Đơn giá';
 $lang['sale_fare']              =   'Giá bán';
 $lang['real_fare']              =   'Giá thực';
-$lang['product_code']           =   'Mã hàng';
 $lang['info']                   =   'Thông tin';
 $lang['customers']              =   'Khách hàng';
 $lang['address']                =   'Địa chỉ';
 $lang['phone']                  =   'Điện thoại';
 $lang['accept']                 =   'Xác nhận';
+$lang['price']                  =   'Giá';

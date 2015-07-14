@@ -8,8 +8,12 @@ $this->database_connect_status 	= FALSE;
 $this->load->database();
 
 if($this->db->conn_id != FALSE){
-	$this->database_connect_status = TRUE;
-	$this->load->model('user_model');
+    $this->database_connect_status = TRUE;
+    $this->load->model('user_model');
+    $this->load->model('adminlog_model');
+    
+    $this->load->library('smarty3');
+    $this->smarty = new CI_Smarty3();
 }
 
 date_default_timezone_set('Asia/Ho_Chi_Minh');

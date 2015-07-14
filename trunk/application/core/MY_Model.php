@@ -334,20 +334,16 @@ class MY_Model extends CI_Model{
 	protected function add_button($controller, $right, $item){
 		$button = '';
 		if($right['add']==TRUE || $right['delete']==TRUE){
-			$button = '<div class="btn-group">';
-			$button .= '<a href="#" data-toggle="dropdown" class="btn dropdown-toggle">';
-			$button .= $this->lang->line('action');
-			$button .= '<span class="caret"></span>';
-			$button .= '</a>';
-			$button .= '<ul class="dropdown-menu">';
-			if($right['edit']==TRUE){
-				$button .= '<li><a href="'.site_url('auth/'.$controller.'/index/edit/'.$item['id']).'"><i class="icon-pencil"></i> '.$this->lang->line('edit').'</a> </li>';
-			}
-			if($right['delete']==TRUE){
-				$button .= '<li><a data-toggle="modal" href="#delete_confirm" onclick="delete_confirm(\''.site_url('auth/'.$controller.'/index/delete/'.$item['id']).'\')"><i class="icon-remove"></i> '.$this->lang->line('delete').'</a></li>';
-			}
-			$button .= '</ul>';
-			$button .= '</div>';
+                    if($right['edit']==TRUE){
+                        $button .= '<a class="btn btn-default btn-sm" href="'.site_url('auth/'.$controller.'/index/edit/'.$item['id']).'" title="Sửa"><i class="fa fa-edit"></i>'.$this->lang->line('edit').'</a> ';
+                    }
+                    if($right['delete']==TRUE){
+                        $button .= '<a class="btn btn-default btn-sm" data-toggle="modal" href="#delete_confirm" onclick="delete_confirm(\''.site_url('auth/'.$controller.'/index/delete/'.$item['id']).'\')"><i class="fa fa-check"></i>'.$this->lang->line('delete').'</a> ';
+                        //$button .= '<a data-toggle="modal" href="#delete_confirm" onclick="delete_confirm(\''.site_url('auth/'.$controller.'/index/delete/'.$item['id']).'\')"><i class="glyphicon glyphicon-trash"></i> '.$this->lang->line('delete').'</a>';
+                        //<a class="btn btn-default btn-sm" data-toggle="modal" href="#delete_confirm" onclick="delete_confirm('/auth/stats/delete/{{$vals->id}}')"><i class="fa fa-check"></i>{{$lang.delete}}</a>
+                        //$button .= "<a class='btn btn-default btn-sm' data-toggle='modal' href='#delete_confirm' onclick='delete_confirm('/auth/stats/delete/{{$vals->id}}')'><i class='fa fa-check'></i>'.$this->lang->line('delete').'</a>";
+                        //$button .= '<button type="'.site_url('auth/'.$controller.'/index/edit/'.$item['id']).'" class="btn btn-default btn-sm"><i class="glyphicon glyphicon-trash"></i>'.$this->lang->line('delete').'</button>';
+                    }
 		}
 		return $button;
 	}

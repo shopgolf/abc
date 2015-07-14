@@ -17,17 +17,11 @@ class Stats extends MY_Controller {
 			$this->session->set_userdata('redirect_uri', current_url());redirect('auth');
 		}
                 $this->offset       =   0;
-                $this->limit        =   2;
+                $this->limit        =   10;
                 
                 $this->load->language('stats');
-                $this->load->model('adminlog_model');
                 $this->load->model('stats_model');
                 $this->load->model('checkout_model');
-                $this->load->model('user_model');
-                
-                $this->load->library('session');
-                $this->load->library('smarty3');
-                $this->smarty = new CI_Smarty3();
                 
                 $static     =   json_decode(STATIC_URL);
                 $userinfo   =   $this->user_model->find_by(array('id'=>$this->session->userdata['user_id']));
@@ -63,8 +57,8 @@ class Stats extends MY_Controller {
                             $this->smarty->display('auth/stats/showall');
                         } else {
                             $this->smarty->assign(array(
-                                "list"  =>  $this->checkout_model->selectCartCheckOut($this->offset,$this->limit),
-                                'count' =>  count($this->checkout_model->selectCartCheckOut())
+                                "list"  =>  $this->checkout_model->selectCartCheckOut($this->offset,$this->limit,0),
+                                'count' =>  count($this->checkout_model->selectCartCheckOut(NULL,NULL,0))
                             ));
                             $this->smarty->display('auth/stats/dashboard');
                         }
@@ -86,6 +80,31 @@ class Stats extends MY_Controller {
             );
             $this->user_model->insertUserAdminLog($paramAdminLog);
             redirect(base_url('auth/stats'));
+        }
+        
+        public function accept($params){
+            if($this->input->server('REQUEST_METHOD')=='POST'){
+                
+            }
+            $this->smarty->assign(array(
+                "id"  =>  $params
+            ));
+            $this->smarty->display('auth/stats/accept');
+        }
+        
+        public function action_accept($params){
+            $this->view_data["checkout"]            =   new stdClass();
+            $this->view_data["checkout"]->status    =   1;
+            $this->checkout_model->update($this->view_data["checkout"], $params);
+            //insert adminlog
+            $paramAdminLog  = array(
+                'userid'            => $this->session->userdata['user_id'],
+                'lastLogin'         => date('Y-m-d :H:i:s',time()),
+                'ip'                => $_SERVER['REMOTE_ADDR'],
+                'logAction'         => 'Xác nhận đơn hàng '.$params.' '.$this->lang->line('success_successful')
+            );
+            $this->user_model->insertUserAdminLog($paramAdminLog);
+            die("1");
         }
 }
 

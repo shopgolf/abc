@@ -13,7 +13,7 @@ class Checkout_model extends MY_Model{
 		$this->table_name = 'px_checkout';
 	}
         
-        public function selectCartCheckOut($offset=NULL,$limit=NULL){
+        public function selectCartCheckOut($offset=NULL,$limit=NULL,$status=NULL){
 		$this->db->cache_on();
 		$this->db->select("tbl.id,tbl.product_id,tbl.quantity,tbl.createdTime,ct.name AS cname,ct.phone AS cphone,ct.email AS cemail,ct.address AS caddress,ct.identityNumber AS cnumber,pd.product_code,pd.info");
 		$this->db->from($this->table_name.' AS tbl');
@@ -22,6 +22,9 @@ class Checkout_model extends MY_Model{
                 
                 if($limit){
                     $this->db->limit($limit,$offset);
+                }
+                if($status){
+                    $this->db->where('status',$status);
                 }
                 
 		$query = $this->db->get();
