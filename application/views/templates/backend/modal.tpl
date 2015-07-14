@@ -18,3 +18,7 @@
 		return true;
 	}
 </script>
+
+<link rel="stylesheet" href="{{$static_bk}}/css/jquery.fancybox.css">
+<script type="text/javascript" src="{{$static_bk}}/js/jquery.fancybox.js"></script>
+<script type="text/javascript" src="{{$static_bk}}/js/box.js"></script>

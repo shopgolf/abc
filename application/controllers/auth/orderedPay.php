@@ -4,37 +4,35 @@ if (!defined('BASEPATH')){
 }
 
 /**
- * Product Controller
+ * OrderedPay Controller
  * Build by Phuc Nguyen
  * Contact : nguyenvanphuc0626@gmail.com
  */
 
-class Product extends BACKEND_Controller {
+class OrderedPay extends BACKEND_Controller {
 
 	public function __construct() {
 		parent::__construct();
-		$this->load->language('product');
+		$this->load->language('orderedPay');
 		$this->load->language('button');
 		if($this->database_connect_status){
-			$this->load->model('product_model');
-			$this->set_controller('product');
-			$this->set_model($this->product_model);
+			$this->load->model('orderedPay_model');
+			$this->set_controller('orderedPay');
+			$this->set_model($this->orderedPay_model);
 		}
-                $this->load->library('bookinglib');
-                $this->bookinglib = new bookinglib();
 	}
         
         protected function update($params=NULL){
 		if($this->input->server('REQUEST_METHOD')=='POST'){
-                        $this->view_data["product"]                                   = new stdClass();
-                        $this->view_data["product"]->customerID                       = trim($this->input->post('customerID'));
-                        $this->view_data["product"]->productNow                       = $this->input->post('productNow');
-                        $this->view_data["product"]->deduct                           = $this->input->post('deduct');
-                        $this->view_data["product"]->productRemaine                   = $this->input->post('productRemaine');
-                        $this->view_data["product"]->note                             = $this->input->post('note');
-                        $this->view_data["product"]->owner                            = $this->session->userdata['user_id'];
-                        $this->view_data["product"]->agent_code                       = $this->session->userdata['agent_code'];
-                        $this->view_data["product"]->lastupdated                      = date("Y-m-d H:i:s",time());
+                        $this->view_data["orderedPay"]                                   = new stdClass();
+                        $this->view_data["orderedPay"]->customerID                       = trim($this->input->post('customerID'));
+                        $this->view_data["orderedPay"]->orderedPayNow                       = $this->input->post('orderedPayNow');
+                        $this->view_data["orderedPay"]->deduct                           = $this->input->post('deduct');
+                        $this->view_data["orderedPay"]->orderedPayRemaine                   = $this->input->post('orderedPayRemaine');
+                        $this->view_data["orderedPay"]->note                             = $this->input->post('note');
+                        $this->view_data["orderedPay"]->owner                            = $this->session->userdata['user_id'];
+                        $this->view_data["orderedPay"]->agent_code                       = $this->session->userdata['agent_code'];
+                        $this->view_data["orderedPay"]->lastupdated                      = date("Y-m-d H:i:s",time());
 
                         $this->load->helper('form');
                         $this->load->helper('character');
@@ -48,8 +46,8 @@ class Product extends BACKEND_Controller {
                                 'rules'   => 'required|trim|max_length[50]|xss_clean'
                             )
                             ,array(
-                                'field'   => 'productRemaine',
-                                'label'   =>  $this->lang->line('product'),
+                                'field'   => 'orderedPayRemaine',
+                                'label'   =>  $this->lang->line('orderedPay'),
                                 'rules'   => 'numberic|xss_clean'
                             )
                             ,array(
@@ -65,15 +63,15 @@ class Product extends BACKEND_Controller {
                         if ($this->form_validation->run()==TRUE){
                                 if($params){
                                         //edit data
-					$this->product_model->update($this->view_data["product"], $params);
-                                        $logAction                              = '[UpdateProduct] '.$this->lang->line('update_product_success');
+					$this->orderedPay_model->update($this->view_data["orderedPay"], $params);
+                                        $logAction                              = '[UpdateOrderedPay] '.$this->lang->line('update_orderedPay_success');
 				}else{
-					$params                                 = $this->product_model->create($this->view_data["product"]);
-                                        $logAction                              = '[AddProduct] '.$this->lang->line('add_product_success');
+					$params                                 = $this->orderedPay_model->create($this->view_data["orderedPay"]);
+                                        $logAction                              = '[AddOrderedPay] '.$this->lang->line('add_orderedPay_success');
 				}
                                 //update so du
                                 $this->load->model('listcustomers_model');
-                                $this->listcustomers_model->updateProduct($this->view_data["product"]->customerID,$this->view_data["product"]->productRemaine);
+                                $this->listcustomers_model->updateOrderedPay($this->view_data["orderedPay"]->customerID,$this->view_data["orderedPay"]->orderedPayRemaine);
                                 
 				if($params){
 					$this->session->set_flashdata('flash_message', $this->lang->line('update_successful'));
@@ -85,24 +83,24 @@ class Product extends BACKEND_Controller {
                                             'agent_code'        => $this->session->userdata['agent_code']
                                         );
                                         $this->user_model->insertUserAdminLog($paramAdminLog);
-                                        redirect('auth/product');
+                                        redirect('auth/orderedPay');
 				}
                         }
             }
             
-            $this->load->model('product_model');
+            $this->load->model('orderedPay_model');
             $this->load->model('language_model');
 
             if(isset($params)){
-                    $product_query	= $this->product_model->find_by(array('id'=>$params));
+                    $orderedPay_query	= $this->orderedPay_model->find_by(array('id'=>$params));
                     
-                    if(!isset($product_query[0])){
+                    if(!isset($orderedPay_query[0])){
                             $this->session->set_flashdata('flash_message', $this->lang->line('not_exists'));
-                            redirect(site_url('auth/product'));
+                            redirect(site_url('auth/orderedPay'));
                             exit();
                     }
 
-                    $this->view_data['product']				= $product_query[0];
+                    $this->view_data['orderedPay']				= $orderedPay_query[0];
             }
 
             $this->view_data['js'] = array(
@@ -110,6 +108,6 @@ class Product extends BACKEND_Controller {
             );
             $this->view_data['css'] = array(
             );
-            $this->load->view('auth/product/edit', $this->view_data);
+            $this->load->view('auth/orderedPay/edit', $this->view_data);
 	}
 }
