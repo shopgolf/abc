@@ -189,7 +189,7 @@
 .option3 .box-vertical-megamenus .title{
 	height: 40px;
 	line-height: 40px;
-	background: #0088cc;
+	background: #26C281;
 }
 .option3 .box-vertical-megamenus .title .btn-open-mobile{
 	line-height: 40px;
@@ -270,7 +270,7 @@
 	line-height: 36px;
 }
 .option3 .box-vertical-megamenus .vertical-menu-list>li:hover {
-  background: #0088cc;
+  background: #26C281;
 }
 .option3 .box-vertical-megamenus .vertical-menu-list>li:hover>a{
 	border-color: transparent;
