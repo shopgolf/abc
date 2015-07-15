@@ -16,9 +16,20 @@
         <script type="text/javascript" src="{{'third_party/jquery/jquery-1.8.2.min.js'|base_url}}"></script>
         <script type="text/javascript" src="{{'third_party/bootstrap/js/bootstrap.min.js'|base_url}}"></script>
         
+        <script language="javascript">
+            var baseUrl 	= '{{$site_url}}';
+            var action 		= '';
+	</script>
+        
         {{if isset($js)}}
             {{foreach $js as $script}}
                 <script type="text/javascript" src="{{$script}}"></script>
+            {{/foreach}}
+        {{/if}}
+        
+        {{if isset($css)}}
+            {{foreach $css as $stylesheet}}
+                <script type="text/javascript" src="{{$stylesheet}}"></script>
             {{/foreach}}
         {{/if}}
     </head>

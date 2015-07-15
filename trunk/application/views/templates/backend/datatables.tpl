@@ -26,28 +26,27 @@ $(function () {
 		"bServerSide": true,
 		"sAjaxSource": "{{$datatables.json_data}}",		
 		"aoColumnDefs": [
-{{foreach $datatables.init_data as $k => $item}}
-        {{if isset($item.sort) && $item.sort!=FALSE}}
-            
-        {{/if}}
-            
-        {{if isset($item.searchoptions) && $item.searchoptions!=''}}
-            { "bSortable": false, "aTargets": [{{$k}}] },
-        {{/if}}
-            
-{{/foreach}}
+                    {{foreach $datatables.init_data as $k => $item}}
+                        {{if isset($item.searchoptions) && $item.searchoptions!=''}}
+                            { "bSortable": false, "aTargets": [{{$k}}] },
+                        {{/if}}
+                    {{/foreach}}
 		],
-		"aaSorting": [{{if isset($sort)}} {{$sort}} {{/if}}],
+		"aaSorting": [
+                    {{foreach $datatables.init_data as $k => $item}}
+                        {{if isset($item.sort) && $item.sort!=FALSE}}
+                                [{{$k}}, "{{$item['sort']}}"]
+                        {{/if}}
+                    {{/foreach}}
+                ],
 		"aoColumns": [
-            
-            {{foreach $datatables.init_data as $k => $item}}
-                    {{if isset($item.visible) && $item.visible!=FALSE}}
-                        {"bVisible": false}
-                    {{else}}
-                                null,
-                    {{/if}}
-            {{/foreach}}
-
+                    {{foreach $datatables.init_data as $k => $item}}
+                            {{if isset($item.visible) && $item.visible!=FALSE}}
+                                {"bVisible": false}
+                            {{else}}
+                                        null,
+                            {{/if}}
+                    {{/foreach}}
 		 ],		
 		"fnServerData": function( sUrl, aoData, fnCallback ) {
 			$.ajax( {

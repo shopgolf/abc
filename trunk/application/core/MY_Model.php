@@ -339,10 +339,6 @@ class MY_Model extends CI_Model{
                     }
                     if($right['delete']==TRUE){
                         $button .= '<a class="btn btn-default btn-sm" data-toggle="modal" href="#delete_confirm" onclick="delete_confirm(\''.site_url('auth/'.$controller.'/index/delete/'.$item['id']).'\')"><i class="fa fa-check"></i>'.$this->lang->line('delete').'</a> ';
-                        //$button .= '<a data-toggle="modal" href="#delete_confirm" onclick="delete_confirm(\''.site_url('auth/'.$controller.'/index/delete/'.$item['id']).'\')"><i class="glyphicon glyphicon-trash"></i> '.$this->lang->line('delete').'</a>';
-                        //<a class="btn btn-default btn-sm" data-toggle="modal" href="#delete_confirm" onclick="delete_confirm('/auth/stats/delete/{{$vals->id}}')"><i class="fa fa-check"></i>{{$lang.delete}}</a>
-                        //$button .= "<a class='btn btn-default btn-sm' data-toggle='modal' href='#delete_confirm' onclick='delete_confirm('/auth/stats/delete/{{$vals->id}}')'><i class='fa fa-check'></i>'.$this->lang->line('delete').'</a>";
-                        //$button .= '<button type="'.site_url('auth/'.$controller.'/index/edit/'.$item['id']).'" class="btn btn-default btn-sm"><i class="glyphicon glyphicon-trash"></i>'.$this->lang->line('delete').'</button>';
                     }
 		}
 		return $button;

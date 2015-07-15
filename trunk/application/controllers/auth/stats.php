@@ -12,28 +12,15 @@ class Stats extends MY_Controller {
 
 	public function __construct() {
 		parent::__construct();
+                $this->load->language('stats');
 		require_once(APPPATH . 'modules/backend/autoload.php');
 		if($this->is_logged_in() == FALSE) {
 			$this->session->set_userdata('redirect_uri', current_url());redirect('auth');
 		}
                 $this->offset       =   0;
                 $this->limit        =   10;
-                
-                $this->load->language('stats');
                 $this->load->model('stats_model');
                 $this->load->model('checkout_model');
-                
-                $static     =   json_decode(STATIC_URL);
-                $userinfo   =   $this->user_model->find_by(array('id'=>$this->session->userdata['user_id']));
-                
-                $this->smarty->assign(array(
-                    "lang"          =>  $this->lang->language,
-                    "static_bk"     =>  base_url($static->STATIC_BK),
-                    "link_bk"       =>  base_url($static->BACKEND),
-                    'site_url'      =>  base_url(),
-                    "userinfo"      =>  $userinfo[0],
-                    'flash_message' =>  ($this->session->flashdata('flash_message'))?$this->session->flashdata('flash_message'):''
-                ));
 	}
 
 	/**

@@ -19,7 +19,7 @@ class Product_model extends MY_Model{
 						'name' => 'id',
 						'label' => $this->lang->line('number'),
 						'width' => '2%',
-						'sort'  => FALSE,
+						'sort'  => 'DESC',
 						'searchoptions' => FALSE
 				),array(
 						'name' 	=> 'product_code',
@@ -37,7 +37,7 @@ class Product_model extends MY_Model{
 						'name' => 'price',
 						'label' => $this->lang->line('price'),
 						'width' => '10%',
-						'sort'  => 'desc',
+						'sort'  => FALSE,
 						'searchoptions' => FALSE
 				),array(
 						'name' 	=> 'image',
@@ -50,7 +50,7 @@ class Product_model extends MY_Model{
 						'width' => '10%',
 						'sort'  => FALSE,
 						'label'  => $right['add']==TRUE?'<div class="btn-group">
-						<a style="width: 82px;" href="'.site_url('').'" class="btn btn btn-success">'.$this->lang->line('create').'</a>
+						<a style="width: 82px;" href="'.site_url('auth/product/index/add').'" class="btn btn btn-success">'.$this->lang->line('create').'</a>
 						</div>':'',
 						'searchoptions' => false
 				)
@@ -60,7 +60,7 @@ class Product_model extends MY_Model{
 	public function json_data($controller, $right){
 		$this->datatables
 		->select("id,product_code,product_name,net_price,image")
-		->from($this->table_name.' AS tbl');
+		->from($this->table_name);
 	
 		$this->datatables->set_produce_output(false);
 		$ouput = $datatables = $this->datatables->generate();
