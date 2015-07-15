@@ -77,31 +77,12 @@ class BACKEND_Controller extends MY_Controller {
 
 	protected function datatables(){
 		$this->load->library('Xgo_datatables', '', 'datatables');
-
-//		$this->view_data['js']	= array(
-//				base_url().'third_party/datatables/js/jquery.dataTables.js',
-//				base_url().'third_party/datatables/js/dataTables.bootstrap.js',
-//				base_url().'third_party/datatables/js/jquery.dataTables.columnFilter.js'
-//		);
-//
-//		$this->view_data['css']			= array(
-//				base_url().'third_party/datatables/css/dataTables.bootstrap.css',
-//		);
-//
-//		$this->view_data['datatables']		= array(
-//				'json_data'		=> site_url('auth/'.$this->controller.'/index/view/json_data'),
-//				'init_data' 	=> $this->model->init_data($this->right),
-//				'filter'		=> '',
-//				'label'			=> $this->lang->line($this->controller.'_list'),
-//		);
-//		
-//		$this->load->view('templates/backend/datatables_index', $this->view_data);
                 $userinfo   =   $this->user_model->find_by(array('id'=>$this->session->userdata['user_id']));
                 $this->smarty->assign(array(
                     'database_connect_status'   =>  $this->database_connect_status,
                     'datatables'        => array(
                                                 'json_data'		=> site_url('auth/'.$this->controller.'/index/view/json_data'),
-                                                'init_data' 	=> $this->model->init_data($this->right),
+                                                'init_data'             => $this->model->init_data($this->right),
                                                 'filter'		=> '',
                                                 'label'			=> $this->lang->line($this->controller.'_list'),
                                         ),
@@ -121,8 +102,6 @@ class BACKEND_Controller extends MY_Controller {
                 ));
                 
                 $this->smarty->display('templates/backend/datatables_index');
-                
-                
 	}
 
 	protected function json_data(){

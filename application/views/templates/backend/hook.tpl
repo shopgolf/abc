@@ -35,9 +35,6 @@
               {{/if}}
             <!-- /.table-responsive -->
           </div>
-          <!-- /.box-body -->
-          <div class="box-footer clearfix"> <a href="javascript::;" class="btn btn-sm btn-info btn-flat pull-right">View All Orders</a> </div>
-          <!-- /.box-footer -->
         </div>
         <!-- / box box-new request -->
       </div>
