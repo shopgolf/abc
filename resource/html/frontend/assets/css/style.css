@@ -5095,10 +5095,10 @@ span.notify-right{
 }
 /*recommendation*/
 .box-products.recommendation .box-tabs li>a:after{
-  color: #ff66cc;
+  color: transparent;
 }
 .box-products.recommendation .box-tabs li>a:before{
-  background: #ff66cc;
+  background: transparent;
 }
 .box-products.recommendation .box-product-head .box-title{
     border-bottom: 3px solid #ff66cc;
@@ -5272,4 +5272,14 @@ span.notify-right{
 }
 .special-products .news ul li .news-title p{
   color: #666;
+}
+.recommendation .box-tabs li>a{
+  padding: 5px 10px;
+  background: none;
+}
+.recommendation .box-tabs li.active{
+  background: 
+}
+.recommendation .box-product-head,.recommendation .box-tabs li,.recommendation .box-tabs li>a{
+  height: 40px;
 }
