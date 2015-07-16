@@ -4717,7 +4717,8 @@ span.notify-right{
   background: #da4735;
 }
 #footer2 .footer-paralax{
-  background: url("../images/brand_prlx_bg-small.jpg") 50% 0 no-repeat fixed;
+  background: url("../images/bg_footer.jpg") no-repeat fixed;
+  background-size: 100%;
   color: #fff;
 }
 #footer2 .footer-row{
@@ -5277,9 +5278,57 @@ span.notify-right{
   padding: 5px 10px;
   background: none;
 }
+.recommendation .box-tabs li{
+  border-top: 1px solid #eaeaea;
+  border-left: 1px solid #eaeaea;
+  border-bottom: 1px solid #26C281;   
+}
+.recommendation .box-tabs li:last-child{
+  border-right: 1px solid #eaeaea;
+  padding-right: 10px;
+}
 .recommendation .box-tabs li.active{
-  background: 
+  background: #26C281;
+  border: 1px solid #26C281;
+  border-right: none;
+}
+.recommendation .box-tabs li.active a{
+  color: #FFF;
 }
 .recommendation .box-product-head,.recommendation .box-tabs li,.recommendation .box-tabs li>a{
   height: 40px;
+}
+.recommendation .top-view{
+  margin-top: 0px;
+}
+.recommendation .box-product-content{
+  margin-top: 0px;
+}
+.recommendation .box-product-content ul{
+  width: 100%;
+  padding-left: 25px;
+  padding-right: 25px;
+}
+.recommendation .box-product-content ul li{
+  width: auto;
+  border-bottom: none; 
+  min-height: 100px;
+  max-height: 100px;
+}
+.recommendation .top-view .rating{
+  max-width: 180px;
+  line-height: 22px;
+}
+.product-star{
+   color: #ff9900;
+}
+.recommendation .top-view ul li img{
+  max-width: 80px;
+  min-height: 80px;
+}
+.recommendation .top-view ul li p{
+  color: #485ac8;
+}
+.product-list li img{
+  min-height: 249px;
 }
