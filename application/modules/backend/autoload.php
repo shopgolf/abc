@@ -20,6 +20,7 @@ if($this->db->conn_id != FALSE){
         "static_bk"     =>  base_url($static->STATIC_BK),
         "link_bk"       =>  base_url($static->BACKEND),
         'site_url'      =>  base_url(),
+        "UPLOAD_DIR"    =>  $static->UPLOAD_DIR,
         "userinfo"      =>  ($userinfo)?$userinfo[0]:'',
         'flash_message' =>  ($this->session->flashdata('flash_message'))?$this->session->flashdata('flash_message'):''
     ));

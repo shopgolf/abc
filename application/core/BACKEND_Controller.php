@@ -79,6 +79,7 @@ class BACKEND_Controller extends MY_Controller {
 		$this->load->library('Xgo_datatables', '', 'datatables');
                 $userinfo   =   $this->user_model->find_by(array('id'=>$this->session->userdata['user_id']));
                 $this->smarty->assign(array(
+                    'controller'                =>  $this->controller,
                     'database_connect_status'   =>  $this->database_connect_status,
                     'datatables'        => array(
                                                 'json_data'		=> site_url('auth/'.$this->controller.'/index/view/json_data'),
@@ -87,7 +88,7 @@ class BACKEND_Controller extends MY_Controller {
                                                 'label'			=> $this->lang->line($this->controller.'_list'),
                                         ),
                     'css'               => array(
-                                                base_url().'third_party/datatables/css/dataTables.bootstrap.css',
+                                                base_url().'third_party/datatables/css/dataTables.bootstrap.css'
                                         ),
                     'js'                => array(
                                                 base_url().'third_party/datatables/js/jquery.dataTables.js',
@@ -98,7 +99,8 @@ class BACKEND_Controller extends MY_Controller {
                     'static_bk'         => base_url('/static/templates/backend'),
                     "link_bk"           =>  base_url('/auth'),
                     'site_url'          =>  base_url(),
-                    "userinfo"          =>  $userinfo[0]
+                    "userinfo"          =>  $userinfo[0],
+                    'flash_message'     =>  $this->session->flashdata('flash_message')
                 ));
                 
                 $this->smarty->display('templates/backend/datatables_index');
@@ -124,6 +126,17 @@ class BACKEND_Controller extends MY_Controller {
 	protected function set_model($model){
 		$this->model = $model;
 	}
+        
+        public function adminlog($logAction){
+            $paramAdminLog  = array(
+                'userid'            => $this->session->userdata['user_id'],
+                'lastLogin'         => date('Y-m-d :H:i:s',time()),
+                'ip'                => $_SERVER['REMOTE_ADDR'],
+                'logAction'         => $logAction
+            );
+            $this->user_model->insertUserAdminLog($paramAdminLog);
+            unset($paramAdminLog);
+        }
 	
 	
 }

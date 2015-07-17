@@ -26,7 +26,6 @@
           <div class="box-body">
               {{if $database_connect_status != FALSE}}
                     {{include file = 'templates/backend/datatables.tpl'}}
-                    
               {{else}}
                     <div class="alert alert-success">
                         <a class="close" data-dismiss="alert">x</a><strong>
@@ -43,3 +42,5 @@
   <!-- /.content -->
 </div>
 </div>
+            
+{{include file = 'templates/backend/hook_js.tpl'}}
