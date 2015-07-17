@@ -4,10 +4,10 @@
         <footer class="main-footer">
             <!-- To the right -->
             <div class="pull-right hidden-xs">
-                Develop by <a href="https://www.facebook.com/itduyanh" title="">Duy Anh Lê</a>
+                
             </div>
             <!-- Default to the left -->
-            <strong>Copyright © 2015 <a href="https://www.facebook.com/itduyanh">Team DA</a>.</strong> All rights reserved.
+            <strong>Copyright © 2015.</strong> All rights reserved.
         </footer>
 
         <!-- Control Sidebar -->

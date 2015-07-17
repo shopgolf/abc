@@ -49,10 +49,8 @@ class Product_model extends MY_Model{
 						'name'  => 'button',
 						'width' => '10%',
 						'sort'  => FALSE,
-						'label'  => $right['add']==TRUE?'<div class="btn-group">
-						<a style="width: 82px;" href="'.site_url('auth/product/index/add').'" class="btn btn btn-success">'.$this->lang->line('create').'</a>
-						</div>':'',
-						'searchoptions' => false
+						'label'  => $this->lang->line('action'),
+						'searchoptions' => FALSE
 				)
 		);
 	}
@@ -69,7 +67,7 @@ class Product_model extends MY_Model{
                 
 		foreach($datatables['aaData'] as $item){
                     $ouput['aaData'][] = array(
-                        $item['id'],
+                        "<input type='checkbox' value='".$item['id']."' onclick=get_Checked_Checkbox_By_Name('checkCol') name='checkCol' id='checkCol' class='checkbox' />",
                         $item['product_code'],
                         $item['product_name'],
                         $this->bookinglib->my_number_format($item['net_price'],2, ',', ','),

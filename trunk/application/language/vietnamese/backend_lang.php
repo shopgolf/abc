@@ -90,3 +90,6 @@ $lang['parameters']             =   'Thông số';
 $lang['name']                   =   'Tên';
 $lang['completed']              =   'Hoàn thành';
 $lang['ext_time']               =   'dd-mm-yy';
+$lang['net_price']            =   'Giá đầu';
+$lang['final_price']            =   'Giá cuối';
+$lang['deleteInfo']             =   'Vui lòng chọn thông tin cần xóa';

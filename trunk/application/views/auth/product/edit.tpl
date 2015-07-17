@@ -14,7 +14,7 @@
   <section class="content">
     {{if isset($validation) && $validation}}
         <div class="bs-example">
-            <div class="alert alert-danger fade in">
+            <div class="alert alert-success fade in">
                 <a href="#" class="close" data-dismiss="alert">&times;</a>
                 {{$validation}}
             </div>
@@ -22,7 +22,7 @@
     {{/if}}
     <span class="error_box"></span>
     <!-- Title, seo, keyword, desctition-->
-    <form action="{{$link_bk}}/product/index/add.html" method="post" accept-charset="utf-8" name='validate_scl'>
+    <form action="{{$link_bk}}/product/index/add.html" method="post" accept-charset="utf-8" enctype="multipart/form-data" name="validate_scl">
       <div class="row">
         <div class="col-md-6">
           <div class="box box-success">
@@ -84,19 +84,10 @@
                 </div>
                 <div class="col-md-12">
                   <div class="form-group">
-                    <label for="image_product">{{$lang.image}} {{$lang.product}}</label>
-                    <div class="input-group"> 
-                        <a class="btn" style="margin: 0 0 10px 2px;" href="javascript:imageManager($('input[name=image]'));">
-                            <span class="input-group-addon"><i class="glyphicon glyphicon-picture"></i></span>
-                        </a>
-                      <input type="text" class="form-control" id="image_product" placeholder="Your URL image thumb" class="input-file" ondblclick="imageManager($(this))">
-                      
-<input type="text" name="resource" value="" id="resource" ondblclick="imageManager($(this))" class="input-file">
-<a class="btn" style="margin: 0 0 10px 2px;" href="javascript:imageManager($('input[name=resource]'));">Chọn tài nguyên</a>             
-                    </div>
+                      <label for="image_product">{{$lang.image}} {{$lang.product}}</label>
+                     {{include file = 'auth/product/upload.tpl'}}
                   </div>
                 </div>
-                
               </div>
             </div>
           </div>
@@ -112,17 +103,19 @@
                   <div class="col-md-6">
                     <div class="form-group">
                       <div class="input-group">
-                          <div class="input-group-addon"><label for="net_price">{{$lang.price}} {{$lang.ext_price}}</label></div>
-                        <input type="text" class="form-control" id="net_price" placeholder="Amount" name="net_price">
-                        <div class="input-group-addon">.000</div>
+                          <div class="input-group-addon"><label for="net_price">{{$lang.net_price}}</label></div>
+                            <input type="text" class="form-control" id="net_price" placeholder="Giá ban đầu sản phẩm" name="net_price">
+                            <input type="hidden" id="net_price_fake" value="" name="net_price_fake">
+                        <div class="input-group-addon">{{$lang.ext_price}}</div>
                       </div>
                     </div>
                   </div>
                   <div class="col-md-6">
                     <div class="form-group">
                       <div class="input-group">
-                          <div class="input-group-addon"><label for="final_price">{{$lang.price_down}}:</label></div>
-                        <input type="text" class="form-control" id="exampleInputAmount" placeholder="" name="final_price">
+                            <div class="input-group-addon"><label for="final_price">{{$lang.final_price}}:</label></div>
+                            <input type="text" class="form-control" id="final_price" placeholder="Giá cuối sản phẩm" name="final_price">
+                            <input type="hidden" id="final_price_fake" value="" name="final_price_fake">
                         <div class="input-group-addon">{{$lang.ext_price}}</div>
                       </div>
                     </div>
@@ -136,7 +129,8 @@
                       <div class="box-body">
                         <div class="input-group">
                             <div class="input-group-addon"><label for="begin_price">{{$lang.begin_price}}</label></div>
-                          <input type="text" class="form-control" id="begin_price" placeholder="" name="begin_price">
+                            <input type="text" class="form-control" id="begin_price" placeholder="" name="begin_price">
+                            <input type="hidden" id="begin_price_fake" name="begin_price_fake">
                           <div class="input-group-addon">.000 {{$lang.ext_price}}</div>
                         </div>
                       </div>
@@ -256,25 +250,44 @@
             <!-- /.box-header -->
             <div class="box-body pad">
               <!--editor-->
-              <textarea name="info" cols="40" rows="10" id="description" class="tinymcefull"></textarea>
+              <textarea name="info" cols="40" rows="10" id="info" class="tinymcefull"></textarea>
             </div>
           </div>
           <!-- /.box -->
         </div>
         <div class="col-md-12">
           <div class="col-md-3 pull-right">
-            <button class="btn btn-block btn-success btn-lg" onclick="return checkForm()">{{$lang.completed}}</button>
+            <button class="btn btn-block btn-success btn-lg" onclick="return validateForm();">{{$lang.completed}}</button>
           </div>
         </div>
       </div>
     </form>
+    <span class="error_box"></span>
     <!-- /.row -->
   </section>
   <!-- /.content -->
 </div>
+<script src="{{$static_bk}}/js/autoNumeric.js"></script>
 <script type="text/javascript" src="{{$static_bk}}/js/validate.min.js"></script>
+
 <script type="text/javascript">
-function checkForm(){
+$(document).ready(function() {
+    $('#net_price').autoNumeric('init',{aSign:' VNĐ',mDec:0, pSign:'s' });
+    $("#net_price").blur(function() {
+        document.getElementById("net_price_fake").value       = UnFormatNumber($("#net_price").val());
+    });
+    
+    $('#final_price').autoNumeric('init',{aSign:' VNĐ',mDec:0, pSign:'s' });
+    $("#final_price").blur(function() {
+        document.getElementById("final_price_fake").value       = UnFormatNumber($("#final_price").val());
+    });
+    
+    $('#begin_price').autoNumeric('init',{aSign:' VNĐ',mDec:0, pSign:'s' });
+    $("#begin_price").blur(function() {
+        document.getElementById("begin_price_fake").value       = UnFormatNumber($("#begin_price").val());
+    });
+});
+function validateForm(){
     new FormValidator('validate_scl', [{
         name: 'product_code',
         display: '{{$lang.product_code}}',
@@ -292,13 +305,20 @@ function checkForm(){
         name: 'description',
         display: '{{$lang.description}}',
         rules: 'required'
+    }, {
+        name: 'net_price',
+        display: '{{$lang.net_price}}',
+        rules: 'required'
+    }, {
+        name: 'info',
+        display: '{{$lang.product_detail}}',
+        rules: 'required'
     }], function(errors, evt) {
 
         /*
          * VALIDATE CODE BY PHUC NGUYEN
          * Email: nguyenvanphuc0626@gmail.com
          */
-
         var SELECTOR_ERRORS = $('.error_box'),
             SELECTOR_SUCCESS = $('.success_box');
 
@@ -308,12 +328,13 @@ function checkForm(){
             for (var i = 0, errorLength = errors.length; i < errorLength; i++) {
                 SELECTOR_ERRORS.append('<p style="color:red;margin:0"><strong>'+errors[i].message + '</strong></p>');
             }
-            
+
             SELECTOR_SUCCESS.css({ display: 'none' });
             SELECTOR_ERRORS.fadeIn(200);
         } else {
             SELECTOR_ERRORS.css({ display: 'none' });
             SELECTOR_SUCCESS.fadeIn(200);
+            form.submit();
         }
 
         if (evt && evt.preventDefault) {
@@ -323,6 +344,21 @@ function checkForm(){
         }
     });
 }
-</script>
 
+function FormatNumber(x) {
+    if (typeof x === "undefined") {
+        return '';
+    } else {
+    return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",") + ' VNĐ';
+    }
+};
+
+function UnFormatNumber(x) {
+    if (typeof x === "undefined") {
+        return '';
+    } else {
+    return x.toString().replace(/,|VNĐ|\s/g, "");
+    }
+};
+</script>
 {{include file = 'templates/backend/footer.tpl'}}

@@ -113,10 +113,11 @@ class Home extends MY_Controller{
 	 */
 	protected function create_login_session($user){
 		$session_data = array(
-				'email'  => $user->email,
-				'user_id'        => $user->id,
-				'logged_in'      => TRUE,
-                                'group_id'       => $user->group_id,
+                    'email'             => $user->email,
+                    'user_id'           => $user->id,
+                    'user_name'         => $user->username,
+                    'logged_in'         => TRUE,
+                    'group_id'          => $user->group_id,
 		);
 		$this->session->set_userdata($session_data);
 	}

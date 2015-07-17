@@ -17,3 +17,14 @@ float: left;
   max-width: 112px;
   overflow: hidden;
 }
+.checkbox{
+    display: inline-block;
+    vertical-align: middle;
+    margin: 0;
+    padding: 0;
+    width: 20px;
+    height: 20px;
+    background: url(../images/icon/blue.png) no-repeat;
+    border: none;
+    cursor: pointer;
+}
