@@ -75,6 +75,7 @@ class Product extends BACKEND_Controller {
                     
                         $this->view_data["product"]                                     = new stdClass();
                         $this->view_data["product"]->product_code                       = trim($this->input->post('product_code'));
+                        $this->view_data["product"]->product_name                       = trim($this->input->post('product_name'));
                         $this->view_data["product"]->product_type                       = $this->input->post('product_type');
                         $this->view_data["product"]->category                           = $this->input->post('category');
                         $this->view_data["product"]->keyword                            = trim($this->input->post('keyword'));
@@ -131,8 +132,9 @@ class Product extends BACKEND_Controller {
                         if ($this->form_validation->run()==TRUE){
                             
                                 //upload image
-                                $return                                         = $this->upload($this->input->post('img-submit'),$this->input->post('image'));
-                                $this->view_data["product"]->image              = json_encode($return);
+                                $this->view_data["product"]->image              = $this->upload($this->input->post('img-submit'),$this->input->post('image'));
+                                //auto rend product id
+                                $this->view_data['product']->product_id         = $this->bookinglib->rendCode('PRO');
                                 if($params){
                                         //edit data
 					$this->product_model->update($this->view_data["product"], $params);
@@ -178,7 +180,7 @@ class Product extends BACKEND_Controller {
                     base_url().'static/templates/backend/js/ckfinder_function.js'
                 ),
                 'css'           =>  array(
-                    //base_url().'static/templates/backend/css/main.css',
+                    
                 ),
                 'segment'       =>  $this->uri->segment(4),
                 'validation'    =>  validation_errors()

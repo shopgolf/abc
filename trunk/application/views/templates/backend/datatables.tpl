@@ -1,6 +1,6 @@
 {{if isset($flash_message) && $flash_message != ''}}    
     <div class="bs-example">
-        <div class="alert alert-danger fade in">
+        <div class="alert alert-success fade in">
             <a href="#" class="close" data-dismiss="alert">&times;</a>
             {{$flash_message}}
         </div>

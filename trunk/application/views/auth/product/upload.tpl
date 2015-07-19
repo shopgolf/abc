@@ -11,7 +11,7 @@
     $(document).ready(function() {
         var fone_add = 2;
         $("#more").on('click',function (e) {
-            $("#foneadd").append('<div class="input-group"><span class="input-group-addon"><i class="glyphicon glyphicon-picture"></i></span><input type="file" class="upload" id="'+fone_add+'" onchange="getValueById(this)"><input style="width:83.5%" type="text" class="form-control" id="image'+fone_add+'"name="image[]" placeholder=""><input type="hidden" name="img-submit[]" id="img-submit-'+fone_add+'" value=""/>&nbsp;&nbsp;<button name="" type="button" class="btn btn-danger" onclick="javascript:$(this).parent().remove();">DELETE</button></div>');
+            $("#foneadd").append('<div class="input-group" style="padding:2px 0"><span class="input-group-addon"><i class="glyphicon glyphicon-picture"></i></span><input type="file" class="upload" id="'+fone_add+'" onchange="getValueById(this)"><input style="width:83.5%" type="text" class="form-control" id="image'+fone_add+'"name="image[]" placeholder=""><input type="hidden" name="img-submit[]" id="img-submit-'+fone_add+'" value=""/>&nbsp;&nbsp;<button name="" type="button" class="btn btn-danger" onclick="javascript:$(this).parent().remove();">DELETE</button></div>');
             fone_add = fone_add+1;
         });
     });
