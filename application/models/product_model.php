@@ -66,12 +66,13 @@ class Product_model extends MY_Model{
 		$ouput['aaData'] = array();
                 
 		foreach($datatables['aaData'] as $item){
+                    $img = json_decode($item['image']);
                     $ouput['aaData'][] = array(
                         "<input type='checkbox' value='".$item['id']."' onclick=get_Checked_Checkbox_By_Name('checkCol') name='checkCol' id='checkCol' class='checkbox' />",
                         $item['product_code'],
                         $item['product_name'],
                         $this->bookinglib->my_number_format($item['net_price'],2, ',', ','),
-                        '<img style="width:40%" src="'.$item['image'].'" />',
+                        '<img style="width:40%" src="/'.UPLOAD_DIR.'/product/'.$img[0].'" />',
                         $this->add_button($controller, $right, $item)
                     );
 		}

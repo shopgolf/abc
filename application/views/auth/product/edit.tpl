@@ -272,17 +272,17 @@
 
 <script type="text/javascript">
 $(document).ready(function() {
-    $('#net_price').autoNumeric('init',{aSign:' VNĐ',mDec:0, pSign:'s' });
+    $('#net_price').autoNumeric('init',{aSign:'',mDec:0, pSign:'s' });
     $("#net_price").blur(function() {
         document.getElementById("net_price_fake").value       = UnFormatNumber($("#net_price").val());
     });
     
-    $('#final_price').autoNumeric('init',{aSign:' VNĐ',mDec:0, pSign:'s' });
+    $('#final_price').autoNumeric('init',{aSign:'',mDec:0, pSign:'s' });
     $("#final_price").blur(function() {
         document.getElementById("final_price_fake").value       = UnFormatNumber($("#final_price").val());
     });
     
-    $('#begin_price').autoNumeric('init',{aSign:' VNĐ',mDec:0, pSign:'s' });
+    $('#begin_price').autoNumeric('init',{aSign:'',mDec:0, pSign:'s' });
     $("#begin_price").blur(function() {
         document.getElementById("begin_price_fake").value       = UnFormatNumber($("#begin_price").val());
     });

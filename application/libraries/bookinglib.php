@@ -23,6 +23,11 @@ class bookinglib {
         return date("imd").$this->rand_string_limit(4).date("s");
     }
     
+    public function rendCode($char){
+        return $char.date("imd").$this->rand_string_limit(2).date("s");
+    }
+    
+    
     public function direct(){
         $checkDirect = $_SERVER['HTTP_REFERER'];
         if(!isset($checkDirect)){
