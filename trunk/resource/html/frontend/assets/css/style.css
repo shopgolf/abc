@@ -2846,7 +2846,7 @@ span.notify-right{
 .tree-menu li:hover>span:before,
 .tree-menu li.active>span:before
 {
-  color: #ff3366;
+  color: #26C281;
 }
 
 .tree-menu > li >span:before{
@@ -3010,7 +3010,7 @@ span.notify-right{
   border-radius: 90%;
 }
 .owl-controls .owl-dots .owl-dot.active{
-  background: #ff3366;
+  background: #26C281;
 }
 
 /** special-product**/
@@ -3026,7 +3026,7 @@ span.notify-right{
 }
 .products-block .product-price{
   font-size: 18px;
-  color: #ff3366;
+  color:  #0088cc;
   font-weight: bold;
   line-height: 35px;
 }
@@ -3040,15 +3040,15 @@ span.notify-right{
 .products-block .link-all{
   height: 35px;
   width: 120px;
-  border: 1px solid #ff3366;
+  border: 1px solid #26C281;
   line-height: 33px;
   font-size: 14px;
-  color: #ff3366;
+  color: #26C281;
   display: block;
   margin: 0 auto;
   text-align: center;
   clear: both;
-  background: #ff3366;
+  background: #26C281;
   color: #fff;
 }
 .products-block .link-all:hover{
@@ -3209,7 +3209,6 @@ span.notify-right{
 /** subcategories **/
 .subcategories{
   border: 1px solid #e4e4e4;
-  margin-top: 20px;
 }
 .subcategories ul{
   overflow: hidden;
@@ -3265,7 +3264,7 @@ span.notify-right{
   font-size: 24px;
 }
 .page-heading span.page-heading-title{
-  border-bottom: 3px solid #ff3366;
+  border-bottom: 3px solid #26C281;
   position: absolute;
   bottom: -1px;
   padding: 0 12px;
@@ -3312,7 +3311,7 @@ span.notify-right{
 .display-product-option li.selected span,
 .display-product-option li:hover span
 {
-  background-color: #ff3366; 
+  background-color: #0088cc; 
   background-position: 0 -30px;
 }
 .view-product-list .product-list.grid{
@@ -3363,7 +3362,7 @@ span.notify-right{
   bottom: inherit;
   width: 129px;
   height: 36px;
-  background: #ff3366;
+  background: #26C281;
   line-height: 36px;
   position: absolute;
 }
@@ -3501,11 +3500,11 @@ span.notify-right{
   border-radius:0; 
 }
 .sortPagiBar .bottom-pagination .pagination a:hover{
-  background: #ff3366;
+  background: #26C281;
   color: #fff;
 }
 .sortPagiBar .bottom-pagination .pagination .active a{
-  background: #ff3366;
+  background: #26C281;
   color: #fff;
 }
 .sortPagiBar .bottom-pagination .pagination > li:first-child > a, 
@@ -4960,7 +4959,8 @@ span.notify-right{
 .box-products .box-product-head .box-title{
   color: #FFF;
   text-transform: uppercase;
-  border-bottom: 3px solid #ff3300;
+  border-bottom: 3px solid #26C281;
+  background-color: #26C281;
   padding-bottom: 5px;
   font-size: 18px;
   padding-left: 10px;
@@ -5339,3 +5339,20 @@ span.notify-right{
 .category-page.option3 #main-menu .navbar .navbar-nav>li>a{
   padding: 0px 17px;
 }
+.category-page.option3 .subcategories{
+  padding: 0px 15px;
+}
+.category-page.option3 .subcategories button{
+    background: #26C281;
+    color: #FFF;
+    padding: 5px 10px;
+    float: right; 
+    margin-right: 20px;
+}
+.search-cate{
+  border: 1px solid #26C281;
+  margin:10px 0px 10px 0px;
+}
+.category-page.option3 .box-products{
+  margin-top: 10px;
+} 
