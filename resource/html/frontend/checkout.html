@@ -1,7 +1,6 @@
+
 <!DOCTYPE html>
 <html>
-
-<!-- Mirrored from kutethemes.com/demo/kuteshop/html/order.html by HTTrack Website Copier/3.x [XR&CO'2013], Thu, 02 Jul 2015 16:59:53 GMT -->
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -415,26 +414,309 @@
         <div class="breadcrumb clearfix">
             <a class="home" href="#" title="Return to Home">Home</a>
             <span class="navigation-pipe">&nbsp;</span>
-            <span class="navigation_page">Your shopping cart</span>
+            <span class="navigation_page">Checkout</span>
         </div>
         <!-- ./breadcrumb -->
         <!-- page heading-->
-        <h2 class="page-heading no-line">
-            <span class="page-heading-title2">Shopping Cart Summary</span>
+        <h2 class="page-heading">
+            <span class="page-heading-title2">Checkout</span>
         </h2>
         <!-- ../page heading-->
-        <div class="page-content page-order">
-            <ul class="step">
-                <li class="current-step"><span>01. Summary</span></li>
-                <li><span>02. Sign in</span></li>
-                <li><span>03. Address</span></li>
-                <li><span>04. Shipping</span></li>
-                <li><span>05. Payment</span></li>
-            </ul>
-            <div class="heading-counter warning">Your shopping cart contains:
-                <span>1 Product</span>
+        <div class="page-content checkout-page">
+            <h3 class="checkout-sep">1. Checkout Method</h3>
+            <div class="box-border">
+                <div class="row">
+                    <div class="col-sm-6">
+                        <h4>Checkout as a Guest or Register</h4>
+                        <p>Register with us for future convenience:</p>
+                        <ul>
+                            <li><label><input type="radio" name="radio1">Checkout as Guest</label></li>
+                            <li><label><input type="radio" name="radio1">Register</label></li>
+                        </ul>
+                        <br>
+                        <h4>Register and save time!</h4>
+                        <p>Register with us for future convenience:</p>
+                        <p><i class="fa fa-check-circle text-primary"></i> Fast and easy check out</p>
+                        <p><i class="fa fa-check-circle text-primary"></i> Easy access to your order history and status</p>
+                        <button class="button">Continue</button>
+                    </div>
+                    <div class="col-sm-6">
+                        <h4>Login</h4>
+                        <p>Already registered? Please log in below:</p>
+                        <label>Email address</label>
+                        <input type="text" class="form-control input">
+                        <label>Password</label>
+                        <input type="password" class="form-control input">
+                        <p><a href="#">Forgot your password?</a></p>
+                        <button class="button">Login</button>
+                    </div>
+
+                </div>
             </div>
-            <div class="order-detail-content">
+            <h3 class="checkout-sep">2. Billing Infomations</h3>
+            <div class="box-border">
+                <ul>
+                    <li class="row">
+                        <div class="col-sm-6">
+                            <label for="first_name" class="required">First Name</label>
+                            <input type="text" class="input form-control" name="" id="first_name">
+                        </div><!--/ [col] -->
+                        <div class="col-sm-6">
+                            <label for="last_name" class="required">Last Name</label>
+                            <input type="text" name="" class="input form-control" id="last_name">
+                        </div><!--/ [col] -->
+                    </li><!--/ .row -->
+                    <li class="row">
+                        <div class="col-sm-6">
+                            <label for="company_name">Company Name</label>
+                            <input type="text" name="" class="input form-control" id="company_name">
+                        </div><!--/ [col] -->
+                        <div class="col-sm-6">
+                            <label for="email_address" class="required">Email Address</label>
+                            <input type="text" class="input form-control" name="" id="email_address">
+                        </div><!--/ [col] -->
+                    </li><!--/ .row -->
+                    <li class="row"> 
+                        <div class="col-xs-12">
+
+                            <label for="address" class="required">Address</label>
+                            <input type="text" class="input form-control" name="" id="address">
+
+                        </div><!--/ [col] -->
+
+                    </li><!-- / .row -->
+
+                    <li class="row">
+
+                        <div class="col-sm-6">
+                            
+                            <label for="city" class="required">City</label>
+                            <input class="input form-control" type="text" name="" id="city">
+
+                        </div><!--/ [col] -->
+
+                        <div class="col-sm-6">
+                            <label class="required">State/Province</label>
+                                <select class="input form-control" name="">
+                                    <option value="Alabama">Alabama</option>
+                                    <option value="Illinois">Illinois</option>
+                                    <option value="Kansas">Kansas</option>
+                            </select>
+                        </div><!--/ [col] -->
+                    </li><!--/ .row -->
+
+                    <li class="row">
+
+                        <div class="col-sm-6">
+
+                            <label for="postal_code" class="required">Zip/Postal Code</label>
+                            <input class="input form-control" type="text" name="" id="postal_code">
+                        </div><!--/ [col] -->
+
+                        <div  class="col-sm-6">
+                            <label class="required">Country</label>
+                            <select class="input form-control" name="">
+                                <option value="USA">USA</option>
+                                <option value="Australia">Australia</option>
+                                <option value="Austria">Austria</option>
+                                <option value="Argentina">Argentina</option>
+                                <option value="Canada">Canada</option>
+                            </select>
+                        </div><!--/ [col] -->
+                    </li><!--/ .row -->
+                    <li class="row">
+                        <div class="col-sm-6">
+                            <label for="telephone" class="required">Telephone</label>
+                            <input class="input form-control" type="text" name="" id="telephone">
+                        </div><!--/ [col] -->
+
+                        <div class="col-sm-6">
+                            <label for="fax">Fax</label>
+                            <input class="input form-control" type="text" name="" id="fax">
+                        </div><!--/ [col] -->
+
+                    </li><!--/ .row -->
+
+                    <li class="row">
+                        <div class="col-sm-6">
+                            <label for="password" class="required">Password</label>
+                            <input class="input form-control" type="password" name="" id="password">
+                        </div><!--/ [col] -->
+
+                        <div class="col-sm-6">
+                            <label for="confirm" class="required">Confirm Password</label>
+                            <input class="input form-control" type="password" name="" id="confirm">
+                        </div><!--/ [col] -->
+                    </li><!--/ .row -->
+                    <li>
+                        <button class="button">Continue</button>
+                    </li>
+                </ul>
+            </div>
+            <h3 class="checkout-sep">3. Shipping Information</h3>
+            <div class="box-border">
+                <ul>
+                                    
+                    <li class="row">
+                        
+                        <div class="col-sm-6">
+                            
+                            <label for="first_name_1" class="required">First Name</label>
+                            <input class="input form-control" type="text" name="" id="first_name_1">
+
+                        </div><!--/ [col] -->
+
+                        <div class="col-sm-6">
+                            
+                            <label for="last_name_1" class="required">Last Name</label>
+                            <input class="input form-control" type="text" name="" id="last_name_1">
+
+                        </div><!--/ [col] -->
+
+                    </li><!--/ .row -->
+
+                    <li class="row">
+                        
+                        <div class="col-sm-6">
+                            
+                            <label for="company_name_1">Company Name</label>
+                            <input class="input form-control" type="text" name="" id="company_name_1">
+
+                        </div><!--/ [col] -->
+
+                        <div class="col-sm-6">
+                            
+                            <label for="email_address_1" class="required">Email Address</label>
+                            <input class="input form-control" type="text" name="" id="email_address_1">
+
+                        </div><!--/ [col] -->
+
+                    </li><!--/ .row -->
+
+                    <li class="row">
+
+                        <div class="col-xs-12">
+
+                            <label for="address_1" class="required">Address</label>
+                            <input class="input form-control" type="text" name="" id="address_1">
+
+                        </div><!--/ [col] -->
+
+                    </li><!--/ .row -->
+
+                    <li class="row">
+
+                        <div class="col-sm-6">
+                            
+                            <label for="city_1" class="required">City</label>
+                            <input class="input form-control" type="text" name="" id="city_1">
+
+                        </div><!--/ [col] -->
+
+                        <div class="col-sm-6">
+
+                            <label class="required">State/Province</label>
+
+                            <div class="custom_select">
+
+                                <select class="input form-control" name="">
+
+                                    <option value="Alabama">Alabama</option>
+                                    <option value="Illinois">Illinois</option>
+                                    <option value="Kansas">Kansas</option>
+
+                                </select>
+
+                            </div>
+
+                        </div><!--/ [col] -->
+
+                    </li><!--/ .row -->
+
+                    <li class="row">
+
+                        <div class="col-sm-6">
+
+                            <label for="postal_code_1" class="required">Zip/Postal Code</label>
+                            <input class="input form-control" type="text" name="" id="postal_code_1">
+
+                        </div><!--/ [col] -->
+
+                        <div class="col-sm-6">
+
+                            <label class="required">Country</label>
+
+                            <div class="custom_select">
+
+                                <select class="input form-control" name="">
+                                    
+                                    <option value="USA">USA</option>
+                                    <option value="Australia">Australia</option>
+                                    <option value="Austria">Austria</option>
+                                    <option value="Argentina">Argentina</option>
+                                    <option value="Canada">Canada</option>
+
+                                </select>
+
+                            </div>
+
+                        </div><!--/ [col] -->
+
+                    </li><!--/ .row -->
+
+                    <li class="row">
+
+                        <div class="col-sm-6">
+
+                            <label for="telephone_1" class="required">Telephone</label>
+                            <input class="input form-control" type="text" name="" id="telephone_1">
+
+                        </div><!--/ [col] -->
+
+                        <div class="col-sm-6">
+
+                            <label for="fax_1">Fax</label>
+                            <input class="input form-control" type="text" name="" id="fax_1">
+
+                        </div><!--/ [col] -->
+
+                    </li><!--/ .row -->
+
+                </ul>
+                <button class="button">Continue</button>
+            </div>
+            <h3 class="checkout-sep">4. Shipping Method</h3>
+            <div class="box-border">
+                <ul class="shipping_method">
+                    <li>
+                        <p class="subcaption bold">Free Shipping</p>
+                        <label for="radio_button_3"><input type="radio" checked name="radio_3" id="radio_button_3">Free $0</label>
+                    </li>
+
+                    <li>
+                        <p class="subcaption bold">Free Shipping</p>
+                        <label for="radio_button_4"><input type="radio" name="radio_3" id="radio_button_4"> Standard Shipping $5.00</label>
+                    </li>
+                </ul>
+                <button class="button">Continue</button>
+            </div>
+            <h3 class="checkout-sep">5. Payment Information</h3>
+            <div class="box-border">
+                <ul>
+                    <li>
+                        <label for="radio_button_5"><input type="radio" checked name="radio_4" id="radio_button_5"> Check / Money order</label>
+                    </li>
+
+                    <li>
+            
+                        <label for="radio_button_6"><input type="radio" name="radio_4" id="radio_button_6"> Credit card (saved)</label>
+                    </li>
+
+                </ul>
+                <button class="button">Continue</button>
+            </div>
+            <h3 class="checkout-sep">6. Order Review</h3>
+            <div class="box-border">
                 <table class="table table-bordered table-responsive cart_summary">
                     <thead>
                         <tr>
@@ -454,8 +736,8 @@
                             </td>
                             <td class="cart_description">
                                 <p class="product-name"><a href="#">Frederique Constant </a></p>
-                                <small class="cart_ref">SKU : #123654999</small>
-                                <small><a href="#">Color : Beige</a></small>   
+                                <small class="cart_ref">SKU : #123654999</small><br>
+                                <small><a href="#">Color : Beige</a></small><br>   
                                 <small><a href="#">Size : S</a></small>
                             </td>
                             <td class="cart_avail"><span class="label label-success">In stock</span></td>
@@ -478,8 +760,8 @@
                             </td>
                             <td class="cart_description">
                                 <p class="product-name"><a href="#">Frederique Constant </a></p>
-                                <small class="cart_ref">SKU : #123654999</small>
-                                <small><a href="#">Color : Beige</a></small>   
+                                <small class="cart_ref">SKU : #123654999</small><br>
+                                <small><a href="#">Color : Beige</a></small><br>   
                                 <small><a href="#">Size : S</a></small>
                             </td>
                             <td class="cart_avail"><span class="label label-success">In stock</span></td>
@@ -509,10 +791,7 @@
                         </tr>
                     </tfoot>    
                 </table>
-                <div class="cart_navigation">
-                    <a class="prev-btn" href="#">Continue shopping</a>
-                    <a class="next-btn" href="#">Proceed to checkout</a>
-                </div>
+                <button class="button pull-right">Place Order</button>
             </div>
         </div>
     </div>
@@ -632,7 +911,6 @@
      </div>
      <!-- ./footer paralax-->
 </footer>
-
 <a href="#" class="scroll_top" title="Scroll to Top" style="display: inline;">Scroll</a>
 <!-- Script-->
 <script type="text/javascript" src="assets/lib/jquery/jquery-1.11.2.min.js"></script>
@@ -641,13 +919,8 @@
 <script type="text/javascript" src="assets/lib/jquery.bxslider/jquery.bxslider.min.js"></script>
 <script type="text/javascript" src="assets/lib/owl.carousel/owl.carousel.min.js"></script>
 <script type="text/javascript" src="assets/lib/jquery.countdown/jquery.countdown.min.js"></script>
-
 <script type="text/javascript" src="assets/lib/jquery-ui/jquery-ui.min.js"></script>
 <script type="text/javascript" src="assets/js/jquery.actual.min.js"></script>
-
 <script type="text/javascript" src="assets/js/theme-script.js"></script>
-
 </body>
-
-<!-- Mirrored from kutethemes.com/demo/kuteshop/html/order.html by HTTrack Website Copier/3.x [XR&CO'2013], Thu, 02 Jul 2015 16:59:53 GMT -->
 </html>

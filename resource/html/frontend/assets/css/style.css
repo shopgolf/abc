@@ -102,8 +102,8 @@ a:focus{
   padding: 5px 10px;
 }
 .button:hover{
-  background: #ff3366;
-  border: 1px solid #ff3366;
+  background: #26C281;
+  border: 1px solid #26C281;
 }
 .input{
   border-radius: 0px;
@@ -3103,7 +3103,7 @@ span.notify-right{
     clear: both;
     padding-left: 15px;
     padding-right: 15px;
-    background: #F36;
+    background: #26C281;
 }
 
 .btn-add-cart:hover{
@@ -3553,7 +3553,7 @@ span.notify-right{
   border-bottom: 3px solid #ccc;
 }
 .page-order ul.step li.current-step{
-  border-bottom: 3px solid #ff3366;
+  border-bottom: 3px solid #26C281;
 }
 
 .page-order .heading-counter{
@@ -3594,9 +3594,9 @@ span.notify-right{
 }
 .page-order .cart_navigation a.next-btn{
   float: right;
-  background: #ff3366;
+  background: #26C281;
   color: #fff;
-  border: 1px solid #ff3366;
+  border: 1px solid #26C281;
 }
 .page-order .cart_navigation a.next-btn:hover{
   opacity: 0.8;
@@ -3727,7 +3727,7 @@ span.notify-right{
 #product .pb-right-column .product-price-group .price{
   font-size: 18px;
   font-weight: bold;
-  color: #ff3366;
+  color: #0088cc;
 }
 #product .pb-right-column .product-price-group .old-price{
   text-decoration: line-through;
@@ -3753,7 +3753,7 @@ span.notify-right{
   padding: 10px 0;
 }
 #product .pb-right-column .form-option #size_chart{
-  color: #ff3366;
+  color: #26C281;
   text-decoration:underline;
   margin-left: 15px;
 }
@@ -3872,7 +3872,7 @@ span.notify-right{
 }
 #product .pb-right-column .form-action .button-group .wishlist:hover .fa,
 #product .pb-right-column .form-action .button-group .compare:hover .fa{
-  background: #ff3366;
+  background: #26C281;
 }
 #product .pb-right-column .form-share .fa{
   font-size: 18px;
@@ -3914,7 +3914,7 @@ span.notify-right{
   line-height: 50px;
   float: left;
   display: inline;
-  background: #e2e2e2;
+  background: #FFF;
   border: 1px solid #e2e2e2;
   color: #333333;
   text-transform: uppercase;
@@ -3933,7 +3933,8 @@ span.notify-right{
 }
 .product-tab .nav-tab>li:hover>a,
 .product-tab .nav-tab>li.active>a{
-  background: #fff;
+  color: #FFF;
+  background: #0088cc;
 }
 .product-tab .tab-container{
     padding: 20px;
@@ -4053,7 +4054,7 @@ span.notify-right{
     padding: 10px 25px;
 }
 #contact #btn-send-contact:hover{
-    background: #F36;
+    background: #26C281;
 }
 #contact_form_map ul {
   line-height: 28px;
@@ -4135,11 +4136,13 @@ span.notify-right{
   margin-top: 15px;
 }
 .blog-posts .post-item .entry-more a:hover{
-  background: #ff3366;
+  background: #26C281;
   color: #fff;
 }
 .blog-posts .post-item .entry-thumb img{
   border: 1px solid #eaeaea;
+  min-height: 244px;
+  min-width: 345px;
 }
 
 /** post sidebar **/
