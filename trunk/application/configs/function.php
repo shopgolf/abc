@@ -244,3 +244,18 @@ if (!function_exists("get_real_ip")) {
             return ($ip ? $ip : $_SERVER['REMOTE_ADDR']);
     } 
 }
+
+if(!function_exists("pre"))
+{
+    function pre($var)
+    {   
+        echo "<pre>";
+        if(is_array($var) || is_object($var)){
+            print_r($var);
+        }else{
+            echo $var;
+        }
+        echo "</pre>";
+        die();
+    }
+}
