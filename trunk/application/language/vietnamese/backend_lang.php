@@ -98,3 +98,4 @@ $lang['deleteInfo']             =   'Vui lòng chọn thông tin cần xóa';
 $lang['site_title']             = 'Title Website';
 $lang['input_text']             = 'Nhập Thông Tin';
 $lang['site_logo']              = 'Logo';
+$lang['product']                =   'Sản phẩm';

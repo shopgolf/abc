@@ -269,7 +269,7 @@
           </div>
         </div>
       </div>
-          {{form_input(["type"=>"hidden","id"=>"id","name"=>"id","value"=>$product->id])}}
+          {{form_input(["type"=>"hidden","id"=>"id","name"=>"id","value"=>"{{if isset($product->id)}}{{$product->id}}{{/if}}"])}}
     {{form_close()}}
     <span class="error_box"></span>
     <!-- /.row -->
