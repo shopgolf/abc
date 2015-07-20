@@ -205,20 +205,18 @@
                         </a>
                     </li>
                     <li class="treeview">
-                        <a href="#"><i class='fa fa-building'></i> <span>Sản Phẩm</span> <i class="fa fa-angle-left pull-right"></i></a>
+                        <a href="#"><i class='fa fa-building'></i> <span>{{$lang.product}}</span> <i class="fa fa-angle-left pull-right"></i></a>
                         <ul class="treeview-menu">
-                            <li><a href="sanpham_add.html"><i class="glyphicon glyphicon-info-sign"></i> Thêm mới</a></li>
-                            <li><a href="sanpham_list.html"><i class="glyphicon glyphicon-list-alt text-info"></i> List sản phẩm</a></li>
-                            <li><a href="sanpham_khuyenmai.html"><i class="glyphicon glyphicon-list-alt text-info"></i> Khuyến Mãi</a></li>
-                            <li><a href="sanpham_het.html"><i class="glyphicon glyphicon-list-alt text-info"></i> Hết hàng</a></li>
-                            <li><a href="sanpham_muanhieu.html"><i class="glyphicon glyphicon-list-alt text-info"></i> Mua nhiều</a></li>
-                            <li><a href="sanpham_daugia.html"><i class="glyphicon glyphicon-list-alt text-info"></i> Sản phẩm đang đâu giá</a></li>
-                            <li><a href="sanpham_slider.html"><i class="glyphicon glyphicon-list-alt text-info"></i> List trên slider</a></li>
-
+                            <li><a href="{{$link_bk}}/product/index/add.html"><i class="glyphicon glyphicon-info-sign"></i> Thêm mới</a></li>
+                            <li><a href="{{$link_bk}}/product.html"><i class="glyphicon glyphicon-list-alt text-info"></i> List sản phẩm</a></li>
+                            <li><a href="{{$link_bk}}/deal.html"><i class="glyphicon glyphicon-list-alt text-info"></i> Khuyến Mãi</a></li>
+                            <li><a href="{{$link_bk}}/soldout.html"><i class="glyphicon glyphicon-list-alt text-info"></i> Hết hàng</a></li>
+                            <li><a href="{{$link_bk}}/hotdeal.html"><i class="glyphicon glyphicon-list-alt text-info"></i> Mua nhiều</a></li>
+                            <li><a href="{{$link_bk}}/bid.html"><i class="glyphicon glyphicon-list-alt text-info"></i> Sản phẩm đang đâu giá</a></li>
                         </ul>
                     </li>
                     <li class="treeview">
-                        <a href="#"><i class='fa fa-building'></i> <span>Đấu Giá Sản Phẩm</span> <i class="fa fa-angle-left pull-right"></i></a>
+                        <a href="#"><i class='fa fa-building'></i> <span>{{$lang.bid}} {{$lang.product}}</span> <i class="fa fa-angle-left pull-right"></i></a>
                         <ul class="treeview-menu">
                             <li><a href="sanpham_daugia.html"><i class="glyphicon glyphicon-list-alt text-info"></i> Đang đấu giá</a></li>
                             <li><a href="sanpham_daugia_ht.html"><i class="glyphicon glyphicon-list-alt text-info"></i> Hoàn thành phiên đấu giá</a></li>
