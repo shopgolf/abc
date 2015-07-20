@@ -1,3 +1,6 @@
+{{if $controller == "hotdeal" || $controller == "promotion"}}
+    {{$controller = "product"}}
+{{/if}}
 <script type="text/javascript">
 function get_Checked_Checkbox_By_Name(Input_Name) {
     var arr = [];

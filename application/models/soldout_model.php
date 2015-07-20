@@ -6,7 +6,7 @@
  * Contact : nguyenvanphuc0626@gmail.com
  */
 
-class Hotdeal_model extends MY_Model{
+class Soldout_model extends MY_Model{
 	
 	public function __construct(){
 		parent::__construct();
@@ -65,6 +65,8 @@ class Hotdeal_model extends MY_Model{
 		$this->datatables
 		->select("checkout,id,product_code,product_name,net_price,image")
 		->from($this->table_name);
+                
+                $this->datatables->where('status',0);
 	
 		$this->datatables->set_produce_output(false);
 		$ouput = $datatables = $this->datatables->generate();

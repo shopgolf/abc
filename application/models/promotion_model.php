@@ -6,7 +6,7 @@
  * Contact : nguyenvanphuc0626@gmail.com
  */
 
-class Hotdeal_model extends MY_Model{
+class Promotion_model extends MY_Model{
 	
 	public function __construct(){
 		parent::__construct();
@@ -63,8 +63,9 @@ class Hotdeal_model extends MY_Model{
 	
 	public function json_data($controller, $right){
 		$this->datatables
-		->select("checkout,id,product_code,product_name,net_price,image")
-		->from($this->table_name);
+		->select("id,product_code,product_name,net_price,image,checkout,final_price")
+		->from($this->table_name)
+                ->where("final_price > 0");
 	
 		$this->datatables->set_produce_output(false);
 		$ouput = $datatables = $this->datatables->generate();
@@ -77,10 +78,10 @@ class Hotdeal_model extends MY_Model{
                         "<input type='checkbox' value='".$item['id']."' onclick=get_Checked_Checkbox_By_Name('checkCol') name='checkCol' id='checkCol' class='checkbox' />",
                         $item['product_code'],
                         $item['product_name'],
-                        $this->bookinglib->my_number_format($item['net_price'],2, ',', ','),
+                        $this->bookinglib->my_number_format($item['net_price'],2, ',', ',').'VND<br/>KM='.$this->bookinglib->my_number_format($item['final_price'],2, ',', ',').'VND',
                         '<img style="width:40%" src="/'.UPLOAD_DIR.'/product/'.$img[0].'" />',
                         $item['checkout'],
-                        $this->add_button('product', $right, $item)
+                        $this->add_button($controller, $right, $item)
                     );
 		}
 	

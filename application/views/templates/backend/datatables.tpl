@@ -7,7 +7,6 @@
     </div>
 {{/if}}
 
-
 <div class="mailbox-controls">
     <!-- Check all button -->
     <button class="btn btn-default btn-sm checkbox-toggle"><i class="fa fa-square-o"></i></button>
@@ -18,7 +17,11 @@
     </div>
     <!-- /.btn-group -->
     <button class="btn btn-default btn-sm"><i class="fa fa-refresh"></i></button>
-    <a href="{{$link_bk}}/{{$controller}}/index/add.html"><button class="btn btn-success btn-flat"><i class="fa fa-plus"></i> {{$lang.add}} {{$lang.product}}</button></a>
+        {{if $controller == "hotdeal" || $controller == "promotion"}}
+            {{$controller = "product"}}
+        {{/if}}
+        <a href="{{$link_bk}}/{{$controller}}/index/add.html">
+        <button class="btn btn-success btn-flat"><i class="fa fa-plus"></i> {{$lang.add}} {{$lang.product}}</button></a>
 </div>
 <table class="table table-striped table-bordered" id="data-table" width="100%">
 	<thead>
