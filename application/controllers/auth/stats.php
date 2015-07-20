@@ -23,9 +23,6 @@ class Stats extends MY_Controller {
                 $this->load->model('checkout_model');
 	}
 
-	/**
-	 * Displays list of category.
-	 */
 	public function index(){
 		$this->view_data	= array();
 		$this->view_data['flash_message_error']	= $this->session->flashdata('flash_message_error');

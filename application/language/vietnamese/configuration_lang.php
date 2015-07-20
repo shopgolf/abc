@@ -1,3 +1,2 @@
 <?php
-
-$lang['configuration_list']			= 'Danh sách cấu hình';
+$lang['configuration']			= 'Cấu Hình Hệ Thống Website';

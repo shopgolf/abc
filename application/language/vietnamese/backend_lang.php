@@ -33,6 +33,7 @@ $lang['user']					= 'Người dùng';
 
 $lang['update_successful']		= 'Cập nhập dữ liệu thành công';
 $lang['delete_successful']		= 'Xóa dữ liệu thành công';
+$lang['delete_error']		= 'Xóa dữ liệu thành công';
 
 $lang['code_suffix']			= '-'.rand();
 
@@ -93,3 +94,7 @@ $lang['ext_time']               =   'dd-mm-yy';
 $lang['net_price']            =   'Giá đầu';
 $lang['final_price']            =   'Giá cuối';
 $lang['deleteInfo']             =   'Vui lòng chọn thông tin cần xóa';
+
+$lang['site_title']             = 'Title Website';
+$lang['input_text']             = 'Nhập Thông Tin';
+$lang['site_logo']              = 'Logo';
