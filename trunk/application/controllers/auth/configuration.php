@@ -11,96 +11,37 @@ class Configuration extends BACKEND_Controller {
 
 	public function __construct() {
 		parent::__construct();
+                $this->load->language('configuration');
+		require_once(APPPATH . 'modules/backend/autoload.php');
+		if($this->is_logged_in() == FALSE) {
+			$this->session->set_userdata('redirect_uri', current_url());redirect('auth');
+		}
+                $this->load->model('configuration_model');
+                $this->set_controller('configuration');
+                $this->set_model($this->configuration_model);
+                $this->load->library('bookinglib');
+                $this->bookinglib = new bookinglib();
+                
+                $this->smarty->assign(array(
+                    "lang"          =>  $this->lang->language
+                ));
+	}
 
-		$this->load->language('configuration');
-		$this->load->language('button');
+	public function index(){
 		if($this->database_connect_status){
-			$this->load->model('configuration_model');
-			$this->set_controller('configuration');
-			$this->set_model($this->configuration_model);
-		}
-	}
-
-	protected function update($id=NULL){
-		$this->view_data["configuration"] 				= new stdClass();
-		$this->view_data["configuration"]->title			= $this->input->post('title');
-		$this->view_data["configuration"]->value			= $this->input->post('value');
-                $this->view_data["configuration"]->code                         = $this->input->post('code');
-
-		if($this->input->server('REQUEST_METHOD')=='POST'){
-
-			$this->load->helper('form');
-			$this->load->helper('character');
-
-			// Validate form.
-			$this->load->helper('form');
-			$this->load->library('form_validation');
-			$this->form_validation->set_error_delimiters('<div class="alert alert-error"><strong>'.$this->lang->line('error').': </strong>', '</div>');
-			//require field and xss clean
-			$rules = array(
-					array(
-							'field'   => 'title',
-							'label'   =>  $this->lang->line('title'),
-							'rules'   => 'trim|required|max_length[150]|xss_clean'
-					),
-					array(
-							'field'   => 'value',
-							'label'   =>  $this->lang->line('value'),
-							'rules'   => 'trim|required|max_length[150]|xss_clean'
-					),
-                                        array(
-							'field'   => 'code',
-							'label'   =>  $this->lang->line('code'),
-							'rules'   => 'trim|required|max_length[150]|xss_clean'
-					)
-			);
-
-			$this->form_validation->set_error_delimiters('<div class="alert alert-error"><strong>'.$this->lang->line('error').': </strong>', '</div>');
-			$this->form_validation->set_rules($rules);
-			if ($this->form_validation->run()==TRUE){
-				if($id>0){
-					$this->configuration_model->update($this->view_data["configuration"], $id);
-					unset($this->view_data["configuration"]);
-
-				}else{
-					$id = $this->configuration_model->create($this->view_data["configuration"]);
-				}
-
-				if($id > 0){
-					$this->session->set_flashdata('flash_message', $this->lang->line('update_successful'));	
-					if($this->input->post('submit')=='create'){
-						redirect(site_url('auth/configuration/index/add'));
-					}else{
-						redirect('auth/configuration/index/edit/'.$id);
-					}
-				}else{
-					if($this->input->post('submit')=='create'){
-						redirect(site_url('auth/configuration/index/add'));
-					}else{
-						redirect('auth/configuration/');
-					}
-				}
-			}
-
-		}
-
-		$this->load->model('configuration_model');
-		if($id>0){
-			$configuration_query	= $this->configuration_model->find_by(array('id' => $id));
-			if(!isset($configuration_query[0])){
-				$this->session->set_flashdata('flash_message', $this->lang->line('not_exists'));
-				redirect(site_url('auth/configuration'));
-				exit();
-			}
-			$this->view_data['configuration']				= $configuration_query[0];
+                        $this->smarty->display('auth/configuration/index');
 		}else{
-			$this->view_data["configuration"]->id	 		= $id;
+                        $this->smarty->assign(array(
+                            "flash_message"  =>  $this->lang->line('database_connect_failed')
+                        ));
+                        $this->smarty->display('auth/stats/dashboard');
 		}
-
-		$this->view_data['js'] = array(
-				base_url().'static/templates/backend/js/main.js'
-		);
-
-		$this->load->view('auth/configuration/edit', $this->view_data);
 	}
+        
+        public function add(){
+            echo '<pre>';
+            print_r('fewafewa');
+            echo '</pre>';
+            exit;
+        }
 }
