@@ -209,7 +209,7 @@
                         <ul class="treeview-menu">
                             <li><a href="{{$link_bk}}/product/index/add.html"><i class="glyphicon glyphicon-info-sign"></i> Thêm mới</a></li>
                             <li><a href="{{$link_bk}}/product.html"><i class="glyphicon glyphicon-list-alt text-info"></i> List sản phẩm</a></li>
-                            <li><a href="{{$link_bk}}/deal.html"><i class="glyphicon glyphicon-list-alt text-info"></i> Khuyến Mãi</a></li>
+                            <li><a href="{{$link_bk}}/promotion.html"><i class="glyphicon glyphicon-list-alt text-info"></i> Khuyến Mãi</a></li>
                             <li><a href="{{$link_bk}}/soldout.html"><i class="glyphicon glyphicon-list-alt text-info"></i> Hết hàng</a></li>
                             <li><a href="{{$link_bk}}/hotdeal.html"><i class="glyphicon glyphicon-list-alt text-info"></i> Mua nhiều</a></li>
                             <li><a href="{{$link_bk}}/bid.html"><i class="glyphicon glyphicon-list-alt text-info"></i> Sản phẩm đang đâu giá</a></li>
