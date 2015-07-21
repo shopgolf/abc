@@ -99,3 +99,7 @@ $lang['site_title']             = 'Title Website';
 $lang['input_text']             = 'Nhập Thông Tin';
 $lang['site_logo']              = 'Logo';
 $lang['product']                =   'Sản phẩm';
+$lang['hotdeal_list']           =   'Sản phẩm mua nhiều';
+$lang['soldout_list']           =   'Sản phẩm hết hàng';
+$lang['promotion_list']           =   'Sản phẩm khuyến mãi';
+$lang['bid_list']           =   'Sản phẩm đấu giá';
