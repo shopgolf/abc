@@ -1,4 +1,4 @@
-{{if $controller == "hotdeal" || $controller == "promotion"}}
+{{if $controller == "hotdeal" || $controller == "promotion" || $controller == "bid"}}
     {{$controller = "product"}}
 {{/if}}
 <script type="text/javascript">
