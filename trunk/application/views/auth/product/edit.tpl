@@ -4,10 +4,10 @@
 <div class="content-wrapper">
   <!-- Content Header (Page header) -->
   <section class="content-header">
-    <h1>{{if segment == "add"}} {{$lang.add}} {{else}}{{$lang.edit}} {{$lang.product}}{{/if}} <small>Have a nice day</small> </h1>
+    <h1>{{if $segment == "add"}} {{$lang.add}} {{else}}{{$lang.edit}}{{/if}} {{$lang.product}}<small>Have a nice day</small> </h1>
     <ol class="breadcrumb">
       <li><a href="#"><i class="fa fa-dashboard"></i> {{$lang.page_home}}</a></li>
-      <li class="active">{{if segment == "add"}} {{$lang.add}} {{else}}{{$lang.edit}} {{$lang.product}}{{/if}}</li>
+      <li class="active">{{if $segment == "add"}} {{$lang.add}} {{else}}{{$lang.edit}}{{/if}} {{$lang.product}}</li>
     </ol>
   </section>
   <!-- Main content -->
