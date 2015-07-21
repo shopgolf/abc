@@ -12,6 +12,7 @@ $lang['edit']   = 'Sửa';
 $lang['delete'] = 'Xóa';
 $lang['search'] = 'Tìm';
 $lang['accept'] = "Xác nhận";
+$lang['add']    = "Khởi tạo";
 
 /* End of file button_lang.php */
 /* Location: ./application/language/vietnamese/button_lang.php */
