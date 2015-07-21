@@ -5,4 +5,6 @@ if ( ! defined('BASEPATH')) exit('No direct script access allowed');
  */
 
 $route['default_controller']            = "home";
-$route['404_override']            	= '';
+$route['gioi-thieu']                    = "about";
+$route['lien-he']                       = "contact";
+$route['404_override']            	    = '';
