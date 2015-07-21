@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Jul 12, 2015 at 05:35 PM
+-- Generation Time: Jul 21, 2015 at 04:29 AM
 -- Server version: 5.6.17
 -- PHP Version: 5.5.12
 
@@ -48,9 +48,14 @@ CREATE TABLE IF NOT EXISTS `advertising` (
 CREATE TABLE IF NOT EXISTS `configuration` (
   `id` smallint(3) unsigned NOT NULL AUTO_INCREMENT,
   `title` varchar(150) NOT NULL,
-  `code` varchar(150) NOT NULL,
-  `value` text,
-  `description` text,
+  `keyword` varchar(100) DEFAULT NULL,
+  `description` varchar(255) DEFAULT NULL,
+  `logo` varchar(255) NOT NULL,
+  `address` varchar(255) DEFAULT NULL,
+  `phone` int(15) DEFAULT NULL,
+  `email` varchar(40) DEFAULT NULL,
+  `fax` int(15) DEFAULT NULL,
+  `facebook` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
 
@@ -66,7 +71,7 @@ CREATE TABLE IF NOT EXISTS `groupright` (
   `role_id` tinyint(2) unsigned DEFAULT '0',
   `permission_id` tinyint(1) unsigned DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=33 ;
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=53 ;
 
 --
 -- Dumping data for table `groupright`
@@ -104,7 +109,27 @@ INSERT INTO `groupright` (`id`, `group_id`, `role_id`, `permission_id`) VALUES
 (29, 1, 7, 1),
 (30, 1, 7, 2),
 (31, 1, 7, 3),
-(32, 1, 7, 4);
+(32, 1, 7, 4),
+(33, 1, 8, 1),
+(34, 1, 8, 2),
+(35, 1, 8, 3),
+(36, 1, 8, 4),
+(37, 1, 9, 1),
+(38, 1, 9, 2),
+(39, 1, 9, 3),
+(40, 1, 9, 4),
+(41, 1, 10, 1),
+(42, 1, 10, 2),
+(43, 1, 10, 3),
+(44, 1, 10, 4),
+(45, 1, 11, 1),
+(46, 1, 11, 2),
+(47, 1, 11, 3),
+(48, 1, 11, 4),
+(49, 1, 12, 1),
+(50, 1, 12, 2),
+(51, 1, 12, 3),
+(52, 1, 12, 4);
 
 -- --------------------------------------------------------
 
@@ -189,7 +214,7 @@ CREATE TABLE IF NOT EXISTS `px_adminlog` (
   `ip` varchar(20) COLLATE utf8_unicode_ci DEFAULT NULL,
   `logAction` varchar(255) CHARACTER SET utf8 NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=41 ;
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=134 ;
 
 --
 -- Dumping data for table `px_adminlog`
@@ -235,7 +260,100 @@ INSERT INTO `px_adminlog` (`id`, `userid`, `lastLogin`, `ip`, `logAction`) VALUE
 (37, 1, '2015-07-12 17:45:48', '127.0.0.1', '[NewCart] Xóa dữ liệu thành công id = 14'),
 (38, 1, '2015-07-12 17:45:51', '127.0.0.1', '[NewCart] Xóa dữ liệu thành công id = 17'),
 (39, 1, '2015-07-12 17:45:54', '127.0.0.1', '[NewCart] Xóa dữ liệu thành công id = 18'),
-(40, 1, '2015-07-12 22:22:16', '127.0.0.1', '[NewCart] Xóa dữ liệu thành công id = 19');
+(40, 1, '2015-07-12 22:22:16', '127.0.0.1', '[NewCart] Xóa dữ liệu thành công id = 19'),
+(41, 3, '2015-07-12 22:42:51', '127.0.0.1', '[Login] Đăng nhập thành công'),
+(42, 1, '2015-07-13 08:33:35', '127.0.0.1', '[Login] Đăng nhập thành công'),
+(43, 1, '2015-07-13 15:39:24', '127.0.0.1', '[NewCart] Xóa dữ liệu thành công id = 21'),
+(44, 1, '2015-07-13 15:39:27', '127.0.0.1', '[NewCart] Xóa dữ liệu thành công id = 22'),
+(45, 1, '2015-07-13 15:41:50', '127.0.0.1', '[NewCart] Xóa dữ liệu thành công id = 23'),
+(46, 1, '2015-07-13 20:34:32', '127.0.0.1', '[Login] Đăng nhập thành công'),
+(47, 1, '2015-07-13 21:50:13', '127.0.0.1', 'Xác nhận đơn hàng 24 '),
+(48, 1, '2015-07-13 22:04:18', '127.0.0.1', 'Xác nhận đơn hàng 32 '),
+(49, 1, '2015-07-14 08:44:17', '127.0.0.1', '[Login] Đăng nhập thành công'),
+(50, 1, '2015-07-14 13:43:24', '127.0.0.1', '[Login] Đăng nhập thành công'),
+(51, 1, '2015-07-14 13:43:32', '127.0.0.1', '[Login] Đăng nhập thành công'),
+(52, 1, '2015-07-14 14:41:41', '127.0.0.1', '[Login] Đăng nhập thành công'),
+(53, 1, '2015-07-14 15:03:00', '127.0.0.1', '[Login] Đăng nhập thành công'),
+(54, 1, '2015-07-14 15:05:48', '127.0.0.1', '[Login] Đăng nhập thành công'),
+(55, 1, '2015-07-14 18:45:59', '127.0.0.1', '[Login] Đăng nhập thành công'),
+(56, 1, '2015-07-15 05:55:43', '127.0.0.1', '[NewCart] Xóa dữ liệu thành công id = 21'),
+(57, 1, '2015-07-15 05:55:59', '127.0.0.1', 'Xác nhận đơn hàng 24 '),
+(58, 1, '2015-07-16 01:37:12', '127.0.0.1', '[Login] Đăng nhập thành công'),
+(59, 1, '2015-07-16 00:39:20', '127.0.0.1', '[Logout] '),
+(60, 1, '2015-07-16 00:39:24', '127.0.0.1', '[Login] Đăng nhập thành công'),
+(61, 1, '2015-07-16 00:50:27', '127.0.0.1', '[AddProductSuccess] Thêm sản phẩm thành công'),
+(62, 1, '2015-07-16 11:52:51', '127.0.0.1', ''),
+(63, 1, '2015-07-16 11:56:46', '127.0.0.1', ''),
+(64, 1, '2015-07-16 11:58:53', '127.0.0.1', ''),
+(65, 1, '2015-07-16 11:59:39', '127.0.0.1', ''),
+(66, 1, '2015-07-16 12:01:04', '127.0.0.1', 'Xóa dữ liệu thành công - Product ID = 8'),
+(67, 1, '2015-07-16 12:01:26', '127.0.0.1', 'Xóa dữ liệu thành công - Product ID = 5'),
+(68, 1, '2015-07-16 12:02:12', '127.0.0.1', 'Xóa dữ liệu thành công - Product ID = 2'),
+(69, 1, '2015-07-16 12:06:43', '127.0.0.1', 'Xóa dữ liệu thành công - Product ID = 13'),
+(70, 1, '2015-07-16 12:58:38', '127.0.0.1', '[AddProductSuccess] Thêm sản phẩm thành công'),
+(71, 1, '2015-07-16 13:34:11', '127.0.0.1', '[AddProductSuccess] Thêm sản phẩm thành công'),
+(72, 1, '2015-07-16 15:36:16', '127.0.0.1', '[AddProductSuccess] Thêm sản phẩm thành công'),
+(73, 1, '2015-07-17 00:36:05', '127.0.0.1', '[AddProductSuccess] Thêm sản phẩm thành công'),
+(74, 1, '2015-07-17 00:36:38', '127.0.0.1', '[AddProductSuccess] Thêm sản phẩm thành công'),
+(75, 1, '2015-07-17 06:30:02', '127.0.0.1', 'Xóa dữ liệu thành công - Product ID = 18,17,16,15,14'),
+(76, 1, '2015-07-17 06:40:15', '127.0.0.1', '[Login] Đăng nhập thành công'),
+(77, 1, '2015-07-17 07:04:25', '127.0.0.1', '[AddProductSuccess] Thêm sản phẩm thành công'),
+(78, 1, '2015-07-17 09:17:44', '127.0.0.1', '[AddProductSuccess] Thêm sản phẩm thành công'),
+(79, 1, '2015-07-19 08:41:16', '127.0.0.1', '[Login] Đăng nhập thành công'),
+(80, 1, '2015-07-19 08:41:40', '127.0.0.1', 'Xóa dữ liệu thành công - Product ID = 10'),
+(81, 1, '2015-07-19 08:50:21', '127.0.0.1', '[AddProductSuccess] Thêm sản phẩm thành công'),
+(82, 1, '2015-07-19 08:50:52', '127.0.0.1', '[AddProductSuccess] Thêm sản phẩm thành công'),
+(83, 1, '2015-07-19 09:03:30', '127.0.0.1', '[AddProductSuccess] Thêm sản phẩm thành công'),
+(84, 1, '2015-07-19 09:51:20', '127.0.0.1', 'Xóa dữ liệu thành công - Product ID = 26,25,24,23,22,21,6'),
+(85, 1, '2015-07-19 09:57:33', '127.0.0.1', '[AddProductSuccess] Thêm sản phẩm thành công'),
+(86, 1, '2015-07-19 13:14:21', '127.0.0.1', '[AddProductSuccess] Thêm sản phẩm thành công'),
+(87, 1, '2015-07-19 13:14:50', '127.0.0.1', '[AddProductSuccess] Thêm sản phẩm thành công'),
+(88, 1, '2015-07-19 16:04:39', '127.0.0.1', '[Login] Đăng nhập thành công'),
+(89, 1, '2015-07-19 21:27:36', '127.0.0.1', '[AddProductSuccess] Thêm sản phẩm thành công'),
+(90, 1, '2015-07-19 21:33:53', '127.0.0.1', '[UpdateProductSuccess] Cập nhập sản phẩm thành công'),
+(91, 1, '2015-07-19 21:36:04', '127.0.0.1', '[UpdateProductSuccess] Cập nhập sản phẩm thành công'),
+(92, 1, '2015-07-19 21:36:53', '127.0.0.1', '[UpdateProductSuccess] Cập nhập sản phẩm thành công'),
+(93, 1, '2015-07-19 21:39:14', '127.0.0.1', '[UpdateProductSuccess] Cập nhập sản phẩm thành công'),
+(94, 1, '2015-07-19 21:40:56', '127.0.0.1', '[UpdateProductSuccess] Cập nhập sản phẩm thành công'),
+(95, 1, '2015-07-19 21:44:24', '127.0.0.1', '[UpdateProductSuccess] Cập nhập sản phẩm thành công'),
+(96, 1, '2015-07-19 21:45:16', '127.0.0.1', '[UpdateProductSuccess] Cập nhập sản phẩm thành công'),
+(97, 1, '2015-07-19 21:45:37', '127.0.0.1', '[UpdateProductSuccess] Cập nhập sản phẩm thành công'),
+(98, 1, '2015-07-19 21:48:52', '127.0.0.1', '[UpdateProductSuccess] Cập nhập sản phẩm thành công'),
+(99, 1, '2015-07-19 21:49:05', '127.0.0.1', '[UpdateProductSuccess] Cập nhập sản phẩm thành công'),
+(100, 1, '2015-07-19 21:49:34', '127.0.0.1', '[UpdateProductSuccess] Cập nhập sản phẩm thành công'),
+(101, 1, '2015-07-20 04:36:43', '127.0.0.1', '[UpdateProductSuccess] Cập nhập sản phẩm thành công'),
+(102, 1, '2015-07-20 04:37:41', '127.0.0.1', '[UpdateProductSuccess] Cập nhập sản phẩm thành công'),
+(103, 1, '2015-07-20 04:37:47', '127.0.0.1', '[UpdateProductSuccess] Cập nhập sản phẩm thành công'),
+(104, 1, '2015-07-20 04:37:58', '127.0.0.1', '[UpdateProductSuccess] Cập nhập sản phẩm thành công'),
+(105, 1, '2015-07-20 04:41:04', '127.0.0.1', '[UpdateProductSuccess] Cập nhập sản phẩm thành công'),
+(106, 1, '2015-07-20 04:41:29', '127.0.0.1', '[UpdateProductSuccess] Cập nhập sản phẩm thành công'),
+(107, 1, '2015-07-20 04:42:03', '127.0.0.1', '[UpdateProductSuccess] Cập nhập sản phẩm thành công'),
+(108, 1, '2015-07-20 04:42:13', '127.0.0.1', '[UpdateProductSuccess] Cập nhập sản phẩm thành công'),
+(109, 1, '2015-07-20 04:42:19', '127.0.0.1', '[UpdateProductSuccess] Cập nhập sản phẩm thành công'),
+(110, 1, '2015-07-20 04:47:04', '127.0.0.1', '[UpdateProductSuccess] Cập nhập sản phẩm thành công'),
+(111, 1, '2015-07-20 04:47:36', '127.0.0.1', '[UpdateProductSuccess] Cập nhập sản phẩm thành công'),
+(112, 1, '2015-07-20 04:49:56', '127.0.0.1', '[UpdateProductSuccess] Cập nhập sản phẩm thành công'),
+(113, 1, '2015-07-20 04:56:54', '127.0.0.1', '[UpdateProductSuccess] Cập nhập sản phẩm thành công'),
+(114, 1, '2015-07-20 04:58:35', '127.0.0.1', '[UpdateProductSuccess] Cập nhập sản phẩm thành công'),
+(115, 1, '2015-07-20 04:58:40', '127.0.0.1', '[UpdateProductSuccess] Cập nhập sản phẩm thành công'),
+(116, 1, '2015-07-20 04:58:45', '127.0.0.1', '[UpdateProductSuccess] Cập nhập sản phẩm thành công'),
+(117, 1, '2015-07-20 04:58:52', '127.0.0.1', '[UpdateProductSuccess] Cập nhập sản phẩm thành công'),
+(118, 1, '2015-07-20 04:58:57', '127.0.0.1', '[UpdateProductSuccess] Cập nhập sản phẩm thành công'),
+(119, 1, '2015-07-20 05:01:53', '127.0.0.1', '[UpdateProductSuccess] Cập nhập sản phẩm thành công'),
+(120, 1, '2015-07-20 05:02:28', '127.0.0.1', '[UpdateProductSuccess] Cập nhập sản phẩm thành công'),
+(121, 1, '2015-07-20 05:02:40', '127.0.0.1', '[UpdateProductSuccess] Cập nhập sản phẩm thành công'),
+(122, 1, '2015-07-20 05:02:55', '127.0.0.1', '[UpdateProductSuccess] Cập nhập sản phẩm thành công'),
+(123, 1, '2015-07-20 05:03:20', '127.0.0.1', '[UpdateProductSuccess] Cập nhập sản phẩm thành công'),
+(124, 1, '2015-07-20 05:04:11', '127.0.0.1', '[UpdateProductSuccess] Cập nhập sản phẩm thành công'),
+(125, 1, '2015-07-20 13:44:18', '127.0.0.1', '[Login] Đăng nhập thành công'),
+(126, 1, '2015-07-20 13:45:20', '127.0.0.1', '[NewCart] Xóa dữ liệu thành công id = 24'),
+(127, 1, '2015-07-20 13:45:25', '127.0.0.1', '[NewCart] Xóa dữ liệu thành công id = 25'),
+(128, 1, '2015-07-20 13:45:27', '127.0.0.1', '[NewCart] Xóa dữ liệu thành công id = 26'),
+(129, 1, '2015-07-20 19:02:52', '127.0.0.1', '[Login] Đăng nhập thành công'),
+(130, 1, '2015-07-20 19:19:58', '127.0.0.1', 'Xóa dữ liệu thành công - Product ID = 32'),
+(131, 1, '2015-07-20 19:20:05', '127.0.0.1', 'Xóa dữ liệu thành công - Product ID = 33'),
+(132, 1, '2015-07-21 06:13:47', '127.0.0.1', '[AddProductSuccess] Thêm sản phẩm thành công'),
+(133, 1, '2015-07-21 08:26:48', '127.0.0.1', '[Login] Đăng nhập thành công');
 
 -- --------------------------------------------------------
 
@@ -267,7 +385,15 @@ CREATE TABLE IF NOT EXISTS `px_category` (
   `link` varchar(20) NOT NULL,
   `lastupdated` int(15) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=3 ;
+
+--
+-- Dumping data for table `px_category`
+--
+
+INSERT INTO `px_category` (`id`, `name`, `link`, `lastupdated`) VALUES
+(1, 'XX993I', 'http://www.google.co', 1500929301),
+(2, 'OPEP93', 'http://www.google.co', 1500929301);
 
 -- --------------------------------------------------------
 
@@ -279,6 +405,7 @@ CREATE TABLE IF NOT EXISTS `px_checkout` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `customerID` varchar(15) NOT NULL,
   `product_id` varchar(10) NOT NULL COMMENT 'id sản phẩm',
+  `product_code` varchar(50) NOT NULL,
   `quantity` int(10) NOT NULL COMMENT 'số lượng sản phẩm',
   `net_fare` int(10) NOT NULL COMMENT 'giá net',
   `sum_price` int(10) NOT NULL COMMENT 'Giá tổng cần thanh toán',
@@ -291,22 +418,14 @@ CREATE TABLE IF NOT EXISTS `px_checkout` (
   `createdTime` int(10) NOT NULL,
   `lastupdated` int(11) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=29 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=41 ;
 
 --
 -- Dumping data for table `px_checkout`
 --
 
-INSERT INTO `px_checkout` (`id`, `customerID`, `product_id`, `quantity`, `net_fare`, `sum_price`, `ship`, `vat`, `final_price`, `ipaddress`, `note`, `status`, `createdTime`, `lastupdated`) VALUES
-(20, 'CUS00492', 'WO00491', 10, 1500000, 2000000, 10000, 5, 3000000, 1, '', 0, 1433303234, 1433303565),
-(21, 'CUS00492', 'WO00491', 10, 1500000, 2000000, 10000, 5, 3000000, 1, '', 0, 1433303234, 1433303565),
-(22, 'CUS00492', 'WO00491', 10, 1500000, 2000000, 10000, 5, 3000000, 1, '', 0, 1433303234, 1433303565),
-(23, 'CUS00492', 'WO00491', 10, 1500000, 2000000, 10000, 5, 3000000, 1, '', 0, 1433303234, 1433303565),
-(24, 'CUS00492', 'WO00491', 10, 1500000, 2000000, 10000, 5, 3000000, 1, '', 0, 1433303234, 1433303565),
-(25, 'CUS00492', 'WO00491', 10, 1500000, 2000000, 10000, 5, 3000000, 1, '', 0, 1433303234, 1433303565),
-(26, 'CUS00492', 'WO00491', 10, 1500000, 2000000, 10000, 5, 3000000, 1, '', 0, 1433303234, 1433303565),
-(27, 'CUS00492', 'WO00491', 10, 1500000, 2000000, 10000, 5, 3000000, 1, '', 0, 1433303234, 1433303565),
-(28, 'CUS00492', 'WO00491', 10, 1500000, 2000000, 10000, 5, 3000000, 1, '', 0, 1433303234, 1433303565);
+INSERT INTO `px_checkout` (`id`, `customerID`, `product_id`, `product_code`, `quantity`, `net_fare`, `sum_price`, `ship`, `vat`, `final_price`, `ipaddress`, `note`, `status`, `createdTime`, `lastupdated`) VALUES
+(27, 'CUS00492', 'PRO3707202', 'THUYTH', 10, 1500000, 2000000, 10000, 5, 3000000, 1, '', 0, 1433303234, 1433303565);
 
 -- --------------------------------------------------------
 
@@ -348,35 +467,40 @@ INSERT INTO `px_contacts` (`id`, `customerID`, `name`, `address`, `phone`, `emai
 CREATE TABLE IF NOT EXISTS `px_product` (
   `id` int(5) NOT NULL AUTO_INCREMENT,
   `product_id` varchar(10) NOT NULL,
-  `product_name` varchar(30) NOT NULL,
-  `product_code` varchar(10) NOT NULL,
+  `product_name` varchar(100) NOT NULL,
+  `product_code` varchar(50) NOT NULL,
   `product_type` tinyint(1) NOT NULL,
   `image` varchar(100) NOT NULL,
   `category` int(10) NOT NULL,
-  `net_price` int(10) NOT NULL,
-  `vat` int(2) NOT NULL,
-  `final_price` int(10) NOT NULL,
+  `net_price` int(15) NOT NULL,
+  `final_price` int(15) NOT NULL,
+  `begin_price` int(15) NOT NULL,
+  `begin_time` int(15) NOT NULL,
+  `end_time` int(15) NOT NULL,
   `quantity` int(10) NOT NULL,
   `view` int(5) NOT NULL,
   `checkout` int(5) NOT NULL COMMENT 'số lượng sản phẩm dc bán ra',
   `bid_id` tinyint(1) NOT NULL COMMENT 'trạng thái đấu giá sản phẩm',
   `keyword` varchar(255) NOT NULL,
   `description` varchar(255) NOT NULL,
+  `parameters` varchar(255) NOT NULL,
   `info` varchar(255) NOT NULL,
   `status` tinyint(1) NOT NULL,
+  `owner` int(4) NOT NULL,
   `createdTime` int(15) NOT NULL,
   `lastupdated` int(10) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=4 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=37 ;
 
 --
 -- Dumping data for table `px_product`
 --
 
-INSERT INTO `px_product` (`id`, `product_id`, `product_name`, `product_code`, `product_type`, `image`, `category`, `net_price`, `vat`, `final_price`, `quantity`, `view`, `checkout`, `bid_id`, `keyword`, `description`, `info`, `status`, `createdTime`, `lastupdated`) VALUES
-(1, 'WO10491', 'GIAY DA THE THAO', 'CRXOO3', 1, 'https://www.facebook.com/photo.php?fbid=160675952', 1, 111111, 0, 222222, 11, 1, 21, 1, '', '', '', 1, 1433392129, 1433392129),
-(2, 'WO10498', 'AO THUN BA LO', 'CRXOO334', 1, 'https://www.facebook.com/photo.php?fbid=16033', 1, 111111, 0, 222222, 11, 1, 21, 1, '', '', '', 1, 1433392129, 1433392129),
-(3, 'WO00491', 'QUAN SIP TAM GIAC', 'CRXOO314', 1, 'https://www.facebook.com/photo.php?fbid=160674798', 1, 111111, 0, 222222, 11, 1, 21, 1, '', '', '', 1, 1433392129, 1433392129);
+INSERT INTO `px_product` (`id`, `product_id`, `product_name`, `product_code`, `product_type`, `image`, `category`, `net_price`, `final_price`, `begin_price`, `begin_time`, `end_time`, `quantity`, `view`, `checkout`, `bid_id`, `keyword`, `description`, `parameters`, `info`, `status`, `owner`, `createdTime`, `lastupdated`) VALUES
+(31, 'PRO3707202', 'COOCOOCO', 'THUYTH', 1, '["c95fa8e499b3f3a0eee9dbbde259d996.jpeg","11e88ee9fd8a754b861d34127c911e6e.jpeg"]', 1, 2122222, 0, 0, 0, 0, 0, 0, 542, 0, 'COOCOOCO', 'COOCOOCO', '{"classification":"","manufacturer":"","model":"","shaft":"","count":"","loft":"","hardness":"","gross":"","balance":"","price":"","club":""}', '<p>weafwaefawe fewa</p>', 0, 1, 0, 2015),
+(34, 'PRO1307218', 'ÁO CHOÀNG QUỐC TÉ', 'PEO2DD', 2, '["11e88ee9fd8a754b861d34127c911e6e.jpeg"]', 2, 1200000, 1000000, 0, 0, 0, 0, 0, 213, 0, 'ÁO CHOÀNG QUỐC TÉ', 'ÁO CHOÀNG QUỐC TÉ', '{"classification":"","manufacturer":"","model":"","shaft":"","count":"","loft":"","hardness":"","gross":"","balance":"","price":"","club":""}', '<p>&Aacute;O CHO&Agrave;NG QUỐC T&Eacute;</p>\r\n<p>&Aacute;O CHO&Agrave;NG QUỐC T&Eacute;</p>\r\n<p>&Aacute;O CHO&Agrave;NG QUỐC T&Eacute;</p>', 1, 1, 0, 2015),
+(35, 'PRO3707202', 'COOCOOCO', 'THUYTH', 1, '["c95fa8e499b3f3a0eee9dbbde259d996.jpeg","11e88ee9fd8a754b861d34127c911e6e.jpeg"]', 1, 2122222, 0, 0, 0, 0, 0, 0, 542, 1, 'COOCOOCO', 'COOCOOCO', '{"classification":"","manufacturer":"","model":"","shaft":"","count":"","loft":"","hardness":"","gross":"","balance":"","price":"","club":""}', '<p>weafwaefawe fewa</p>', 0, 1, 0, 2015),
+(36, 'PRO1307218', 'ÁO CHOÀNG QUỐC TÉ', 'PEO2DD', 2, '["11e88ee9fd8a754b861d34127c911e6e.jpeg"]', 2, 1200000, 1000000, 0, 0, 0, 0, 0, 213, 1, 'ÁO CHOÀNG QUỐC TÉ', 'ÁO CHOÀNG QUỐC TÉ', '{"classification":"","manufacturer":"","model":"","shaft":"","count":"","loft":"","hardness":"","gross":"","balance":"","price":"","club":""}', '<p>&Aacute;O CHO&Agrave;NG QUỐC T&Eacute;</p>\r\n<p>&Aacute;O CHO&Agrave;NG QUỐC T&Eacute;</p>\r\n<p>&Aacute;O CHO&Agrave;NG QUỐC T&Eacute;</p>', 1, 1, 0, 2015);
 
 -- --------------------------------------------------------
 
@@ -416,7 +540,7 @@ CREATE TABLE IF NOT EXISTS `role` (
   `editor_id` smallint(3) unsigned DEFAULT NULL,
   `active` tinyint(1) unsigned NOT NULL DEFAULT '1',
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=8 ;
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=12 ;
 
 --
 -- Dumping data for table `role`
@@ -428,7 +552,11 @@ INSERT INTO `role` (`id`, `title`, `code`, `description`, `created`, `updated`, 
 (6, 'Quản lí banner sản phẩm', 'advertising', 'Quản lí banner sản phẩm', '2015-07-02 09:03:47', NULL, 1, NULL, 1),
 (4, 'Hệ thống', 'configuration', 'Cấu hình set up các biến hệ thống', '2015-03-18 13:24:33', NULL, 152, NULL, 1),
 (5, 'Tài khoản', 'user', 'Tài khoản', '2015-06-30 00:00:00', '2015-06-30 00:00:00', NULL, NULL, 1),
-(7, 'Sản phẩm', 'product', 'sản phẩm', '2015-07-10 00:48:59', NULL, 1, NULL, 1);
+(7, 'Sản phẩm', 'product', 'sản phẩm', '2015-07-10 00:48:59', NULL, 1, NULL, 1),
+(8, 'Sản phẩm dc mua nhiều', 'hotdeal', 'Sản phẩm dc mua nhiều', '2015-07-20 00:00:00', '2015-07-20 00:00:00', 1, NULL, 1),
+(9, 'Khuyến mãi', 'promotion', 'Khuyến mãi', NULL, NULL, NULL, NULL, 1),
+(10, 'Trạng thái đang hơn còn hay hết', 'soldout', 'Trạng thái đang hơn còn hay hết', NULL, NULL, NULL, NULL, 1),
+(11, 'Trạng thái đấu giá sản phẩm', 'bid', 'Trạng thái đấu giá sản phẩm', NULL, NULL, NULL, NULL, 1);
 
 -- --------------------------------------------------------
 
