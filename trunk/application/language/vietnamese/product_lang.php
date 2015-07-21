@@ -13,3 +13,7 @@ $lang['product_detail']             =   'Mô Tả Chi Tiết Sản Phẩm';
 $lang['add_product_success']        =   'Thêm sản phẩm thành công';
 $lang['update_product_success']     =   'Cập nhập sản phẩm thành công';       
 $lang['checkout']                   =   'Checkout';
+$lang['product_hotdeal']            =   'Sản phẩm bán chạy';
+$lang['product_soldout']            =   'Sản phẩm hết hàng';
+$lang['product_promotion']          =   'Sản phẩm khuyến mãi';
+$lang['product_bid']                =   'Sản phẩm đấu giá';
