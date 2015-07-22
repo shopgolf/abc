@@ -47,7 +47,7 @@
  [1. Common styles]
  */
 body{
-    font-family: 'OpenSans-Regular';
+    font-family: 'Arial', sans-serif;
     font-size: 14px;
     overflow-x:hidden; 
 }
@@ -5340,7 +5340,7 @@ span.notify-right{
   left: 4.2%;
 }
 .category-page.option3 #main-menu .navbar .navbar-nav>li>a{
-  padding: 0px 16px;
+  padding: 0px 17px;
 }
 .category-page.option3 .subcategories{
   padding: 0px 15px;
