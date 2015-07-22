@@ -112,13 +112,19 @@ class Product extends BACKEND_Controller {
                         $this->view_data["product"]->net_price                          = $this->input->post('net_price_fake');
                         $this->view_data["product"]->final_price                        = $this->input->post('final_price_fake');
                         $this->view_data["product"]->begin_price                        = $this->input->post('begin_price_fake');
-                        $this->view_data["product"]->begin_time                         = $this->input->post('begin_time');
-                        $this->view_data["product"]->end_time                           = $this->input->post('end_time');
+                        $this->view_data["product"]->begin_time                         = strtotime($this->input->post('begin_time'));
+                        $this->view_data["product"]->end_time                           = strtotime($this->input->post('end_time'));
                         $this->view_data["product"]->parameters                         = json_encode($parameters);
                         $this->view_data["product"]->info                               = trim($this->input->post('info'));
                         
                         $this->view_data["product"]->owner                              = $this->session->userdata['user_id'];
                         $this->view_data["product"]->lastupdated                        = date("Y-m-d H:i:s",time());
+                        
+                        if($this->input->post('begin_price') && $this->input->post('begin_time') && $this->input->post('end_time')){
+                            $this->view_data["product"]->bid   =   1;
+                        } else {
+                            $this->view_data["product"]->bid   =   0;
+                        }
                         
                         $this->load->helper('form');
                         $this->load->helper('character');

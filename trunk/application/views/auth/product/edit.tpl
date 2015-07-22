@@ -139,7 +139,7 @@
                             <div class="input-group-addon"><label for="begin_price">{{$lang.begin_price}}</label></div>
                             <input type="text" class="form-control" id="begin_price" placeholder="" name="begin_price" value="{{if isset($product->begin_price)}}{{$product->begin_price}}{{/if}}">
                             <input type="hidden" id="begin_price_fake" name="begin_price_fake" value="{{if isset($product->begin_price)}}{{$product->begin_price}}{{/if}}">
-                          <div class="input-group-addon">.000 {{$lang.ext_price}}</div>
+                          <div class="input-group-addon">{{$lang.ext_price}}</div>
                         </div>
                       </div>
                       <div class="box-body">
@@ -278,7 +278,7 @@
 </div>
 <script src="{{$static_bk}}/js/autoNumeric.js"></script>
 <script type="text/javascript" src="{{$static_bk}}/js/validate.min.js"></script>
-
+{{include file = 'templates/backend/datetimepicker.tpl'}}
 <script type="text/javascript">
 $(document).ready(function() {
     $('#net_price').autoNumeric('init',{aSign:'',mDec:0, pSign:'s' });
@@ -369,5 +369,9 @@ function UnFormatNumber(x) {
     return x.toString().replace(/,|VNĐ|\s/g, "");
     }
 };
+$(function() {
+    $("#begin_time").datetimepicker({ theme:'dark',format:'d-m-Y H:i:s' });
+    $("#end_time").datetimepicker({ theme:'dark',format:'d-m-Y H:i:s' });
+});
 </script>
 {{include file = 'templates/backend/footer.tpl'}}

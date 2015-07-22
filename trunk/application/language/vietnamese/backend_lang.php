@@ -9,17 +9,15 @@ $lang['action']					= 'Chức năng';
 $lang['language']				= 'Ngôn ngữ';
 
 //menu
-$lang['menu_statistic']                         = 'Thống kê';
 $lang['menu_user']				= 'Tài khoản';
-$lang['menu_data']				= 'Dữ liệu';
 $lang['menu_advertising']		= 'Banner';
 $lang['menu_configuration']		= 'Cấu hình';
-$lang['menu_partner']			= 'Đối tác';
 $lang['menu_system']			= 'Hệ thống';
 $lang['menu_menu']				= 'Menu';
 $lang['menu_group']				= 'Nhóm';
 $lang['menu_role']				= 'Quyền hạn';
 $lang['menu_logout']			= 'Đăng xuất';
+$lang['menu_dashboard']				= 'Dashboard';
 
 //list
 $lang['product_list']                   = 'Danh sách sản phẩm';
@@ -102,4 +100,5 @@ $lang['product']                =   'Sản phẩm';
 $lang['hotdeal_list']           =   'Sản phẩm mua nhiều';
 $lang['soldout_list']           =   'Sản phẩm hết hàng';
 $lang['promotion_list']           =   'Sản phẩm khuyến mãi';
-$lang['bid_list']           =   'Sản phẩm đấu giá';
+$lang['bid_list']           =   'Sản phẩm đang đấu giá';
+$lang['list']                   =   'Danh sách';

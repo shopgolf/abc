@@ -17,7 +17,7 @@
     </div>
     <!-- /.btn-group -->
     <button class="btn btn-default btn-sm"><i class="fa fa-refresh"></i></button>
-        {{if $controller == "hotdeal" || $controller == "promotion"}}
+        {{if $controller == "hotdeal" || $controller == "promotion" || $controller == "bid"}}
             {{$controller = "product"}}
         {{/if}}
         <a href="{{$link_bk}}/{{$controller}}/index/add.html">
