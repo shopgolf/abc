@@ -59,21 +59,25 @@
                   </tr>
                 </thead>
                 <tbody id="show">
-                    {{foreach $list as $vals}}
-                            <tr>
-                                <td>{{$vals->product_code}}</td>
-                                <td>{{$vals->quantity}}</td>
-                                <td>{{$vals->info}}</td>
-                                <td>{{$vals->cname}}</td>
-                                <td>{{$vals->caddress}}</td>
-                                <td>{{$vals->cphone}}</td>
-                                <td>{{$vals->createdTime|date_format:"%d-%m-%Y %H:%M:%S"}}</td>
-                                <td>
-                                    <a class="btn btn-default btn-sm" data-toggle="modal" href="#delete_confirm" onclick="delete_confirm('/auth/stats/delete/{{$vals->id}}')"><i class="fa fa-check"></i>{{$lang.delete}}</a>
-                                    <button class="btn btn-default btn-sm"><a onclick="action_accept('{{$link_bk}}/stats/accept/{{$vals->id}}')" ><i class="fa fa-check"></i>{{$lang.accept}}</a></button>
-                                </td>
-                            </tr>
-                    {{/foreach}}
+                    {{if $list}}
+                        {{foreach $list as $vals}}
+                                <tr>
+                                    <td>{{$vals->product_code}}</td>
+                                    <td>{{$vals->quantity}}</td>
+                                    <td>{{$vals->info}}</td>
+                                    <td>{{$vals->cname}}</td>
+                                    <td>{{$vals->caddress}}</td>
+                                    <td>{{$vals->cphone}}</td>
+                                    <td>{{$vals->createdTime|date_format:"%d-%m-%Y %H:%M:%S"}}</td>
+                                    <td>
+                                        <a class="btn btn-default btn-sm" data-toggle="modal" href="#delete_confirm" onclick="delete_confirm('/auth/stats/delete/{{$vals->id}}')"><i class="fa fa-check"></i>{{$lang.delete}}</a>
+                                        <button class="btn btn-default btn-sm"><a onclick="action_accept('{{$link_bk}}/stats/accept/{{$vals->id}}')" ><i class="fa fa-check"></i>{{$lang.accept}}</a></button>
+                                    </td>
+                                </tr>
+                        {{/foreach}}
+                     {{else}}
+                        <tr><td>{{$lang.notfound}}</td></tr>
+                     {{/if}}
                 </tbody>
               </table>
             </div>

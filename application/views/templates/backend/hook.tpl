@@ -16,7 +16,7 @@
       <div class="col-md-12">
         <div class="box box-info">
           <div class="box-header with-border">
-            <h3 class="box-title">{{$lang.product}}</h3>
+            <h3 class="box-title">{{$datatables.label}}</h3>
             <div class="box-tools pull-right">
               <button class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus box-title"></i></button>
               <button class="btn btn-box-tool" data-widget="remove"><i class="fa fa-times box-title"></i></button>

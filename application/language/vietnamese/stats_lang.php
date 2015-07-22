@@ -13,4 +13,3 @@ $lang['stats_group']				= 'Nhóm tài khoản';
 $lang['stats_role']					= 'Nhóm quyền';
 $lang['stats_deactive'] 			= 'Chưa kích hoạt';
 $lang['stats_active'] 				= 'Kích hoạt';
-$lang['stats_cart']				= 'Đơn hàng mới';
