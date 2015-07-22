@@ -18,14 +18,13 @@ class Checkout_model extends MY_Model{
 		$this->db->select("tbl.id,tbl.product_id,tbl.quantity,tbl.createdTime,ct.name AS cname,ct.phone AS cphone,ct.email AS cemail,ct.address AS caddress,ct.identityNumber AS cnumber,pd.product_code,pd.info");
 		$this->db->from($this->table_name.' AS tbl');
                 $this->db->join('px_contacts AS ct','ct.customerID = tbl.customerID','inner');
-                $this->db->join('px_product AS pd','pd.product_id = tbl.product_id','left');
+                $this->db->join('px_product AS pd','pd.product_id = tbl.product_id','inner');
                 
                 if($limit){
                     $this->db->limit($limit,$offset);
                 }
-                if($status){
-                    $this->db->where('status',$status);
-                }
+                
+                $this->db->where('tbl.status',$status);
                 
 		$query = $this->db->get();
 //                echo $this->db->last_query();exit;
@@ -94,7 +93,9 @@ class Checkout_model extends MY_Model{
 		$this->datatables
 		->select("users.username,tbl.id,tbl.logAction,tbl.lastLogin")
 		->from($this->table_name.' AS tbl')
-                ->join('users','users.id = tbl.userid');
+                ->join('users','users.id = tbl.userid')
+                ->where('tbl.status',1);
+                
 	
 		$this->datatables->set_produce_output(false);
 		$ouput = $datatables = $this->datatables->generate();
