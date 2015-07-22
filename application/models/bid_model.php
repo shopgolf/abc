@@ -36,18 +36,18 @@ class Bid_model extends MY_Model{
 				),array(
 						'name' => 'price',
 						'label' => $this->lang->line('price'),
-						'width' => '10%',
-						'sort'  => FALSE,
-						'searchoptions' => FALSE
-				),array(
-						'name' 	=> 'image',
-						'label' => $this->lang->line('image'),
 						'width' => '5%',
 						'sort'  => FALSE,
 						'searchoptions' => FALSE
 				),array(
-						'name' 	=> 'checkout',
-						'label' => $this->lang->line('checkout'),
+						'name' 	=> 'begin_time',
+						'label' => $this->lang->line('begin_time'),
+						'width' => '5%',
+						'sort'  => FALSE,
+						'searchoptions' => FALSE
+				),array(
+						'name' 	=> 'end_time',
+						'label' => $this->lang->line('end_time'),
 						'width' => '5%',
 						'sort'  => FALSE,
 						'searchoptions' => FALSE
@@ -63,10 +63,10 @@ class Bid_model extends MY_Model{
 	
 	public function json_data($controller, $right){
 		$this->datatables
-		->select("checkout,id,product_code,product_name,net_price,image,bid_id")
+		->select("checkout,id,product_code,product_name,net_price,image,begin_price,begin_time,end_time")
 		->from($this->table_name);
                 
-                $this->datatables->where('bid_id',1);
+                $this->datatables->where('bid',1);
 	
 		$this->datatables->set_produce_output(false);
 		$ouput = $datatables = $this->datatables->generate();
@@ -80,8 +80,8 @@ class Bid_model extends MY_Model{
                         $item['product_code'],
                         $item['product_name'],
                         $this->bookinglib->my_number_format($item['net_price'],2, ',', ','),
-                        '<img style="width:40%" src="/'.UPLOAD_DIR.'/product/'.$img[0].'" />',
-                        $item['checkout'],
+                        date("d-m-Y H:i:s",$item['begin_time']),
+                        date("d-m-Y H:i:s",$item['end_time']),
                         $this->add_button('product', $right, $item)
                     );
 		}
