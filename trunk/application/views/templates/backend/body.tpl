@@ -118,8 +118,8 @@
                     <li class="treeview">
                         <a href="#"><i class='fa fa-building'></i> <span>Danh Mục SP</span> <i class="fa fa-angle-left pull-right"></i></a>
                         <ul class="treeview-menu">
-                            <li><a href="danhmuc_add.html"><i class="glyphicon glyphicon-plus-sign text-success"></i> Thêm danh mục</a></li>
-                            <li><a href="danhmuc_list.html"><i class="glyphicon glyphicon-list-alt text-info"></i> List Danh mục</a></li>
+                            <li><a href="{{$link_bk}}/category/index/add.html"><i class="glyphicon glyphicon-plus-sign text-success"></i> Thêm danh mục</a></li>
+                            <li><a href="{{$link_bk}}/category.html"><i class="glyphicon glyphicon-list-alt text-info"></i> List Danh mục</a></li>
                         </ul>
                     </li>
                     <li class="treeview">

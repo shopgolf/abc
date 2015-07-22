@@ -19,61 +19,39 @@ class Category_model extends MY_Model{
 						'name' => 'id',
 						'label' => $this->lang->line('number'),
 						'width' => '2%',
-						'sort'  => FALSE,
-						'searchoptions' => array(
-								'type' 	=> 'int',
-						)
-				),
-				array(
-						'name' => 'username',
-						'label' => $this->lang->line('username'),
+						'sort'  => 'DESC',
+						'searchoptions' => FALSE
+				),array(
+						'name' => 'title',
+						'label' => $this->lang->line('title'),
 						'width' => '5%',
 						'sort'  => FALSE,
-						'searchoptions' => array(
-								'type' 	=> 'text',
-						)
+						'searchoptions' => FALSE
 				),array(
-						'name' 	=> 'logAction',
-						'label' => $this->lang->line('status'),
+						'name' 	=> 'description',
+						'label' => $this->lang->line('description'),
 						'width' => '30%',
 						'sort'  => FALSE,
-						'searchoptions' => array(
-								'type' 	=> 'text',
-						)
-				),
-				array(
-						'name' 	=> 'ipaddress',
-						'label' => $this->lang->line('ipaddress'),
-						'width' => '5%',
-						'sort'  => FALSE,
-						'searchoptions' => array(
-								'type' 	=> 'int',
-						)
-				),
-                                array(
-						'name' 	=> 'lastLogin',
+						'searchoptions' => FALSE
+				),array(
+						'name' 	=> 'lastupdated',
 						'label' => $this->lang->line('lastupdated'),
-						'width' => '10%',
-						'sort'  => 'DESC',
-						'searchoptions' => array(
-								'type' 	=> 'text',
-						)
-				),
-                                array(
-						'name' 	=> 'agent_code',
-						'label' => $this->lang->line('agent_code'),
 						'width' => '5%',
 						'sort'  => FALSE,
-						'searchoptions' => array(
-								'type' 	=> 'text',
-						)
+						'searchoptions' => FALSE
+				),array(
+						'name'  => 'button',
+						'width' => '10%',
+						'sort'  => FALSE,
+						'label'  => $this->lang->line('action'),
+						'searchoptions' => FALSE
 				)
 		);
 	}
 	
 	public function json_data($controller, $right){
 		$this->datatables
-		->select("users.username,tbl.id,tbl.logAction,tbl.lastLogin")
+		->select("id,name,description,lastupdated")
 		->from($this->table_name.' AS tbl')
                 ->join('users','users.id = tbl.userid');
 	
@@ -84,14 +62,13 @@ class Category_model extends MY_Model{
                 $count = 1;
                 
 		foreach($datatables['aaData'] as $item){
-			$ouput['aaData'][] = array(
-					$count++,
-					$item['username'],
-					$item['logAction'],
-                                        $item['ip'],
-                                        date("d-m-Y H:i:s",strtotime($item['lastLogin'])),
-					$this->add_button($controller, $right, $item),
-			);
+                    $ouput['aaData'][] = array(
+                        $item['id'],
+                        $item['name'],
+                        $item['description'],
+                        date("d-m-Y H:i:s",$item['lastupdated']),
+                        $this->add_button($controller, $right, $item),
+                    );
 		}
 	
 		return json_encode($ouput);
