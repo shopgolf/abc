@@ -10,9 +10,9 @@
                 </h4>
                 <div class="vertical-menu-content is-home">
                     <ul class="vertical-menu-list">
-                        <li><a href="#"><img class="icon-menu" alt="Funky roots" src="assets/data/12.png">Driver</a></li>
+                        <li><a href="#"><img class="icon-menu" alt="Funky roots" src="{{$static_ft}}/data/12.png">Driver</a></li>
                         <li>
-                            <a class="parent" href="#"><img class="icon-menu" alt="Funky roots" src="assets/data/13.png">Utility</a>
+                            <a class="parent" href="#"><img class="icon-menu" alt="Funky roots" src="{{$static_ft}}/data/13.png">Utility</a>
                             <div class="vertical-dropdown-menu">
                                 <div class="vertical-groups col-sm-12">
                                     <div class="mega-group col-sm-4">
@@ -49,34 +49,34 @@
                                         </ul>
                                     </div>
                                     <div class="mega-custom-html col-sm-12">
-                                        <a href="#"><img src="assets/data/banner-megamenu.jpg" alt="Banner"></a>
+                                        <a href="#"><img src="{{$static_ft}}/data/banner-megamenu.jpg" alt="Banner"></a>
                                     </div>
                                 </div>
                             </div>
                         </li>
                         <li>
                             <a href="#">
-                                <img class="icon-menu" alt="Funky roots" src="assets/data/21.png">Fairway
+                                <img class="icon-menu" alt="Funky roots" src="{{$static_ft}}/data/21.png">Fairway
                             </a>
                         </li>
                          <li>
                             <a href="#">
-                                <img class="icon-menu" alt="Funky roots" src="assets/data/17.png">Iron
+                                <img class="icon-menu" alt="Funky roots" src="{{$static_ft}}/data/17.png">Iron
                             </a>
                         </li>
                         <li>
                             <a href="#">
-                                <img class="icon-menu" alt="Funky roots" src="assets/data/14.png">Wedge
+                                <img class="icon-menu" alt="Funky roots" src="{{$static_ft}}/data/14.png">Wedge
                             </a>
                         </li>
                         <li>
                             <a href="#">
-                                <img class="icon-menu" alt="Funky roots" src="assets/data/19.png">Putter
+                                <img class="icon-menu" alt="Funky roots" src="{{$static_ft}}/data/19.png">Putter
                             </a>
                         </li>
                         <li>
                             <a href="#">
-                                <img class="icon-menu" alt="Funky roots" src="assets/data/20.png">Lefty
+                                <img class="icon-menu" alt="Funky roots" src="{{$static_ft}}/data/20.png">Lefty
                             </a>
                         </li>
                     </ul>
@@ -101,7 +101,7 @@
                                             <ul class="block">
                                                 <li class="img_container">
                                                     <a href="#">
-                                                        <img class="img-responsive" src="assets/data/men.png" alt="sport">
+                                                        <img class="img-responsive" src="{{$static_ft}}/data/men.png" alt="sport">
                                                     </a>
                                                 </li>
                                                 <li class="link_container group_header">
@@ -118,7 +118,7 @@
                                             <ul class="block">
                                                 <li class="img_container">
                                                     <a href="#">
-                                                        <img class="img-responsive" src="assets/data/women.png" alt="sport">
+                                                        <img class="img-responsive" src="{{$static_ft}}/data/women.png" alt="sport">
                                                     </a>
                                                 </li>
                                                 <li class="link_container group_header">
@@ -135,7 +135,7 @@
                                             <ul class="block">
                                                 <li class="img_container">
                                                     <a href="#">
-                                                        <img class="img-responsive" src="assets/data/kid.png" alt="sport">
+                                                        <img class="img-responsive" src="{{$static_ft}}/data/kid.png" alt="sport">
                                                     </a>
                                                 </li>
                                                 <li class="link_container group_header">
@@ -152,7 +152,7 @@
                                             <ul class="block">
                                                 <li class="img_container">
                                                     <a href="#">
-                                                        <img class="img-responsive" src="assets/data/trending.png" alt="sport">
+                                                        <img class="img-responsive" src="{{$static_ft}}/data/trending.png" alt="sport">
                                                     </a>
                                                 </li>
                                                 <li class="link_container group_header">
@@ -266,7 +266,7 @@
                                         <li class="block-container col-sm-3">
                                             <ul class="block">
                                                 <li class="img_container">
-                                                    <img src="assets/data/banner-topmenu.jpg" alt="Banner">
+                                                    <img src="{{$static_ft}}/data/banner-topmenu.jpg" alt="Banner">
                                                 </li>
                                             </ul>
                                         </li>
@@ -305,7 +305,7 @@
                                                             <div class="p-left">
                                                                 <a href="#" class="remove_link"></a>
                                                                 <a href="#">
-                                                                <img class="img-responsive" src="assets/data/product-100x122.jpg" alt="p10">
+                                                                <img class="img-responsive" src="{{$static_ft}}/data/product-100x122.jpg" alt="p10">
                                                                 </a>
                                                             </div>
                                                             <div class="p-right">
@@ -318,7 +318,7 @@
                                                             <div class="p-left">
                                                                 <a href="#" class="remove_link"></a>
                                                                 <a href="#">
-                                                                <img class="img-responsive" src="assets/data/product-s5-100x122.jpg" alt="p10">
+                                                                <img class="img-responsive" src="{{$static_ft}}/data/product-s5-100x122.jpg" alt="p10">
                                                                 </a>
                                                             </div>
                                                             <div class="p-right">
