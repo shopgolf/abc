@@ -14,8 +14,8 @@
                 </form>
             </div>
             <div class="col-sm-6 col-md-4 group-button-header">
-                <a title="Login" href="#" class="btn-login">{{$lang.login}}</a>
-                <a title="Phone" href="#" class="btn-heart"><i class="fa fa-phone"></i> 0909 023 668</a>
+                <a title="Login" href="{{$site_url}}dang-nhap.html" class="btn-login">{{$lang.login}}</a>
+                <a title="Phone" href="javascript:void(0)" class="btn-heart"><i class="fa fa-phone"></i> 0909 023 668</a>
             </div>
         </div>
     </div>

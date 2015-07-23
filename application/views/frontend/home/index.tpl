@@ -183,7 +183,7 @@
                         <ul class="product-list owl-carousel nav-center" data-dots="false" data-loop="true" data-nav = "true" data-margin = "10" data-responsive='{"0":{"items":1},"600":{"items":3},"1000":{"items":4}}'>
                             <li>
                                 <div class="left-block">
-                                    <a href="#"><img class="img-responsive" alt="product" src="assets/images/Withone GA0232-001-02-200x200.jpg" /></a>
+                                    <a href="#"><img class="img-responsive" alt="product" src="{{$static_ft}}/images/Withone GA0232-001-02-200x200.jpg" /></a>
                                     <div class="quick-view">
                                             <a title="Add to my wishlist" class="heart" href="#"></a>
                                             <a title="Add to compare" class="compare" href="#"></a>
@@ -595,18 +595,18 @@
                                     <div class="add-to-cart">
                                         <a title="BUY" href="#">BUY</a>
                                     </div>
+                                </div>
+                                <div class="right-block">
+                                    <h5 class="product-name"><a href="#">Superior Bag</a></h5>
+                                    <div class="content_price">
+                                        <span class="price product-price">$38,95</span>
+                                    </div>
                                     <div class="product-star">
                                         <i class="fa fa-star"></i>
                                         <i class="fa fa-star"></i>
                                         <i class="fa fa-star"></i>
                                         <i class="fa fa-star"></i>
                                         <i class="fa fa-star-half-o"></i>
-                                    </div>
-                                </div>
-                                <div class="right-block">
-                                    <h5 class="product-name"><a href="#">Superior Bag</a></h5>
-                                    <div class="content_price">
-                                        <span class="price product-price">$38,95</span>
                                     </div>
                                 </div>
                             </li>
@@ -850,140 +850,140 @@
                         <li>
                             <a href="" class="img-top-view"><img class="img-responsive" src="{{$static_ft}}/images/16600150563714-200x200.jpg" alt=""></a>
                             <div class="view-list">
-                                <div class="rating">Nike PD8 Power Distance   Soft Golf Balls GL0551</div>
+                                <div class="rating"><a href="" title="">Nike PD8 Power Distance   Soft Golf Balls GL0551</a></div>
                                 <p>Giá: 500.000 VNĐ</p>
                             </div>
                         </li>
                          <li>
                             <a href="" class="img-top-view"><img class="img-responsive" src="{{$static_ft}}/images/16600150563714-200x200.jpg" alt=""></a>
                             <div class="view-list">
-                                <div class="rating">Nike PD8 Power Distance   Soft Golf Balls GL0551</div>
+                                <div class="rating"><a href="" title="">Nike PD8 Power Distance   Soft Golf Balls GL0551</a></div>
                                 <p>Giá: 500.000 VNĐ</p>
                             </div>
                         </li>
                          <li>
                             <a href="" class="img-top-view"><img class="img-responsive" src="{{$static_ft}}/images/16600150563714-200x200.jpg" alt=""></a>
                             <div class="view-list">
-                                <div class="rating">Nike PD8 Power Distance   Soft Golf Balls GL0551</div>
+                                <div class="rating"><a href="" title="">Nike PD8 Power Distance   Soft Golf Balls GL0551</a></div>
                                 <p>Giá: 500.000 VNĐ</p>
                             </div>
                         </li>
                          <li>
                             <a href="" class="img-top-view"><img class="img-responsive" src="{{$static_ft}}/images/16600150563714-200x200.jpg" alt=""></a>
                             <div class="view-list">
-                                <div class="rating">Nike PD8 Power Distance   Soft Golf Balls GL0551</div>
+                                <div class="rating"><a href="" title="">Nike PD8 Power Distance   Soft Golf Balls GL0551</a></div>
                                 <p>Giá: 500.000 VNĐ</p>
                             </div>
                         </li>
                          <li>
                             <a href="" class="img-top-view"><img class="img-responsive" src="{{$static_ft}}/images/16600150563714-200x200.jpg" alt=""></a>
                             <div class="view-list">
-                                <div class="rating">Nike PD8 Power Distance   Soft Golf Balls GL0551</div>
+                                <div class="rating"><a href="" title="">Nike PD8 Power Distance   Soft Golf Balls GL0551</a></div>
                                 <p>Giá: 500.000 VNĐ</p>
                             </div>
                         </li>
                          <li>
                             <a href="" class="img-top-view"><img class="img-responsive" src="{{$static_ft}}/images/16600150563714-200x200.jpg" alt=""></a>
                             <div class="view-list">
-                                <div class="rating">Nike PD8 Power Distance   Soft Golf Balls GL0551</div>
+                                <div class="rating"><a href="" title="">Nike PD8 Power Distance   Soft Golf Balls GL0551</a></div>
                                 <p>Giá: 500.000 VNĐ</p>
                             </div>
                         </li>
                          <li>
                             <a href="" class="img-top-view"><img class="img-responsive" src="{{$static_ft}}/images/16600150563714-200x200.jpg" alt=""></a>
                             <div class="view-list">
-                                <div class="rating">Nike PD8 Power Distance   Soft Golf Balls GL0551</div>
+                                <div class="rating"><a href="" title="">Nike PD8 Power Distance   Soft Golf Balls GL0551</a></div>
                                 <p>Giá: 500.000 VNĐ</p>
                             </div>
                         </li>
                         <li>
                             <a href="" class="img-top-view"><img class="img-responsive" src="{{$static_ft}}/images/16600150563714-200x200.jpg" alt=""></a>
                             <div class="view-list">
-                                <div class="rating">Nike PD8 Power Distance   Soft Golf Balls GL0551</div>
+                                <div class="rating"><a href="" title="">Nike PD8 Power Distance   Soft Golf Balls GL0551</a></div>
                                 <p>Giá: 500.000 VNĐ</p>
                             </div>
                         </li>
                          <li>
                             <a href="" class="img-top-view"><img class="img-responsive" src="{{$static_ft}}/images/16600150563714-200x200.jpg" alt=""></a>
                             <div class="view-list">
-                                <div class="rating">Nike PD8 Power Distance   Soft Golf Balls GL0551</div>
+                                <div class="rating"><a href="" title="">Nike PD8 Power Distance   Soft Golf Balls GL0551</a></div>
                                 <p>Giá: 500.000 VNĐ</p>
                             </div>
                         </li>
                          <li>
                             <a href="" class="img-top-view"><img class="img-responsive" src="{{$static_ft}}/images/16600150563714-200x200.jpg" alt=""></a>
                             <div class="view-list">
-                                <div class="rating">Nike PD8 Power Distance   Soft Golf Balls GL0551</div>
+                                <div class="rating"><a href="" title="">Nike PD8 Power Distance   Soft Golf Balls GL0551</a></div>
                                 <p>Giá: 500.000 VNĐ</p>
                             </div>
                         </li>
                          <li>
                             <a href="" class="img-top-view"><img class="img-responsive" src="{{$static_ft}}/images/16600150563714-200x200.jpg" alt=""></a>
                             <div class="view-list">
-                                <div class="rating">Nike PD8 Power Distance   Soft Golf Balls GL0551</div>
+                                <div class="rating"><a href="" title="">Nike PD8 Power Distance   Soft Golf Balls GL0551</a></div>
                                 <p>Giá: 500.000 VNĐ</p>
                             </div>
                         </li>
                         <li>
                             <a href="" class="img-top-view"><img class="img-responsive" src="{{$static_ft}}/images/16600150563714-200x200.jpg" alt=""></a>
                             <div class="view-list">
-                                <div class="rating">Nike PD8 Power Distance   Soft Golf Balls GL0551</div>
+                                <div class="rating"><a href="" title="">Nike PD8 Power Distance   Soft Golf Balls GL0551</a></div>
                                 <p>Giá: 500.000 VNĐ</p>
                             </div>
                         </li>
                         <li>
                             <a href="" class="img-top-view"><img class="img-responsive" src="{{$static_ft}}/images/16600150563714-200x200.jpg" alt=""></a>
                             <div class="view-list">
-                                <div class="rating">Nike PD8 Power Distance   Soft Golf Balls GL0551</div>
+                                <div class="rating"><a href="" title="">Nike PD8 Power Distance   Soft Golf Balls GL0551</a></div>
                                 <p>Giá: 500.000 VNĐ</p>
                             </div>
                         </li>
                         <li>
                             <a href="" class="img-top-view"><img class="img-responsive" src="{{$static_ft}}/images/16600150563714-200x200.jpg" alt=""></a>
                             <div class="view-list">
-                                <div class="rating">Nike PD8 Power Distance   Soft Golf Balls GL0551</div>
+                                <div class="rating"><a href="" title="">Nike PD8 Power Distance   Soft Golf Balls GL0551</a></div>
                                 <p>Giá: 500.000 VNĐ</p>
                             </div>
                         </li>
                         <li>
                             <a href="" class="img-top-view"><img class="img-responsive" src="{{$static_ft}}/images/16600150563714-200x200.jpg" alt=""></a>
                             <div class="view-list">
-                                <div class="rating">Nike PD8 Power Distance   Soft Golf Balls GL0551</div>
+                                <div class="rating"><a href="" title="">Nike PD8 Power Distance   Soft Golf Balls GL0551</a></div>
                                 <p>Giá: 500.000 VNĐ</p>
                             </div>
                         </li>
                         <li>
                             <a href="" class="img-top-view"><img class="img-responsive" src="{{$static_ft}}/images/16600150563714-200x200.jpg" alt=""></a>
                             <div class="view-list">
-                                <div class="rating">Nike PD8 Power Distance   Soft Golf Balls GL0551</div>
+                                <div class="rating"><a href="" title="">Nike PD8 Power Distance   Soft Golf Balls GL0551</a></div>
                                 <p>Giá: 500.000 VNĐ</p>
                             </div>
                         </li>
                         <li>
                             <a href="" class="img-top-view"><img class="img-responsive" src="{{$static_ft}}/images/16600150563714-200x200.jpg" alt=""></a>
                             <div class="view-list">
-                                <div class="rating">Nike PD8 Power Distance   Soft Golf Balls GL0551</div>
+                                <div class="rating"><a href="" title="">Nike PD8 Power Distance   Soft Golf Balls GL0551</a></div>
                                 <p>Giá: 500.000 VNĐ</p>
                             </div>
                         </li>
                         <li>
                             <a href="" class="img-top-view"><img class="img-responsive" src="{{$static_ft}}/images/16600150563714-200x200.jpg" alt=""></a>
                             <div class="view-list">
-                                <div class="rating">Nike PD8 Power Distance   Soft Golf Balls GL0551</div>
+                                <div class="rating"><a href="" title="">Nike PD8 Power Distance   Soft Golf Balls GL0551</a></div>
                                 <p>Giá: 500.000 VNĐ</p>
                             </div>
                         </li>
                         <li>
                             <a href="" class="img-top-view"><img class="img-responsive" src="{{$static_ft}}/images/16600150563714-200x200.jpg" alt=""></a>
                             <div class="view-list">
-                                <div class="rating">Nike PD8 Power Distance   Soft Golf Balls GL0551</div>
+                                <div class="rating"><a href="" title="">Nike PD8 Power Distance   Soft Golf Balls GL0551</a></div>
                                 <p>Giá: 500.000 VNĐ</p>
                             </div>
                         </li>
                         <li>
                             <a href="" class="img-top-view"><img class="img-responsive" src="{{$static_ft}}/images/16600150563714-200x200.jpg" alt=""></a>
                             <div class="view-list">
-                                <div class="rating">Nike PD8 Power Distance   Soft Golf Balls GL0551</div>
+                                <div class="rating"><a href="" title="">Nike PD8 Power Distance   Soft Golf Balls GL0551</a></div>
                                 <p>Giá: 500.000 VNĐ</p>
                             </div>
                         </li>
@@ -994,140 +994,140 @@
                         <li>
                             <a href="" class="img-top-view"><img class="img-responsive" src="{{$static_ft}}/images/withone GFIT14 trang -200x200.jpg" alt=""></a>
                             <div class="view-list">
-                                <div class="rating">Nike PD8 Power Distance   Soft Golf Balls GL0551</div>
+                                <div class="rating"><a href="" title="">Nike PD8 Power Distance   Soft Golf Balls GL0551</a></div>
                                 <p>Giá: 500.000 VNĐ</p>
                             </div>
                         </li>
                          <li>
                             <a href="" class="img-top-view"><img class="img-responsive" src="{{$static_ft}}/images/withone GFIT14 trang -200x200.jpg" alt=""></a>
                             <div class="view-list">
-                                <div class="rating">Nike PD8 Power Distance   Soft Golf Balls GL0551</div>
+                                <div class="rating"><a href="" title="">Nike PD8 Power Distance   Soft Golf Balls GL0551</a></div>
                                 <p>Giá: 500.000 VNĐ</p>
                             </div>
                         </li>
                          <li>
                             <a href="" class="img-top-view"><img class="img-responsive" src="{{$static_ft}}/images/withone GFIT14 trang -200x200.jpg" alt=""></a>
                             <div class="view-list">
-                                <div class="rating">Nike PD8 Power Distance   Soft Golf Balls GL0551</div>
+                                <div class="rating"><a href="" title="">Nike PD8 Power Distance   Soft Golf Balls GL0551</a></div>
                                 <p>Giá: 500.000 VNĐ</p>
                             </div>
                         </li>
                          <li>
                             <a href="" class="img-top-view"><img class="img-responsive" src="{{$static_ft}}/images/withone GFIT14 trang -200x200.jpg" alt=""></a>
                             <div class="view-list">
-                                <div class="rating">Nike PD8 Power Distance   Soft Golf Balls GL0551</div>
+                                <div class="rating"><a href="" title="">Nike PD8 Power Distance   Soft Golf Balls GL0551</a></div>
                                 <p>Giá: 500.000 VNĐ</p>
                             </div>
                         </li>
                          <li>
                             <a href="" class="img-top-view"><img class="img-responsive" src="{{$static_ft}}/images/withone GFIT14 trang -200x200.jpg" alt=""></a>
                             <div class="view-list">
-                                <div class="rating">Nike PD8 Power Distance   Soft Golf Balls GL0551</div>
+                                <div class="rating"><a href="" title="">Nike PD8 Power Distance   Soft Golf Balls GL0551</a></div>
                                 <p>Giá: 500.000 VNĐ</p>
                             </div>
                         </li>
                          <li>
                             <a href="" class="img-top-view"><img class="img-responsive" src="{{$static_ft}}/images/withone GFIT14 trang -200x200.jpg" alt=""></a>
                             <div class="view-list">
-                                <div class="rating">Nike PD8 Power Distance   Soft Golf Balls GL0551</div>
+                                <div class="rating"><a href="" title="">Nike PD8 Power Distance   Soft Golf Balls GL0551</a></div>
                                 <p>Giá: 500.000 VNĐ</p>
                             </div>
                         </li>
                          <li>
                             <a href="" class="img-top-view"><img class="img-responsive" src="{{$static_ft}}/images/withone GFIT14 trang -200x200.jpg" alt=""></a>
                             <div class="view-list">
-                                <div class="rating">Nike PD8 Power Distance   Soft Golf Balls GL0551</div>
+                                <div class="rating"><a href="" title="">Nike PD8 Power Distance   Soft Golf Balls GL0551</a></div>
                                 <p>Giá: 500.000 VNĐ</p>
                             </div>
                         </li>
                         <li>
                             <a href="" class="img-top-view"><img class="img-responsive" src="{{$static_ft}}/images/withone GFIT14 trang -200x200.jpg" alt=""></a>
                             <div class="view-list">
-                                <div class="rating">Nike PD8 Power Distance   Soft Golf Balls GL0551</div>
+                                <div class="rating"><a href="" title="">Nike PD8 Power Distance   Soft Golf Balls GL0551</a></div>
                                 <p>Giá: 500.000 VNĐ</p>
                             </div>
                         </li>
                          <li>
                             <a href="" class="img-top-view"><img class="img-responsive" src="{{$static_ft}}/images/withone GFIT14 trang -200x200.jpg" alt=""></a>
                             <div class="view-list">
-                                <div class="rating">Nike PD8 Power Distance   Soft Golf Balls GL0551</div>
+                                <div class="rating"><a href="" title="">Nike PD8 Power Distance   Soft Golf Balls GL0551</a></div>
                                 <p>Giá: 500.000 VNĐ</p>
                             </div>
                         </li>
                          <li>
                             <a href="" class="img-top-view"><img class="img-responsive" src="{{$static_ft}}/images/withone GFIT14 trang -200x200.jpg" alt=""></a>
                             <div class="view-list">
-                                <div class="rating">Nike PD8 Power Distance   Soft Golf Balls GL0551</div>
+                                <div class="rating"><a href="" title="">Nike PD8 Power Distance   Soft Golf Balls GL0551</a></div>
                                 <p>Giá: 500.000 VNĐ</p>
                             </div>
                         </li>
                          <li>
                             <a href="" class="img-top-view"><img class="img-responsive" src="{{$static_ft}}/images/withone GFIT14 trang -200x200.jpg" alt=""></a>
                             <div class="view-list">
-                                <div class="rating">Nike PD8 Power Distance   Soft Golf Balls GL0551</div>
+                                <div class="rating"><a href="" title="">Nike PD8 Power Distance   Soft Golf Balls GL0551</a></div>
                                 <p>Giá: 500.000 VNĐ</p>
                             </div>
                         </li>
                         <li>
                             <a href="" class="img-top-view"><img class="img-responsive" src="{{$static_ft}}/images/withone GFIT14 trang -200x200.jpg" alt=""></a>
                             <div class="view-list">
-                                <div class="rating">Nike PD8 Power Distance   Soft Golf Balls GL0551</div>
+                                <div class="rating"><a href="" title="">Nike PD8 Power Distance   Soft Golf Balls GL0551</a></div>
                                 <p>Giá: 500.000 VNĐ</p>
                             </div>
                         </li>
                         <li>
                             <a href="" class="img-top-view"><img class="img-responsive" src="{{$static_ft}}/images/withone GFIT14 trang -200x200.jpg" alt=""></a>
                             <div class="view-list">
-                                <div class="rating">Nike PD8 Power Distance   Soft Golf Balls GL0551</div>
+                                <div class="rating"><a href="" title="">Nike PD8 Power Distance   Soft Golf Balls GL0551</a></div>
                                 <p>Giá: 500.000 VNĐ</p>
                             </div>
                         </li>
                         <li>
                             <a href="" class="img-top-view"><img class="img-responsive" src="{{$static_ft}}/images/withone GFIT14 trang -200x200.jpg" alt=""></a>
                             <div class="view-list">
-                                <div class="rating">Nike PD8 Power Distance   Soft Golf Balls GL0551</div>
+                                <div class="rating"><a href="" title="">Nike PD8 Power Distance   Soft Golf Balls GL0551</a></div>
                                 <p>Giá: 500.000 VNĐ</p>
                             </div>
                         </li>
                         <li>
                             <a href="" class="img-top-view"><img class="img-responsive" src="{{$static_ft}}/images/withone GFIT14 trang -200x200.jpg" alt=""></a>
                             <div class="view-list">
-                                <div class="rating">Nike PD8 Power Distance   Soft Golf Balls GL0551</div>
+                                <div class="rating"><a href="" title="">Nike PD8 Power Distance   Soft Golf Balls GL0551</a></div>
                                 <p>Giá: 500.000 VNĐ</p>
                             </div>
                         </li>
                         <li>
                             <a href="" class="img-top-view"><img class="img-responsive" src="{{$static_ft}}/images/withone GFIT14 trang -200x200.jpg" alt=""></a>
                             <div class="view-list">
-                                <div class="rating">Nike PD8 Power Distance   Soft Golf Balls GL0551</div>
+                                <div class="rating"><a href="" title="">Nike PD8 Power Distance   Soft Golf Balls GL0551</a></div>
                                 <p>Giá: 500.000 VNĐ</p>
                             </div>
                         </li>
                         <li>
                             <a href="" class="img-top-view"><img class="img-responsive" src="{{$static_ft}}/images/withone GFIT14 trang -200x200.jpg" alt=""></a>
                             <div class="view-list">
-                                <div class="rating">Nike PD8 Power Distance   Soft Golf Balls GL0551</div>
+                                <div class="rating"><a href="" title="">Nike PD8 Power Distance   Soft Golf Balls GL0551</a></div>
                                 <p>Giá: 500.000 VNĐ</p>
                             </div>
                         </li>
                         <li>
                             <a href="" class="img-top-view"><img class="img-responsive" src="{{$static_ft}}/images/withone GFIT14 trang -200x200.jpg" alt=""></a>
                             <div class="view-list">
-                                <div class="rating">Nike PD8 Power Distance   Soft Golf Balls GL0551</div>
+                                <div class="rating"><a href="" title="">Nike PD8 Power Distance   Soft Golf Balls GL0551</a></div>
                                 <p>Giá: 500.000 VNĐ</p>
                             </div>
                         </li>
                         <li>
                             <a href="" class="img-top-view"><img class="img-responsive" src="{{$static_ft}}/images/withone GFIT14 trang -200x200.jpg" alt=""></a>
                             <div class="view-list">
-                                <div class="rating">Nike PD8 Power Distance   Soft Golf Balls GL0551</div>
+                                <div class="rating"><a href="" title="">Nike PD8 Power Distance   Soft Golf Balls GL0551</a></div>
                                 <p>Giá: 500.000 VNĐ</p>
                             </div>
                         </li>
                         <li>
                             <a href="" class="img-top-view"><img class="img-responsive" src="{{$static_ft}}/images/withone GFIT14 trang -200x200.jpg" alt=""></a>
                             <div class="view-list">
-                                <div class="rating">Nike PD8 Power Distance   Soft Golf Balls GL0551</div>
+                                <div class="rating"><a href="" title="">Nike PD8 Power Distance   Soft Golf Balls GL0551</a></div>
                                 <p>Giá: 500.000 VNĐ</p>
                             </div>
                         </li>
@@ -1138,140 +1138,140 @@
                         <li>
                             <a href="" class="img-top-view"><img class="img-responsive" src="{{$static_ft}}/images/Withone GA0232-001-02-200x200.jpg" alt=""></a>
                             <div class="view-list">
-                                <div class="rating">Nike PD8 Power Distance   Soft Golf Balls GL0551</div>
+                                <div class="rating"><a href="" title="">Nike PD8 Power Distance   Soft Golf Balls GL0551</a></div>
                                 <p>Giá: 500.000 VNĐ</p>
                             </div>
                         </li>
                          <li>
                             <a href="" class="img-top-view"><img class="img-responsive" src="{{$static_ft}}/images/Withone GA0232-001-02-200x200.jpg" alt=""></a>
                             <div class="view-list">
-                                <div class="rating">Nike PD8 Power Distance   Soft Golf Balls GL0551</div>
+                                <div class="rating"><a href="" title="">Nike PD8 Power Distance   Soft Golf Balls GL0551</a></div>
                                 <p>Giá: 500.000 VNĐ</p>
                             </div>
                         </li>
                          <li>
                             <a href="" class="img-top-view"><img class="img-responsive" src="{{$static_ft}}/images/Withone GA0232-001-02-200x200.jpg" alt=""></a>
                             <div class="view-list">
-                                <div class="rating">Nike PD8 Power Distance   Soft Golf Balls GL0551</div>
+                                <div class="rating"><a href="" title="">Nike PD8 Power Distance   Soft Golf Balls GL0551</a></div>
                                 <p>Giá: 500.000 VNĐ</p>
                             </div>
                         </li>
                          <li>
                             <a href="" class="img-top-view"><img class="img-responsive" src="{{$static_ft}}/images/Withone GA0232-001-02-200x200.jpg" alt=""></a>
                             <div class="view-list">
-                                <div class="rating">Nike PD8 Power Distance   Soft Golf Balls GL0551</div>
+                                <div class="rating"><a href="" title="">Nike PD8 Power Distance   Soft Golf Balls GL0551</a></div>
                                 <p>Giá: 500.000 VNĐ</p>
                             </div>
                         </li>
                          <li>
                             <a href="" class="img-top-view"><img class="img-responsive" src="{{$static_ft}}/images/Withone GA0232-001-02-200x200.jpg" alt=""></a>
                             <div class="view-list">
-                                <div class="rating">Nike PD8 Power Distance   Soft Golf Balls GL0551</div>
+                                <div class="rating"><a href="" title="">Nike PD8 Power Distance   Soft Golf Balls GL0551</a></div>
                                 <p>Giá: 500.000 VNĐ</p>
                             </div>
                         </li>
                          <li>
                             <a href="" class="img-top-view"><img class="img-responsive" src="{{$static_ft}}/images/Withone GA0232-001-02-200x200.jpg" alt=""></a>
                             <div class="view-list">
-                                <div class="rating">Nike PD8 Power Distance   Soft Golf Balls GL0551</div>
+                                <div class="rating"><a href="" title="">Nike PD8 Power Distance   Soft Golf Balls GL0551</a></div>
                                 <p>Giá: 500.000 VNĐ</p>
                             </div>
                         </li>
                          <li>
                             <a href="" class="img-top-view"><img class="img-responsive" src="{{$static_ft}}/images/Withone GA0232-001-02-200x200.jpg" alt=""></a>
                             <div class="view-list">
-                                <div class="rating">Nike PD8 Power Distance   Soft Golf Balls GL0551</div>
+                                <div class="rating"><a href="" title="">Nike PD8 Power Distance   Soft Golf Balls GL0551</a></div>
                                 <p>Giá: 500.000 VNĐ</p>
                             </div>
                         </li>
                         <li>
                             <a href="" class="img-top-view"><img class="img-responsive" src="{{$static_ft}}/images/Withone GA0232-001-02-200x200.jpg" alt=""></a>
                             <div class="view-list">
-                                <div class="rating">Nike PD8 Power Distance   Soft Golf Balls GL0551</div>
+                                <div class="rating"><a href="" title="">Nike PD8 Power Distance   Soft Golf Balls GL0551</a></div>
                                 <p>Giá: 500.000 VNĐ</p>
                             </div>
                         </li>
                          <li>
                             <a href="" class="img-top-view"><img class="img-responsive" src="{{$static_ft}}/images/Withone GA0232-001-02-200x200.jpg" alt=""></a>
                             <div class="view-list">
-                                <div class="rating">Nike PD8 Power Distance   Soft Golf Balls GL0551</div>
+                                <div class="rating"><a href="" title="">Nike PD8 Power Distance   Soft Golf Balls GL0551</a></div>
                                 <p>Giá: 500.000 VNĐ</p>
                             </div>
                         </li>
                          <li>
                             <a href="" class="img-top-view"><img class="img-responsive" src="{{$static_ft}}/images/Withone GA0232-001-02-200x200.jpg" alt=""></a>
                             <div class="view-list">
-                                <div class="rating">Nike PD8 Power Distance   Soft Golf Balls GL0551</div>
+                                <div class="rating"><a href="" title="">Nike PD8 Power Distance   Soft Golf Balls GL0551</a></div>
                                 <p>Giá: 500.000 VNĐ</p>
                             </div>
                         </li>
                          <li>
                             <a href="" class="img-top-view"><img class="img-responsive" src="{{$static_ft}}/images/Withone GA0232-001-02-200x200.jpg" alt=""></a>
                             <div class="view-list">
-                                <div class="rating">Nike PD8 Power Distance   Soft Golf Balls GL0551</div>
+                                <div class="rating"><a href="" title="">Nike PD8 Power Distance   Soft Golf Balls GL0551</a></div>
                                 <p>Giá: 500.000 VNĐ</p>
                             </div>
                         </li>
                         <li>
                             <a href="" class="img-top-view"><img class="img-responsive" src="{{$static_ft}}/images/Withone GA0232-001-02-200x200.jpg" alt=""></a>
                             <div class="view-list">
-                                <div class="rating">Nike PD8 Power Distance   Soft Golf Balls GL0551</div>
+                                <div class="rating"><a href="" title="">Nike PD8 Power Distance   Soft Golf Balls GL0551</a></div>
                                 <p>Giá: 500.000 VNĐ</p>
                             </div>
                         </li>
                         <li>
                             <a href="" class="img-top-view"><img class="img-responsive" src="{{$static_ft}}/images/Withone GA0232-001-02-200x200.jpg" alt=""></a>
                             <div class="view-list">
-                                <div class="rating">Nike PD8 Power Distance   Soft Golf Balls GL0551</div>
+                                <div class="rating"><a href="" title="">Nike PD8 Power Distance   Soft Golf Balls GL0551</a></div>
                                 <p>Giá: 500.000 VNĐ</p>
                             </div>
                         </li>
                         <li>
                             <a href="" class="img-top-view"><img class="img-responsive" src="{{$static_ft}}/images/Withone GA0232-001-02-200x200.jpg" alt=""></a>
                             <div class="view-list">
-                                <div class="rating">Nike PD8 Power Distance   Soft Golf Balls GL0551</div>
+                                <div class="rating"><a href="" title="">Nike PD8 Power Distance   Soft Golf Balls GL0551</a></div>
                                 <p>Giá: 500.000 VNĐ</p>
                             </div>
                         </li>
                         <li>
                             <a href="" class="img-top-view"><img class="img-responsive" src="{{$static_ft}}/images/Withone GA0232-001-02-200x200.jpg" alt=""></a>
                             <div class="view-list">
-                                <div class="rating">Nike PD8 Power Distance   Soft Golf Balls GL0551</div>
+                                <div class="rating"><a href="" title="">Nike PD8 Power Distance   Soft Golf Balls GL0551</a></div>
                                 <p>Giá: 500.000 VNĐ</p>
                             </div>
                         </li>
                         <li>
                             <a href="" class="img-top-view"><img class="img-responsive" src="{{$static_ft}}/images/Withone GA0232-001-02-200x200.jpg" alt=""></a>
                             <div class="view-list">
-                                <div class="rating">Nike PD8 Power Distance   Soft Golf Balls GL0551</div>
+                                <div class="rating"><a href="" title="">Nike PD8 Power Distance   Soft Golf Balls GL0551</a></div>
                                 <p>Giá: 500.000 VNĐ</p>
                             </div>
                         </li>
                         <li>
                             <a href="" class="img-top-view"><img class="img-responsive" src="{{$static_ft}}/images/Withone GA0232-001-02-200x200.jpg" alt=""></a>
                             <div class="view-list">
-                                <div class="rating">Nike PD8 Power Distance   Soft Golf Balls GL0551</div>
+                                <div class="rating"><a href="" title="">Nike PD8 Power Distance   Soft Golf Balls GL0551</a></div>
                                 <p>Giá: 500.000 VNĐ</p>
                             </div>
                         </li>
                         <li>
                             <a href="" class="img-top-view"><img class="img-responsive" src="{{$static_ft}}/images/Withone GA0232-001-02-200x200.jpg" alt=""></a>
                             <div class="view-list">
-                                <div class="rating">Nike PD8 Power Distance   Soft Golf Balls GL0551</div>
+                                <div class="rating"><a href="" title="">Nike PD8 Power Distance   Soft Golf Balls GL0551</a></div>
                                 <p>Giá: 500.000 VNĐ</p>
                             </div>
                         </li>
                         <li>
                             <a href="" class="img-top-view"><img class="img-responsive" src="{{$static_ft}}/images/Withone GA0232-001-02-200x200.jpg" alt=""></a>
                             <div class="view-list">
-                                <div class="rating">Nike PD8 Power Distance   Soft Golf Balls GL0551</div>
+                                <div class="rating"><a href="" title="">Nike PD8 Power Distance   Soft Golf Balls GL0551</a></div>
                                 <p>Giá: 500.000 VNĐ</p>
                             </div>
                         </li>
                         <li>
                             <a href="" class="img-top-view"><img class="img-responsive" src="{{$static_ft}}/images/Withone GA0232-001-02-200x200.jpg" alt=""></a>
                             <div class="view-list">
-                                <div class="rating">Nike PD8 Power Distance   Soft Golf Balls GL0551</div>
+                                <div class="rating"><a href="" title="">Nike PD8 Power Distance   Soft Golf Balls GL0551</a></div>
                                 <p>Giá: 500.000 VNĐ</p>
                             </div>
                         </li>
@@ -1282,140 +1282,140 @@
                         <li>
                             <a href="" class="img-top-view"><img class="img-responsive" src="{{$static_ft}}/images/16600150563714-200x200.jpg" alt=""></a>
                             <div class="view-list">
-                                <div class="rating">Nike PD8 Power Distance   Soft Golf Balls GL0551</div>
+                                <div class="rating"><a href="" title="">Nike PD8 Power Distance   Soft Golf Balls GL0551</a></div>
                                 <p>Giá: 500.000 VNĐ</p>
                             </div>
                         </li>
                          <li>
                             <a href="" class="img-top-view"><img class="img-responsive" src="{{$static_ft}}/images/16600150563714-200x200.jpg" alt=""></a>
                             <div class="view-list">
-                                <div class="rating">Nike PD8 Power Distance   Soft Golf Balls GL0551</div>
+                                <div class="rating"><a href="" title="">Nike PD8 Power Distance   Soft Golf Balls GL0551</a></div>
                                 <p>Giá: 500.000 VNĐ</p>
                             </div>
                         </li>
                          <li>
                             <a href="" class="img-top-view"><img class="img-responsive" src="{{$static_ft}}/images/16600150563714-200x200.jpg" alt=""></a>
                             <div class="view-list">
-                                <div class="rating">Nike PD8 Power Distance   Soft Golf Balls GL0551</div>
+                                <div class="rating"><a href="" title="">Nike PD8 Power Distance   Soft Golf Balls GL0551</a></div>
                                 <p>Giá: 500.000 VNĐ</p>
                             </div>
                         </li>
                          <li>
                             <a href="" class="img-top-view"><img class="img-responsive" src="{{$static_ft}}/images/16600150563714-200x200.jpg" alt=""></a>
                             <div class="view-list">
-                                <div class="rating">Nike PD8 Power Distance   Soft Golf Balls GL0551</div>
+                                <div class="rating"><a href="" title="">Nike PD8 Power Distance   Soft Golf Balls GL0551</a></div>
                                 <p>Giá: 500.000 VNĐ</p>
                             </div>
                         </li>
                          <li>
                             <a href="" class="img-top-view"><img class="img-responsive" src="{{$static_ft}}/images/16600150563714-200x200.jpg" alt=""></a>
                             <div class="view-list">
-                                <div class="rating">Nike PD8 Power Distance   Soft Golf Balls GL0551</div>
+                                <div class="rating"><a href="" title="">Nike PD8 Power Distance   Soft Golf Balls GL0551</a></div>
                                 <p>Giá: 500.000 VNĐ</p>
                             </div>
                         </li>
                          <li>
                             <a href="" class="img-top-view"><img class="img-responsive" src="{{$static_ft}}/images/16600150563714-200x200.jpg" alt=""></a>
                             <div class="view-list">
-                                <div class="rating">Nike PD8 Power Distance   Soft Golf Balls GL0551</div>
+                                <div class="rating"><a href="" title="">Nike PD8 Power Distance   Soft Golf Balls GL0551</a></div>
                                 <p>Giá: 500.000 VNĐ</p>
                             </div>
                         </li>
                          <li>
                             <a href="" class="img-top-view"><img class="img-responsive" src="{{$static_ft}}/images/16600150563714-200x200.jpg" alt=""></a>
                             <div class="view-list">
-                                <div class="rating">Nike PD8 Power Distance   Soft Golf Balls GL0551</div>
+                                <div class="rating"><a href="" title="">Nike PD8 Power Distance   Soft Golf Balls GL0551</a></div>
                                 <p>Giá: 500.000 VNĐ</p>
                             </div>
                         </li>
                         <li>
                             <a href="" class="img-top-view"><img class="img-responsive" src="{{$static_ft}}/images/16600150563714-200x200.jpg" alt=""></a>
                             <div class="view-list">
-                                <div class="rating">Nike PD8 Power Distance   Soft Golf Balls GL0551</div>
+                                <div class="rating"><a href="" title="">Nike PD8 Power Distance   Soft Golf Balls GL0551</a></div>
                                 <p>Giá: 500.000 VNĐ</p>
                             </div>
                         </li>
                          <li>
                             <a href="" class="img-top-view"><img class="img-responsive" src="{{$static_ft}}/images/16600150563714-200x200.jpg" alt=""></a>
                             <div class="view-list">
-                                <div class="rating">Nike PD8 Power Distance   Soft Golf Balls GL0551</div>
+                                <div class="rating"><a href="" title="">Nike PD8 Power Distance   Soft Golf Balls GL0551</a></div>
                                 <p>Giá: 500.000 VNĐ</p>
                             </div>
                         </li>
                          <li>
                             <a href="" class="img-top-view"><img class="img-responsive" src="{{$static_ft}}/images/16600150563714-200x200.jpg" alt=""></a>
                             <div class="view-list">
-                                <div class="rating">Nike PD8 Power Distance   Soft Golf Balls GL0551</div>
+                                <div class="rating"><a href="" title="">Nike PD8 Power Distance   Soft Golf Balls GL0551</a></div>
                                 <p>Giá: 500.000 VNĐ</p>
                             </div>
                         </li>
                          <li>
                             <a href="" class="img-top-view"><img class="img-responsive" src="{{$static_ft}}/images/16600150563714-200x200.jpg" alt=""></a>
                             <div class="view-list">
-                                <div class="rating">Nike PD8 Power Distance   Soft Golf Balls GL0551</div>
+                                <div class="rating"><a href="" title="">Nike PD8 Power Distance   Soft Golf Balls GL0551</a></div>
                                 <p>Giá: 500.000 VNĐ</p>
                             </div>
                         </li>
                         <li>
                             <a href="" class="img-top-view"><img class="img-responsive" src="{{$static_ft}}/images/16600150563714-200x200.jpg" alt=""></a>
                             <div class="view-list">
-                                <div class="rating">Nike PD8 Power Distance   Soft Golf Balls GL0551</div>
+                                <div class="rating"><a href="" title="">Nike PD8 Power Distance   Soft Golf Balls GL0551</a></div>
                                 <p>Giá: 500.000 VNĐ</p>
                             </div>
                         </li>
                         <li>
                             <a href="" class="img-top-view"><img class="img-responsive" src="{{$static_ft}}/images/16600150563714-200x200.jpg" alt=""></a>
                             <div class="view-list">
-                                <div class="rating">Nike PD8 Power Distance   Soft Golf Balls GL0551</div>
+                                <div class="rating"><a href="" title="">Nike PD8 Power Distance   Soft Golf Balls GL0551</a></div>
                                 <p>Giá: 500.000 VNĐ</p>
                             </div>
                         </li>
                         <li>
                             <a href="" class="img-top-view"><img class="img-responsive" src="{{$static_ft}}/images/16600150563714-200x200.jpg" alt=""></a>
                             <div class="view-list">
-                                <div class="rating">Nike PD8 Power Distance   Soft Golf Balls GL0551</div>
+                                <div class="rating"><a href="" title="">Nike PD8 Power Distance   Soft Golf Balls GL0551</a></div>
                                 <p>Giá: 500.000 VNĐ</p>
                             </div>
                         </li>
                         <li>
                             <a href="" class="img-top-view"><img class="img-responsive" src="{{$static_ft}}/images/16600150563714-200x200.jpg" alt=""></a>
                             <div class="view-list">
-                                <div class="rating">Nike PD8 Power Distance   Soft Golf Balls GL0551</div>
+                                <div class="rating"><a href="" title="">Nike PD8 Power Distance   Soft Golf Balls GL0551</a></div>
                                 <p>Giá: 500.000 VNĐ</p>
                             </div>
                         </li>
                         <li>
                             <a href="" class="img-top-view"><img class="img-responsive" src="{{$static_ft}}/images/16600150563714-200x200.jpg" alt=""></a>
                             <div class="view-list">
-                                <div class="rating">Nike PD8 Power Distance   Soft Golf Balls GL0551</div>
+                                <div class="rating"><a href="" title="">Nike PD8 Power Distance   Soft Golf Balls GL0551</a></div>
                                 <p>Giá: 500.000 VNĐ</p>
                             </div>
                         </li>
                         <li>
                             <a href="" class="img-top-view"><img class="img-responsive" src="{{$static_ft}}/images/16600150563714-200x200.jpg" alt=""></a>
                             <div class="view-list">
-                                <div class="rating">Nike PD8 Power Distance   Soft Golf Balls GL0551</div>
+                                <div class="rating"><a href="" title="">Nike PD8 Power Distance   Soft Golf Balls GL0551</a></div>
                                 <p>Giá: 500.000 VNĐ</p>
                             </div>
                         </li>
                         <li>
                             <a href="" class="img-top-view"><img class="img-responsive" src="{{$static_ft}}/images/16600150563714-200x200.jpg" alt=""></a>
                             <div class="view-list">
-                                <div class="rating">Nike PD8 Power Distance   Soft Golf Balls GL0551</div>
+                                <div class="rating"><a href="" title="">Nike PD8 Power Distance   Soft Golf Balls GL0551</a></div>
                                 <p>Giá: 500.000 VNĐ</p>
                             </div>
                         </li>
                         <li>
                             <a href="" class="img-top-view"><img class="img-responsive" src="{{$static_ft}}/images/16600150563714-200x200.jpg" alt=""></a>
                             <div class="view-list">
-                                <div class="rating">Nike PD8 Power Distance   Soft Golf Balls GL0551</div>
+                                <div class="rating"><a href="" title="">Nike PD8 Power Distance   Soft Golf Balls GL0551</a></div>
                                 <p>Giá: 500.000 VNĐ</p>
                             </div>
                         </li>
                         <li>
                             <a href="" class="img-top-view"><img class="img-responsive" src="{{$static_ft}}/images/16600150563714-200x200.jpg" alt=""></a>
                             <div class="view-list">
-                                <div class="rating">Nike PD8 Power Distance   Soft Golf Balls GL0551</div>
+                                <div class="rating"><a href="" title="">Nike PD8 Power Distance   Soft Golf Balls GL0551</a></div>
                                 <p>Giá: 500.000 VNĐ</p>
                             </div>
                         </li>
