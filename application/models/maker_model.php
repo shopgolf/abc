@@ -6,11 +6,11 @@
  * Contact : nguyenvanphuc0626@gmail.com
  */
 
-class Category_model extends MY_Model{
+class Maker_model extends MY_Model{
 	
 	public function __construct(){
 		parent::__construct();
-		$this->table_name = 'px_category';
+		$this->table_name = 'px_maker';
 	}
         
         public function init_data($right){

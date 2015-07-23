@@ -4,10 +4,10 @@
 <div class="content-wrapper">
 
   <section class="content-header">
-    <h1>{{if $segment == "add"}} {{$lang.add}} {{else}}{{$lang.edit}}{{/if}} {{$lang.category}}<small>Have a nice day</small> </h1>
+    <h1>{{if $segment == "add"}} {{$lang.add}} {{else}}{{$lang.edit}}{{/if}} {{$lang.maker}}<small>Have a nice day</small> </h1>
     <ol class="breadcrumb">
       <li><a href="#"><i class="fa fa-dashboard"></i> {{$lang.page_home}}</a></li>
-      <li class="active">{{if $segment == "add"}} {{$lang.add}} {{else}}{{$lang.edit}}{{/if}} {{$lang.category}}</li>
+      <li class="active">{{if $segment == "add"}} {{$lang.add}} {{else}}{{$lang.edit}}{{/if}} {{$lang.maker}}</li>
     </ol>
   </section>
     
@@ -32,16 +32,16 @@
                         <span class="error_box"></span>
                         {{form_open("",["name"=>"validate_scl"])}}
                                 <div class="col-md-6 form-group">
-{{form_label({{$lang.category_name}},'category_name')}}
-{{form_input(["class"=>"form-control","id"=>"category_name","placeholder"=>"{{$lang.category_name}}","name"=>"category_name",value=>"{{if isset($category->category_name)}}{{$category->category_name}}{{/if}}"])}}
+{{form_label({{$lang.maker_name}},'maker_name')}}
+{{form_input(["class"=>"form-control","id"=>"maker_name","placeholder"=>"{{$lang.maker_name}}","name"=>"maker_name",value=>"{{if isset($maker->maker_name)}}{{$maker->maker_name}}{{/if}}"])}}
                                 </div>
                                 <div class="col-md-6 form-group has-success">
 {{form_label({{$lang.seo_keyword}},'keyword',['class'=>'control-label fa fa-check'])}}
-{{form_input(["class"=>"form-control","id"=>"keyword","placeholder"=>"{{$lang.seo_keyword}}","name"=>"keyword",value=>"{{if isset($category->keyword)}}{{$category->keyword}}{{/if}}"])}}
+{{form_input(["class"=>"form-control","id"=>"keyword","placeholder"=>"{{$lang.seo_keyword}}","name"=>"keyword",value=>"{{if isset($maker->keyword)}}{{$maker->keyword}}{{/if}}"])}}
                                 </div>
                                 <div class="col-md-12 form-group has-warning">
-{{form_label({{$lang.category_description}},'description',['class'=>'control-label fa fa-check'])}}
-{{form_textarea(["rows"=>"5","class"=>"form-control","id"=>"description","placeholder"=>"{{$lang.category_description}}","name"=>"description",value=>"{{if isset($category->description)}}{{$category->description}}{{/if}}"])}}
+{{form_label({{$lang.maker_description}},'description',['class'=>'control-label fa fa-check'])}}
+{{form_textarea(["rows"=>"5","class"=>"form-control","id"=>"description","placeholder"=>"{{$lang.maker_description}}","name"=>"description",value=>"{{if isset($maker->description)}}{{$maker->description}}{{/if}}"])}}
                                 </div>
                                 
                                 <div class="col-md-6">
@@ -62,8 +62,8 @@ $(document).ready(function() {
 });
 function validateForm(){
     new FormValidator('validate_scl', [{
-        name: 'category_name',
-        display: '{{$lang.category_name}}',
+        name: 'maker_name',
+        display: '{{$lang.maker_name}}',
         rules: 'required',
         class:'alert'
     }, {

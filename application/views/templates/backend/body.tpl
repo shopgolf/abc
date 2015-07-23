@@ -125,15 +125,15 @@
                     <li class="treeview">
                         <a href="#"><i class='fa fa-building'></i> <span>Hãng Sản Xuất</span> <i class="fa fa-angle-left pull-right"></i></a>
                         <ul class="treeview-menu">
-                            <li><a href="hangsx_add.html"><i class="glyphicon glyphicon-plus-sign text-success"></i> Thêm hãng</a></li>
-                            <li><a href="hangsx_list.html"><i class="glyphicon glyphicon-list-alt text-info"></i> List hãng</a></li>
+                            <li><a href="{{$link_bk}}/maker/index/add.html"><i class="glyphicon glyphicon-plus-sign text-success"></i> Thêm hãng</a></li>
+                            <li><a href="{{$link_bk}}/maker.html"><i class="glyphicon glyphicon-list-alt text-info"></i> Danh sách hãng</a></li>
                         </ul>
                     </li>
                     <li class="treeview">
                         <a href="#"><i class='fa fa-cog'></i> <span>Settings</span> <i class="fa fa-angle-left pull-right"></i></a>
                         <ul class="treeview-menu">
-                            <li><a href="hethong.html"><i class="glyphicon glyphicon-info-sign"></i> Hệ thống</a></li>
-                            <li><a href="lienhe.html"><i class="glyphicon glyphicon-envelope"></i> Liên hệ</a></li>
+                            <li><a href="{{$link_bk}}/configuration.html"><i class="glyphicon glyphicon-info-sign"></i> Hệ thống</a></li>
+                            <li><a href="{{$link_bk}}/contacts.html"><i class="glyphicon glyphicon-envelope"></i> Liên hệ</a></li>
                         </ul>
                     </li>
                     <!-- / Config System-->

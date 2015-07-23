@@ -29,6 +29,10 @@ class Configuration extends BACKEND_Controller {
 
 	public function index(){
 		if($this->database_connect_status){
+                        $info   =   $this->configuration_model->find_by();
+                        $this->smarty->assign(array(
+                            "configuration"  =>  $info[0]
+                        ));
                         $this->smarty->display('auth/configuration/index');
 		}else{
                         $this->smarty->assign(array(
@@ -36,12 +40,68 @@ class Configuration extends BACKEND_Controller {
                         ));
                         $this->smarty->display('auth/stats/dashboard');
 		}
-	}
+        }
+        
+       public function upload($params1,$params2){
+            if($params1 && $params2){
+                preg_match('/data:image\/([^;]*);base64,(.*)/', $params1, $matches);
+                $ext        =   $matches[1];
+                $data       =   base64_decode(preg_replace('#^data:image/\w+;base64,#i', '', $params1));
+                file_put_contents('static/uploads/logo/'.md5($params2).'.'.$ext, $data);
+                return md5($params2).'.'.$ext;
+            }
+        }
         
         public function add(){
-            echo '<pre>';
-            print_r('fewafewa');
-            echo '</pre>';
-            exit;
+            if($this->input->server('REQUEST_METHOD')=='POST'){
+                        $this->view_data["configuration"]                                     = new stdClass();
+                        $this->view_data["configuration"]->title                          = $this->input->post('title');
+                        $this->view_data["configuration"]->keyword                        = $this->input->post('keyword');
+                        $this->view_data["configuration"]->description                        = $this->input->post('description');
+                        
+                        $this->load->helper('form');
+                        $this->load->helper('character');
+                        $this->load->library('form_validation');
+                        $rules = array(
+                            array(
+                                'field'   => 'title',
+                                'label'   =>  $this->lang->line('title'),
+                                'rules'   => 'required|trim|max_length[150]|xss_clean'
+                            ),array(
+                                'field'   => 'keyword',
+                                'label'   =>  $this->lang->line('seo_keyword'),
+                                'rules'   => 'required|trim|max_length[100]|xss_clean'
+                            ),array(
+                                'field'   => 'description',
+                                'label'   =>  $this->lang->line('description'),
+                                'rules'   => 'required|trim|max_length[255]|xss_clean'
+                            )
+                        );
+                        $this->form_validation->set_error_delimiters('<p><strong>'.$this->lang->line('error').' : </strong> ',' </p>');
+                        $this->form_validation->set_rules($rules);
+
+                        if ($this->form_validation->run()==TRUE){
+                                if($this->input->post('saveimg')){
+                                    $this->view_data["configuration"]->logo              = $this->upload($this->input->post('saveimg'),$this->input->post('image'));   
+                                }
+                                
+                                if($params){
+                                        //edit data
+					$this->configuration_model->update($this->view_data["configuration"], $params);
+                                        $logAction                              = '[UpdateConfigurationSuccess] '.$this->lang->line('update_configuration_success');
+				}else{
+					$params                                 = $this->configuration_model->create($this->view_data["configuration"]);
+                                        $logAction                              = '[AddConfigurationSuccess] '.$this->lang->line('add_configuration_success');
+				}
+                                
+				if($logAction){
+					$this->session->set_flashdata('flash_message', $this->lang->line('update_successful'));
+					$this->adminlog($logAction);
+                                        die("0");
+				}
+                        } else {
+                                die("1");
+                        }
+            }
         }
 }

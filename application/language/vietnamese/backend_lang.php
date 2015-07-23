@@ -113,3 +113,4 @@ $lang['product_soldout']      =   'Sản phẩm hết hàng';
 $lang['product_hotdeal']      =   'Sản phẩm mua nhiều';
 $lang['product_bid']            = 'Sản phẩm đang đấu giá';
 $lang['product_bided']            = 'Sản phẩm đã đấu giá';
+$lang['lastupdated']            =   'Cập nhập cuối';
