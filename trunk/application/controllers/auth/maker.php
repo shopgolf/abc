@@ -4,25 +4,24 @@ if (!defined('BASEPATH')){
 }
 
 /**
- * Category Controller
+ * Maker Controller
  * Build by Phuc Nguyen
  * Contact : nguyenvanphuc0626@gmail.com
  */
 
-class Category extends BACKEND_Controller {
+class Maker extends BACKEND_Controller {
 
 	public function __construct() {
 		parent::__construct();
-                $this->load->language('category');
+                $this->load->language('maker');
 		require_once(APPPATH . 'modules/backend/autoload.php');
 		if($this->is_logged_in() == FALSE) {
 			$this->session->set_userdata('redirect_uri', current_url());redirect('auth');
 		}
                 
-                $this->load->model('checkout_model');
-                $this->load->model('category_model');
-                $this->set_controller('category');
-                $this->set_model($this->category_model);
+                $this->load->model('maker_model');
+                $this->set_controller('maker');
+                $this->set_model($this->maker_model);
                 $this->load->library('bookinglib');
                 $this->bookinglib = new bookinglib();
                 
@@ -35,30 +34,30 @@ class Category extends BACKEND_Controller {
             if($this->input->server('REQUEST_METHOD')=='POST'){
                $trash   = explode(",", $this->input->post('id'));
                foreach($trash as $key => $vals){
-                   $this->category_model->delete(array('id'=>$vals));
+                   $this->maker_model->delete(array('id'=>$vals));
                }
                $this->session->set_flashdata('flash_message', $this->lang->line('delete_successful'));
-               $this->adminlog($this->lang->line('delete_successful').' - Category ID = '.$this->input->post('id'));
+               $this->adminlog($this->lang->line('delete_successful').' - Maker ID = '.$this->input->post('id'));
                die("1");
             }
         }
-
+        
         protected function update($params=NULL){
 		if($this->input->server('REQUEST_METHOD')=='POST'){
-                        $this->view_data["category"]                                     = new stdClass();
-                        $this->view_data["category"]->name                               = $this->input->post('category_name');
-                        $this->view_data["category"]->keyword                            = $this->input->post('keyword');
-                        $this->view_data["category"]->description                        = $this->input->post('description');
-                        $this->view_data["category"]->owner                              = $this->session->userdata['user_id'];
-                        $this->view_data["category"]->lastupdated                        = time();
+                        $this->view_data["maker"]                                     = new stdClass();
+                        $this->view_data["maker"]->name                               = $this->input->post('maker_name');
+                        $this->view_data["maker"]->keyword                            = $this->input->post('keyword');
+                        $this->view_data["maker"]->description                        = $this->input->post('description');
+                        $this->view_data["maker"]->owner                              = $this->session->userdata['user_id'];
+                        $this->view_data["maker"]->lastupdated                        = time();
                         
                         $this->load->helper('form');
                         $this->load->helper('character');
                         $this->load->library('form_validation');
                         $rules = array(
                             array(
-                                'field'   => 'category_name',
-                                'label'   =>  $this->lang->line('category_code'),
+                                'field'   => 'maker_name',
+                                'label'   =>  $this->lang->line('name'),
                                 'rules'   => 'required|trim|max_length[255]|xss_clean'
                             ),array(
                                 'field'   => 'keyword',
@@ -76,33 +75,33 @@ class Category extends BACKEND_Controller {
                         if ($this->form_validation->run()==TRUE){
                                 if($params){
                                         //edit data
-					$this->category_model->update($this->view_data["category"], $params);
-                                        $logAction                              = '[UpdateCategorySuccess] '.$this->lang->line('update_category_success');
+					$this->maker_model->update($this->view_data["maker"], $params);
+                                        $logAction                              = '[UpdateMakerSuccess] '.$this->lang->line('update_maker_success');
 				}else{
-					$params                                 = $this->category_model->create($this->view_data["category"]);
-                                        $logAction                              = '[AddCategorySuccess] '.$this->lang->line('add_category_success');
+					$params                                 = $this->maker_model->create($this->view_data["maker"]);
+                                        $logAction                              = '[AddMakerSuccess] '.$this->lang->line('add_maker_success');
 				}
                                 
 				if($logAction){
 					$this->session->set_flashdata('flash_message', $this->lang->line('update_successful'));
 					$this->adminlog($logAction);
-                                        redirect('auth/category');
+                                        redirect('auth/maker');
 				}
                         }
             }
             
             if(isset($params)){
-                    $category_query	= $this->category_model->find_by(array('id'=>$params));
+                    $maker_query	= $this->maker_model->find_by(array('id'=>$params));
                     
-                    if(!isset($category_query[0])){
+                    if(!isset($maker_query[0])){
                             $this->session->set_flashdata('flash_message', $this->lang->line('not_exists'));
-                            redirect(site_url('auth/category'));
+                            redirect(site_url('auth/maker'));
                             exit();
                     }
-                    $category_query[0]->image    = json_decode($category_query[0]->image);
+                    $maker_query[0]->image    = json_decode($maker_query[0]->image);
                     $this->smarty->assign(array(
-                        'category'       =>  $category_query[0],
-                        'count_img'     =>  count($category_query[0]->image)
+                        'maker'       =>  $maker_query[0],
+                        'count_img'     =>  count($maker_query[0]->image)
                     ));
             }
             
@@ -121,6 +120,6 @@ class Category extends BACKEND_Controller {
                 'validation'    =>  validation_errors()
             ));
 
-            $this->smarty->display('auth/category/edit');
+            $this->smarty->display('auth/maker/edit');
 	}
 }
