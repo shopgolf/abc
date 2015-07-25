@@ -114,3 +114,5 @@ $lang['product_hotdeal']      =   'Sản phẩm mua nhiều';
 $lang['product_bid']            = 'Sản phẩm đang đấu giá';
 $lang['product_bided']            = 'Sản phẩm đã đấu giá';
 $lang['lastupdated']            =   'Cập nhập cuối';
+$lang['userbk']                 =   'Tài khoản backend';
+$lang['permission']             =   'Phân quyền';

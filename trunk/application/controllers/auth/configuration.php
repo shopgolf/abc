@@ -30,6 +30,9 @@ class Configuration extends BACKEND_Controller {
 	public function index(){
 		if($this->database_connect_status){
                         $info   =   $this->configuration_model->find_by();
+                        if(empty($info)){
+                            $info[0] = array();
+                        }
                         $this->smarty->assign(array(
                             "configuration"  =>  $info[0]
                         ));
@@ -56,8 +59,13 @@ class Configuration extends BACKEND_Controller {
             if($this->input->server('REQUEST_METHOD')=='POST'){
                         $this->view_data["configuration"]                                     = new stdClass();
                         $this->view_data["configuration"]->title                          = $this->input->post('title');
+                        $this->view_data["configuration"]->company                        = $this->input->post('company');
                         $this->view_data["configuration"]->keyword                        = $this->input->post('keyword');
                         $this->view_data["configuration"]->description                        = $this->input->post('description');
+                        $this->view_data["configuration"]->address                        = $this->input->post('description');
+                        $this->view_data["configuration"]->phone                        = $this->input->post('phone');
+                        $this->view_data["configuration"]->email                        = $this->input->post('email');
+                        $this->view_data["configuration"]->youtube                        = $this->input->post('youtube');
                         
                         $this->load->helper('form');
                         $this->load->helper('character');
@@ -68,13 +76,33 @@ class Configuration extends BACKEND_Controller {
                                 'label'   =>  $this->lang->line('title'),
                                 'rules'   => 'required|trim|max_length[150]|xss_clean'
                             ),array(
+                                'field'   => 'company',
+                                'label'   =>  $this->lang->line('company'),
+                                'rules'   => 'required|trim|max_length[255]|xss_clean'
+                            ),array(
                                 'field'   => 'keyword',
                                 'label'   =>  $this->lang->line('seo_keyword'),
                                 'rules'   => 'required|trim|max_length[100]|xss_clean'
                             ),array(
                                 'field'   => 'description',
                                 'label'   =>  $this->lang->line('description'),
-                                'rules'   => 'required|trim|max_length[255]|xss_clean'
+                                'rules'   => 'trim|max_length[255]|xss_clean'
+                            ),array(
+                                'field'   => 'address',
+                                'label'   =>  $this->lang->line('address'),
+                                'rules'   => 'trim|max_length[255]|xss_clean'
+                            ),array(
+                                'field'   => 'phone',
+                                'label'   =>  $this->lang->line('phone'),
+                                'rules'   => 'trim|max_length[255]|xss_clean'
+                            ),array(
+                                'field'   => 'email',
+                                'label'   =>  $this->lang->line('email'),
+                                'rules'   => 'trim|max_length[40]|xss_clean'
+                            ),array(
+                                'field'   => 'youtube',
+                                'label'   =>  $this->lang->line('youtube'),
+                                'rules'   => 'trim|max_length[255]|xss_clean'
                             )
                         );
                         $this->form_validation->set_error_delimiters('<p><strong>'.$this->lang->line('error').' : </strong> ',' </p>');
@@ -85,7 +113,7 @@ class Configuration extends BACKEND_Controller {
                                     $this->view_data["configuration"]->logo              = $this->upload($this->input->post('saveimg'),$this->input->post('image'));   
                                 }
                                 
-                                if($params){
+                                if($this->input->post('id')){
                                         //edit data
 					$this->configuration_model->update($this->view_data["configuration"], $params);
                                         $logAction                              = '[UpdateConfigurationSuccess] '.$this->lang->line('update_configuration_success');
