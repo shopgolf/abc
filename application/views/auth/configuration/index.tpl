@@ -30,6 +30,10 @@ width:89%;
                             {{form_input(["class"=>"form-control",'placeholder'=>"{{$lang.input_text}} {{$lang.site_title}}",'value'=>"{{if isset($configuration->title)}}{{$configuration->title}}{{/if}}",'name'=>'title','id'=>'title'])}}
                         </div>
                         <div class="col-md-12 form-group">
+                            {{form_label({{$lang.company}},'company')}}
+                            {{form_input(["class"=>"form-control",'placeholder'=>"{{$lang.input_text}} {{$lang.company}}",'value'=>"{{if isset($configuration->company)}}{{$configuration->company}}{{/if}}",'name'=>'company','id'=>'company'])}}
+                        </div>
+                        <div class="col-md-12 form-group">
                             {{form_label({{$lang.site_logo}},'site_logo')}}
                             <div class="input-group">
                                 <span class="input-group-addon"><i class="glyphicon glyphicon-picture"></i></span>
@@ -38,6 +42,19 @@ width:89%;
                                 {{form_input(["type"=>"hidden","class"=>"form-control",'placeholder'=>"",'value'=>'','name'=>'saveimg','id'=>'saveimg'])}}
                             </div>
                         </div>
+                        <div class="col-md-12 form-group has-success">
+                            {{form_label({{$lang.address}},'address',['class'=>'fa fa-check'])}}
+                            {{form_input(["class"=>"form-control",'placeholder'=>"{{$lang.input_text}} {{$lang.address}}",'value'=>"{{if isset($configuration->address)}}{{$configuration->address}}{{/if}}",'name'=>'address','id'=>'address'])}}
+                        </div>
+                        <div class="col-md-12 form-group has-success">
+                            {{form_label({{$lang.phone}},'phone',['class'=>'fa fa-check'])}}
+                            {{form_input(["class"=>"form-control",'placeholder'=>"{{$lang.phone}}",'value'=>"{{if isset($configuration->phone)}}{{$configuration->phone}}{{/if}}",'name'=>'phones','id'=>'phone'])}}
+                        </div>
+                        <div class="col-md-12 form-group has-success">
+                            {{form_label({{$lang.email}},'email',['class'=>'fa fa-check'])}}
+                            {{form_input(["class"=>"form-control",'placeholder'=>"{{$lang.input_text}} {{$lang.email}}",'value'=>"{{if isset($configuration->address)}}{{$configuration->address}}{{/if}}",'name'=>'address','id'=>'address'])}}
+                        </div>
+                        
                         <div class="col-md-12 form-group has-success">
                             {{form_label({{$lang.seo_keyword}},'keyword',['class'=>'fa fa-check'])}}
                             {{form_input(["class"=>"form-control",'placeholder'=>"{{$lang.input_text}} {{$lang.seo_keyword}}",'value'=>"{{if isset($configuration->keyword)}}{{$configuration->keyword}}{{/if}}",'name'=>'keyword','id'=>'keyword'])}}
@@ -49,7 +66,7 @@ width:89%;
                         <div class="col-md-6">
                             <button name="validate_config" class="btn btn-success glyphicon glyphicon-floppy-disk" id="accept">{{$lang.save}}</button>
                             <span id="simple"></span>
-                            {{form_input(["type"=>"hidden",'value'=>'','name'=>'id','id'=>'id'])}}
+                            {{form_input(["type"=>"hidden",'value'=>'','name'=>'id','id'=>"{{if isset($configuration->id)}}{{$configuration->id}}{{/if}}"])}}
 
                         </div>
                   </div>
@@ -64,7 +81,9 @@ $("#accept").on('click',function(){
     $.ajax({
         url : '{{$link_bk}}/configuration/add',
         type: "POST",
-        data : {title:$("#title").val(),keyword:$("#keyword").val(),description:$("#description").val(),image:$("#image").val(),saveimg:$("#saveimg").val()},
+        data : {title:$("#title").val(),keyword:$("#keyword").val(),description:$("#description").val(),image:$("#image").val()
+                ,saveimg:$("#saveimg").val(),company:$("#company").val(),address:$("#address").val(),phone:$("#phone").val(),
+                email:$("#email").val(),id:$("#id").val()},
         cache: true,
         beforeSend: function(){
             $("#success").html("<img src='<?php echo STATIC_URL;?>/backend/images/icon/loading-2.gif' /> <br/> Đang xử lí");

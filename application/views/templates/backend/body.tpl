@@ -132,8 +132,9 @@
                     <li class="treeview">
                         <a href="#"><i class='fa fa-cog'></i> <span>Settings</span> <i class="fa fa-angle-left pull-right"></i></a>
                         <ul class="treeview-menu">
-                            <li><a href="{{$link_bk}}/configuration.html"><i class="glyphicon glyphicon-info-sign"></i> Hệ thống</a></li>
-                            <li><a href="{{$link_bk}}/contacts.html"><i class="glyphicon glyphicon-envelope"></i> Liên hệ</a></li>
+                            <li><a href="{{$link_bk}}/configuration.html"><i class="glyphicon glyphicon-info-sign"></i>{{$lang.menu_configuration}}</a></li>
+                            <li><a href="{{$link_bk}}/userbk.html"><i class="glyphicon glyphicon-info-sign"></i>{{$lang.userbk}}</a></li>
+                            <li><a href="{{$link_bk}}/permission.html"><i class="glyphicon glyphicon-info-sign"></i>{{$lang.permission}}</a></li>
                         </ul>
                     </li>
                     <!-- / Config System-->
