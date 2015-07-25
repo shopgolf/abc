@@ -3615,8 +3615,9 @@ span.notify-right{
     padding-left: 15px;
 }
 .page-order .cart_navigation a:hover{
-  background: #ff3366;
+  background: #0088cc;
   color: #fff;
+  border: 1px solid #0088cc;
 }
 .cart_summary > thead,
 .cart_summary > tfoot{
@@ -3665,7 +3666,7 @@ span.notify-right{
   margin-top: 5px;
 }
 .cart_summary .qty a:hover{
-  background: #ff3366;
+  background: #26C281;
   color: #fff;
 }
 .cart_summary .action{
@@ -4959,6 +4960,13 @@ span.notify-right{
   border-bottom: 1px solid #26C281;
   position: relative;
 }
+.box-products .box-product-head a{
+  margin-top: 3px;
+  float: left;
+}
+.box-products .box-product-head h3{
+  float: left;
+}
 .box-products .box-product-head .box-title{
   color: #FFF;
   text-transform: uppercase;
@@ -5278,7 +5286,7 @@ span.notify-right{
   color: #666;
 }
 .recommendation .box-tabs li>a{
-  padding: 5px 10px;
+  padding: 2px 10px;
   background: none;
 }
 .recommendation .box-tabs li{
@@ -5340,7 +5348,7 @@ span.notify-right{
   left: 4.2%;
 }
 .category-page.option3 #main-menu .navbar .navbar-nav>li>a{
-  padding: 0px 16px;
+  padding: 0px 15px;
 }
 .category-page.option3 .subcategories{
   padding: 0px 15px;
@@ -5353,9 +5361,19 @@ span.notify-right{
     margin-right: 20px;
 }
 .search-cate{
+  min-width: 200px;
   border: 1px solid #26C281;
   margin:10px 0px 10px 0px;
 }
 .category-page.option3 .box-products{
   margin-top: 10px;
 } 
+.top-view span.box-title{
+  height: 44px;
+}
+.box-products .top-view .box-product-head  a{
+  margin-top: 0px;
+}
+.box-products .top-view .box-product-head .box-title{
+  padding-top:  15px;
+}

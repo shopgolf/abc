@@ -22,7 +22,6 @@ class Home extends MY_Controller{
 	 * Display login form.
 	 */
 	public function index(){
-		
 		if($this->is_logged_in() == TRUE){
 			$this->session->set_flashdata('flash_message_error', $this->session->flashdata('flash_message_error'));
 			redirect('auth/'.$this->config->item('admin_default_controller'));

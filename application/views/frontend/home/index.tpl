@@ -38,11 +38,11 @@
 <div class="box-products new-arrivals">
     <div class="container">
         <div class="box-product-head">
-            <span class="box-title">Hàng Mới Về</span>
+            <h3><a  href="{{$site_url}}hang-moi-ve.html" title="{{$lang.new_products_go}}"><span class="box-title">{{$lang.new_products_go}}</span></a></h3>
             <span class="trapezoid"></span>
             <ul class="box-tabs nav-tab">
-                <li ><a data-toggle="tab" href="#tab-1">Hàng mới</a></li>
-                <li><a data-toggle="tab" href="#tab-2">Hàng cũ</a></li>
+                <li ><a data-toggle="tab" href="#tab-1">{{$lang.new_products}}</a></li>
+                <li><a data-toggle="tab" href="#tab-2">{{$lang.old_products}}</a></li>
             </ul>
         </div>
         <div class="box-product-content">
@@ -54,7 +54,7 @@
                <!--top-view-->
                <div class="top-view">
                     <div class="box-product-head">
-                        <span class="box-title">Xem Nhiều</span>
+                        <h3><a href="{{$site_url}}xem-nhieu.html" title="{{$lang.top_view}}"><span class="box-title">{{$lang.top_view}}</span></a></h3>
                         <span class="trapezoid"></span>
                         <span class="eye pull-right"><i class="fa fa-eye"></i></span>
                     </div>
@@ -636,9 +636,9 @@
     <div class="container">
         <div class="box-product-content">
             <div class="box-product-adv">
-                <div class="top-view">
+                <div class="top-view sell">
                     <div class="box-product-head">
-                        <span class="box-title">Bán chạy</span>
+                        <h3><a href="{{$site_url}}ban-chay.html" title="{{$lang.top_sell_products}}"><span class="box-title">{{$lang.top_sell_products}}</span></a></h3>
                         <span class="trapezoid"></span>
                     </div>
                     <div id="carousel-id-2" class="carousel slide" data-ride="carousel">
@@ -791,7 +791,7 @@
             </div>
             <div class="box-product-list">
                 <div class="box-product-head">
-                    <span class="box-title">Tin tức</span>
+                    <h3><a href="{{$site_url}}tin-tuc.html" title="{{$lang.news}}"><span class="box-title">{{$lang.news}}</span></a></h3>
                     <span class="trapezoid"></span>
                 </div>
                 <div class="news">

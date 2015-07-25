@@ -95,7 +95,7 @@
                         <div id="navbar" class="navbar-collapse collapse">
                             <ul class="nav navbar-nav">
                                 <li class="dropdown">
-                                    <a href="category.html" class="dropdown-toggle" data-toggle="dropdown">GẬY GOLF</a>
+                                    <a href="category.html" class="dropdown-toggle" data-toggle="dropdown">{{$lang.golf_clubs}}</a>
                                     <ul class="dropdown-menu mega_dropdown" role="menu" style="width: 830px;">
                                         <li class="block-container col-sm-3">
                                             <ul class="block">
@@ -166,9 +166,9 @@
                                         </li>
                                     </ul>
                                 </li>
-                                <li><a href="category.html" class="dropdown-toggle" data-toggle="dropdown">DỊCH VỤ</a></li>
+                                <li><a href="category.html" class="dropdown-toggle" data-toggle="dropdown">{{$lang.sevices}}</a></li>
                                 <li class="dropdown">
-                                    <a href="category.html" class="dropdown-toggle" data-toggle="dropdown">MÁY TẬP GOLF</a>
+                                    <a href="category.html" class="dropdown-toggle" data-toggle="dropdown">{{$lang.golf_Simulators}}</a>
                                         <ul class="mega_dropdown dropdown-menu" style="width: 830px;">
                                         <li class="block-container col-sm-3">
                                             <ul class="block">
@@ -274,7 +274,7 @@
                                     </ul>
                                 </li>
                                 <li class="dropdown">
-                                    <a href="category.html" class="dropdown-toggle" data-toggle="dropdown">ĐẤU GIÁ</a>
+                                    <a href="category.html" class="dropdown-toggle" data-toggle="dropdown">{{$lang.auction}}</a>
                                     <ul class="dropdown-menu container-fluid">
                                         <li class="block-container">
                                             <ul class="block">
@@ -287,14 +287,14 @@
                                         </li>
                                     </ul> 
                                 </li>
-                                <li><a href="category.html">PHỤ KIỆN</a></li>
-                                <li><a href="category.html">CLB GOLF</a></li>
-                                <li><a href="category.html">HƯỚNG DẪN</a></li>
+                                <li><a href="category.html">{{$lang.fittings}}</a></li>
+                                <li><a href="category.html">{{$lang.club}}</a></li>
+                                <li><a href="category.html">{{$lang.guide}}</a></li>
                             </ul>
                             <ul class="nav navbar-nav navbar-right">
                                 <li class="group-button-header">
                                      <div class="btn-cart" id="cart-block">
-                                        <a title="My cart" href="cart.html">Cart</a>
+                                        <a title="My cart" href="cart.html">{{$lang.cart}}</a>
                                         <span class="notify notify-right">10</span>
                                         <div class="cart-block">
                                             <div class="cart-block-content">
@@ -334,7 +334,7 @@
                                                     <span class="toal-price pull-right">122.38 €</span>
                                                 </div>
                                                 <div class="cart-buttons">
-                                                    <a href="order.html" class="btn-check-out">Checkout</a>
+                                                    <a href="{{$site_url}}gio-hang.html" class="btn-check-out">{{$lang.checkout}}</a>
                                                 </div>
                                             </div>
                                         </div>

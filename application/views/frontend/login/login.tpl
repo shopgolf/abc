@@ -18,10 +18,8 @@
                 <div class="col-sm-6">
                     <div class="box-authentication">
                         <h3>Create an account</h3>
-                        <p>Please enter your email address to create an account.</p>
-                        <label for="emmail_register">Email address</label>
-                        <input id="emmail_register" type="text" class="form-control">
-                        <button class="button"><i class="fa fa-user"></i> Create an account</button>
+                        <p>Please enter your email address to create an account.</p><br>
+                        <a class="button registered" href="{{$site_url}}dang-ky.html"><i class="fa fa-user"></i> Create an account</a>
                     </div>
                 </div>
                 <div class="col-sm-6">
