@@ -253,7 +253,7 @@
                                                     <span class="toal-price pull-right">122.38 €</span>
                                                 </div>
                                                 <div class="cart-buttons">
-                                                    <a href="order.html" class="btn-check-out">Checkout</a>
+                                                    <a href="{{$site_url}}gio-hang.html" class="btn-check-out">{{$lang.checkout}}</a>
                                                 </div>
                                             </div>
                                         </div>
