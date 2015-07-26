@@ -1,0 +1,2 @@
+ALTER TABLE `role` CHANGE `description` `description` VARCHAR(255) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL;
+ALTER TABLE `px_product` ADD `seo_url` VARCHAR(255) NOT NULL AFTER `image`;
