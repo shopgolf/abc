@@ -79,13 +79,14 @@ class BACKEND_Controller extends MY_Controller {
 		$this->load->library('Xgo_datatables', '', 'datatables');
                 $userinfo   =   $this->user_model->find_by(array('id'=>$this->session->userdata['user_id']));
                 $this->smarty->assign(array(
+                    'permission'                => $this->right,
                     'controller'                =>  $this->controller,
                     'database_connect_status'   =>  $this->database_connect_status,
                     'datatables'        => array(
                                                 'json_data'		=> site_url('auth/'.$this->controller.'/index/view/json_data'),
                                                 'init_data'             => $this->model->init_data($this->right),
                                                 'filter'		=> '',
-                                                'label'			=> $this->lang->line($this->controller.'_list'),
+                                                'label'			=> $this->lang->line($this->controller)
                                         ),
                     'css'               => array(
                                                 base_url().'third_party/datatables/css/dataTables.bootstrap.css'

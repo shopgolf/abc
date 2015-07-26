@@ -383,7 +383,7 @@ $config['proxy_ips'] = '';
  */
 $config['admin_default_controller'] = 'stats';
 
-$config['user_password_key'] 		= '43*r32fewfwef2fddADFsf&^%dsHFGK';
+$config['user_password_key'] 		= '41213R#@R@#$!@#@!#!@#@!phucf&^%dsHFGK';
 $config['user_password_salt_length']= 20;
 
 /*

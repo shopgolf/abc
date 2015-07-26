@@ -214,77 +214,55 @@ class User_model extends MY_Model{
 						'label' => $this->lang->line('number'),
 						'width' => '4%',
 						'sort'  => 'DESC',
-						'searchoptions' => array(
-								'type' 	=> 'text',
-						)
+						'searchoptions' => FALSE
 				),
                                 array(
 						'name' => 'username',
 						'label' => $this->lang->line('user_username'),
 						'width' => '10%',
-						'sort'  => 'ASC',
-						'searchoptions' => array(
-								'type' 	=> 'text',
-						)
+						'sort'  => FALSE,
+						'searchoptions' => FALSE
 				),
 				array(
 						'name' 	=> 'email',
 						'label' => $this->lang->line('user_email'),
 						'width' => '20%',
 						'sort'  => FALSE,
-						'searchoptions' => array(
-								'type' 	=> 'text',
-						)
+						'searchoptions' => FALSE
 				),
 				array(
 						'name' 	=> 'gender',
 						'label' => $this->lang->line('user_gender'),
 						'width' => '10%',
 						'sort'  => FALSE,
-						'searchoptions' => array(
-								'type' 	=> 'select',
-								'values' => $this->datatables->values_encode($this->get_gender_list()),
-						)
+						'searchoptions' => FALSE
 				),
 				array(
 						'name' 	=> 'active',
 						'label' => $this->lang->line('user_active'),
 						'width' => '10%',
 						'sort'  => FALSE,
-						'searchoptions' => array(
-								'type' 	=> 'select',
-								'values' => $this->datatables->values_encode($this->active_list),
-
-						)
+						'searchoptions' => FALSE
 				),
                                 array(
 						'name' 	=> 'created',
 						'label' => $this->lang->line('created'),
 						'width' => '10%',
 						'sort'  => FALSE,
-						'searchoptions' => array(
-								'type' 	=> 'select'
-
-						)
+						'searchoptions' => FALSE
 				),
                                 array(
 						'name' => 'group_id',
 						'label' => $this->lang->line('user_group'),
 						'width' => '20%',
 						'sort'  => FALSE,
-						'searchoptions' => array(
-								'type' 	=> 'select',
-								'values' => json_encode($group_list),
-
-						)
+						'searchoptions' => FALSE
 				),
 				array(
 						'name'  => 'button',
 						'width' => '10%',
 						'sort'  => FALSE,
-						'label'  => $right['add']==TRUE?'<div class="btn-group">
-						<a style="width: 82px;" href="'.site_url('auth/user/index/add').'" class="btn btn btn-success">'.$this->lang->line('create').'</a>
-						</div>':'',
+						'label'  => '',
 						'searchoptions' => false
 				)
 		);
@@ -292,7 +270,7 @@ class User_model extends MY_Model{
 
 	public function json_data($controller, $right){
 		$this->datatables
-		->select('usr.username,usr.email,usr.gender,usr.active,usr.group_id,usr.id,usr.created')
+		->select('usr.username,usr.email,usr.gender,usr.active,usr.group_id,usr.id,usr.createdTime')
                 ->from('users AS usr');
 		//->unset_column('id');
 
@@ -308,7 +286,7 @@ class User_model extends MY_Model{
 					$item['email'],
 					$this->get_gender($item['gender']),				
 					$this->get_active($item['active']),
-                                        $item['created'],
+                                        $item['createdTime'],
 					isset($group[0])?$group[0]->title:"",
 					$this->add_button($controller, $right, $item),
 			);
