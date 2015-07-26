@@ -1,0 +1,29 @@
+DROP TABLE IF EXISTS `users`;
+CREATE TABLE IF NOT EXISTS `users` (
+  `id` smallint(3) unsigned NOT NULL AUTO_INCREMENT,
+  `firstname` varchar(150) DEFAULT NULL,
+  `lastname` varchar(150) DEFAULT NULL,
+  `username` varchar(150) DEFAULT NULL,
+  `password` text,
+  `salt` text,
+  `gender` tinyint(1) unsigned DEFAULT '0',
+  `email` varchar(150) DEFAULT NULL,
+  `phone` varchar(25) DEFAULT NULL,
+  `address` varchar(250) DEFAULT NULL,
+  `image` varchar(200) DEFAULT NULL,
+  `active` tinyint(1) unsigned DEFAULT '0',
+  `last_login` datetime DEFAULT NULL,
+  `createdTime` datetime DEFAULT NULL,
+  `updatedTime` datetime DEFAULT NULL,
+  `createdBy` smallint(3) unsigned DEFAULT NULL,
+  `group_id` tinyint(2) unsigned DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=3 ;
+
+--
+-- Dumping data for table `users`
+--
+
+INSERT INTO `users` (`id`, `firstname`, `lastname`, `username`, `password`, `salt`, `gender`, `email`, `phone`, `address`, `image`, `active`, `last_login`, `createdTime`, `updatedTime`, `createdBy`, `group_id`) VALUES
+(1, '', '', 'ugposter', '4484e6787cd1457ffde6c4ca69e94bc16294cb93bbbec0e671f1b5d7201463f0', '3b01bbc5cd75d49cca743c096e6e2494', 0, 'admin@gmail.com', '', '', '', 1, NULL, '2015-07-26 09:23:22', '2015-07-26 09:23:22', 1, 1),
+(2, '', '', 'admin', 'ff0fbb600c1b65ede2b4a404f1d5d01862190eb16db3cabeb433c253414f4c8b', 'c74c07a03daa35e8a22ab92fa306259c', 0, 'admin@gmail.com', '', '', '', 1, NULL, '2015-07-26 09:25:38', '2015-07-26 09:25:38', 1, 1);

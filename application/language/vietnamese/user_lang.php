@@ -22,3 +22,5 @@ $lang['user_phone']					= 'Điện thoại';
 $lang['user_username_exists']		= 'Tài khoản này đã được sử dụng';
 
 $lang['user_re_password_error']		= 'Mật khẩu và nhập lại mật khẩu không giống nhau';
+$lang['update_user_success']         =   'Cập nhập tài khoản thành công';
+$lang['create_user_success']         =   'Tạo tài khoản thành công';

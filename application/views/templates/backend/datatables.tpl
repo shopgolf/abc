@@ -20,8 +20,10 @@
         {{if $controller == "hotdeal" || $controller == "promotion" || $controller == "bid"}}
             {{$controller = "product"}}
         {{/if}}
-        <a href="{{$link_bk}}/{{$controller}}/index/add.html">
-        <button class="btn btn-success btn-flat"><i class="fa fa-plus"></i> {{$lang.add}} {{$lang.product}}</button></a>
+        {{if $permission.add == 1}}
+            <a href="{{$link_bk}}/{{$controller}}/index/add.html">
+            <button class="btn btn-success btn-flat"><i class="fa fa-plus"></i> {{$lang.add}} {{$datatables.label}}</button></a>
+        {{/if}}
 </div>
 <table class="table table-striped table-bordered" id="data-table" width="100%">
 	<thead>

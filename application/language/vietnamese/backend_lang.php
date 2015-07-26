@@ -116,3 +116,5 @@ $lang['product_bided']            = 'Sản phẩm đã đấu giá';
 $lang['lastupdated']            =   'Cập nhập cuối';
 $lang['userbk']                 =   'Tài khoản backend';
 $lang['permission']             =   'Phân quyền';
+$lang['required_info']          =   'Thông tin bắt buộc';
+$lang['detail_info']          =   'Thông tin chi tiết';

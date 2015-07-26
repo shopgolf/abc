@@ -14,15 +14,23 @@ if (!defined('BASEPATH')){
 class User extends BACKEND_Controller {
 
 	public function __construct() {
-		parent::__construct();
-		$this->load->language('user');
-		$this->load->language('button');
-		if($this->database_connect_status){
-			$this->load->model('user_model');
-			$this->load->model('group_model');
-			$this->set_controller('user');
-			$this->set_model($this->user_model);
+                parent::__construct();
+                $this->load->language('user');
+		require_once(APPPATH . 'modules/backend/autoload.php');
+		if($this->is_logged_in() == FALSE) {
+			$this->session->set_userdata('redirect_uri', current_url());redirect('auth');
 		}
+                
+                $this->load->model('group_model');
+                $this->load->model('user_model');
+                $this->set_controller('user');
+                $this->set_model($this->user_model);
+                $this->load->library('bookinglib');
+                $this->bookinglib = new bookinglib();
+                
+                $this->smarty->assign(array(
+                    "lang"          =>  $this->lang->language
+                ));
 	}
 
 	/**
@@ -31,22 +39,23 @@ class User extends BACKEND_Controller {
 	 */
 	protected function update($id=NULL){
 		$this->view_data["user"] 				= new stdClass();
-		$this->view_data["user"]->id	 		= $id;
-		$this->view_data["user"]->username		= $this->input->post('username');
-		$this->view_data["user"]->email			= $this->input->post('email');
-		$this->view_data["user"]->active		= $this->input->post('active');
-		$this->view_data["user"]->group_id		= $this->input->post('group_id');
-		
-		$this->view_data["user"]->firstname		= $this->input->post('firstname');
-		$this->view_data["user"]->lastname		= $this->input->post('lastname');
-		$this->view_data["user"]->address		= $this->input->post('address');
-		$this->view_data["user"]->phone			= $this->input->post('phone');
-		$this->view_data["user"]->image			= $this->input->post('image');
-		$this->view_data["user"]->gender		= $this->input->post('gender');
-		$this->view_data["user"]->language_id           = $this->input->post('language_id');
-                $this->view_data["user"]->agent_code            = $this->input->post('agent_code');
-		
+                $this->view_data["user"]->username		= $this->input->post('user_username');
+                $this->view_data["user"]->email			= $this->input->post('user_email');
+                $this->view_data["user"]->active		= $this->input->post('user_active');
+                $this->view_data["user"]->group_id		= $this->input->post('user_group');
+                $this->view_data["user"]->firstname		= $this->input->post('user_firstname');
+                $this->view_data["user"]->lastname		= $this->input->post('user_lastname');
+                $this->view_data["user"]->address		= $this->input->post('user_address');
+                $this->view_data["user"]->phone			= $this->input->post('phone');
+                $this->view_data["user"]->image			= $this->input->post('user_image');
+                $this->view_data["user"]->gender		= $this->input->post('user_gender');
+                $this->view_data["user"]->createdTime		= date("Y-m-d H:i:s",time());
+                $this->view_data["user"]->updatedTime		= date("Y-m-d H:i:s",time());
+                $this->view_data["user"]->createdBy		= $this->session->userdata['user_id'];
+                        
 		if($this->input->server('REQUEST_METHOD')=='POST'){
+                        
+
 			// Validate form.
 			$this->load->helper('form');
 			$this->load->library('form_validation');
@@ -55,143 +64,99 @@ class User extends BACKEND_Controller {
 			//add customer
 			$rules = array(
                                         array(
-						'field'   => 'agent_code',
-						'label'   => $this->lang->line('agent_code'),
-						'rules'   => 'trim|numeric|max_length[10]|xss_clean'
-					),
-					array(
-						'field'   => 'email',
+                                                'field'   => 'user_username',
+                                                'label'   => $this->lang->line('user_username'),
+                                                'rules'   => 'trim|max_length[150]|required|xss_clean'
+                                        ),array(
+						'field'   => 'user_email',
 						'label'   =>  $this->lang->line('user_email'),
-						'rules'   => 'trim|required|max_length[150]|xss_clean|email'
-					),
-					array(
-						'field'   => 'active',
-						'label'   => $this->lang->line('user_status'),
-						'rules'   => 'trim|numeric|max_length[1]|xss_clean'
-					),
-					array(
-						'field'   => 'group_id',
+						'rules'   => 'trim|max_length[150]|xss_clean|email'
+					),array(
+						'field'   => 'user_password',
+						'label'   => $this->lang->line('user_password'),
+						'rules'   => 'trim|required|xss_clean'
+                                        ),array(
+						'field'   => 'user_re_password',
+						'label'   => $this->lang->line('user_re_password'),
+						'rules'   => 'trim|required|xss_clean'
+                                        ),array(
+						'field'   => 'user_active',
+						'label'   => $this->lang->line('user_active'),
+						'rules'   => 'required|trim|numeric|max_length[1]|xss_clean'
+					),array(
+						'field'   => 'user_group',
 						'label'   =>  $this->lang->line('user_group'),
 						'rules'   => 'trim|required|numeric|max_length[2]|xss_clean'
 					),
 					array(
-						'field'   => 'language_id',
-						'label'   =>  $this->lang->line('user_language'),
-						'rules'   => 'trim|numeric|max_length[1]|xss_clean'
-					),
-					array(
-						'field'   => 'gender',
+						'field'   => 'user_gender',
 						'label'   =>  $this->lang->line('user_gender'),
 						'rules'   => 'trim|numeric|max_length[1]|xss_clean'
 					),
 					array(
-						'field'   => 'image',
+						'field'   => 'user_image',
 						'label'   =>  $this->lang->line('user_image'),
 						'rules'   => 'trim|max_length[200]|xss_clean'
 					),
 					array(
 						'field'   => 'phone',
-						'label'   =>  $this->lang->line('user_phone'),
+						'label'   =>  $this->lang->line('phone'),
 						'rules'   => 'trim|max_length[25]|xss_clean'
 					),
 					array(
-						'field'   => 'address',
+						'field'   => 'user_address',
 						'label'   =>  $this->lang->line('user_address'),
 						'rules'   => 'trim|max_length[250]|xss_clean'
 					),
 					array(
-						'field'   => 'lastname',
+						'field'   => 'user_lastname',
 						'label'   =>  $this->lang->line('user_lastname'),
 						'rules'   => 'trim|max_length[150]|xss_clean'
 					),
 					array(
-						'field'   => 'firstname',
+						'field'   => 'user_firstname',
 						'label'   =>  $this->lang->line('user_firstname'),
 						'rules'   => 'trim|max_length[150]|xss_clean'
 				)
 			);
-
-			$password 		= $this->input->post("password");
-			$re_password 	= $this->input->post("re_password");
-
-			if(!$id>0){
-				$rules[] =	array(
-						'field'   => 'username',
-						'label'   => $this->lang->line('user_username'),
-						'rules'   => 'callback_check_username|required|xss_clean'
-				);
-			}
-
-			if($password!=NULL||!$id>0){
-				$rules[] =	array(
-						'field'   => 'password',
-						'label'   => $this->lang->line('user_password'),
-						'rules'   => 'required|xss_clean'
-				);
-
-				$rules[] =	array(
-						'field'   => 're_password',
-						'label'   => $this->lang->line('user_re_password'),
-						'rules'   => 'callback_re_password_check|xss_clean'
-				);
-			}
-
-			$this->form_validation->set_error_delimiters('<div class="alert alert-error"><strong>'.$this->lang->line('error').': </strong>', '</div>');
+                        
+                        $password 		= $this->input->post("user_password");
+                        $re_password            = $this->input->post("user_re_password");	
+                        if($password != $re_password){
+                            $rules[] =	array(
+                                'field'   => 'user_re_password',
+                                'label'   => $this->lang->line('user_re_password'),
+                                'rules'   => 'trim|required|max_length[100]|xss_clean'
+                            );
+                        }
+                        
+			$this->form_validation->set_error_delimiters('<p><strong>'.$this->lang->line('error').' : </strong> ',' </p>');
 			$this->form_validation->set_rules($rules);
+                        
 			if ($this->form_validation->run()==TRUE){
-					
-				if(!$id>0){
-					$this->view_data["user"]->username = $this->input->post('username');
-				}
-
-				if($password!=NULL){
-					$this->load->helper('character_helper');					
-					$salt	  								= password_salt();
-					$this->view_data["user"]->password 		= password_hashs($this->input->post("password"), $salt);
-					$this->view_data["user"]->salt 			= $salt;
-				}
-
-				if($id>0){
-					$this->view_data["user"]->editor_id 	= 	$this->user_model->get_user_id();
-					$this->view_data["user"]->updated 		= 	$this->datetime;
-					$this->user_model->update($this->view_data["user"], $id);
-                                        $logAction = 'Cập nhật thông tin thành công cho user :'.$this->view_data["user"]->username;
+                            
+                                $this->load->helper('character_helper');					
+                                $salt	  					= password_salt();
+                                $this->view_data["user"]->password 		= password_hashs(md5($password), $salt);
+                                $this->view_data["user"]->salt 			= $salt;
+                               
+                                if($params){
+                                        //edit data
+					$this->product_model->update($this->view_data["user"], $params);
+                                        $logAction                              = '[UpdateUserSuccess] '.$this->lang->line('update_user_success');
 				}else{
-					$this->view_data["user"]->creator_id 	= 	$this->user_model->get_user_id();
-					$this->view_data["user"]->created		=	date('Y-m-d H:i:s');
-					$id = $this->user_model->create($this->view_data["user"]);
-                                        $logAction = 'Tạo user mới thành công :'.$this->view_data["user"]->username;
+					$params                                 = $this->user_model->create($this->view_data["user"]);
+                                        $logAction                              = '[AddUserSuccess] '.$this->lang->line('add_user_success');
 				}
-
-				$this->session->set_flashdata('flash_message', $this->lang->line('update_successful'));
                                 
-                                
-                                
-				if($this->input->post('submit')=='create'){
-                                        $paramAdminLog = array(
-                                                'userid'            => $this->session->userdata['user_id'],
-                                                'lastLogin'         => date('Y-m-d :H:i:s',time()),
-                                                'ip'                => $_SERVER['REMOTE_ADDR'],
-                                                'logAction'         => $logAction,
-                                                'agent_code'        => $this->session->userdata['agent_code']
-                                            );
-                                        $this->user_model->insertUserAdminLog($paramAdminLog);
-					redirect('auth/user/index/add');
-				}else{
-                                        $paramAdminLog = array(
-                                            'userid'            => $this->session->userdata['user_id'],
-                                            'lastLogin'         => date('Y-m-d :H:i:s',time()),
-                                            'ip'                => $_SERVER['REMOTE_ADDR'],
-                                            'logAction'         => $logAction,
-                                            'agent_code'        => $this->session->userdata['agent_code']
-                                        );
-                                        $this->user_model->insertUserAdminLog($paramAdminLog);
-					redirect('auth/user/index/edit/'.$id);
+				if($logAction){
+					$this->session->set_flashdata('flash_message', $this->lang->line('update_successful'));
+					$this->adminlog($logAction);
+                                        redirect('auth/user');
 				}
-			}
+                        }
 		}
-
-		$this->load->model('language_model');
+                
 		if($id>0){
 			$user_query			= $this->user_model->find_by(array('id' => $id));
 			
@@ -200,15 +165,27 @@ class User extends BACKEND_Controller {
 				redirect(site_url('auth/user'));
 				exit();
 			}
-			$this->view_data['user']		= $user_query[0];
+                        $product_query[0]->image    = json_decode($product_query[0]->image);
+                        $this->smarty->assign(array(
+                            'user'       =>  $user_query[0]
+                        ));
 		}
+                
+                $this->smarty->assign(array(
+                    'user'          =>  $this->view_data['user'],
+                    'group_list'    =>  $this->group_model->get_select_box(),
+                    'active_list'   =>  $this->user_model->get_active_list(),
+                    'js'            =>  array(
+                        base_url().'static/templates/backend/js/main.js'
+                    ),
+                    'css'           =>  array(
+                        
+                    ),
+                    'segment'       =>  $this->uri->segment(4),
+                    'validation'    =>  validation_errors()
+                ));
 
-		$this->view_data['js'] = array(
-				base_url().'static/templates/backend/js/md5.js',
-				base_url().'static/templates/backend/js/main.js'
-		);
-
-		$this->load->view('auth/user/edit', $this->view_data);
+                $this->smarty->display('auth/user/edit');
 	}
 
 	public function check_username($username){
