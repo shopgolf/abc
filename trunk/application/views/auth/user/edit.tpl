@@ -62,14 +62,14 @@
                 <div class="col-md-12 form-group">
                         {{form_label({{$lang.user_active}},'user_active')}}
                         <div class="input-group"> <span class="input-group-addon"><i class="glyphicon glyphicon-pencil text-aqua"></i></span>
-                                {{form_dropdown('user_active', $active_list,'',"class='form-control'")}}
+                                {{form_dropdown('user_active', $active_list,"{{if isset($user->active)}}{{$user->active}}{{/if}}","class='form-control'")}}
                         </div>
                 </div>
                         
                 <div class="col-md-12 form-group">
                         {{form_label({{$lang.user_group}},'user_group')}}
                         <div class="input-group"> <span class="input-group-addon"><i class="glyphicon glyphicon-pencil text-aqua"></i></span>
-                                {{form_dropdown('user_group', $group_list,'',"class='form-control'")}}
+                                {{form_dropdown('user_group', $group_list,"{{if isset($user->group_id)}}{{$user->group_id}}{{/if}}","class='form-control'")}}
                         </div>
                 </div>
                     
@@ -139,7 +139,7 @@
   <!-- /.content -->
 </div>
 
-<script type="text/javascript" src="{{$static_bk}}/js/validate.min11.js"></script>
+<script type="text/javascript" src="{{$static_bk}}/js/validate.min.js"></script>
 {{include file = 'templates/backend/datetimepicker.tpl'}}
 <script type="text/javascript">
 $(document).ready(function() {

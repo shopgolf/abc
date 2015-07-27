@@ -14,8 +14,8 @@ $lang['menu_advertising']		= 'Banner';
 $lang['menu_configuration']		= 'Cấu hình';
 $lang['menu_system']			= 'Hệ thống';
 $lang['menu_menu']				= 'Menu';
-$lang['menu_group']				= 'Nhóm';
-$lang['menu_role']				= 'Quyền hạn';
+$lang['menu_group']				= 'Nhóm quyền';
+$lang['menu_role']				= 'Vai trò';
 $lang['menu_logout']			= 'Đăng xuất';
 $lang['menu_dashboard']				= 'Dashboard';
 
@@ -118,3 +118,5 @@ $lang['userbk']                 =   'Tài khoản backend';
 $lang['permission']             =   'Phân quyền';
 $lang['required_info']          =   'Thông tin bắt buộc';
 $lang['detail_info']          =   'Thông tin chi tiết';
+$lang['id']                     =   'ID';
+$lang['error_contacts_ad']      =   'Có lỗi xảy ra vui lòng liên hệ Admin!';

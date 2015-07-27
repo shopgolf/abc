@@ -17,40 +17,38 @@ class Role_model extends MY_Model{
 
 	public function init_data($right){	
 		return array(
-				array(
+                                array(
+						'name' => 'number',
+						'label' => $this->lang->line('id'),
+						'width' => '5%',
+						'sort'  => 'DESC',
+						'searchoptions' => FALSE
+				),array(
 						'name' => 'title',
 						'label' => $this->lang->line('role_title'),
-						'width' => '30%',
-						'sort'  => 'ASC',
-						'searchoptions' => array(
-								'type' 	=> 'text',
-						)
+						'width' => '20%',
+						'sort'  => FALSE,
+						'searchoptions' => FALSE
 				),
 				array(
 						'name' 	=> 'code',
 						'label' => $this->lang->line('role_code'),
-						'width' => '40%',
+						'width' => '20%',
 						'sort'  => FALSE,
-						'searchoptions' => array(
-								'type' 	=> 'text',
-						)
+						'searchoptions' =>FALSE
 				),
 				array(
 						'name' 	=> 'description',
 						'label' => $this->lang->line('role_description'),
 						'width' => '20%',
 						'sort'  => FALSE,
-						'searchoptions' => array(
-								'type' 	=> 'text',
-						)
+						'searchoptions' => FALSE
 				),
 				array(
 						'name'  => 'button',
 						'width' => '10%',
 						'sort'  => FALSE,
-						'label'  => $right['add']==TRUE?'<div class="btn-role">
-						<a style="width: 82px;" href="'.site_url('auth/role/index/add').'" class="btn btn btn-success">'.$this->lang->line('create').'</a>
-						</div>':'',
+						'label'  => $this->lang->line('action'),
 						'searchoptions' => false
 				)
 		);
@@ -67,12 +65,13 @@ class Role_model extends MY_Model{
 		unset($ouput['aaData']);
 		$ouput['aaData'] = array();
 		foreach($datatables['aaData'] as $item){
-			$ouput['aaData'][] = array(
-					$item['title'],
-					$item['code'],
-					$item['description'],
-					$this->add_button($controller, $right, $item),
-			);
+                    $ouput['aaData'][] = array(
+                        "<input type='checkbox' value='".$item['id']."' onclick=get_Checked_Checkbox_By_Name('checkCol') name='checkCol' id='checkCol' class='checkbox' />",
+                        $item['title'],
+                        $item['code'],
+                        $item['description'],
+                        $this->add_button($controller, $right, $item),
+                    );
 		}
 	
 		return json_encode($ouput);

@@ -32,11 +32,19 @@ class User extends BACKEND_Controller {
                     "lang"          =>  $this->lang->language
                 ));
 	}
-
-	/**
-	 *
-	 * @param type $id
-	 */
+        
+        public function trashAll(){
+            if($this->input->server('REQUEST_METHOD')=='POST'){
+               $trash   = explode(",", $this->input->post('id'));
+               foreach($trash as $key => $vals){
+                   $this->user_model->delete(array('id'=>$vals));
+               }
+               $this->session->set_flashdata('flash_message', $this->lang->line('delete_successful'));
+               $this->adminlog($this->lang->line('delete_successful').' - UserID = '.$this->input->post('id'));
+               die("1");
+            }
+        }
+        
 	protected function update($id=NULL){
 		$this->view_data["user"] 				= new stdClass();
                 $this->view_data["user"]->username		= $this->input->post('user_username');
@@ -140,9 +148,9 @@ class User extends BACKEND_Controller {
                                 $this->view_data["user"]->password 		= password_hashs(md5($password), $salt);
                                 $this->view_data["user"]->salt 			= $salt;
                                
-                                if($params){
+                                if($id){
                                         //edit data
-					$this->product_model->update($this->view_data["user"], $params);
+					$this->user_model->update($this->view_data["user"], $id);
                                         $logAction                              = '[UpdateUserSuccess] '.$this->lang->line('update_user_success');
 				}else{
 					$params                                 = $this->user_model->create($this->view_data["user"]);
@@ -165,14 +173,15 @@ class User extends BACKEND_Controller {
 				redirect(site_url('auth/user'));
 				exit();
 			}
-                        $product_query[0]->image    = json_decode($product_query[0]->image);
-                        $this->smarty->assign(array(
-                            'user'       =>  $user_query[0]
-                        ));
 		}
+                if(isset($user_query)){
+                    $user = $user_query[0];
+                } else {
+                    $user = $this->view_data['user'];
+                }
                 
                 $this->smarty->assign(array(
-                    'user'          =>  $this->view_data['user'],
+                    'user'          =>  $user,
                     'group_list'    =>  $this->group_model->get_select_box(),
                     'active_list'   =>  $this->user_model->get_active_list(),
                     'js'            =>  array(

@@ -76,6 +76,14 @@
                 </div>
                 <div class="col-md-12">
                   <div class="form-group">
+                    <label for="product_url_seo">{{$lang.product_url_seo}}</label>
+                    <div class="input-group"> <span class="input-group-addon"><i class="glyphicon glyphicon-pencil text-aqua"></i></span>
+                      <input type="text" class="form-control" id="product_url_seo" placeholder="" name="product_url_seo" value="{{if isset($product->seo_url) && $product->seo_url}}{{$product->seo_url}}{{/if}}">
+                    </div>
+                  </div>
+                </div>
+                <div class="col-md-12">
+                  <div class="form-group">
                     <label for="seo_keyword">{{$lang.seo_keyword}}</label>
                     <div class="input-group"> <span class="input-group-addon"><i class="glyphicon glyphicon-pencil text-yellow"></i></span>
                       <input type="text" class="form-control" id="seo_keyword" placeholder="about 6 word" name="keyword" value="{{if isset($product->keyword ) && $product->keyword}}{{$product->keyword}}{{/if}}">
@@ -294,6 +302,30 @@ $(document).ready(function() {
     $('#begin_price').autoNumeric('init',{aSign:'',mDec:0, pSign:'s' });
     $("#begin_price").blur(function() {
         document.getElementById("begin_price_fake").value       = UnFormatNumber($("#begin_price").val());
+    });
+    
+    $("#product_name").on('blur',function(){
+            setTimeout(function () {
+            $.ajax({
+                    url : '/auth/product/convertUrl',
+                    type: "POST",
+                    data : {product_name:$("#product_name").val()},
+                    cache: true,
+                    success:function(responseData) 
+                    {
+                        var data    = JSON.parse(responseData);
+                        if(data['error'] == 1){
+                            alert("{{$lang.error_contacts_ad}}");
+                        } else {
+                            document.getElementById("product_url_seo").value       = data['response'];
+                        }
+                    },
+                    error: function() 
+                    {
+
+                    }
+            });
+        }, 1000);      
     });
 });
 function validateForm(){

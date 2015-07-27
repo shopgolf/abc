@@ -17,4 +17,5 @@ $lang['product_hotdeal']            =   'Sản phẩm bán chạy';
 $lang['product_soldout']            =   'Sản phẩm hết hàng';
 $lang['product_promotion']          =   'Sản phẩm khuyến mãi';
 $lang['product_bid']                =   'Sản phẩm đang đấu giá';
-$lang['product_bided']                =   'Sản phẩm đã đấu giá';
+$lang['product_bided']              =   'Sản phẩm đã đấu giá';
+$lang['product_url_seo']            =   'Đường dẫn Seo';

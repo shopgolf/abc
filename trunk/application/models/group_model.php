@@ -71,7 +71,7 @@ class Group_model extends MY_Model{
 		$query_result = $query->result();
 
 		$role_list = array();
-		foreach($query_result as $k=>$item){
+		foreach($query_result as $k => $item){
 			$role_list['title'][$item->role_id]	= "<strong>".$item->role_title."</strong>";
 			$role_list['permission'][$item->permission_code][$item->role_id]	= '<span class="checkbox_checked checkbox_toggle" ref="1__1"></span>';
 			//$role_list['permission'][$item->permission_code] = 1;
@@ -105,6 +105,7 @@ class Group_model extends MY_Model{
 // 			}
 // 			$role_list.= $item.'<br/>';
 // 		}
+                
 		return $role_list;
 	}
 
@@ -126,11 +127,9 @@ class Group_model extends MY_Model{
 				array(
 						'name' => 'title',
 						'label' => $this->lang->line('group_title'),
-						'width' => '30%',
+						'width' => '10%',
 						'sort'  => 'ASC',
-						'searchoptions' => array(
-								'type' 	=> 'text',
-						)
+						'searchoptions' => FALSE
 				),
 				array(
 						'name' 	=> 'role',
@@ -171,9 +170,7 @@ class Group_model extends MY_Model{
 						'name'  => 'button',
 						'width' => '5%',
 						'sort'  => FALSE,
-						'label'  => $right['add']==TRUE?'<div class="btn-group">
-						<a style="width: 82px;" href="'.site_url('auth/group/index/add').'" class="btn btn btn-success">'.$this->lang->line('create').'</a>
-						</div>':"",
+						'label'  => $this->lang->line('action'),
 						'searchoptions' => false
 				)
 		);
@@ -190,18 +187,19 @@ class Group_model extends MY_Model{
 		unset($ouput['aaData']);
 		$ouput['aaData'] = array();
 		foreach($datatables['aaData'] as $item){
-			$role_list = $this->get_role_list($item['id']);
-			//print_r($role_list);
-			//exit();
-			$ouput['aaData'][] = array(
-					$item['title'],
-					'<div style="height:30px">'. implode('</div><div style="height:30px">', $role_list['title']) . '</div>',
-					'<div style="height:30px">'. implode('</div><div style="height:30px">', $role_list['permission']['view']) . '</div>',
-					'<div style="height:30px">'. implode('</div><div style="height:30px">', $role_list['permission']['add']) . '</div>',
-					'<div style="height:30px">'. implode('</div><div style="height:30px">', $role_list['permission']['edit']) . '</div>',
-					'<div style="height:30px">'. implode('</div><div style="height:30px">', $role_list['permission']['delete']) . '</div>',
-					$this->add_button($controller, $right, $item),
-			);
+                    $role_list = $this->get_role_list($item['id']);
+                    
+                    //print_r($role_list);
+                    //exit();
+                    $ouput['aaData'][] = array(
+                        $item['title'],
+                        '<div style="height:30px">'. implode('</div><div style="height:30px">', $role_list['title']) . '</div>',
+                        '<div style="height:30px">'. implode('</div><div style="height:30px">', $role_list['permission']['view']) . '</div>',
+                        '<div style="height:30px">'. implode('</div><div style="height:30px">', $role_list['permission']['add']) . '</div>',
+                        '<div style="height:30px">'. implode('</div><div style="height:30px">', $role_list['permission']['edit']) . '</div>',
+                        '<div style="height:30px">'. implode('</div><div style="height:30px">', $role_list['permission']['delete']) . '</div>',
+                        $this->add_button($controller, $right, $item),
+                    );
 		}
 
 		return json_encode($ouput);
