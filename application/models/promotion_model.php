@@ -81,7 +81,7 @@ class Promotion_model extends MY_Model{
                         $this->bookinglib->my_number_format($item['net_price'],2, ',', ',').'VND<br/>KM='.$this->bookinglib->my_number_format($item['final_price'],2, ',', ',').'VND',
                         '<img style="width:40%" src="/'.UPLOAD_DIR.'/product/'.$img[0].'" />',
                         $item['checkout'],
-                        $this->add_button($controller, $right, $item)
+                        $this->add_button('product', $right, $item)
                     );
 		}
 	
