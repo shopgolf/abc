@@ -37,11 +37,11 @@
                                 </div>
                                 <div class="col-md-6 form-group has-success">
 {{form_label({{$lang.seo_keyword}},'keyword',['class'=>'control-label fa fa-check'])}}
-{{form_input(["class"=>"form-control","id"=>"keyword","placeholder"=>"{{$lang.seo_keyword}}","name"=>"keyword",value=>"{{if isset($category->keyword)}}{{$category->keyword}}{{/if}}"])}}
+{{form_input(["readonly"=>"true","class"=>"form-control","id"=>"keyword","placeholder"=>"{{$lang.seo_keyword}}","name"=>"keyword",value=>"{{if isset($category->keyword)}}{{$category->keyword}}{{/if}}"])}}
                                 </div>
                                 <div class="col-md-12 form-group has-warning">
 {{form_label({{$lang.category_description}},'description',['class'=>'control-label fa fa-check'])}}
-{{form_textarea(["rows"=>"5","class"=>"form-control","id"=>"description","placeholder"=>"{{$lang.category_description}}","name"=>"description",value=>"{{if isset($category->description)}}{{$category->description}}{{/if}}"])}}
+{{form_textarea(["readonly"=>"true","rows"=>"5","class"=>"form-control","id"=>"description","placeholder"=>"{{$lang.category_description}}","name"=>"description",value=>"{{if isset($category->description)}}{{$category->description}}{{/if}}"])}}
                                 </div>
                                 
                                 <div class="col-md-6">
@@ -57,8 +57,21 @@
 <script type="text/javascript" src="{{$static_bk}}/js/validate.min.js"></script>
 <script type="text/javascript">
 $(document).ready(function() {
-   
-   
+   $("#category_name").focus();
+   $("#category_name").on('blur',function(){
+       if($("#category_name").val() == ""){
+           $("#category_name").focus();return false;
+       } else {
+           $("#keyword").removeAttr('readonly');
+       }
+   });
+   $("#keyword").on('blur',function(){
+       if($("#keyword").val() == ""){
+           $("#keyword").focus();return false;
+       } else {
+           $("#description").removeAttr('readonly');
+       }
+   });
 });
 function validateForm(){
     new FormValidator('validate_scl', [{
