@@ -83,19 +83,20 @@ class BACKEND_Controller extends MY_Controller {
                     'controller'                =>  $this->controller,
                     'database_connect_status'   =>  $this->database_connect_status,
                     'datatables'        => array(
-                                                'json_data'		=> site_url('auth/'.$this->controller.'/index/view/json_data'),
-                                                'init_data'             => $this->model->init_data($this->right),
-                                                'filter'		=> '',
-                                                'label'			=> $this->lang->line($this->controller)
-                                        ),
+                        'json_data'		=> site_url('auth/'.$this->controller.'/index/view/json_data'),
+                        'init_data'             => $this->model->init_data($this->right),
+                        'filter'		=> '',
+                        'label'			=> $this->lang->line($this->controller)
+                    ),
                     'css'               => array(
-                                                base_url().'third_party/datatables/css/dataTables.bootstrap.css'
+                        base_url().'third_party/datatables/css/dataTables.bootstrap.css',
+                        base_url().'third_party/checkbox/style.css',
                                         ),
                     'js'                => array(
-                                                base_url().'third_party/datatables/js/jquery.dataTables.js',
-                                                base_url().'third_party/datatables/js/dataTables.bootstrap.js',
-                                                base_url().'third_party/datatables/js/jquery.dataTables.columnFilter.js'
-                                        ),
+                        base_url().'third_party/datatables/js/jquery.dataTables.js',
+                        base_url().'third_party/datatables/js/dataTables.bootstrap.js',
+                        base_url().'third_party/datatables/js/jquery.dataTables.columnFilter.js'
+                    ),
                     'lang'              => $this->lang->language,
                     'static_bk'         => base_url('/static/templates/backend'),
                     "link_bk"           =>  base_url('/auth'),

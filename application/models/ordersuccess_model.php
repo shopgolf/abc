@@ -6,7 +6,7 @@
  * Contact : nguyenvanphuc0626@gmail.com
  */
 
-class OrderSuccess_model extends MY_Model{
+class Ordersuccess_model extends MY_Model{
 	
 	public function __construct(){
 		parent::__construct();

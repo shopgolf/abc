@@ -279,17 +279,17 @@ class User_model extends MY_Model{
 		unset($ouput['aaData']);
 		$ouput['aaData'] = array();
 		foreach($datatables['aaData'] as $item){
-			$group = $this->group_model->find_by(array('id' => $item['group_id']), 'title');
-			$ouput['aaData'][] = array(
-                                        $item['id'],
-					$item['username'],
-					$item['email'],
-					$this->get_gender($item['gender']),				
-					$this->get_active($item['active']),
-                                        $item['createdTime'],
-					isset($group[0])?$group[0]->title:"",
-					$this->add_button($controller, $right, $item),
-			);
+                    $group = $this->group_model->find_by(array('id' => $item['group_id']), 'title');
+                    $ouput['aaData'][] = array(
+                        "<input type='checkbox' value='".$item['id']."' onclick=get_Checked_Checkbox_By_Name('checkCol') name='checkCol' id='checkCol' class='checkbox' />",
+                        $item['username'],
+                        $item['email'],
+                        $this->get_gender($item['gender']),				
+                        $this->get_active($item['active']),
+                        date("d-m-Y H:i:s",strtotime($item['createdTime'])),
+                        isset($group[0])?$group[0]->title:"",
+                        $this->add_button($controller, $right, $item),
+                    );
 		}
 		
 		return json_encode($ouput);

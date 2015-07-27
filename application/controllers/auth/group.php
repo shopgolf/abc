@@ -23,30 +23,11 @@ class Group extends BACKEND_Controller {
 			$this->set_controller('group');
 			$this->set_model($this->group_model);
 		}
-	}
-	
-	protected function datatables(){
-		$this->load->library('Xgo_datatables', '', 'datatables');
-	
-		$this->view_data['js']	= array(
-				base_url().'third_party/datatables/js/jquery.dataTables.js',
-				base_url().'third_party/datatables/js/dataTables.bootstrap.js',
-				base_url().'third_party/datatables/js/jquery.dataTables.columnFilter.js'
-		);
-	
-		$this->view_data['css']			= array(
-				base_url().'third_party/datatables/css/dataTables.bootstrap.css',
-				base_url().'third_party/checkbox/style.css'
-		);
-	
-		$this->view_data['datatables']		= array(
-				'json_data'		=> site_url('auth/group/index/view/json_data'),
-				'init_data' 	=> $this->group_model->init_data($this->right),
-				'filter'		=> '',
-				'label'			=> $this->lang->line('group_list'),
-		);
-	
-		$this->load->view('templates/backend/datatables_index', $this->view_data);
+                $this->load->model('role_model');
+                $this->load->model('permission_model');
+                $this->smarty->assign(array(
+                    "lang"          =>  $this->lang->language
+                ));
 	}
 	
 	public function right(){
@@ -94,38 +75,29 @@ class Group extends BACKEND_Controller {
 	 * @param type $id
 	 */
 	protected function update($id=NULL){
-		$this->view_data["group"] 				= new stdClass();
-		$this->view_data["group"]->id			= $id;
-		$this->view_data["group"]->title		= $this->input->post('title');
-		$this->view_data["group"]->description	= $this->input->post('description');
+		$this->view_data["group"]                       = new stdClass();
+                $this->view_data["group"]->id                   = $id;
+		$this->view_data["group"]->title		= $this->input->post('group_title');
+		$this->view_data["group"]->description          = $this->input->post('group_description');
 
 		if($this->input->server('REQUEST_METHOD')=='POST'){
 
 			$this->load->helper('form');
 			$this->load->helper('character');
-
-			/**
-			 * update field list
-				title
-				description
-			*/
-
-			// Validate form.
-			$this->load->helper('form');
 			$this->load->library('form_validation');
-			$this->form_validation->set_error_delimiters('<div class="alert alert-error"><strong>'.$this->lang->line('error').': </strong>', '</div>');
+			$this->form_validation->set_error_delimiters('<p><strong>'.$this->lang->line('error').' : </strong> ',' </p>');
 			//require field and xss clean
 			$rules = array(
-					array(
-							'field'   => 'title',
-							'label'   =>  $this->lang->line('group_title'),
-							'rules'   => 'trim|required|max_length[150]xss_clean'
-					),
-					array(
-							'field'   => 'description',
-							'label'   => $this->lang->line('group_description'),
-							'rules'   => 'trim|xss_clean'
-					)
+                            array(
+                                'field'   => 'group_title',
+                                'label'   =>  $this->lang->line('group_title'),
+                                'rules'   => 'trim|required|max_length[150]xss_clean'
+                            ),
+                            array(
+                                'field'   => 'group_description',
+                                'label'   => $this->lang->line('group_description'),
+                                'rules'   => 'trim|xss_clean'
+                            )
 			);
 
 			$this->form_validation->set_error_delimiters('<div class="alert alert-error"><strong>'.$this->lang->line('error').': </strong>', '</div>');
@@ -175,32 +147,52 @@ class Group extends BACKEND_Controller {
 			}
 
 		}
+                
+               if($id>0){
+                    $group_query    = $this->group_model->find_by(array('id' => $id));
 
-		$this->load->model('permission_model');
-		$this->load->model('role_model');
-		if($id>0){
-			$group_query	= $this->group_model->find_by(array('id' => $id));
-			if(!isset($group_query[0])){
-				$this->session->set_flashdata('flash_message', $this->lang->line('not_exists'));
-				redirect(site_url('auth/group'));
-				exit();
-			}
-			$this->view_data['group']				= $group_query[0];
-		}else{
-			$this->view_data["group"]->id	 		= $id;
-		}
+                    if(!isset($group_query[0])){
+                        $this->session->set_flashdata('flash_message', $this->lang->line('not_exists'));
+                        redirect(site_url('auth/group'));
+                        exit();
+                    }
+                }
+                
+                if(isset($group_query)){
+                        $group = $group_query[0];
+                } else {
+                        $group = $this->view_data['group'];
+                }
+                $list           = array();
+                $role           = $this->role_model->find_by(NULL, 'title, id');
+                $permission     =   $this->permission_model->find_by(NULL, 'name, id');
+                foreach($role as $role_item){
+                    foreach($permission as $permission_item){
+                        if($this->group_model->has_right($group->id, $role_item->id, $permission_item->id)){
+                            $list['checked']    =   true;
+                            
+                            
+                            
+                        }
+                    }
+                }
+                //------------
+                
+                $this->smarty->assign(array(
+                    'role'          =>  $this->role_model->find_by(NULL, 'title, id'),
+                    'permission'    =>  $this->permission_model->find_by(NULL, 'name, id'),
+                    'group'         =>  $group,
+                    'js'            =>  array(
+                                    base_url().'static/templates/backend/js/main.js'
+                    ),
+                    'css'           =>  array(
+                        base_url().'third_party/checkbox/style.css'
+                    ),
+                    'segment'       =>  $this->uri->segment(4),
+                    'validation'    =>  validation_errors()
+                ));
 
-		$this->view_data['permission_list'] = $this->permission_model->find_by(NULL, 'name, id');
-
-		$this->view_data['js'] = array(
-				base_url().'static/templates/backend/js/main.js'
-		);
-
-		$this->view_data['css'] = array(
-				base_url().'third_party/checkbox/style.css'
-		);
-			
-		$this->load->view('auth/group/edit', $this->view_data);
+                $this->smarty->display('auth/group/edit');
 	}
 }
 

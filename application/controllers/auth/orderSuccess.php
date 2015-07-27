@@ -19,10 +19,10 @@ class OrderSuccess extends BACKEND_Controller {
 			$this->session->set_userdata('redirect_uri', current_url());redirect('auth');
 		}
                 
-                $this->load->model('orderSuccess_model');
-                $this->load->model('orderSuccess_model');
+                $this->load->model('ordersuccess_model');
+                $this->load->model('ordersuccess_model');
                 $this->set_controller('orderSuccess');
-                $this->set_model($this->orderSuccess_model);
+                $this->set_model($this->ordersuccess_model);
                 $this->load->library('bookinglib');
                 $this->bookinglib = new bookinglib();
                 
@@ -116,11 +116,11 @@ class OrderSuccess extends BACKEND_Controller {
                                 
                                 if($params){
                                         //edit data
-					$this->orderSuccess_model->update($this->view_data["orderSuccess"], $params);
+					$this->ordersuccess_model->update($this->view_data["orderSuccess"], $params);
                                         $logAction                              = '[UpdateOrderSuccessSuccess] '.$this->lang->line('update_orderSuccess_success');
 				}else{
                                         $this->view_data['orderSuccess']->orderSuccess_id         = $this->bookinglib->rendCode('PRO');
-					$params                                 = $this->orderSuccess_model->create($this->view_data["orderSuccess"]);
+					$params                                 = $this->ordersuccess_model->create($this->view_data["orderSuccess"]);
                                         $logAction                              = '[AddOrderSuccessSuccess] '.$this->lang->line('add_orderSuccess_success');
 				}
                                 
@@ -133,7 +133,7 @@ class OrderSuccess extends BACKEND_Controller {
             }
             
             if(isset($params)){
-                    $orderSuccess_query	= $this->orderSuccess_model->find_by(array('id'=>$params));
+                    $orderSuccess_query	= $this->ordersuccess_model->find_by(array('id'=>$params));
                     
                     if(!isset($orderSuccess_query[0])){
                             $this->session->set_flashdata('flash_message', $this->lang->line('not_exists'));

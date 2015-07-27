@@ -134,7 +134,8 @@
                         <ul class="treeview-menu">
                             <li><a href="{{$link_bk}}/configuration.html"><i class="glyphicon glyphicon-info-sign"></i>{{$lang.menu_configuration}}</a></li>
                             <li><a href="{{$link_bk}}/user.html"><i class="glyphicon glyphicon-info-sign"></i>{{$lang.userbk}}</a></li>
-                            <li><a href="{{$link_bk}}/permission.html"><i class="glyphicon glyphicon-info-sign"></i>{{$lang.permission}}</a></li>
+                            <li><a href="{{$link_bk}}/group.html"><i class="glyphicon glyphicon-info-sign"></i>{{$lang.menu_group}}</a></li>
+                            <li><a href="{{$link_bk}}/role.html"><i class="glyphicon glyphicon-info-sign"></i>{{$lang.menu_role}}</a></li>
                         </ul>
                     </li>
                     <!-- / Config System-->

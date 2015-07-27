@@ -138,12 +138,12 @@ class Bid extends BACKEND_Controller {
                         'count_img'     =>  count($product_query[0]->image)
                     ));
             }
-            $this->load->model('productType_model');
+            $this->load->model('producttype_model');
             $this->load->model('category_model');
             
             $this->smarty->assign(array(
                 'category'      =>  $this->category_model->find_by(),
-                'type'          =>  $this->productType_model->find_by(),
+                'type'          =>  $this->producttype_model->find_by(),
                 'js'            =>  array(
                     base_url().'static/templates/backend/js/main.js',
                     base_url().'third_party/tiny_mce/jquery.tinymce.js',
