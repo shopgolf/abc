@@ -120,3 +120,4 @@ $lang['required_info']          =   'Thông tin bắt buộc';
 $lang['detail_info']          =   'Thông tin chi tiết';
 $lang['id']                     =   'ID';
 $lang['error_contacts_ad']      =   'Có lỗi xảy ra vui lòng liên hệ Admin!';
+$lang['input_required']         =   "Vui lòng nhập";

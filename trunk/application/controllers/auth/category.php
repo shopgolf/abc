@@ -99,10 +99,8 @@ class Category extends BACKEND_Controller {
                             redirect(site_url('auth/category'));
                             exit();
                     }
-                    $category_query[0]->image    = json_decode($category_query[0]->image);
                     $this->smarty->assign(array(
-                        'category'       =>  $category_query[0],
-                        'count_img'     =>  count($category_query[0]->image)
+                        'category'       =>  $category_query[0]
                     ));
             }
             
