@@ -97,4 +97,6 @@ class ProductType_model extends MY_Model{
 		return json_encode($ouput);
 	}
 
+	
+
 }

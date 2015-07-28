@@ -59,8 +59,11 @@
                         <span class="eye pull-right"><i class="fa fa-eye"></i></span>
                     </div>
                     <ul>
+                        {{if $data_topview_product != NULL}}
+                        {{foreach $data_topview_product as $value}}
+                        {{$image = json_decode($value->image)}}
                         <li>
-                            <a href="" class="img-top-view"><img src="{{$static_ft}}/images/16600150563714-200x200.jpg" alt=""></a>
+                            <a href="{{$site_url}}{{$value->seo_url}}-p{{$value->id}}.html" title="{{$value->product_name}}" class="img-top-view"><img src="{{$UPLOAD_DIR}}product/{{$image[0]}}" alt="{{$value->product_name}}"></a>
                             <div class="view-list">
                                 <div class="rating">
                                     <div class="product-star">
@@ -71,108 +74,12 @@
                                         <i class="fa fa-star-half-o"></i>
                                     </div>
                                 </div>
-                                <h4><a href="">Morbi vel nunc eu enim</a></h4>
-                                <p>Giá: 500.000 VNĐ</p>
+                                <h4><a href="">{{$value->product_name}}</a></h4>
+                                <p>Giá: {{number_format($value->net_price,0,'','.')}}.VNĐ</p>
                             </div>
                         </li>
-                        <li>
-                            <a href="" class="img-top-view"><img src="{{$static_ft}}/images/16600150563714-200x200.jpg" alt=""></a>
-                            <div class="view-list">
-                                <div class="rating"> <div class="product-star">
-                                                    <i class="fa fa-star"></i>
-                                                    <i class="fa fa-star"></i>
-                                                    <i class="fa fa-star"></i>
-                                                    <i class="fa fa-star"></i>
-                                                    <i class="fa fa-star-half-o"></i>
-                                                </div></div>
-                                <h4><a href="">Morbi vel nunc eu enim</a></h4>
-                                <p>Giá: 500.000 VNĐ</p>
-                            </div>
-                        </li>
-                        <li>
-                            <a href="" class="img-top-view"><img src="{{$static_ft}}/images/16600150563714-200x200.jpg" alt=""></a>
-                            <div class="view-list">
-                                <div class="rating"> <div class="product-star">
-                                                    <i class="fa fa-star"></i>
-                                                    <i class="fa fa-star"></i>
-                                                    <i class="fa fa-star"></i>
-                                                    <i class="fa fa-star"></i>
-                                                    <i class="fa fa-star-half-o"></i>
-                                                </div></div>
-                                <h4><a href="">Morbi vel nunc eu enim</a></h4>
-                                <p>Giá: 500.000 VNĐ</p>
-                            </div>
-                        </li>
-                        <li>
-                            <a href="" class="img-top-view"><img src="{{$static_ft}}/images/16600150563714-200x200.jpg" alt=""></a>
-                            <div class="view-list">
-                                <div class="rating"> <div class="product-star">
-                                                    <i class="fa fa-star"></i>
-                                                    <i class="fa fa-star"></i>
-                                                    <i class="fa fa-star"></i>
-                                                    <i class="fa fa-star"></i>
-                                                    <i class="fa fa-star-half-o"></i>
-                                                </div></div>
-                                <h4><a href="">Morbi vel nunc eu enim</a></h4>
-                                <p>Giá: 500.000 VNĐ</p>
-                            </div>
-                        </li>
-                        <li>
-                            <a href="" class="img-top-view"><img src="{{$static_ft}}/images/16600150563714-200x200.jpg" alt=""></a>
-                            <div class="view-list">
-                                <div class="rating"> <div class="product-star">
-                                                    <i class="fa fa-star"></i>
-                                                    <i class="fa fa-star"></i>
-                                                    <i class="fa fa-star"></i>
-                                                    <i class="fa fa-star"></i>
-                                                    <i class="fa fa-star-half-o"></i>
-                                                </div></div>
-                                <h4><a href="">Morbi vel nunc eu enim</a></h4>
-                                <p>Giá: 500.000 VNĐ</p>
-                            </div>
-                        </li>
-                          <li>
-                            <a href="" class="img-top-view"><img src="{{$static_ft}}/images/16600150563714-200x200.jpg" alt=""></a>
-                            <div class="view-list">
-                                <div class="rating"> <div class="product-star">
-                                                    <i class="fa fa-star"></i>
-                                                    <i class="fa fa-star"></i>
-                                                    <i class="fa fa-star"></i>
-                                                    <i class="fa fa-star"></i>
-                                                    <i class="fa fa-star-half-o"></i>
-                                                </div></div>
-                                <h4><a href="">Morbi vel nunc eu enim</a></h4>
-                                <p>Giá: 500.000 VNĐ</p>
-                            </div>
-                        </li>
-                          <li>
-                            <a href="" class="img-top-view"><img src="{{$static_ft}}/images/16600150563714-200x200.jpg" alt=""></a>
-                            <div class="view-list">
-                                <div class="rating"> <div class="product-star">
-                                                    <i class="fa fa-star"></i>
-                                                    <i class="fa fa-star"></i>
-                                                    <i class="fa fa-star"></i>
-                                                    <i class="fa fa-star"></i>
-                                                    <i class="fa fa-star-half-o"></i>
-                                                </div></div>
-                                <h4><a href="">Morbi vel nunc eu enim</a></h4>
-                                <p>Giá: 500.000 VNĐ</p>
-                            </div>
-                        </li>
-                          <li>
-                            <a href="" class="img-top-view"><img src="{{$static_ft}}/images/16600150563714-200x200.jpg" alt=""></a>
-                            <div class="view-list">
-                                <div class="rating"> <div class="product-star">
-                                                    <i class="fa fa-star"></i>
-                                                    <i class="fa fa-star"></i>
-                                                    <i class="fa fa-star"></i>
-                                                    <i class="fa fa-star"></i>
-                                                    <i class="fa fa-star-half-o"></i>
-                                                </div></div>
-                                <h4><a href="">Morbi vel nunc eu enim</a></h4>
-                                <p>Giá: 500.000 VNĐ</p>
-                            </div>
-                        </li>
+                        {{/foreach}}
+                        {{/if}}
                     </ul>
                </div>
                 <!--end-top-view-->
@@ -182,25 +89,27 @@
                     <div id="tab-1" class="tab-panel active">
                         <!--new product-->
                         <ul class="product-list owl-carousel nav-center" data-dots="false" data-loop="true" data-nav = "true" data-margin = "10" data-responsive='{"0":{"items":1},"600":{"items":3},"1000":{"items":4}}'>
+                            {{if $data != NULL}}
                             {{$k= 0}}
                             {{foreach $data as $key => $value}}
                                 {{$k = $k + 1}}
+                                {{$image = json_decode($value->image)}}
                                 <li>
                                     <div class="left-block">
-                                        <a href="#"><img class="img-responsive" alt="product" src="{{$static_ft}}/images/Withone GA0232-001-02-200x200.jpg" /></a>
+                                        <a href="{{$site_url}}{{$value->seo_url}}-p{{$value->id}}.html" title="{{$value->product_name}}"><img class="img-responsive" alt="product" src="{{$UPLOAD_DIR}}product/{{$image[0]}}" /></a>
                                         <div class="quick-view">
                                                 <a title="Add to my wishlist" class="heart" href="#"></a>
                                                 <a title="Add to compare" class="compare" href="#"></a>
-                                                <a title="Quick view" class="search" href="#"></a>
+                                                <a title="Quick view" class="search" href="{{$site_url}}{{$value->seo_url}}-p{{$value->id}}.html"></a>
                                         </div>
                                         <div class="add-to-cart">
-                                            <a title="BUY" href="{{$site_url}}">BUY</a>
+                                            <a title="BUY" href="javascript:void(0)">BUY</a>
                                         </div>
                                     </div>
                                     <div class="right-block">
-                                        <h5 class="product-name"><a href="#">{{$value->product_name}}</a></h5>
+                                        <h5 class="product-name"><a href="{{$site_url}}{{$value->seo_url}}-p{{$value->id}}.html" title="{{$value->product_name}}">{{$value->product_name}}</a></h5>
                                         <div class="content_price">
-                                            <span class="price product-price">{{number_format($value->net_price)}}.VNĐ</span>
+                                            <span class="price product-price">{{number_format($value->net_price,0,'','.')}}.VNĐ</span>
                                         </div>
                                         <div class="product-star">
                                             <i class="fa fa-star"></i>
@@ -219,118 +128,53 @@
                                     <ul class="product-list owl-carousel nav-center" data-dots="false" data-loop="true" data-nav = "true" data-margin = "10" data-responsive='{"0":{"items":1},"600":{"items":3},"1000":{"items":4}}'>
                                 {{/if}}
                             {{/foreach}}
+                            {{/if}}
                         </ul>
                         <!-- end new product-->
                     </div>
                     <div id="tab-2" class="tab-panel">
+                        <!--old-product-->
                         <ul class="product-list owl-carousel nav-center" data-dots="false" data-loop="true" data-nav = "true" data-margin = "10" data-responsive='{"0":{"items":1},"600":{"items":3},"1000":{"items":4}}'>
-                            <li>
-                                <div class="left-block">
-                                    <a href="#"><img class="img-responsive" alt="product" src="{{$static_ft}}/images/Withone GA0232-001-02-200x200.jpg" /></a>
-                                    <div class="quick-view">
-                                            <a title="Add to my wishlist" class="heart" href="#"></a>
-                                            <a title="Add to compare" class="compare" href="#"></a>
-                                            <a title="Quick view" class="search" href="#"></a>
+                            {{if $data != NULL}}
+                            {{$k= 0}}
+                            {{foreach $data_old_product as $key => $value}}
+                                {{$k = $k + 1}}
+                                {{$image = json_decode($value->image)}}
+                                <li>
+                                    <div class="left-block">
+                                        <a href="#"><img class="img-responsive" alt="product" src="{{$UPLOAD_DIR}}product/{{$image[0]}}" /></a>
+                                        <div class="quick-view">
+                                                <a title="Add to my wishlist" class="heart" href="#"></a>
+                                                <a title="Add to compare" class="compare" href="#"></a>
+                                                <a title="Quick view" class="search" href="#"></a>
+                                        </div>
+                                        <div class="add-to-cart">
+                                            <a title="BUY" href="{{$site_url}}">BUY</a>
+                                        </div>
                                     </div>
-                                    <div class="add-to-cart">
-                                        <a title="BUY" href="#">BUY</a>
+                                    <div class="right-block">
+                                        <h5 class="product-name"><a href="#">{{$value->product_name}}</a></h5>
+                                        <div class="content_price">
+                                            <span class="price product-price">{{number_format($value->net_price,0,'','.')}}.VNĐ</span>
+                                        </div>
+                                        <div class="product-star">
+                                            <i class="fa fa-star"></i>
+                                            <i class="fa fa-star"></i>
+                                            <i class="fa fa-star"></i>
+                                            <i class="fa fa-star"></i>
+                                            <i class="fa fa-star-half-o"></i>
+                                        </div>
                                     </div>
-                                </div>
-                                <div class="right-block">
-                                    <h5 class="product-name"><a href="#">Blue Diamond Ring</a></h5>
-                                    <div class="content_price">
-                                        <span class="price product-price">$38,95</span>
+                                    <div class="price-percent-reduction2">
+                                       SALE
                                     </div>
-                                    <div class="product-star">
-                                        <i class="fa fa-star"></i>
-                                        <i class="fa fa-star"></i>
-                                        <i class="fa fa-star"></i>
-                                        <i class="fa fa-star"></i>
-                                        <i class="fa fa-star-half-o"></i>
-                                    </div>
-                                </div>
-                                <div class="price-percent-reduction2">
-                                   SALE
-                                </div>
-                            </li>
-                            <li>
-                                <div class="left-block">
-                                    <a href="#"><img class="img-responsive" alt="product" src="{{$static_ft}}/images/images (4)-200x200.jpg" /></a>
-                                    <div class="quick-view">
-                                            <a title="Add to my wishlist" class="heart" href="#"></a>
-                                            <a title="Add to compare" class="compare" href="#"></a>
-                                            <a title="Quick view" class="search" href="#"></a>
-                                    </div>
-                                    <div class="add-to-cart">
-                                        <a title="BUY" href="#">BUY</a>
-                                    </div>
-                                </div>
-                                <div class="right-block">
-                                    <h5 class="product-name"><a href="#">Superior Bag</a></h5>
-                                    <div class="content_price">
-                                        <span class="price product-price">$38,95</span>
-                                    </div>
-                                    <div class="product-star">
-                                        <i class="fa fa-star"></i>
-                                        <i class="fa fa-star"></i>
-                                        <i class="fa fa-star"></i>
-                                        <i class="fa fa-star"></i>
-                                        <i class="fa fa-star-half-o"></i>
-                                    </div>
-                                </div>
-                            </li>
-                            <li>
-                                <div class="left-block">
-                                    <a href="#"><img class="img-responsive" alt="product" src="{{$static_ft}}/images/Honma DR CSE-02 4 Star copy.JPG" /></a>
-                                    <div class="quick-view">
-                                            <a title="Add to my wishlist" class="heart" href="#"></a>
-                                            <a title="Add to compare" class="compare" href="#"></a>
-                                            <a title="Quick view" class="search" href="#"></a>
-                                    </div>
-                                    <div class="add-to-cart">
-                                        <a title="BUY" href="#">BUY</a>
-                                    </div>
-                                </div>
-                                <div class="right-block">
-                                    <h5 class="product-name"><a href="#">Superior Bag</a></h5>
-                                    <div class="content_price">
-                                        <span class="price product-price">$38,95</span>
-                                    </div>
-                                    <div class="product-star">
-                                        <i class="fa fa-star"></i>
-                                        <i class="fa fa-star"></i>
-                                        <i class="fa fa-star"></i>
-                                        <i class="fa fa-star"></i>
-                                        <i class="fa fa-star-half-o"></i>
-                                    </div>
-                                </div>
-                            </li>
-                            <li>
-                                <div class="left-block">
-                                    <a href="#"><img class="img-responsive" alt="product" src="{{$static_ft}}/images/2011_sea_97164S-200x200.jpg" /></a>
-                                    <div class="quick-view">
-                                            <a title="Add to my wishlist" class="heart" href="#"></a>
-                                            <a title="Add to compare" class="compare" href="#"></a>
-                                            <a title="Quick view" class="search" href="#"></a>
-                                    </div>
-                                    <div class="add-to-cart">
-                                        <a title="BUY" href="#">BUY</a>
-                                    </div>
-                                </div>
-                                <div class="right-block">
-                                    <h5 class="product-name"><a href="#">Superior Bag</a></h5>
-                                    <div class="content_price">
-                                        <span class="price product-price">$38,95</span>
-                                    </div>
-                                    <div class="product-star">
-                                        <i class="fa fa-star"></i>
-                                        <i class="fa fa-star"></i>
-                                        <i class="fa fa-star"></i>
-                                        <i class="fa fa-star"></i>
-                                        <i class="fa fa-star-half-o"></i>
-                                    </div>
-                                </div>
-                            </li>
+                                </li>
+                                {{if $k%4 == 0 }}
+                                    </ul>
+                                    <ul class="product-list owl-carousel nav-center" data-dots="false" data-loop="true" data-nav = "true" data-margin = "10" data-responsive='{"0":{"items":1},"600":{"items":3},"1000":{"items":4}}'>
+                                {{/if}}
+                            {{/foreach}}
+                            {{/if}}
                         </ul>
                     </div>
                 </div>
