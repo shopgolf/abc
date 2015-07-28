@@ -80,16 +80,21 @@ class Product_model extends MY_Model{
 		return json_encode($ouput);
 	}
 
-	public function new_product($limit = FALSE, $offset = FALSE, $order_by = NULL){
+	public function new_product($limit = FALSE, $offset = FALSE, $order_by = NULL,$param = NULL){
 		if($limit){
 			if(!$offset){
-				$this->db->select("id,product_name,net_price,image,product_code");
-				$this->db->order_by('id',$order_by);
+				$this->db->select("id,seo_url,product_name,net_price,image,product_code");
+				if(!empty($param)){
+					$this->db->order_by($param,$order_by);
+				}
 				$this->db->limit($limit);
 				$query = $this->db->get($this->table_name);
 				return $query->result();
 			}else{
-				$this->db->select("id,product_name,net_price,image,product_code");
+				$this->db->select("id,seo_url,product_name,net_price,image,product_code");
+				if(!empty($param)){
+					$this->db->order_by($param,$order_by);
+				}
 				$this->db->limit($limit, $offset);
 				$query = $this->db->get($this->table_name);
 				return $query->result();

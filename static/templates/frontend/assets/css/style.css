@@ -1997,14 +1997,19 @@ span.notify-right{
     
 }
 .product-list li .product-name{
+    text-align: center;
     padding-bottom: 5px;
+}
+.product-list li .product-name a:hover{
+  color: #0088cc;
 }
 .product-list li .product-info{
     padding: 0 5px;
 }
 
 .product-list li .content_price{
-    width: auto;
+    text-align: center;
+    width: 100%;
     display: inline-block;
 }
 .product-list li .product-price{
@@ -2081,13 +2086,13 @@ span.notify-right{
 }
 
 .product-list li .product-star{
-    width: auto;
+    width: 100%;
     float: right;
     color: #ff9900;
-    text-align: right;
-     display: inline-block;
-     padding-top: 5px;
-     font-size: 13px;
+    text-align: center;
+    display: inline-block;
+    padding-top: 5px;
+    font-size: 13px;
 }
 
 /*------------------
@@ -5174,9 +5179,14 @@ span.notify-right{
 .top-view ul li:last-child{
   border-bottom: none;
 }
+.top-view ul li .img-top-view{
+  padding-top: 8px;
+}
 .top-view ul li .img-top-view img{
-  max-width: 70px;
-  max-height: 70px;
+  min-height: 50px;
+  max-width: 60px;
+  max-height: 50px;
+  min-width: 60px;
 }
 .eye{
   margin-top: 14px;
@@ -5341,7 +5351,8 @@ span.notify-right{
   color: #485ac8;
 }
 .product-list li img{
-  min-height: 249px;
+  max-height: 250px;
+  min-height: 250px;
 }
 /*category-page*/
 .category-page .box-vertical-megamenus{

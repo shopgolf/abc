@@ -20,14 +20,17 @@ class Home extends CI_controller
 	}
 
 	public function index(){
-		$data = $this->product_model->new_product($limit = 12,$offset = FALSE,$order_by = 'DESC');
-		//pre($data);
+		$data                 = $this->product_model->new_product($limit = 12,$offset = FALSE,$order_by = 'DESC',$param = 'id');
+		$data_old_product     = $this->product_model->new_product($limit = 12,$offset = FALSE,$order_by = 'RANDOM',$param = 'id');
+		$data_topview_product = $this->product_model->new_product($limit = 8,$offset = FALSE,$order_by = 'DESC',$param = 'view');
 		$this->smarty->assign(array(
-			'title' 	 => 'With one',
-			'menu_home'  => 'templates/frontend/menu_home.tpl',
-			'content'    => 'frontend/home/index.tpl',
-			'page_class' => 'home',
-			'data'		 => $data, 
+			'title' 	             => 'With one',
+			'menu_home'              => 'templates/frontend/menu_home.tpl',
+			'content'                => 'frontend/home/index.tpl',
+			'page_class'             => 'home',
+			'data'		 			 => $data, 
+			'data_old_product'		 => $data_old_product, 
+			'data_topview_product'   => $data_topview_product, 
 		));
 		$this->smarty->display('templates/frontend/layout.tpl');//hien thi template cai nay e bit ma
 	}
