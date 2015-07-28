@@ -29,7 +29,13 @@
                                 </div>
                             </div>
                         {{/if}}
-                        <span class="error_box"></span>
+                        
+                        <div class="alert alert-danger fade in">
+                            <a href="#" class="close" data-dismiss="alert">&times;</a>
+                            <span class="error_box"></span>
+                        </div>
+                        
+                        
                         {{form_open("",["name"=>"validate_scl"])}}
                                 <div class="col-md-6 form-group">
 {{form_label({{$lang.category_name}},'category_name')}}
@@ -100,7 +106,7 @@ function validateForm(){
             SELECTOR_ERRORS.empty();
 
             for (var i = 0, errorLength = errors.length; i < errorLength; i++) {
-                SELECTOR_ERRORS.append('<p style="color:red;margin:0"><strong>'+errors[i].message + '</strong></p>');
+                SELECTOR_ERRORS.append('<p><strong>Error!</strong>'+errors[i].message+'</p>');
             }
 
             SELECTOR_SUCCESS.css({ display: 'none' });
