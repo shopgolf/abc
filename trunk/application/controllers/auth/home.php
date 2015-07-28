@@ -27,12 +27,16 @@ class Home extends MY_Controller{
 			redirect('auth/'.$this->config->item('admin_default_controller'));
 		}else{
 			$this->load->helper('form');
-
-			$data 				= array();
-			$data['username'] 	= $this->session->flashdata('login_username');
-			$data['login_error']= $this->session->flashdata('login_error');
-			
-			$this->load->view('auth/home/index', $data);
+                        $this->load->library('smarty3');
+                        $this->smarty = new CI_Smarty3();
+                        
+                        $this->smarty->assign(array(
+                            'username'          =>  $this->session->flashdata('login_username'),
+                            'login_error'       =>  $this->session->flashdata('login_error'),
+                            'link_bk'           =>  base_url(),
+                            'config'            =>  $this->config->config
+                        ));
+                        $this->smarty->display('auth/home/index');     
 		}
 		 
 	}

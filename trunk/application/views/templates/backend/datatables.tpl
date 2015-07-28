@@ -11,12 +11,10 @@
     <!-- Check all button -->
     <button class="btn btn-default btn-sm checkbox-toggle"><i class="fa fa-square-o"></i></button>
     <div class="btn-group">
-        <button class="btn btn-default btn-sm" onclick="trashAll();"><i class="fa fa-trash-o"></i></button><input type="hidden" value="" id="trashAll"/>
-        <button class="btn btn-default btn-sm"><i class="fa fa-reply"></i></button>
-        <button class="btn btn-default btn-sm"><i class="fa fa-share"></i></button>
+        
     </div>
     <!-- /.btn-group -->
-    <button class="btn btn-default btn-sm"><i class="fa fa-refresh"></i></button>
+    
         {{if $controller == "hotdeal" || $controller == "promotion" || $controller == "bid"}}
             {{$controller = "product"}}
         {{/if}}
