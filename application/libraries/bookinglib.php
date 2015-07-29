@@ -286,4 +286,5 @@ class bookinglib {
     function seoUrl($string){
             return trim(preg_replace('/-quot/','',preg_replace('/ +/', '-', preg_replace('/[^A-Za-z0-9 ]/', ' ', $this->removeSignText($string,true)))));
     }
+
 }
