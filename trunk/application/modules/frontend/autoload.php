@@ -16,7 +16,7 @@ if($this->db->conn_id != FALSE){
     $this->smarty->assign(array(
         "lang"          =>  $this->lang->language,//assin ngon ngu nghia la no assign file frontend_lang vao
         'site_url'      =>  base_url(),
-        "UPLOAD_DIR"    =>  $static->UPLOAD_DIR,
+        "UPLOAD_DIR"    =>  base_url().'static/uploads/',
         "static_ft"     =>  base_url($static->STATIC_FT)
     ));
 	//o tren a assign het tat ca bien can su dung vao neu e them bien nao thi assign vao

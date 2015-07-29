@@ -11,6 +11,7 @@ $route['dang-nhap']                     = 'member';
 $route['dang-ky']                       = 'member/registered';
 $route['so-sanh']                       = 'compare';
 $route['hang-moi-ve']                   = 'product/new_products_go';
+$route['hang-moi-ve/(:num)']            = 'product/new_products_go/(:num)';
 $route['gio-hang']						= 'product/order';	
 $route['thanh-toan']					= 'product/checkout';
 $route['xem-nhieu']						= 'product/top_view_product';

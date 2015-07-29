@@ -146,7 +146,7 @@
                                         <div class="quick-view">
                                                 <a title="Add to my wishlist" class="heart" href="#"></a>
                                                 <a title="Add to compare" class="compare" href="#"></a>
-                                                <a title="Quick view" class="search" href="#"></a>
+                                                <a title="Quick view" class="search" href="{{$site_url}}{{$value->seo_url}}-p{{$value->id}}.html"></a>
                                         </div>
                                         <div class="add-to-cart">
                                             <a title="BUY" href="{{$site_url}}">BUY</a>
@@ -208,104 +208,15 @@
                     </div>
                     <div id="carousel-id-2" class="carousel slide" data-ride="carousel">
                         <div class="carousel-inner">
-                            <div class="item">
-                                 <ul>
-                                    <li>
-                                        <a href="" class="img-top-view"><img src="{{$static_ft}}/images/16600150563714-200x200.jpg" alt=""></a>
-                                        <div class="view-list">
-                                            <div class="rating">
-                                                <div class="product-star">
-                                                    <i class="fa fa-star"></i>
-                                                    <i class="fa fa-star"></i>
-                                                    <i class="fa fa-star"></i>
-                                                    <i class="fa fa-star"></i>
-                                                    <i class="fa fa-star-half-o"></i>
-                                                </div>
-                                            </div>
-                                            <h4><a href="">Morbi vel nunc eu enim</a></h4>
-                                            <p>Giá: 500.000 VNĐ</p>
-                                        </div>
-                                    </li>
-                                    <li>
-                                        <a href="" class="img-top-view"><img src="{{$static_ft}}/images/16600150563714-200x200.jpg" alt=""></a>
-                                        <div class="view-list">
-                                            <div class="rating"> <div class="product-star">
-                                                    <i class="fa fa-star"></i>
-                                                    <i class="fa fa-star"></i>
-                                                    <i class="fa fa-star"></i>
-                                                    <i class="fa fa-star"></i>
-                                                    <i class="fa fa-star-half-o"></i>
-                                                </div></div>
-                                            <h4><a href="">Morbi vel nunc eu enim</a></h4>
-                                            <p>Giá: 500.000 VNĐ</p>
-                                        </div>
-                                    </li>
-                                    <li>
-                                        <a href="" class="img-top-view"><img src="{{$static_ft}}/images/16600150563714-200x200.jpg" alt=""></a>
-                                        <div class="view-list">
-                                            <div class="rating"> <div class="product-star">
-                                                    <i class="fa fa-star"></i>
-                                                    <i class="fa fa-star"></i>
-                                                    <i class="fa fa-star"></i>
-                                                    <i class="fa fa-star"></i>
-                                                    <i class="fa fa-star-half-o"></i>
-                                                </div></div>
-                                            <h4><a href="">Morbi vel nunc eu enim</a></h4>
-                                            <p>Giá: 500.000 VNĐ</p>
-                                        </div>
-                                    </li>
-                                </ul>
-                            </div>
-                            <div class="item">
-                                 <ul>
-                                    <li>
-                                        <a href="" class="img-top-view"><img src="{{$static_ft}}/images/16600150563714-200x200.jpg" alt=""></a>
-                                        <div class="view-list">
-                                            <div class="rating"> <div class="product-star">
-                                                    <i class="fa fa-star"></i>
-                                                    <i class="fa fa-star"></i>
-                                                    <i class="fa fa-star"></i>
-                                                    <i class="fa fa-star"></i>
-                                                    <i class="fa fa-star-half-o"></i>
-                                                </div></div>
-                                            <h4><a href="">Morbi vel nunc eu enim</a></h4>
-                                            <p>Giá: 500.000 VNĐ</p>
-                                        </div>
-                                    </li>
-                                    <li>
-                                        <a href="" class="img-top-view"><img src="{{$static_ft}}/images/16600150563714-200x200.jpg" alt=""></a>
-                                        <div class="view-list">
-                                            <div class="rating"> <div class="product-star">
-                                                    <i class="fa fa-star"></i>
-                                                    <i class="fa fa-star"></i>
-                                                    <i class="fa fa-star"></i>
-                                                    <i class="fa fa-star"></i>
-                                                    <i class="fa fa-star-half-o"></i>
-                                                </div></div>
-                                            <h4><a href="">Morbi vel nunc eu enim</a></h4>
-                                            <p>Giá: 500.000 VNĐ</p>
-                                        </div>
-                                    </li>
-                                    <li>
-                                        <a href="" class="img-top-view"><img src="{{$static_ft}}/images/16600150563714-200x200.jpg" alt=""></a>
-                                        <div class="view-list">
-                                            <div class="rating"> <div class="product-star">
-                                                    <i class="fa fa-star"></i>
-                                                    <i class="fa fa-star"></i>
-                                                    <i class="fa fa-star"></i>
-                                                    <i class="fa fa-star"></i>
-                                                    <i class="fa fa-star-half-o"></i>
-                                                </div></div>
-                                            <h4><a href="">Morbi vel nunc eu enim</a></h4>
-                                            <p>Giá: 500.000 VNĐ</p>
-                                        </div>
-                                    </li>
-                                </ul>       
-                            </div>
                             <div class="item active">
-                                 <ul>
+                                <ul>
+                                    {{if $data_checkout != NULL}}
+                                    {{$k= 0}}
+                                    {{foreach $data_checkout as $key => $value}}
+                                        {{$k = $k +1}}
+                                        {{$image = json_decode($value->image)}}
                                     <li>
-                                        <a href="" class="img-top-view"><img src="{{$static_ft}}/images/16600150563714-200x200.jpg" alt=""></a>
+                                        <a href="{{$site_url}}{{$value->seo_url}}-p{{$value->id}}.html" class="img-top-view"><img src="{{$static_ft}}/images/16600150563714-200x200.jpg" alt=""></a>
                                         <div class="view-list">
                                             <div class="rating"> <div class="product-star">
                                                     <i class="fa fa-star"></i>
@@ -314,39 +225,19 @@
                                                     <i class="fa fa-star"></i>
                                                     <i class="fa fa-star-half-o"></i>
                                                 </div></div>
-                                            <h4><a href="">Morbi vel nunc eu enim</a></h4>
+                                            <h4><a href="{{$site_url}}{{$value->seo_url}}-p{{$value->id}}.html">{{$value->product_name}}</a></h4>
                                             <p>Giá: 500.000 VNĐ</p>
                                         </div>
                                     </li>
-                                    <li>
-                                        <a href="" class="img-top-view"><img src="{{$static_ft}}/images/16600150563714-200x200.jpg" alt=""></a>
-                                        <div class="view-list">
-                                            <div class="rating"> <div class="product-star">
-                                                    <i class="fa fa-star"></i>
-                                                    <i class="fa fa-star"></i>
-                                                    <i class="fa fa-star"></i>
-                                                    <i class="fa fa-star"></i>
-                                                    <i class="fa fa-star-half-o"></i>
-                                                </div></div>
-                                            <h4><a href="">Morbi vel nunc eu enim</a></h4>
-                                            <p>Giá: 500.000 VNĐ</p>
+                                    {{if $k%3 == 0 }}
+                                        </ul>
                                         </div>
-                                    </li>
-                                    <li>
-                                        <a href="" class="img-top-view"><img src="{{$static_ft}}/images/16600150563714-200x200.jpg" alt=""></a>
-                                        <div class="view-list">
-                                            <div class="rating"> <div class="product-star">
-                                                    <i class="fa fa-star"></i>
-                                                    <i class="fa fa-star"></i>
-                                                    <i class="fa fa-star"></i>
-                                                    <i class="fa fa-star"></i>
-                                                    <i class="fa fa-star-half-o"></i>
-                                                </div></div>
-                                            <h4><a href="">Morbi vel nunc eu enim</a></h4>
-                                            <p>Giá: 500.000 VNĐ</p>
-                                        </div>
-                                    </li>
-                                </ul>      
+                                        <div class="item">
+                                        <ul>
+                                    {{/if}}
+                                    {{/foreach}}
+                                    {{/if}} 
+                                </ul>
                             </div>
                         </div>
                         <a class="left carousel-control" href="#carousel-id-2" data-slide="prev"><i class="fa fa-angle-left"></i></a>
