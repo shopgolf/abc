@@ -29,19 +29,17 @@
                                 </div>
                             </div>
                         {{/if}}
-                        
-                        <div class="alert alert-danger fade in">
-                            <a href="#" class="close" data-dismiss="alert">&times;</a>
-                            <span class="error_box"></span>
-                        </div>
-                        
-                        
+                        <span class="error_box"></span>
                         {{form_open("",["name"=>"validate_scl"])}}
-                                <div class="col-md-6 form-group">
+                                <div class="col-md-12 form-group">
 {{form_label({{$lang.category_name}},'category_name')}}
 {{form_input(["class"=>"form-control","id"=>"category_name","placeholder"=>"{{$lang.category_name}}","name"=>"category_name",value=>"{{if isset($category->category_name)}}{{$category->category_name}}{{/if}}"])}}
                                 </div>
-                                <div class="col-md-6 form-group has-success">
+                                <div class="col-md-12 form-group has-error">
+{{form_label({{$lang.seo_url}},'seo_url')}}
+{{form_input(["readonly"=>"true","class"=>"form-control","id"=>"seo_url","placeholder"=>"{{$lang.seo_url}}","name"=>"seo_url",value=>"{{if isset($category->seo_url)}}{{$category->seo_url}}{{/if}}"])}}
+                                </div>
+                                <div class="col-md-12 form-group has-success">
 {{form_label({{$lang.seo_keyword}},'keyword',['class'=>'control-label fa fa-check'])}}
 {{form_input(["readonly"=>"true","class"=>"form-control","id"=>"keyword","placeholder"=>"{{$lang.seo_keyword}}","name"=>"keyword",value=>"{{if isset($category->keyword)}}{{$category->keyword}}{{/if}}"])}}
                                 </div>
@@ -68,7 +66,30 @@ $(document).ready(function() {
        if($("#category_name").val() == ""){
            $("#category_name").focus();return false;
        } else {
-           $("#keyword").removeAttr('readonly');
+           setTimeout(function () {
+            $.ajax({
+                    url : '/auth/category/convertUrl',
+                    type: "POST",
+                    data : {category_name:$("#category_name").val()},
+                    cache: true,
+                    success:function(responseData) 
+                    {
+                        var data    = JSON.parse(responseData);
+                        if(data['error'] == 1){
+                            alert("{{$lang.error_contacts_ad}}");
+                        } else {
+                            document.getElementById("seo_url").value       = data['response'];
+                            $("#keyword").removeAttr('readonly');
+                            $("#seo_url").removeAttr('readonly');
+                            $("#keyword").focus();
+                        }
+                    },
+                    error: function() 
+                    {
+
+                    }
+                });
+            }, 1000);
        }
    });
    $("#keyword").on('blur',function(){
@@ -106,7 +127,7 @@ function validateForm(){
             SELECTOR_ERRORS.empty();
 
             for (var i = 0, errorLength = errors.length; i < errorLength; i++) {
-                SELECTOR_ERRORS.append('<p><strong>Error!</strong>'+errors[i].message+'</p>');
+                SELECTOR_ERRORS.append('<p style="color:red;margin:0"><strong>'+errors[i].message + '</strong></p>');
             }
 
             SELECTOR_SUCCESS.css({ display: 'none' });

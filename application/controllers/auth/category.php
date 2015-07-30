@@ -30,6 +30,17 @@ class Category extends BACKEND_Controller {
                     "lang"          =>  $this->lang->language
                 ));
 	}
+        
+        public function convertUrl(){
+            if($this->input->server('REQUEST_METHOD')=='POST'){
+                
+                $return =   $this->bookinglib->seoUrl($this->input->post('category_name'));
+                $response   =   array('error'=>0,'response'=>$return);
+            } else {
+                $response   =   array('error'=>1,'response'=>'');
+            }
+            die(json_encode($response));
+        }
        
         public function trashAll(){
             if($this->input->server('REQUEST_METHOD')=='POST'){
@@ -48,6 +59,7 @@ class Category extends BACKEND_Controller {
                         $this->view_data["category"]                                     = new stdClass();
                         $this->view_data["category"]->name                               = $this->input->post('category_name');
                         $this->view_data["category"]->keyword                            = $this->input->post('keyword');
+                        $this->view_data["category"]->seo_url                            = $this->input->post('seo_url');
                         $this->view_data["category"]->description                        = $this->input->post('description');
                         $this->view_data["category"]->owner                              = $this->session->userdata['user_id'];
                         $this->view_data["category"]->lastupdated                        = time();
@@ -64,6 +76,10 @@ class Category extends BACKEND_Controller {
                                 'field'   => 'keyword',
                                 'label'   =>  $this->lang->line('seo_keyword'),
                                 'rules'   => 'required|trim|max_length[255]|xss_clean'
+                            ),array(
+                                'field'   => 'seo_url',
+                                'label'   =>  $this->lang->line('seo_url'),
+                                'rules'   => 'required|trim|max_length[100]|xss_clean'
                             ),array(
                                 'field'   => 'description',
                                 'label'   =>  $this->lang->line('description'),

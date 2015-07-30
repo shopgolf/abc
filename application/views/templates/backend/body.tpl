@@ -66,7 +66,7 @@
                 <!-- Sidebar user panel (optional) -->
                 <div class="user-panel">
                     <div class="pull-left image">
-                        <img src="{{$static_bk}}/images/user3-128x128.jpg" class="img-circle" alt="User Image" />
+                        
                     </div>
                     <div class="pull-left info">
                         <p>{{$userinfo->username}}</p>

@@ -76,26 +76,30 @@ class Product extends BACKEND_Controller {
                die("1");
             }
         }
-
-        public function upload($params1,$params2){
-            if($params1 && $params2){
-                $title_img  =   array();
-                foreach($params1 as $key=>$val){
-                    if($val){
-                        preg_match('/data:image\/([^;]*);base64,(.*)/', $val, $matches);
-                        $ext        =   $matches[1];
-                        $data       =   base64_decode(preg_replace('#^data:image/\w+;base64,#i', '', $val));
-                        file_put_contents('static/uploads/product/'.md5($params2[$key]).'.'.$ext, $data);
-                        $title      =   md5($params2[$key]).'.'.$ext;
-                    } else {
-                        $title      =   $params2[$key];
-                    }
-                    $title_img[]    =   $title;
-                }
-                
-                return json_encode($title_img);
-            }
+        
+        public function upload(){
+            echo '1';exit;
         }
+
+//        public function upload($params1,$params2){
+//            if($params1 && $params2){
+//                $title_img  =   array();
+//                foreach($params1 as $key=>$val){
+//                    if($val){
+//                        preg_match('/data:image\/([^;]*);base64,(.*)/', $val, $matches);
+//                        $ext        =   $matches[1];
+//                        $data       =   base64_decode(preg_replace('#^data:image/\w+;base64,#i', '', $val));
+//                        file_put_contents('static/uploads/product/'.md5($params2[$key]).'.'.$ext, $data);
+//                        $title      =   md5($params2[$key]).'.'.$ext;
+//                    } else {
+//                        $title      =   $params2[$key];
+//                    }
+//                    $title_img[]    =   $title;
+//                }
+//                
+//                return json_encode($title_img);
+//            }
+//        }
 
         protected function update($params=NULL){
 		if($this->input->server('REQUEST_METHOD')=='POST'){

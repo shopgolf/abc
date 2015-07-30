@@ -37,7 +37,7 @@ $lang['code_suffix']			= '-'.rand();
 
 $lang['not_exists']				= 'Dữ liệu không tồn tại';
 
-$lang['seo']					= 'SEO';
+$lang['seo_url']					= 'Seo url';
 $lang['seo_title']				= 'Tiêu đề';
 $lang['seo_keyword']			= 'Từ khóa';
 $lang['seo_metadata']			= 'Mô tả';
