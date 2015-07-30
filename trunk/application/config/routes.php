@@ -15,6 +15,7 @@ $route['hang-moi-ve/(:num)']            = 'product/new_products_go/(:num)';
 $route['gio-hang']						= 'product/order';	
 $route['thanh-toan']					= 'product/checkout';
 $route['xem-nhieu']						= 'product/top_view_product';
+$route['xem-nhieu/(:num)']			    = 'product/top_view_product/(:num)';
 $route['ban-chay']						= 'product/sell_product';
 $route['tin-tuc']						= 'news';
 $route['404_override']            	    = '';
