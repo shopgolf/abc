@@ -1,2 +1,0 @@
-ALTER TABLE `configuration` ADD `company` VARCHAR(255) NOT NULL AFTER `title`;
-ALTER TABLE `configuration` ADD `youtube` VARCHAR(255) NOT NULL AFTER `facebook`;
