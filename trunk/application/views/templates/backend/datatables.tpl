@@ -9,9 +9,9 @@
 
 <div class="mailbox-controls">
     <!-- Check all button -->
-    <button class="btn btn-default btn-sm checkbox-toggle"><i class="fa fa-square-o"></i></button>
+    <button class="btn btn-default btn-sm checkbox-toggle" id="selecctall"><i class="fa fa-square-o"></i></button>
     <div class="btn-group">
-        
+        <button class="btn btn-default btn-sm" onclick="trashAll();"><i class="fa fa-trash-o"></i></button><input type="hidden" value="" id="trashAll"/>
     </div>
     <!-- /.btn-group -->
     
@@ -41,7 +41,7 @@
 	<tbody>
 	</tbody>
 </table>
-
+<script src="{{$static_bk}}/js/iCheck/icheck.min.js" type="text/javascript"></script>
 <script type="text/javascript">
 $(function () {
 	$('#data-table').dataTable({
@@ -102,6 +102,22 @@ $(function () {
 
 	});
 	$("div#data-table_filter").html('{{$datatables.filter}}');
+});
+
+$(document).ready(function() {
+    $(".checkbox-toggle").click(function () {
+        var clicks = $(this).data('clicks');
+        if (clicks) {
+          //Uncheck all checkboxes
+          $(".mailbox-messages input[type='checkbox']").iCheck("uncheck");
+          $(".fa", this).removeClass("fa-check-square-o").addClass('fa-square-o');
+        } else {
+          //Check all checkboxes
+          $(".mailbox-messages input[type='checkbox']").iCheck("check");
+          $(".fa", this).removeClass("fa-square-o").addClass('fa-check-square-o');
+        }          
+        $(this).data("clicks", !clicks);
+  });
 });
 </script>
 
