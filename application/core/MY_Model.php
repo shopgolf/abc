@@ -31,8 +31,13 @@ class MY_Model extends CI_Model{
 			'1'	=> $this->lang->line('active'),
 			'0'	=> $this->lang->line('deactive'),			
 		);
+                
+                $this->post_list = array($this->lang->line('dich_vu'));
 	}
-
+        
+        public function post_list(){
+		return $this->post_list;
+	}
 	/**
 	 * Get status list.
 	 *

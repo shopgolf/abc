@@ -196,7 +196,7 @@
 {{include file = 'templates/backend/datetimepicker.tpl'}}
 <script type="text/javascript">
 $(document).ready(function() {
-    /*$("#product_code").focus();
+    $("#product_code").focus();
     $("#product_code").on('blur',function(){
         if($("#product_code").val() == ""){
             $("#product_code").focus();
@@ -217,7 +217,7 @@ $(document).ready(function() {
                 $('#product_name').removeClass( 'alert-error' );
                 $('#product_name').parent().removeClass( 'alert-error' );
         }
-    });*/
+    });
     
     $("#net_price").on('blur',function(){
         if($("#net_price").val() == ""){

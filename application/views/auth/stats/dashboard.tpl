@@ -29,7 +29,12 @@
           
     <!-- /  row like, user-->
     {{if isset($flash_message) && $flash_message != ''}}
-        <div class="alert alert-success"><a class="close" paymentAir-dismiss="alert">x</a><strong>{{$flash_message}}</strong></div>
+        <div class="bs-example">
+            <div class="alert alert-success fade in">
+                <a href="#" class="close" data-dismiss="alert">×</a>
+                {{$flash_message}}
+            </div>
+        </div>
     {{/if}}
     <div class="row">
       <!-- Đon đặt hàng -->
