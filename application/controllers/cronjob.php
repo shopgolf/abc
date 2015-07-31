@@ -55,7 +55,7 @@ class Cronjob extends CI_Controller
                     $this->view_data["data"]->product_id                        =   $this->bookinglib->rendCode('PRO');
                     $this->view_data["data"]->product_name                        =   $vals->name;
                     $this->view_data["data"]->product_code                        =   $vals->model;
-                    $this->view_data["data"]->image                        =   $vals->image;
+                    $this->view_data["data"]->image                        =   '["'.$vals->image.'"]';
                     $this->view_data["data"]->seo_url                        =   $seo_url;
                     $this->view_data["data"]->category                        =   $vals->category;
                     $this->view_data["data"]->manufacturer                        =   $vals->manufacturer_id;

@@ -54,16 +54,59 @@ class Post extends BACKEND_Controller {
             die(json_encode($response));
         }
         
+        public function deleteImage(){
+            if($this->input->server('REQUEST_METHOD')=='POST'){
+                $file   =   UPLOAD_DIR."post/".$this->input->post('url');
+                $return =   unlink($file);
+                if($return == 1){
+                    if($this->input->post('segment') == "edit"){
+                        
+                        $return = $this->post_model->find_by(array('id'=>$this->input->post('id')));
+                        $image = json_decode($return[0]->feature_img);
+                        foreach($image as $key => $vals){
+                            if($vals != trim($this->input->post('img'))){
+                                $update[]   =   $vals;
+                            }
+                        }
+                        $this->view_data["delete"]                              = new stdClass();
+                        $this->view_data["delete"]->feature_img                 = json_encode($update);
+                        $this->post_model->update($this->view_data["delete"], $this->input->post('id')); 
+                    }
+                    die($this->input->post('url'));
+                } else {
+                    die("0");
+                }
+            }
+        }
+        
+        public function upload(){
+                $output_dir = getcwd().'\\'.str_replace('/', '\\', UPLOAD_DIR).'post\\';
+                if(isset($_FILES["myfile"]))
+                {
+                    $ret            =   array();
+                    $error          =   $_FILES["myfile"]["error"];
+                    
+                    if(!is_array($_FILES["myfile"]["name"])) //single file
+                    {
+                        $extension      =   explode("/",$_FILES["myfile"]["type"]);
+                        $fileName       = md5($_FILES["myfile"]["name"]).'.'.$extension[1];
+                        move_uploaded_file($_FILES["myfile"]["tmp_name"],$output_dir.$fileName);
+                    }
+                    
+                    die($fileName);
+                 }
+        }
+        
         protected function update($params=NULL){
 		if($this->input->server('REQUEST_METHOD')=='POST'){
-
                         $this->view_data["post"]                                = new stdClass();
                         $this->view_data["post"]->title                         = $this->input->post('title');
                         $this->view_data["post"]->seo_url                       = $this->input->post('seo_url');
                         $this->view_data["post"]->seo_keyword                   = $this->input->post('seo_keyword');
-                        $this->view_data["post"]->type                          = $this->input->post('type');
-                        $this->view_data["post"]->description                   = $this->input->post('description');;
-                        $this->view_data["post"]->tag                           = $this->input->post('tag');;
+                        //$this->view_data["post"]->type                          = $this->input->post('type');
+                        $this->view_data["post"]->description                   = $this->input->post('description');
+                        $this->view_data["post"]->tag                           = $this->input->post('tag');
+                        $this->view_data["post"]->feature_img                   = json_encode($this->input->post('files'));
                         $this->view_data["post"]->owner                         = $this->session->userdata['user_id'];
                         $this->view_data["post"]->created                       = date("Y-m-d H:i:s",time());
                         $this->view_data["post"]->lastupdated                   = date("Y-m-d H:i:s",time());
@@ -123,7 +166,7 @@ class Post extends BACKEND_Controller {
                             redirect(site_url('auth/post'));
                             exit();
                     }
-                    
+                    $post_query[0]->image    = json_decode($post_query[0]->feature_img);
                     $this->smarty->assign(array(
                         'post'       =>  $post_query[0]
                     ));

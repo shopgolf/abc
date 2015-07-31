@@ -42,7 +42,7 @@ $lang['seo_title']				= 'Tiêu đề';
 $lang['seo_keyword']			= 'Từ khóa';
 $lang['seo_metadata']			= 'Mô tả';
 
-$lang['page_news'] 				= 'Trang tin tức';
+$lang['page_news'] 				= 'Tin tức';
 $lang['page_home'] 				= 'Trang chủ';
 
 $lang['slides']                 = 'Slideshow';

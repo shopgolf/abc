@@ -51,7 +51,7 @@ class Post_model extends MY_Model{
 	
 	public function json_data($controller, $right){
 		$this->datatables
-		->select("id,title,type,seo_url,description,tag,owner,created,lastupdated")
+		->select("id,title,seo_url,description,tag,owner,created,lastupdated")
 		->from($this->table_name);
 	
 		$this->datatables->set_produce_output(false);
