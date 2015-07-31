@@ -27,14 +27,14 @@
                             <!-- Menu Toggle Button -->
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown">
                                 <!-- The user image in the navbar-->
-                                <img src="{{$static_bk}}/images/user2-160x160.jpg" class="user-image" alt="User Image" />
+                                <img src="#" class="user-image" alt="User Image" />
                                 <!-- hidden-xs hides the username on small devices so only the image appears. -->
                                 <span class="hidden-xs">{{$userinfo->username}}</span>
                             </a>
                             <ul class="dropdown-menu">
                                 <!-- The user image in the menu -->
                                 <li class="user-header">
-                                    <img src="{{$static_bk}}/images/user3-128x128.jpg" class="img-circle" alt="User Image" />
+                                    <img src="#" class="img-circle" alt="User Image" />
                                     <p>
                                         {{$userinfo->username}}
                                         <small>Web Developer</small>

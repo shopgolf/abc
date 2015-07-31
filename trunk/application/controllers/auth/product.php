@@ -31,40 +31,6 @@ class Product extends BACKEND_Controller {
                 ));
 	}
         
-        public function convertUrl(){
-            if($this->input->server('REQUEST_METHOD')=='POST'){
-                
-                $return =   $this->bookinglib->seoUrl($this->input->post('product_name'));
-                $response   =   array('error'=>0,'response'=>$return);
-            } else {
-                $response   =   array('error'=>1,'response'=>'');
-            }
-            die(json_encode($response));
-        }
-
-        public function deleteImg(){
-            if($this->input->server('REQUEST_METHOD')=='POST'){
-                $file   =   UPLOAD_DIR."product/".$this->input->post('img');
-                $return =   unlink($file);
-                if($return == 1){
-                    $return = $this->product_model->find_by(array('id'=>$this->input->post('id')));
-                    $image = json_decode($return[0]->image);
-                    foreach($image as $key => $vals){
-                        if($vals != trim($this->input->post('img'))){
-                            $update[]   =   $vals;
-                        }
-                    }
-                    $this->view_data["delete"]                                 = new stdClass();
-                    $this->view_data["delete"]->image                          = json_encode($update);
-                    $this->product_model->update($this->view_data["delete"], $this->input->post('id'));
-                    unset($this->view_data["delete"]);
-                    die("1");
-                } else {
-                    die("0");
-                }
-            }
-        }
-
         public function trashAll(){
             if($this->input->server('REQUEST_METHOD')=='POST'){
                $trash   = explode(",", $this->input->post('id'));
@@ -77,59 +43,77 @@ class Product extends BACKEND_Controller {
             }
         }
         
-        public function upload(){
-            echo '1';exit;
+        public function convertUrl(){
+            if($this->input->server('REQUEST_METHOD')=='POST'){
+                
+                $return =   $this->bookinglib->seoUrl($this->input->post('product_name'));
+                $response   =   array('error'=>0,'response'=>$return);
+            } else {
+                $response   =   array('error'=>1,'response'=>'');
+            }
+            die(json_encode($response));
         }
 
-//        public function upload($params1,$params2){
-//            if($params1 && $params2){
-//                $title_img  =   array();
-//                foreach($params1 as $key=>$val){
-//                    if($val){
-//                        preg_match('/data:image\/([^;]*);base64,(.*)/', $val, $matches);
-//                        $ext        =   $matches[1];
-//                        $data       =   base64_decode(preg_replace('#^data:image/\w+;base64,#i', '', $val));
-//                        file_put_contents('static/uploads/product/'.md5($params2[$key]).'.'.$ext, $data);
-//                        $title      =   md5($params2[$key]).'.'.$ext;
-//                    } else {
-//                        $title      =   $params2[$key];
-//                    }
-//                    $title_img[]    =   $title;
-//                }
-//                
-//                return json_encode($title_img);
-//            }
-//        }
-
+        public function deleteImage(){
+            if($this->input->server('REQUEST_METHOD')=='POST'){
+                $file   =   UPLOAD_DIR."product/".$this->input->post('url');
+                $return =   unlink($file);
+                if($return == 1){
+                    if($this->input->post('segment') == "edit"){
+                        
+                        $return = $this->product_model->find_by(array('id'=>$this->input->post('id')));
+                        $image = json_decode($return[0]->image);
+                        foreach($image as $key => $vals){
+                            if($vals != trim($this->input->post('img'))){
+                                $update[]   =   $vals;
+                            }
+                        }
+                        $this->view_data["delete"]                                 = new stdClass();
+                        $this->view_data["delete"]->image                          = json_encode($update);
+                        $this->product_model->update($this->view_data["delete"], $this->input->post('id')); 
+                    }
+                    die($this->input->post('url'));
+                } else {
+                    die("0");
+                }
+            }
+        }
+        
+        public function upload(){
+                $output_dir = getcwd().'\\'.str_replace('/', '\\', UPLOAD_DIR).'product\\';
+                if(isset($_FILES["myfile"]))
+                {
+                    $ret            =   array();
+                    $error          =   $_FILES["myfile"]["error"];
+                    
+                    if(!is_array($_FILES["myfile"]["name"])) //single file
+                    {
+                        $extension      =   explode("/",$_FILES["myfile"]["type"]);
+                        $fileName       = md5($_FILES["myfile"]["name"]).'.'.$extension[1];
+                        move_uploaded_file($_FILES["myfile"]["tmp_name"],$output_dir.$fileName);
+                    }
+                    
+                    die($fileName);
+                 }
+        }
+        
         protected function update($params=NULL){
 		if($this->input->server('REQUEST_METHOD')=='POST'){
-                        $parameters     =   array(
-                            'classification' => trim($this->input->post('classification')),
-                            'manufacturer'  =>  trim($this->input->post('manufacturer')),
-                            'model'  =>  trim($this->input->post('model')),
-                            'shaft'  =>  trim($this->input->post('shaft')),
-                            'count'  =>  trim($this->input->post('count')),
-                            'loft'  =>  trim($this->input->post('loft')),
-                            'hardness'  =>  trim($this->input->post('hardness')),
-                            'gross'  =>  trim($this->input->post('gross')),
-                            'balance'  =>  trim($this->input->post('balance')),
-                            'price'  =>  trim($this->input->post('price')),
-                            'club'  =>  trim($this->input->post('club'))
-                        );
-                    
+
                         $this->view_data["product"]                                     = new stdClass();
                         $this->view_data["product"]->product_code                       = trim($this->input->post('product_code'));
                         $this->view_data["product"]->product_name                       = trim($this->input->post('product_name'));
                         $this->view_data["product"]->product_type                       = $this->input->post('product_type');
+                        $this->view_data["product"]->image                              = ($this->input->post('files'))?json_encode($this->input->post('files')):'';
                         $this->view_data["product"]->category                           = $this->input->post('category');
-                        $this->view_data["product"]->keyword                            = trim($this->input->post('keyword'));
-                        $this->view_data["product"]->description                        = trim($this->input->post('description'));
+                        $this->view_data["product"]->keyword                            = trim($this->input->post('seo_keyword'));
+                        $this->view_data["product"]->description                        = trim($this->input->post('seo_metadata'));
+                        $this->view_data["product"]->seo_url                            = trim($this->input->post('product_url_seo'));
                         $this->view_data["product"]->net_price                          = $this->input->post('net_price_fake');
                         $this->view_data["product"]->final_price                        = $this->input->post('final_price_fake');
                         $this->view_data["product"]->begin_price                        = $this->input->post('begin_price_fake');
                         $this->view_data["product"]->begin_time                         = strtotime($this->input->post('begin_time'));
                         $this->view_data["product"]->end_time                           = strtotime($this->input->post('end_time'));
-                        $this->view_data["product"]->parameters                         = json_encode($parameters);
                         $this->view_data["product"]->info                               = trim($this->input->post('info'));
                         
                         $this->view_data["product"]->owner                              = $this->session->userdata['user_id'];
@@ -154,11 +138,11 @@ class Product extends BACKEND_Controller {
                                 'label'   =>  $this->lang->line('product_name'),
                                 'rules'   => 'required|trim|max_length[100]|xss_clean'
                             ),array(
-                                'field'   => 'keyword',
+                                'field'   => 'seo_keyword',
                                 'label'   =>  $this->lang->line('seo_keyword'),
                                 'rules'   => 'required|trim|max_length[255]|xss_clean'
                             ),array(
-                                'field'   => 'description',
+                                'field'   => 'seo_metadata',
                                 'label'   =>  $this->lang->line('description'),
                                 'rules'   => 'required|trim|max_length[255]|xss_clean'
                             ),array(
@@ -179,11 +163,6 @@ class Product extends BACKEND_Controller {
                         $this->form_validation->set_rules($rules);
 
                         if ($this->form_validation->run()==TRUE){
-                            
-                                //upload image
-                                $this->view_data["product"]->image              = $this->upload($this->input->post('img-submit'),$this->input->post('image'));
-                                //auto rend product id
-                                
                                 if($params){
                                         //edit data
 					$this->product_model->update($this->view_data["product"], $params);
