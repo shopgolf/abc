@@ -63,7 +63,7 @@
                         {{foreach $data_topview_product as $value}}
                         {{$image = json_decode($value->image)}}
                         <li>
-                            <a href="{{$site_url}}{{$value->seo_url}}-p{{$value->id}}.html" title="{{$value->product_name}}" class="img-top-view"><img src="{{$UPLOAD_DIR}}product/{{$image[0]}}" alt="{{$value->product_name}}"></a>
+                            <a href="{{$site_url}}{{$value->seo_url}}-p{{$value->id}}.html" title="{{$value->product_name}}" class="img-top-view"><img src="{{$UPLOAD_DIR}}data/{{$image[0]}}" alt="{{$value->product_name}}"></a>
                             <div class="view-list">
                                 <div class="rating">
                                     <div class="product-star">
@@ -74,7 +74,7 @@
                                         <i class="fa fa-star-half-o"></i>
                                     </div>
                                 </div>
-                                <h4><a href="">{{$value->product_name}}</a></h4>
+                                <h4><a href="" title="{{$value->product_name}}">{{CutName($value->product_name,30)}}</a></h4>
                                 <p>Giá: {{number_format($value->net_price,0,'','.')}}.VNĐ</p>
                             </div>
                         </li>
@@ -96,7 +96,7 @@
                                 {{$image = json_decode($value->image)}}
                                 <li>
                                     <div class="left-block">
-                                        <a href="{{$site_url}}{{$value->seo_url}}-p{{$value->id}}.html" title="{{$value->product_name}}"><img class="img-responsive" alt="product" src="{{$UPLOAD_DIR}}product/{{$image[0]}}" /></a>
+                                        <a href="{{$site_url}}{{$value->seo_url}}-p{{$value->id}}.html" title="{{$value->product_name}}"><img class="img-responsive" alt="product" src="{{$UPLOAD_DIR}}data/{{$image[0]}}" /></a>
                                         <div class="quick-view">
                                                 <a title="Add to my wishlist" class="heart" href="#"></a>
                                                 <a title="Add to compare" class="compare" href="#"></a>
@@ -142,7 +142,7 @@
                                 {{$image = json_decode($value->image)}}
                                 <li>
                                     <div class="left-block">
-                                        <a href="#"><img class="img-responsive" alt="product" src="{{$UPLOAD_DIR}}product/{{$image[0]}}" /></a>
+                                        <a href="#"><img class="img-responsive" alt="product" src="{{$UPLOAD_DIR}}data/{{$image[0]}}" /></a>
                                         <div class="quick-view">
                                                 <a title="Add to my wishlist" class="heart" href="#"></a>
                                                 <a title="Add to compare" class="compare" href="#"></a>
@@ -216,7 +216,7 @@
                                         {{$k = $k +1}}
                                         {{$image = json_decode($value->image)}}
                                     <li>
-                                        <a href="{{$site_url}}{{$value->seo_url}}-p{{$value->id}}.html" class="img-top-view"><img src="{{$static_ft}}/images/16600150563714-200x200.jpg" alt=""></a>
+                                        <a href="{{$site_url}}{{$value->seo_url}}-p{{$value->id}}.html" class="img-top-view"><img src="{{$UPLOAD_DIR}}data/{{$image[0]}}" alt=""></a>
                                         <div class="view-list">
                                             <div class="rating"> <div class="product-star">
                                                     <i class="fa fa-star"></i>
@@ -225,7 +225,7 @@
                                                     <i class="fa fa-star"></i>
                                                     <i class="fa fa-star-half-o"></i>
                                                 </div></div>
-                                            <h4><a href="{{$site_url}}{{$value->seo_url}}-p{{$value->id}}.html">{{$value->product_name}}</a></h4>
+                                            <h4><a href="{{$site_url}}{{$value->seo_url}}-p{{$value->id}}.html">{{CutName($value->product_name,50)}}</a></h4>
                                             <p>Giá: 500.000 VNĐ</p>
                                         </div>
                                     </li>

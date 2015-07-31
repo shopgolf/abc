@@ -33,32 +33,12 @@ class Product extends CI_controller
 
 	public function new_products_go()
 	{
-
-		$field = array('id','seo_url','product_name','net_price','image','product_code','description');
-		$config['base_url']        = base_url().'hang-moi-ve/';
-		$config['total_rows']      = 100;
-		$config['per_page']        = 12;
-		$config['uri_segment']     = '2';
-		$config['first_link']      = '<<';
-		$config['last_link']       = '>>';
-		$config['first_tag_open']   = '<li>';
-		$config['first_tag_close'] = '</li>';
-		$config['last_tag_open']   = '<li >';
-		$config['last_tag_close']  = '</li>';
-		$config['prev_tag_open']   = '<li >';
-		$config['prev_tag_close']  = '</li>';
-		$config['next_tag_open']   = '<li >';
-		$config['next_tag_close']  = '</li>';
-		$config['num_tag_open']    = '<li >';
-		$config['num_tag_close']   = '</li>';
-		$config['next_link']       = 'Next';
-		$config['prev_link']       = 'Prev';
-		$config['cur_tag_open']    = '<li class="active"><a>';
-		$config['cur_tag_close']   = '</a></li>';
-		$start                     = $this->uri->segment(2);
+		$field  = array('id','seo_url','product_name','net_price','image','product_code','description');
+		$url    = base_url().'hang-moi-ve';
+		$config = pagination($url,$total = 100);
+		$start  = $this->uri->segment(2);
 		$this->pagination->initialize($config);
-		$data = $this->product_model->new_product($field,$limit = $config['per_page'],$offset = $start,$order_by = 'DESC',$param = 'id');
-		//pre($data);
+		$data   = $this->product_model->new_product($field,$limit = 12,$offset = $start,$order_by = 'DESC',$param = 'id');
 		$this->smarty->assign(array(
 			'title'      => 'Hàng mới về',
 			'menu_home'  => 'templates/frontend/menu_page.tpl',
@@ -93,31 +73,12 @@ class Product extends CI_controller
 	}
 
 	public function top_view_product(){
-		$field = array('id','seo_url','product_name','net_price','image','product_code','description');
-		$config['base_url']        = base_url().'xem-nhieu/';
-		$config['total_rows']      = 100;
-		$config['per_page']        = 12;
-		$config['uri_segment']     = '2';
-		$config['first_link']      = '<<';
-		$config['last_link']       = '>>';
-		$config['first_tag_open']   = '<li>';
-		$config['first_tag_close'] = '</li>';
-		$config['last_tag_open']   = '<li >';
-		$config['last_tag_close']  = '</li>';
-		$config['prev_tag_open']   = '<li >';
-		$config['prev_tag_close']  = '</li>';
-		$config['next_tag_open']   = '<li >';
-		$config['next_tag_close']  = '</li>';
-		$config['num_tag_open']    = '<li >';
-		$config['num_tag_close']   = '</li>';
-		$config['next_link']       = 'Next';
-		$config['prev_link']       = 'Prev';
-		$config['cur_tag_open']    = '<li class="active"><a>';
-		$config['cur_tag_close']   = '</a></li>';
-		$start                     = $this->uri->segment(2);
+		$field  = array('id','seo_url','product_name','net_price','image','product_code','description');
+		$url    = base_url().'xem-nhieu';
+		$config =  pagination($url,$total = 100);
+		$start  = $this->uri->segment(2);
 		$this->pagination->initialize($config);
-		$data = $this->product_model->new_product($field,$limit = $config['per_page'],$offset = $start,$order_by = 'DESC',$param = 'view');
-		//pre($data);
+		$data = $this->product_model->new_product($field,$limit = 12,$offset = $start,$order_by = 'DESC',$param = 'view');
 		$this->smarty->assign(array(
 			'title' 	 => 'Sản phẩm xem nhiều',
 			'menu_home'  => 'templates/frontend/menu_page.tpl',
@@ -130,11 +91,19 @@ class Product extends CI_controller
 	}
 
 	public function sell_product(){
+		$field  = array('id','seo_url','product_name','net_price','image','product_code','description');
+		$url    = base_url().'ban-chay';	
+		$config =  pagination($url,$total = 100);
+		$start  = $this->uri->segment(2);
+		$this->pagination->initialize($config);
+		$data = $this->product_model->new_product($field,$limit = 12,$offset = $start,$order_by = 'DESC',$param = 'checkout');
 		$this->smarty->assign(array(
 			'title' 	 => 'Sản phẩm bán chạy',
 			'menu_home'  => 'templates/frontend/menu_page.tpl',
 			'content'    => 'frontend/product/list_product.tpl',
 			'page_class' => 'category-page',
+			'data'       => $data,
+			'pagination' => $this->pagination->create_links() 
 		));
 		$this->smarty->display('templates/frontend/layout.tpl');
 	}
