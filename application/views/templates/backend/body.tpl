@@ -27,14 +27,14 @@
                             <!-- Menu Toggle Button -->
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown">
                                 <!-- The user image in the navbar-->
-                                <img src="#" class="user-image" alt="User Image" />
+                                <img src="{{$static_bk}}/images/cirlce.png" class="user-image" alt="User Image" />
                                 <!-- hidden-xs hides the username on small devices so only the image appears. -->
                                 <span class="hidden-xs">{{$userinfo->username}}</span>
                             </a>
                             <ul class="dropdown-menu">
                                 <!-- The user image in the menu -->
                                 <li class="user-header">
-                                    <img src="#" class="img-circle" alt="User Image" />
+                                    <img src="{{$static_bk}}/images/cirlce.png" class="user-image" alt="User Image" />
                                     <p>
                                         {{$userinfo->username}}
                                         <small>Web Developer</small>
@@ -66,7 +66,7 @@
                 <!-- Sidebar user panel (optional) -->
                 <div class="user-panel">
                     <div class="pull-left image">
-                        
+                        <img src="{{$static_bk}}/images/cirlce.png" class="user-image" alt="User Image" />
                     </div>
                     <div class="pull-left info">
                         <p>{{$userinfo->username}}</p>
