@@ -129,6 +129,13 @@
                             <li><a href="{{$link_bk}}/maker.html"><i class="glyphicon glyphicon-list-alt text-info"></i> Danh sách hãng</a></li>
                         </ul>
                     </li>
+                     <li class="treeview">
+                        <a href="#"><i class='fa fa-building'></i> <span>{{$lang.page_news}}</span> <i class="fa fa-angle-left pull-right"></i></a>
+                        <ul class="treeview-menu">
+                            <li><a href="{{$link_bk}}/post/index/add.html"><i class="glyphicon glyphicon-plus-sign text-success"></i> {{$lang.add}} {{$lang.page_news}}</a></li>
+                            <li><a href="{{$link_bk}}/post.html"><i class="glyphicon glyphicon-list-alt text-info"></i> {{$lang.list}} {{$lang.page_news}}</a></li>
+                        </ul>
+                    </li>
                     <li class="treeview">
                         <a href="#"><i class='fa fa-cog'></i> <span>Settings</span> <i class="fa fa-angle-left pull-right"></i></a>
                         <ul class="treeview-menu">

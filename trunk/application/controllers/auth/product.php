@@ -103,7 +103,6 @@ class Product extends BACKEND_Controller {
                         $this->view_data["product"]                                     = new stdClass();
                         $this->view_data["product"]->product_code                       = trim($this->input->post('product_code'));
                         $this->view_data["product"]->product_name                       = trim($this->input->post('product_name'));
-                        $this->view_data["product"]->product_type                       = $this->input->post('product_type');
                         $this->view_data["product"]->image                              = ($this->input->post('files'))?json_encode($this->input->post('files')):'';
                         $this->view_data["product"]->category                           = $this->input->post('category');
                         $this->view_data["product"]->keyword                            = trim($this->input->post('seo_keyword'));
@@ -195,12 +194,10 @@ class Product extends BACKEND_Controller {
                         'count_img'     =>  count($product_query[0]->image)
                     ));
             }
-            $this->load->model('producttype_model');
             $this->load->model('category_model');
             
             $this->smarty->assign(array(
                 'category'      =>  $this->category_model->find_by(),
-                'type'          =>  $this->producttype_model->find_by(),
                 'js'            =>  array(
                     base_url().'static/templates/backend/js/main.js',
                     base_url().'third_party/tiny_mce/jquery.tinymce.js',

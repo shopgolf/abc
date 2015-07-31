@@ -38,20 +38,7 @@
                     </div>
                 </div>
                 <div class="col-md-8">
-                  <div class="col-md-6">
-                    {{form_label({{$lang.type}},'product_type')}}
-                    <select class="form-control" name="product_type" id="product_type">
-                        {{foreach $type as $key => $vals}}
-                            {{if isset($product->product_type) && $vals->id == $product->product_type}}
-                                <option selected="selected" value="{{$vals->id}}">{{$vals->name}}</option>
-                            {{else}}
-                                <option value="{{$vals->id}}">{{$vals->name}}</option>
-                            {{/if}}
-                        {{/foreach}}
-                    </select>
-                  </div>
-                  <!-- phan loai san pham -->
-                  <div class="col-md-6">
+                  <div class="col-md-8">
                     {{form_label({{$lang.category}},'category')}}
                     <select class="form-control" name="category" id="category">
                         {{foreach $category as $keys => $values}}
