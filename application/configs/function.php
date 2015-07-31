@@ -259,3 +259,40 @@ if(!function_exists("pre"))
         die();
     }
 }
+if(!function_exists("cut"))
+{
+    function cut( $str, $limit, $more=" ..."){
+        if ($str=="" || $str == NULL || is_array($str) || strlen($str)==0)
+          return $str;
+        $str = trim($str);
+
+        if (strlen($str) <= $limit) return $str;
+        $str = substr($str,0,$limit);
+
+        if (!substr_count($str," ")){
+          if ($more) $str .= " ...";
+          return $str;
+        }
+        while(strlen($str) && ($str[strlen($str)-1] != " ")){
+          $str = substr($str,0,-1);
+        }
+        $str = substr($str,0,-1);
+        if ($more) $str .= " ...";
+        return $str;
+    }
+}
+# Cắt chữ
+function CutName($str, $len) {
+    $str = trim($str);
+    if (strlen($str) <= $len)
+        return $str;
+    $str = substr($str, 0, $len);
+    if ($str != "") {
+        if (!substr_count($str, " "))
+            return $str . " ...";
+        while (strlen($str) && ($str[strlen($str) - 1] != " "))
+            $str = substr($str, 0, -1);
+        $str = substr($str, 0, -1) . " ...";
+    }
+    return $str;
+}

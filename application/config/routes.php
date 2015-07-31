@@ -17,5 +17,6 @@ $route['thanh-toan']					= 'product/checkout';
 $route['xem-nhieu']						= 'product/top_view_product';
 $route['xem-nhieu/(:num)']			    = 'product/top_view_product/(:num)';
 $route['ban-chay']						= 'product/sell_product';
+$route['ban-chay/(:num)']				= 'product/sell_product/(:num)';
 $route['tin-tuc']						= 'news';
 $route['404_override']            	    = '';

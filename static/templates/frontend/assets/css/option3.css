@@ -206,7 +206,6 @@
 	padding: 0 20px;
 	text-transform: uppercase;
 	line-height: 11px;
-	font-family: 'OpenSans-Bold';
 }
 .option3 #main-menu .navbar .navbar-nav>li:hover,
 .option3 #main-menu .navbar .navbar-nav>li.active{

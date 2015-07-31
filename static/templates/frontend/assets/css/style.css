@@ -5199,6 +5199,7 @@ span.notify-right{
    padding: 5px 0px;
    margin-left: 5px;
    line-height: 13px;
+   width: 140px;
 }
 .view-list h4 a{
   font-size: 13px;
