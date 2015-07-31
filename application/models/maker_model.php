@@ -28,9 +28,9 @@ class Maker_model extends MY_Model{
 						'sort'  => FALSE,
 						'searchoptions' => FALSE
 				),array(
-						'name' 	=> 'description',
-						'label' => $this->lang->line('description'),
-						'width' => '30%',
+						'name' 	=> 'image',
+						'label' => $this->lang->line('image'),
+						'width' => '5%',
 						'sort'  => FALSE,
 						'searchoptions' => FALSE
 				),array(
@@ -51,7 +51,7 @@ class Maker_model extends MY_Model{
 	
 	public function json_data($controller, $right){
 		$this->datatables
-		->select("id,name,description,lastupdated")
+		->select("id,name,logo,lastupdated")
 		->from($this->table_name.' AS tbl');
 	
 		$this->datatables->set_produce_output(false);
@@ -64,7 +64,7 @@ class Maker_model extends MY_Model{
                     $ouput['aaData'][] = array(
                         "<input type='checkbox' value='".$item['id']."' onclick=get_Checked_Checkbox_By_Name('checkCol') name='checkCol' id='checkCol' class='checkbox' />",
                         $item['name'],
-                        $item['description'],
+                        $item['logo'],
                         date("d-m-Y H:i:s",$item['lastupdated']),
                         $this->add_button($controller, $right, $item),
                     );

@@ -33,7 +33,7 @@
                         {{form_open("",["name"=>"validate_scl"])}}
                                 <div class="col-md-12 form-group">
 {{form_label({{$lang.category_name}},'category_name')}}
-{{form_input(["class"=>"form-control","id"=>"category_name","placeholder"=>"{{$lang.category_name}}","name"=>"category_name",value=>"{{if isset($category->category_name)}}{{$category->category_name}}{{/if}}"])}}
+{{form_input(["class"=>"form-control","id"=>"category_name","placeholder"=>"{{$lang.category_name}}","name"=>"category_name",value=>"{{if isset($category->name)}}{{$category->name}}{{/if}}"])}}
                                 </div>
                                 <div class="col-md-12 form-group has-error">
 {{form_label({{$lang.seo_url}},'seo_url')}}
@@ -45,7 +45,7 @@
                                 </div>
                                 <div class="col-md-12 form-group has-warning">
 {{form_label({{$lang.category_description}},'description',['class'=>'control-label fa fa-check'])}}
-{{form_textarea(["readonly"=>"true","rows"=>"5","class"=>"form-control","id"=>"description","placeholder"=>"{{$lang.category_description}}","name"=>"description",value=>"{{if isset($category->description)}}{{$category->description}}{{/if}}"])}}
+{{form_textarea(["class"=>"tinymcefull","readonly"=>"true","rows"=>"5","id"=>"description","placeholder"=>"{{$lang.category_description}}","name"=>"description",value=>"{{if isset($category->description)}}{{$category->description}}{{/if}}"])}}
                                 </div>
                                 
                                 <div class="col-md-6">
