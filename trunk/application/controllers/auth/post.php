@@ -56,6 +56,9 @@ class Post extends BACKEND_Controller {
         
         public function deleteImage(){
             if($this->input->server('REQUEST_METHOD')=='POST'){
+                if (!file_exists(UPLOAD_DIR."post/")) {
+                    mkdir(UPLOAD_DIR."post/", 0777, true);
+                }
                 $file   =   UPLOAD_DIR."post/".$this->input->post('url');
                 $return =   unlink($file);
                 if($return == 1){
@@ -80,6 +83,9 @@ class Post extends BACKEND_Controller {
         }
         
         public function upload(){
+                if (!file_exists(UPLOAD_DIR."post/")) {
+                    mkdir(UPLOAD_DIR."post/", 0777, true);
+                }
                 $output_dir = getcwd().'\\'.str_replace('/', '\\', UPLOAD_DIR).'post\\';
                 if(isset($_FILES["myfile"]))
                 {
