@@ -124,3 +124,4 @@ $lang['input_required']         =   "Vui lòng nhập";
 $lang['type']                   =   'Thể loại';
 $lang['dich_vu']                =   'Dịch vụ';
 $lang['content']                =   'Nội dung';
+$lang['accessory']              =   'Phụ kiện';

@@ -8,13 +8,38 @@ class Cronjob extends CI_Controller
 		parent::__construct();
 		$this->load->database();		
                 $this->load->model('cronjob_model');
+                $this->load->model('parameters_model');
+                $this->load->model('product_model');
                 
                 $this->load->library('bookinglib');
                 $this->bookinglib = new bookinglib();
         }
         
+        public function cronParameters(){                
+                foreach($this->product_model->find_by() as $keys => $vals){
+                    
+                    $this->view_data["parameters"]                      = new stdClass();
+                    $this->view_data["parameters"]->id                  = $vals->id;
+                    $this->view_data["parameters"]->classification      = NULL;
+                    $this->view_data["parameters"]->manufacturer        = $vals->manufacturer;
+                    $this->view_data["parameters"]->model      = NULL;
+                    $this->view_data["parameters"]->shaft      = NULL;
+                    $this->view_data["parameters"]->count      = NULL;
+                    $this->view_data["parameters"]->loft      = NULL;
+                    $this->view_data["parameters"]->hardness      = NULL;
+                    $this->view_data["parameters"]->gross      = NULL;
+                    $this->view_data["parameters"]->balance      = NULL;
+                    $this->view_data["parameters"]->price      = NULL;
+                    $this->view_data["parameters"]->club      = NULL;
+                    
+                    $params = $this->parameters_model->create($this->view_data["parameters"]);
+                    echo 'Tạo id='.$params.' thành công!<br/>';
+                }
+
+        }
+        
         public function cronMaker(){
-                $str = '';
+                $str = NULL;
                 $time = time();
                 foreach($this->cronjob_model->cronMaker() as $keys => $vals){
                     $str .= '('.$vals->manufacturer_id.',"'.$vals->name.'","'.$vals->image.'",1,"'.$time.'"),';
@@ -23,7 +48,7 @@ class Cronjob extends CI_Controller
         }
         
         public function cronCategory(){
-                $str = '';
+                $str = NULL;
                 $time = time();
                 
                 foreach($this->cronjob_model->cronCategory() as $key => $vals){
@@ -44,7 +69,7 @@ class Cronjob extends CI_Controller
         }
         
         public function cronProduct(){
-                $str = '';
+                $str = NULL;
                 $time = time();
                 
                 foreach($this->cronjob_model->cronProduct() as $key => $vals){
@@ -55,6 +80,7 @@ class Cronjob extends CI_Controller
                     $this->view_data["data"]->product_id                        =   $this->bookinglib->rendCode('PRO');
                     $this->view_data["data"]->product_name                        =   $vals->name;
                     $this->view_data["data"]->product_code                        =   $vals->model;
+                    $this->view_data["data"]->product_type                        =   1;
                     $this->view_data["data"]->image                        =   '["'.$vals->image.'"]';
                     $this->view_data["data"]->seo_url                        =   $seo_url;
                     $this->view_data["data"]->category                        =   $vals->category;

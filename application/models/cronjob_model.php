@@ -10,7 +10,7 @@ class Cronjob_model extends MY_Model{
 	
 	public function __construct(){
 		parent::__construct();
-		$this->table_name = 'px_product';
+		$this->table_name = 'px_parameters';
 	}
         
         public function insertCategory($params){
