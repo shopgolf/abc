@@ -39,7 +39,7 @@ class Product extends CI_controller
 		$config = pagination($url,$total = 100);
 		$start  = $this->uri->segment(2);
 		$this->pagination->initialize($config);
-		$data   = $this->product_model->new_product($field,$limit = 18,$offset = $start,$order_by = 'DESC',$param = 'id');
+		$data   = $this->product_model->new_product($field,$limit = 18,$offset = FALSE,$order_by = 'DESC',$param = 'id',$where=array('status'=>1));
 		$data_category = $this->category_model->get_data();
 		$this->smarty->assign(array(
 			'title'         => 'Hàng mới về',
@@ -81,7 +81,7 @@ class Product extends CI_controller
 		$config =  pagination($url,$total = 100);
 		$start  = $this->uri->segment(2);
 		$this->pagination->initialize($config);
-		$data = $this->product_model->new_product($field,$limit = 18,$offset = $start,$order_by = 'DESC',$param = 'view');
+		$data = $this->product_model->new_product($field,$limit = 18,$offset = $start,$order_by = 'DESC',$param = 'view',$where=array('status'=>1));
 		$data_category = $this->category_model->get_data();
 		$this->smarty->assign(array(
 			'title'         => 'Sản phẩm xem nhiều',
@@ -101,7 +101,7 @@ class Product extends CI_controller
 		$config =  pagination($url,$total = 100);
 		$start  = $this->uri->segment(2);
 		$this->pagination->initialize($config);
-		$data = $this->product_model->new_product($field,$limit = 18,$offset = $start,$order_by = 'DESC',$param = 'checkout');
+		$data = $this->product_model->new_product($field,$limit = 18,$offset = $start,$order_by = 'DESC',$param = 'checkout',$where=array('status',1));
 		$data_category = $this->category_model->get_data();
 		$this->smarty->assign(array(
 			'title'         => 'Sản phẩm bán chạy',
@@ -116,12 +116,24 @@ class Product extends CI_controller
 	}
 
 	public function detail(){
+		$url          = $this->uri->segment(1);
+		$id           = array_pop(explode('p', $url));
+		$info         = $this->product_model->get_rows($id);
+		//pre($info->info);
+		$cate_id	  = $info->category;
+		$field        = array('id','seo_url','product_name','net_price','image','product_code','description');
+		$data         = $this->product_model->new_product($field,$limit = 5,$offset = FALSE,$order_by = 'DESC',$param = 'checkout',$where=array('status'=>1));
+		$data_related = $this->product_model->new_product($field,$limit = 18,$offset = FALSE,$order_by = 'DESC',$param = 'checkout',$where=array('status'=>1,'category'=> $cate_id));
 		$this->smarty->assign(array(
-			'title' 	 => 'Sản phẩm bán chạy',
-			'menu_home'  => 'templates/frontend/menu_page.tpl',
-			'content'    => 'frontend/product/detail.tpl',
-			'page_class' => ' product-page right-sidebar category-page ',
+			'title'        => 'Sản phẩm bán chạy',
+			'menu_home'    => 'templates/frontend/menu_page.tpl',
+			'content'      => 'frontend/product/detail.tpl',
+			'page_class'   => ' product-page right-sidebar category-page ',
+			'info'         => $info,
+			'data'         => $data,
+			'data_related' => array_chunk($data_related,3),
 		));
 		$this->smarty->display('templates/frontend/layout.tpl');
 	}
+
 }

@@ -3,7 +3,7 @@
     <div class="container">
         <div class="row">
             <div class="col-xs-12 col-sm-3 logo">
-                <a href="{{$site_url}}" title=""><img alt="Kute Shop" src="{{$static_ft}}/images/Logo.png" /></a>
+                <a href="{{$site_url}}" title=""><img alt="Kute Shop" src="{{$UPLOAD_DIR}}/logo/Logo.png" /></a>
             </div>
             <div class="col-xs-6 col-sm-5 header-search-box">
                 <form class="form-inline" action="" method="post">

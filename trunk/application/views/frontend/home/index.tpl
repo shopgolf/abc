@@ -63,7 +63,7 @@
                         {{foreach $data_topview_product as $value}}
                         {{$image = json_decode($value->image)}}
                         <li>
-                            <a href="{{$site_url}}{{$value->seo_url}}-p{{$value->id}}.html" title="{{$value->product_name}}" class="img-top-view"><img src="{{$UPLOAD_DIR}}data/{{$image[0]}}" alt="{{$value->product_name}}"></a>
+                            <a href="{{$site_url}}{{$value->seo_url}}-p{{$value->id}}.html" title="{{$value->product_name}}" class="img-top-view"><img src="{{$UPLOAD_DIR}}product/{{$image[0]}}" alt="{{$value->product_name}}"></a>
                             <div class="view-list">
                                 <div class="rating">
                                     <div class="product-star">
@@ -74,7 +74,7 @@
                                         <i class="fa fa-star-half-o"></i>
                                     </div>
                                 </div>
-                                <h4><a href="" title="{{$value->product_name}}">{{Cutname($value->product_name,30)}}</a></h4>
+                                <h4><a href="{{$site_url}}{{$value->seo_url}}-p{{$value->id}}.html" title="{{$value->product_name}}">{{Cutname($value->product_name,30)}}</a></h4>
                                 <p>Giá: {{number_format($value->net_price,0,'','.')}}.VNĐ</p>
                             </div>
                         </li>
@@ -94,7 +94,7 @@
                             {{$image = json_decode($v->image)}}
                             <li>
                                 <div class="left-block">
-                                    <a href="{{$site_url}}{{$v->seo_url}}-p{{$v->id}}.html" title="{{$v->product_name}}"><img class="img-responsive" alt="product" src="{{$UPLOAD_DIR}}data/{{$image[0]}}" /></a>
+                                    <a href="{{$site_url}}{{$v->seo_url}}-p{{$v->id}}.html" title="{{$v->product_name}}"><img class="img-responsive" alt="product" src="{{$UPLOAD_DIR}}product/{{$image[0]}}" /></a>
                                     <div class="quick-view">
                                             <a title="Add to my wishlist" class="heart" href="#"></a>
                                             <a title="Add to compare" class="compare" href="#"></a>
@@ -134,7 +134,7 @@
                             {{$image = json_decode($v->image)}}
                             <li>
                                 <div class="left-block">
-                                    <a href="#"><img class="img-responsive" alt="product" src="{{$UPLOAD_DIR}}data/{{$image[0]}}" /></a>
+                                    <a href="#"><img class="img-responsive" alt="product" src="{{$UPLOAD_DIR}}product/{{$image[0]}}" /></a>
                                     <div class="quick-view">
                                             <a title="Add to my wishlist" class="heart" href="#"></a>
                                             <a title="Add to compare" class="compare" href="#"></a>
@@ -202,7 +202,7 @@
                                     {{foreach  $value as $k => $v}}
                                         {{$image = json_decode($v->image)}}
                                     <li>
-                                        <a href="{{$site_url}}{{$v->seo_url}}-p{{$v->id}}.html" class="img-top-view"><img src="{{$UPLOAD_DIR}}data/{{$image[0]}}" alt=""></a>
+                                        <a href="{{$site_url}}{{$v->seo_url}}-p{{$v->id}}.html" class="img-top-view"><img src="{{$UPLOAD_DIR}}product/{{$image[0]}}" alt=""></a>
                                         <div class="view-list">
                                             <div class="rating"> <div class="product-star">
                                                     <i class="fa fa-star"></i>
@@ -212,7 +212,7 @@
                                                     <i class="fa fa-star-half-o"></i>
                                                 </div></div>
                                             <h4><a href="{{$site_url}}{{$v->seo_url}}-p{{$v->id}}.html">{{$v->product_name}}</a></h4>
-                                            <p>Giá: 500.000 VNĐ</p>
+                                            <p>{{number_format($v->net_price,0,'','.')}}.VNĐ</p>
                                         </div>
                                     </li>
                                     {{/foreach}}
@@ -232,36 +232,17 @@
                 </div>
                 <div class="news">
                     <ul>
+                        {{foreach $data_post as $value}}
                         <li>
                             <a href=""><img src="{{$static_ft}}/images/news.png" alt=""></a>
                             <div class="news-title">
-                                <h3><a href="">Dịch Vụ Dạy Đánh Golf Trên Máy Mô Phỏng 3D</a></h3>
+                                <h3><a href="" title="{{$value->title}}">{{$value->title}}</a></h3>
                                 <p>
-                                    Nhằm đáp ứng nhu cầu chơi và thư giãn với golf của số lượng người chơi golf đang tăng
-                                    nhanh ở Hà Nội, Sài Gòn và trên khắp cả nước, With One Golf thiết kế và xây dựng..!
+                                  {{$value->description}}
                                 </p>
                             </div>
                         </li>
-                        <li>
-                            <a href=""><img src="{{$static_ft}}/images/news.png" alt=""></a>
-                            <div class="news-title">
-                                <h3><a href="">Dịch Vụ Dạy Đánh Golf Trên Máy Mô Phỏng 3D</a></h3>
-                                <p>
-                                    Nhằm đáp ứng nhu cầu chơi và thư giãn với golf của số lượng người chơi golf đang tăng
-                                    nhanh ở Hà Nội, Sài Gòn và trên khắp cả nước, With One Golf thiết kế và xây dựng..!
-                                </p>
-                            </div>
-                        </li>
-                        <li>
-                            <a href=""><img src="{{$static_ft}}/images/news.png" alt=""></a>
-                            <div class="news-title">
-                                <h3><a href="">Dịch Vụ Dạy Đánh Golf Trên Máy Mô Phỏng 3D</a></h3>
-                                <p>
-                                    Nhằm đáp ứng nhu cầu chơi và thư giãn với golf của số lượng người chơi golf đang tăng
-                                    nhanh ở Hà Nội, Sài Gòn và trên khắp cả nước, With One Golf thiết kế và xây dựng..!
-                                </p>
-                            </div>
-                        </li>
+                        {{/foreach}}
                     </ul>
                 </div>
             </div>
