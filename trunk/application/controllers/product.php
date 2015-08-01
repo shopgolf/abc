@@ -76,12 +76,12 @@ class Product extends CI_controller
 	}
 
 	public function top_view_product(){
-		$field  = array('id','seo_url','product_name','net_price','image','product_code','description');
-		$url    = base_url().'xem-nhieu';
-		$config =  pagination($url,$total = 100);
-		$start  = $this->uri->segment(2);
+		$field         = array('id','seo_url','product_name','net_price','image','product_code','description');
+		$url           = base_url().'xem-nhieu';
+		$config        =  pagination($url,$total = 100);
+		$start         = $this->uri->segment(2);
 		$this->pagination->initialize($config);
-		$data = $this->product_model->new_product($field,$limit = 18,$offset = $start,$order_by = 'DESC',$param = 'view',$where=array('status'=>1));
+		$data          = $this->product_model->new_product($field,$limit = 18,$offset = $start,$order_by = 'DESC',$param = 'view',$where=array('status'=>1));
 		$data_category = $this->category_model->get_data();
 		$this->smarty->assign(array(
 			'title'         => 'Sản phẩm xem nhiều',
@@ -96,12 +96,12 @@ class Product extends CI_controller
 	}
 
 	public function sell_product(){
-		$field  = array('id','seo_url','product_name','net_price','image','product_code','description');
-		$url    = base_url().'ban-chay';	
-		$config =  pagination($url,$total = 100);
-		$start  = $this->uri->segment(2);
+		$field         = array('id','seo_url','product_name','net_price','image','product_code','description');
+		$url           = base_url().'ban-chay';	
+		$config        =  pagination($url,$total = 100);
+		$start         = $this->uri->segment(2);
 		$this->pagination->initialize($config);
-		$data = $this->product_model->new_product($field,$limit = 18,$offset = $start,$order_by = 'DESC',$param = 'checkout',$where=array('status',1));
+		$data          = $this->product_model->new_product($field,$limit = 18,$offset = $start,$order_by = 'DESC',$param = 'checkout',$where=array('status'=>1));
 		$data_category = $this->category_model->get_data();
 		$this->smarty->assign(array(
 			'title'         => 'Sản phẩm bán chạy',
@@ -136,4 +136,25 @@ class Product extends CI_controller
 		$this->smarty->display('templates/frontend/layout.tpl');
 	}
 
+	public function category(){
+		$field         = array('id','seo_url','product_name','net_price','image','product_code','description');
+		$url           = $this->uri->segment(1);
+		$id            = array_pop(explode('c', $url));
+		$url           = base_url().$url;	
+		$config        = pagination($url,$total = 100);
+		$start         = $this->uri->segment(2);
+		$this->pagination->initialize($config);
+		$data          = $this->product_model->new_product($field,$limit = 18,$offset = $start,$order_by = 'DESC',$param = 'checkout',$where=array('status'=>1));
+		$data_category = $this->category_model->get_data();
+		$this->smarty->assign(array(
+			'title'         => 'Sản phẩm bán chạy',
+			'menu_home'     => 'templates/frontend/menu_page.tpl',
+			'content'       => 'frontend/product/list_product.tpl',
+			'page_class'    => 'category-page',
+			'data'          => $data,
+			'data_category' => $data_category,
+			'pagination'    => $this->pagination->create_links() 
+		));
+		$this->smarty->display('templates/frontend/layout.tpl');
+	}
 }
