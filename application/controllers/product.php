@@ -10,6 +10,7 @@ class Product extends CI_controller
                 
                 $this->load->model('product_model');//call model home
                 $this->load->model('producttype_model');
+                $this->load->model('category_model');
                 $this->load->library("pagination");
                 //day la thu vien common.js day nhung cai linh tinh thi bo vao day 
                 $this->load->library('bookinglib');
@@ -38,14 +39,16 @@ class Product extends CI_controller
 		$config = pagination($url,$total = 100);
 		$start  = $this->uri->segment(2);
 		$this->pagination->initialize($config);
-		$data   = $this->product_model->new_product($field,$limit = 12,$offset = $start,$order_by = 'DESC',$param = 'id');
+		$data   = $this->product_model->new_product($field,$limit = 18,$offset = $start,$order_by = 'DESC',$param = 'id');
+		$data_category = $this->category_model->get_data();
 		$this->smarty->assign(array(
-			'title'      => 'Hàng mới về',
-			'menu_home'  => 'templates/frontend/menu_page.tpl',
-			'content'    => 'frontend/product/list_product.tpl',
-			'page_class' => 'category-page',
-			'data'       => $data,
-			'pagination' => $this->pagination->create_links() 
+			'title'         => 'Hàng mới về',
+			'menu_home'     => 'templates/frontend/menu_page.tpl',
+			'content'       => 'frontend/product/list_product.tpl',
+			'page_class'    => 'category-page',
+			'data'          => $data,
+			'data_category' => $data_category,
+			'pagination'    => $this->pagination->create_links() 
 		));
 		$this->smarty->display('templates/frontend/layout.tpl');
 	}
@@ -78,14 +81,16 @@ class Product extends CI_controller
 		$config =  pagination($url,$total = 100);
 		$start  = $this->uri->segment(2);
 		$this->pagination->initialize($config);
-		$data = $this->product_model->new_product($field,$limit = 12,$offset = $start,$order_by = 'DESC',$param = 'view');
+		$data = $this->product_model->new_product($field,$limit = 18,$offset = $start,$order_by = 'DESC',$param = 'view');
+		$data_category = $this->category_model->get_data();
 		$this->smarty->assign(array(
-			'title' 	 => 'Sản phẩm xem nhiều',
-			'menu_home'  => 'templates/frontend/menu_page.tpl',
-			'content'    => 'frontend/product/list_product.tpl',
-			'page_class' => 'category-page',
-			'data'       => $data,
-			'pagination' => $this->pagination->create_links() 
+			'title'         => 'Sản phẩm xem nhiều',
+			'menu_home'     => 'templates/frontend/menu_page.tpl',
+			'content'       => 'frontend/product/list_product.tpl',
+			'page_class'    => 'category-page',
+			'data'          => $data,
+			'data_category' => $data_category,
+			'pagination'    => $this->pagination->create_links() 
 		));
 		$this->smarty->display('templates/frontend/layout.tpl');
 	}
@@ -96,14 +101,16 @@ class Product extends CI_controller
 		$config =  pagination($url,$total = 100);
 		$start  = $this->uri->segment(2);
 		$this->pagination->initialize($config);
-		$data = $this->product_model->new_product($field,$limit = 12,$offset = $start,$order_by = 'DESC',$param = 'checkout');
+		$data = $this->product_model->new_product($field,$limit = 18,$offset = $start,$order_by = 'DESC',$param = 'checkout');
+		$data_category = $this->category_model->get_data();
 		$this->smarty->assign(array(
-			'title' 	 => 'Sản phẩm bán chạy',
-			'menu_home'  => 'templates/frontend/menu_page.tpl',
-			'content'    => 'frontend/product/list_product.tpl',
-			'page_class' => 'category-page',
-			'data'       => $data,
-			'pagination' => $this->pagination->create_links() 
+			'title'         => 'Sản phẩm bán chạy',
+			'menu_home'     => 'templates/frontend/menu_page.tpl',
+			'content'       => 'frontend/product/list_product.tpl',
+			'page_class'    => 'category-page',
+			'data'          => $data,
+			'data_category' => $data_category,
+			'pagination'    => $this->pagination->create_links() 
 		));
 		$this->smarty->display('templates/frontend/layout.tpl');
 	}

@@ -19,25 +19,9 @@
                         <div class="layered layered-category">
                             <div class="layered-content">
                                 <ul class="tree-menu">
-                                    <li class="active">
-                                        <span></span><a href="#">Tops</a>
-                                        <ul>
-                                            <li><span></span><a href="#">T-shirts</a></li>
-                                            <li><span></span><a href="#">Dresses</a></li>
-                                            <li><span></span><a href="#">Casual</a></li>
-                                            <li><span></span><a href="#">Evening</a></li>
-                                            <li><span></span><a href="#">Summer</a></li>
-                                            <li><span></span><a href="#">Bags & Shoes</a></li>
-                                            <li><span></span><a href="#"><span></span>Blouses</a></li>
-                                        </ul>
-                                    </li>
-                                    <li><span></span><a href="#">T-shirts</a></li>
-                                    <li><span></span><a href="#">Dresses</a></li>
-                                    <li><span></span><a href="#">Jackets and coats </a></li>
-                                    <li><span></span><a href="#">Knitted</a></li>
-                                    <li><span></span><a href="#">Pants</a></li>
-                                    <li><span></span><a href="#">Bags & Shoes</a></li>
-                                    <li><span></span><a href="#">Best selling</a></li>
+                                    {{foreach $data_category as $key=> $value}}
+                                    <li><span></span><a href="{{$site_url}}{{$value->seo_url}}-c{{$value->id}}.html">{{$value->name}}</a></li>
+                                    {{/foreach }}
                                 </ul>
                             </div>
                         </div>
@@ -192,7 +176,7 @@
                             <div class="product-container">
                                 <div class="left-block">
                                     <a href="#">
-                                        <img class="img-responsive" alt="product" src="{{$UPLOAD_DIR}}product/{{$image[0]}}" />
+                                        <img class="img-responsive" alt="product" src="{{$UPLOAD_DIR}}data/{{$image[0]}}" />
                                     </a>
                                     <div class="quick-view">
                                             <a title="Add to my wishlist" class="heart" href="#"></a>
