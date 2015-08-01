@@ -138,13 +138,13 @@ class Product extends CI_controller
 
 	public function category(){
 		$field         = array('id','seo_url','product_name','net_price','image','product_code','description');
-		$url           = $this->uri->segment(1);
-		$id            = array_pop(explode('c', $url));
-		$url           = base_url().$url;	
+		$url_cate           = $this->uri->segment(1);
+		$cate_id       = array_pop(explode('c', $url_cate));
+		$url           = base_url().$url_cate;	
 		$config        = pagination($url,$total = 100);
 		$start         = $this->uri->segment(2);
 		$this->pagination->initialize($config);
-		$data          = $this->product_model->new_product($field,$limit = 18,$offset = $start,$order_by = 'DESC',$param = 'checkout',$where=array('status'=>1));
+		$data          = $this->product_model->new_product($field,$limit = 18,$offset = $start,$order_by = 'DESC',$param = 'checkout',$where=array('status'=>1,'category'=>$cate_id));
 		$data_category = $this->category_model->get_data();
 		$this->smarty->assign(array(
 			'title'         => 'Sản phẩm bán chạy',
