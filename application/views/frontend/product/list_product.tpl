@@ -175,8 +175,8 @@
                         <li class="col-sx-12 col-sm-4">
                             <div class="product-container">
                                 <div class="left-block">
-                                    <a href="#">
-                                        <img class="img-responsive" alt="product" src="{{$UPLOAD_DIR}}data/{{$image[0]}}" />
+                                    <a href="{{$site_url}}{{$value->seo_url}}-p{{$value->id}}.html">
+                                        <img class="img-responsive" alt="product" src="{{$UPLOAD_DIR}}product/{{$image[0]}}" />
                                     </a>
                                     <div class="quick-view">
                                             <a title="Add to my wishlist" class="heart" href="#"></a>
@@ -188,7 +188,7 @@
                                     </div>
                                 </div>
                                 <div class="right-block">
-                                    <h5 class="product-name"><a href="#">{{$value->product_name}}</a></h5>
+                                    <h5 class="product-name"><a href="{{$site_url}}{{$value->seo_url}}-p{{$value->id}}.html">{{$value->product_name}}</a></h5>
                                     <div class="product-star">
                                         <i class="fa fa-star"></i>
                                         <i class="fa fa-star"></i>

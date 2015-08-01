@@ -80,23 +80,26 @@ class Product_model extends MY_Model{
 		return json_encode($ouput);
 	}
 
-	public function new_product($field = array(), $limit = FALSE, $offset = FALSE, $order_by = NULL,$param = NULL){
+	public function new_product($field = array(), $limit = FALSE, $offset = FALSE, $order_by = NULL,$param = NULL,$where=array()){
 		if(!empty($field))
 		{
 			if($limit)
 			{
 				if(!$offset){
 					$this->db->select($field);
+					$this->db->where($where);
 					if(!empty($param))
 					{
 						$this->db->order_by($param,$order_by);
 					}
 					$this->db->limit($limit);
 					$query = $this->db->get($this->table_name);
+					//pre($this->db->last_query());
 					return $query->result();
 				}else
 				{
 					$this->db->select($field);
+					$this->db->where($where);
 					if(!empty($param))
 					{
 						$this->db->order_by($param,$order_by);
@@ -112,4 +115,14 @@ class Product_model extends MY_Model{
 		}
 	}
 	
+	public function get_rows($id){
+		if(!empty($id)){
+			$this->db->select('product_name,image,category,net_price,final_price,info,tag,view,checkout,keyword,description,product_code');
+			$this->db->where('id',$id);
+			$query = $this->db->get($this->table_name)->row();
+			return $query;
+		}else{
+			return false;
+		}
+	}
 }

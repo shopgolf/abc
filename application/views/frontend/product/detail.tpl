@@ -4,13 +4,7 @@
         <div class="breadcrumb clearfix">
             <a class="home" href="#" title="Return to Home">Home</a>
             <span class="navigation-pipe">&nbsp;</span>
-            <a href="#" title="Return to Home">Fashion</a>
-            <span class="navigation-pipe">&nbsp;</span>
-            <a href="#" title="Return to Home">Women</a>
-            <span class="navigation-pipe">&nbsp;</span>
-            <a href="#" title="Return to Home">Dresses</a>
-            <span class="navigation-pipe">&nbsp;</span>
-            <span class="navigation_page">Maecenas consequat mauris</span>
+            <span class="navigation_page">{{$info->product_name}}</span>
         </div>
         <!-- ./breadcrumb -->
         <!-- row -->
@@ -22,87 +16,30 @@
                     <p class="title_block">NEW PRODUCTS</p>
                     <div class="block_content">
                         <ul class="products-block best-sell">
-                                <li>
-                                    <div class="products-block-left">
-                                        <a href="#">
-                                            <img src="{{$static_ft}}/data/product-100x122.jpg" alt="SPECIAL PRODUCTS">
-                                        </a>
-                                    </div>
-                                    <div class="products-block-right">
-                                        <p class="product-name">
-                                            <a href="#">Woman Within Plus Size Flared</a>
-                                        </p>
-                                        <p class="product-price">$38,95</p>
-                                        <p class="product-star">
-                                            <i class="fa fa-star"></i>
-                                            <i class="fa fa-star"></i>
-                                            <i class="fa fa-star"></i>
-                                            <i class="fa fa-star"></i>
-                                            <i class="fa fa-star-half-o"></i>
-                                        </p>
-                                    </div>
-                                </li>
-                                <li>
-                                    <div class="products-block-left">
-                                        <a href="#">
-                                            <img src="{{$static_ft}}/data/p11.jpg" alt="SPECIAL PRODUCTS">
-                                        </a>
-                                    </div>
-                                    <div class="products-block-right">
-                                        <p class="product-name">
-                                            <a href="#">Woman Within Plus Size Flared</a>
-                                        </p>
-                                        <p class="product-price">$38,95</p>
-                                        <p class="product-star">
-                                            <i class="fa fa-star"></i>
-                                            <i class="fa fa-star"></i>
-                                            <i class="fa fa-star"></i>
-                                            <i class="fa fa-star"></i>
-                                            <i class="fa fa-star-half-o"></i>
-                                        </p>
-                                    </div>
-                                </li>
-                                <li>
-                                    <div class="products-block-left">
-                                        <a href="#">
-                                            <img src="{{$static_ft}}/data/p12.jpg" alt="SPECIAL PRODUCTS">
-                                        </a>
-                                    </div>
-                                    <div class="products-block-right">
-                                        <p class="product-name">
-                                            <a href="#">Plus Size Rock Star Skirt</a>
-                                        </p>
-                                        <p class="product-price">$38,95</p>
-                                        <p class="product-star">
-                                            <i class="fa fa-star"></i>
-                                            <i class="fa fa-star"></i>
-                                            <i class="fa fa-star"></i>
-                                            <i class="fa fa-star"></i>
-                                            <i class="fa fa-star-half-o"></i>
-                                        </p>
-                                    </div>
-                                </li>
-                                <li>
-                                    <div class="products-block-left">
-                                        <a href="#">
-                                            <img src="{{$static_ft}}/data/p52.jpg" alt="SPECIAL PRODUCTS">
-                                        </a>
-                                    </div>
-                                    <div class="products-block-right">
-                                        <p class="product-name">
-                                            <a href="#">Plus Size Rock Star Skirt</a>
-                                        </p>
-                                        <p class="product-price">$38,95</p>
-                                        <p class="product-star">
-                                            <i class="fa fa-star"></i>
-                                            <i class="fa fa-star"></i>
-                                            <i class="fa fa-star"></i>
-                                            <i class="fa fa-star"></i>
-                                            <i class="fa fa-star-half-o"></i>
-                                        </p>
-                                    </div>
-                                </li>
-                            </ul>
+                            {{foreach $data as $value}}
+                               {{$image = json_decode($value->image)}}
+                            <li>
+                                <div class="products-block-left">
+                                    <a href="{{$site_url}}{{$value->seo_url}}-p{{$value->id}}.html">
+                                        <img src="{{$UPLOAD_DIR}}product/{{$image[0]}}" alt="SPECIAL PRODUCTS">
+                                    </a>
+                                </div>
+                                <div class="products-block-right">
+                                    <p class="product-name">
+                                        <a href="{{$site_url}}{{$value->seo_url}}-p{{$value->id}}.html">{{$value->product_name}}</a>
+                                    </p>
+                                    <p class="product-price">{{number_format($value->net_price,0,'','.')}}.VNĐ</p>
+                                    <p class="product-star">
+                                        <i class="fa fa-star"></i>
+                                        <i class="fa fa-star"></i>
+                                        <i class="fa fa-star"></i>
+                                        <i class="fa fa-star"></i>
+                                        <i class="fa fa-star-half-o"></i>
+                                    </p>
+                                </div>
+                            </li>
+                            {{/foreach}}
+                        </ul>
                     </div>
                 </div>
                 <!-- ./block best sellers  -->
@@ -258,48 +195,26 @@
                             <div class="pb-left-column col-xs-12 col-sm-6">
                                 <!-- product-imge-->
                                 <div class="product-image">
+                                       {{$image = json_decode($info->image)}}
                                     <div class="product-full">
-                                        <img id="product-zoom" src='{{$static_ft}}/images/withone GFIT13 đen-200x200.jpg' data-zoom-image="{{$static_ft}}/images/withone GFIT13 đen-200x200.jpg"/>
+                                        <img id="product-zoom" src='{{$UPLOAD_DIR}}product/{{$image[0]}}' data-zoom-image="{{$UPLOAD_DIR}}product/{{$image[0]}}"/>
                                     </div>
                                     <div class="product-img-thumb" id="gallery_01">
                                         <ul class="owl-carousel" data-items="3" data-nav="true" data-dots="false" data-margin="20" data-loop="true">
-                                            <li>
-                                                <a href="#" data-image="{{$static_ft}}/images/withone GFIT14 trang -200x200.jpg" data-zoom-image="{{$static_ft}}/data/withone GFIT14 trang -200x200.jpg">
-                                                    <img id="product-zoom"  src="{{$static_ft}}/images/withone GFIT14 trang -200x200.jpg" /> 
+                                           {{foreach $image as $value}}
+                                           <li>
+                                                <a href="#" data-image="{{$UPLOAD_DIR}}product/{{$value}}" data-zoom-image="{{$UPLOAD_DIR}}product/{{$value}}">
+                                                    <img id="product-zoom"  src="{{$UPLOAD_DIR}}product/{{$value}}" /> 
                                                 </a>
                                             </li>
-                                            <li>
-                                                <a href="#" data-image="{{$static_ft}}/images/withone GFIT13 đen-200x200.jpg" data-zoom-image="{{$static_ft}}/data/product-s2-850x1036.jpg">
-                                                    <img id="product-zoom"  src="{{$static_ft}}/images/withone GFIT13 đen-200x200.jpg" /> 
-                                                </a>
-                                            </li>
-                                            <li>
-                                                <a href="#" data-image="{{$static_ft}}/images/withone GFIT13 đen-200x200.jpg" data-zoom-image="{{$static_ft}}/data/product-850x1036.jpg">
-                                                    <img id="product-zoom"  src="{{$static_ft}}/images/withone GFIT13 đen-200x200.jpg" /> 
-                                                </a>
-                                            </li>
-                                            <li>
-                                                <a href="#" data-image="{{$static_ft}}/images/withone GFIT13 đen-200x200.jpg" data-zoom-image="{{$static_ft}}/data/product-s4-850x1036.jpg">
-                                                    <img id="product-zoom"  src="{{$static_ft}}/images/withone GFIT13 đen-200x200.jpg" /> 
-                                                </a>
-                                            </li>
-                                            <li>
-                                                <a href="#" data-image="{{$static_ft}}/images/withone GFIT13 đen-200x200.jpg" data-zoom-image="{{$static_ft}}/data/product-s5-850x1036.jpg">
-                                                    <img id="product-zoom"  src="{{$static_ft}}/images/withone GFIT13 đen-200x200.jpg" /> 
-                                                </a>
-                                            </li>
-                                            <li>
-                                                <a href="#" data-image="{{$static_ft}}/images/withone GFIT13 đen-200x200.jpg" data-zoom-image="{{$static_ft}}/data/product-s6-850x1036.jpg">
-                                                    <img id="product-zoom"  src="{{$static_ft}}/images/withone GFIT13 đen-200x200.jpg" /> 
-                                                </a>
-                                            </li>
+                                           {{/foreach}}
                                         </ul>
                                     </div>
                                 </div>
                                 <!-- product-imge-->
                             </div>
                             <div class="pb-right-column col-xs-12 col-sm-6">
-                                <h1 class="product-name">Maecenas consequat mauris</h1>
+                                <h1 class="product-name">{{$info->product_name}}</h1>
                                 <div class="product-comments">
                                     <div class="product-star">
                                         <i class="fa fa-star"></i>
@@ -314,17 +229,17 @@
                                     </div>
                                 </div>
                                 <div class="product-price-group">
-                                    <span class="price">$38.95</span>
+                                    <span class="price">{{number_format($info->net_price,0,'','.')}}.VNĐ</span>
                                     <span class="old-price">$52.00</span>
                                     <span class="discount">-30%</span>
                                 </div>
                                 <div class="info-orther">
-                                    <p>Item Code: #453217907</p>
+                                    <p>Item Code:{{$info->product_code}}</p>
                                     <p>Availability: <span class="in-stock">In stock</span></p>
                                     <p>Condition: New</p>
                                 </div>
                                 <div class="product-desc">
-                                    Vestibulum eu odio. Suspendisse potenti. Morbi mollis tellus ac sapien. Praesent egestas tristique nibh. Nullam dictum felis eu pede mollis pretium.Fusce egestas elit eget lorem. 
+                                   {{$info->description}}
                                 </div>
                                 <div class="form-option">
                                     <p class="form-option-title">Available Options:</p>
@@ -401,129 +316,42 @@
                                 <li>
                                     <a aria-expanded="true" data-toggle="tab" href="#information">information</a>
                                 </li>
-                                <li>
-                                    <a data-toggle="tab" href="#reviews">reviews</a>
-                                </li>
-                                <li>
-                                    <a data-toggle="tab" href="#extra-tabs">Extra Tabs</a>
-                                </li>
-                                <li>
-                                    <a data-toggle="tab" href="#guarantees">guarantees</a>
-                                </li>
+                             
                             </ul>
                             <div class="tab-container">
                                 <div id="product-detail" class="tab-panel active">
-                                    <p>Morbi mollis tellus ac sapien. Nunc nec neque. Praesent nec nisl a purus blandit viverra. Nunc nec neque. Pellentesque auctor neque nec urna.</p>
-
-                                    <p>Curabitur suscipit suscipit tellus. Cras id dui. Nam ipsum risus, rutrum vitae, vestibulum eu, molestie vel, lacus. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos hymenaeos. Maecenas vestibulum mollis diam.</p>
-
-                                    <p>Vestibulum facilisis, purus nec pulvinar iaculis, ligula mi congue nunc, vitae euismod ligula urna in dolor. Sed lectus. Phasellus leo dolor, tempus non, auctor et, hendrerit quis, nisi. Nam at tortor in tellus interdum sagittis. Pellentesque egestas, neque sit amet convallis pulvinar, justo nulla eleifend augue, ac auctor orci leo non est.</p>
+                                   
                                 </div>
                                 <div id="information" class="tab-panel">
-                                    <table class="table table-bordered">
-                                        <tr>
-                                            <td width="200">Compositions</td>
-                                            <td>Cotton</td>
-                                        </tr>
-                                        <tr>
-                                            <td>Styles</td>
-                                            <td>Girly</td>
-                                        </tr>
-                                        <tr>
-                                            <td>Properties</td>
-                                            <td>Colorful Dress</td>
-                                        </tr>
-                                    </table>
-                                </div>
-                                <div id="reviews" class="tab-panel">
-                                    <div class="product-comments-block-tab">
-                                        <div class="comment row">
-                                            <div class="col-sm-3 author">
-                                                <div class="grade">
-                                                    <span>Grade</span>
-                                                    <span class="reviewRating">
-                                                        <i class="fa fa-star"></i>
-                                                        <i class="fa fa-star"></i>
-                                                        <i class="fa fa-star"></i>
-                                                        <i class="fa fa-star"></i>
-                                                        <i class="fa fa-star"></i>
-                                                    </span>
-                                                </div>
-                                                <div class="info-author">
-                                                    <span><strong>Jame</strong></span>
-                                                    <em>04/08/2015</em>
-                                                </div>
-                                            </div>
-                                            <div class="col-sm-9 commnet-dettail">
-                                                Phasellus accumsan cursus velit. Pellentesque egestas, neque sit amet convallis pulvinar
-                                            </div>
-                                        </div>
-                                        <div class="comment row">
-                                            <div class="col-sm-3 author">
-                                                <div class="grade">
-                                                    <span>Grade</span>
-                                                    <span class="reviewRating">
-                                                        <i class="fa fa-star"></i>
-                                                        <i class="fa fa-star"></i>
-                                                        <i class="fa fa-star"></i>
-                                                        <i class="fa fa-star"></i>
-                                                        <i class="fa fa-star"></i>
-                                                    </span>
-                                                </div>
-                                                <div class="info-author">
-                                                    <span><strong>Author</strong></span>
-                                                    <em>04/08/2015</em>
-                                                </div>
-                                            </div>
-                                            <div class="col-sm-9 commnet-dettail">
-                                                Phasellus accumsan cursus velit. Pellentesque egestas, neque sit amet convallis pulvinar
-                                            </div>
-                                        </div>
-                                        <p>
-                                            <a class="btn-comment" href="#">Write your review !</a>
-                                        </p>
-                                    </div>
-                                    
-                                </div>
-                                <div id="extra-tabs" class="tab-panel">
-                                    <p>Phasellus accumsan cursus velit. Pellentesque egestas, neque sit amet convallis pulvinar, justo nulla eleifend augue, ac auctor orci leo non est. Sed lectus. Sed a libero. Vestibulum eu odio.</p>
-
-                                    <p>Maecenas vestibulum mollis diam. In consectetuer turpis ut velit. Curabitur at lacus ac velit ornare lobortis. Praesent ac sem eget est egestas volutpat. Nam eget dui.</p>
-
-                                    <p>Maecenas nec odio et ante tincidunt tempus. Vestibulum suscipit nulla quis orci. Aenean tellus metus, bibendum sed, posuere ac, mattis non, nunc. Aenean ut eros et nisl sagittis vestibulum. Aliquam eu nunc.</p> 
-                                </div>
-                                <div id="guarantees" class="tab-panel">
-                                    <p>Phasellus accumsan cursus velit. Pellentesque egestas, neque sit amet convallis pulvinar, justo nulla eleifend augue, ac auctor orci leo non est. Sed lectus. Sed a libero. Vestibulum eu odio.</p>
-
-                                    <p>Maecenas vestibulum mollis diam. In consectetuer turpis ut velit. Curabitur at lacus ac velit ornare lobortis. Praesent ac sem eget est egestas volutpat. Nam eget dui.</p>
-
-                                    <p>Maecenas nec odio et ante tincidunt tempus. Vestibulum suscipit nulla quis orci. Aenean tellus metus, bibendum sed, posuere ac, mattis non, nunc. Aenean ut eros et nisl sagittis vestibulum. Aliquam eu nunc.</p> 
-                                    <p>Maecenas vestibulum mollis diam. In consectetuer turpis ut velit. Curabitur at lacus ac velit ornare lobortis. Praesent ac sem eget est egestas volutpat. Nam eget dui.</p>
+                                
                                 </div>
                             </div>
                         </div>
                         <!-- ./tab product -->
                         <!-- box product -->
                         <div class="page-product-box">
-                            <h3 class="heading">Related Products</h3>
+                            <h3 class="heading">Sản phẩm liên quan</h3>
+                            {{foreach $data_related as $key => $value}}
                             <ul class="product-list owl-carousel" data-dots="false" data-loop="true" data-nav = "true" data-margin = "30" data-autoplayTimeout="1000" data-autoplayHoverPause = "true" data-responsive='{"0":{"items":1},"600":{"items":3},"1000":{"items":3}}'>
+                                {{foreach $value as $k => $v}}
+                                {{$image = json_decode($v->image)}}
                                 <li>
                                     <div class="product-container">
                                         <div class="left-block">
-                                            <a href="#">
-                                                <img class="img-responsive" alt="product" src="{{$static_ft}}/data/p40.jpg" />
+                                            <a href="{{$site_url}}{{$v->seo_url}}-p{{$v->id}}.html" title="{{$v->product_name}}">
+                                                <img class="img-responsive" alt="product" src="{{$UPLOAD_DIR}}product/{{$image[0]}}" />
                                             </a>
                                             <div class="quick-view">
                                                     <a title="Add to my wishlist" class="heart" href="#"></a>
                                                     <a title="Add to compare" class="compare" href="#"></a>
-                                                    <a title="Quick view" class="search" href="#"></a>
+                                                    <a title="Quick view" class="search" href="{{$site_url}}{{$v->seo_url}}-p{{$v->id}}.html"></a>
                                             </div>
                                             <div class="add-to-cart">
                                                 <a title="Add to Cart" href="#add">Add to Cart</a>
                                             </div>
                                         </div>
                                         <div class="right-block">
-                                            <h5 class="product-name"><a href="#">Maecenas consequat mauris</a></h5>
+                                            <h5 class="product-name"><a href="{{$site_url}}{{$v->seo_url}}-p{{$v->id}}.html" title="{{$v->product_name}}">{{$v->product_name}}</a></h5>
                                             <div class="product-star">
                                                 <i class="fa fa-star"></i>
                                                 <i class="fa fa-star"></i>
@@ -532,237 +360,15 @@
                                                 <i class="fa fa-star-half-o"></i>
                                             </div>
                                             <div class="content_price">
-                                                <span class="price product-price">$38,95</span>
+                                                <span class="price product-price">{{number_format($v->net_price,0,'','.')}}.VNĐ</span>
                                                 <span class="price old-price">$52,00</span>
                                             </div>
                                         </div>
                                     </div>
                                 </li>
-                                <li>
-                                    <div class="product-container">
-                                        <div class="left-block">
-                                            <a href="#">
-                                                <img class="img-responsive" alt="product" src="{{$static_ft}}/data/p35.jpg" />
-                                            </a>
-                                            <div class="quick-view">
-                                                    <a title="Add to my wishlist" class="heart" href="#"></a>
-                                                    <a title="Add to compare" class="compare" href="#"></a>
-                                                    <a title="Quick view" class="search" href="#"></a>
-                                            </div>
-                                            <div class="add-to-cart">
-                                                <a title="Add to Cart" href="#add">Add to Cart</a>
-                                            </div>
-                                        </div>
-                                        <div class="right-block">
-                                            <h5 class="product-name"><a href="#">Maecenas consequat mauris</a></h5>
-                                            <div class="product-star">
-                                                <i class="fa fa-star"></i>
-                                                <i class="fa fa-star"></i>
-                                                <i class="fa fa-star"></i>
-                                                <i class="fa fa-star"></i>
-                                                <i class="fa fa-star-half-o"></i>
-                                            </div>
-                                            <div class="content_price">
-                                                <span class="price product-price">$38,95</span>
-                                                <span class="price old-price">$52,00</span>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </li>
-                                <li>
-                                    <div class="product-container">
-                                        <div class="left-block">
-                                            <a href="#">
-                                                <img class="img-responsive" alt="product" src="{{$static_ft}}/data/p37.jpg" />
-                                            </a>
-                                            <div class="quick-view">
-                                                    <a title="Add to my wishlist" class="heart" href="#"></a>
-                                                    <a title="Add to compare" class="compare" href="#"></a>
-                                                    <a title="Quick view" class="search" href="#"></a>
-                                            </div>
-                                            <div class="add-to-cart">
-                                                <a title="Add to Cart" href="#add">Add to Cart</a>
-                                            </div>
-                                        </div>
-                                        <div class="right-block">
-                                            <h5 class="product-name"><a href="#">Maecenas consequat mauris</a></h5>
-                                            <div class="product-star">
-                                                <i class="fa fa-star"></i>
-                                                <i class="fa fa-star"></i>
-                                                <i class="fa fa-star"></i>
-                                                <i class="fa fa-star"></i>
-                                                <i class="fa fa-star-half-o"></i>
-                                            </div>
-                                            <div class="content_price">
-                                                <span class="price product-price">$38,95</span>
-                                                <span class="price old-price">$52,00</span>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </li>
-                                <li>
-                                    <div class="product-container">
-                                        <div class="left-block">
-                                            <a href="#">
-                                                <img class="img-responsive" alt="product" src="{{$static_ft}}/data/p39.jpg" />
-                                            </a>
-                                            <div class="quick-view">
-                                                    <a title="Add to my wishlist" class="heart" href="#"></a>
-                                                    <a title="Add to compare" class="compare" href="#"></a>
-                                                    <a title="Quick view" class="search" href="#"></a>
-                                            </div>
-                                            <div class="add-to-cart">
-                                                <a title="Add to Cart" href="#add">Add to Cart</a>
-                                            </div>
-                                        </div>
-                                        <div class="right-block">
-                                            <h5 class="product-name"><a href="#">Maecenas consequat mauris</a></h5>
-                                            <div class="product-star">
-                                                <i class="fa fa-star"></i>
-                                                <i class="fa fa-star"></i>
-                                                <i class="fa fa-star"></i>
-                                                <i class="fa fa-star"></i>
-                                                <i class="fa fa-star-half-o"></i>
-                                            </div>
-                                            <div class="content_price">
-                                                <span class="price product-price">$38,95</span>
-                                                <span class="price old-price">$52,00</span>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </li>
+                                {{/foreach}}
                             </ul>
-                        </div>
-                        <!-- ./box product -->
-                        <!-- box product -->
-                        <div class="page-product-box">
-                            <h3 class="heading">You might also like</h3>
-                            <ul class="product-list owl-carousel" data-dots="false" data-loop="true" data-nav = "true" data-margin = "30" data-autoplayTimeout="1000" data-autoplayHoverPause = "true" data-responsive='{"0":{"items":1},"600":{"items":3},"1000":{"items":3}}'>
-                                <li>
-                                    <div class="product-container">
-                                        <div class="left-block">
-                                            <a href="#">
-                                                <img class="img-responsive" alt="product" src="{{$static_ft}}/data/p97.jpg" />
-                                            </a>
-                                            <div class="quick-view">
-                                                    <a title="Add to my wishlist" class="heart" href="#"></a>
-                                                    <a title="Add to compare" class="compare" href="#"></a>
-                                                    <a title="Quick view" class="search" href="#"></a>
-                                            </div>
-                                            <div class="add-to-cart">
-                                                <a title="Add to Cart" href="#add">Add to Cart</a>
-                                            </div>
-                                        </div>
-                                        <div class="right-block">
-                                            <h5 class="product-name"><a href="#">Maecenas consequat mauris</a></h5>
-                                            <div class="product-star">
-                                                <i class="fa fa-star"></i>
-                                                <i class="fa fa-star"></i>
-                                                <i class="fa fa-star"></i>
-                                                <i class="fa fa-star"></i>
-                                                <i class="fa fa-star-half-o"></i>
-                                            </div>
-                                            <div class="content_price">
-                                                <span class="price product-price">$38,95</span>
-                                                <span class="price old-price">$52,00</span>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </li>
-                                <li>
-                                    <div class="product-container">
-                                        <div class="left-block">
-                                            <a href="#">
-                                                <img class="img-responsive" alt="product" src="{{$static_ft}}/data/p34.jpg" />
-                                            </a>
-                                            <div class="quick-view">
-                                                    <a title="Add to my wishlist" class="heart" href="#"></a>
-                                                    <a title="Add to compare" class="compare" href="#"></a>
-                                                    <a title="Quick view" class="search" href="#"></a>
-                                            </div>
-                                            <div class="add-to-cart">
-                                                <a title="Add to Cart" href="#add">Add to Cart</a>
-                                            </div>
-                                        </div>
-                                        <div class="right-block">
-                                            <h5 class="product-name"><a href="#">Maecenas consequat mauris</a></h5>
-                                            <div class="product-star">
-                                                <i class="fa fa-star"></i>
-                                                <i class="fa fa-star"></i>
-                                                <i class="fa fa-star"></i>
-                                                <i class="fa fa-star"></i>
-                                                <i class="fa fa-star-half-o"></i>
-                                            </div>
-                                            <div class="content_price">
-                                                <span class="price product-price">$38,95</span>
-                                                <span class="price old-price">$52,00</span>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </li>
-                                <li>
-                                    <div class="product-container">
-                                        <div class="left-block">
-                                            <a href="#">
-                                                <img class="img-responsive" alt="product" src="{{$static_ft}}/data/p36.jpg" />
-                                            </a>
-                                            <div class="quick-view">
-                                                    <a title="Add to my wishlist" class="heart" href="#"></a>
-                                                    <a title="Add to compare" class="compare" href="#"></a>
-                                                    <a title="Quick view" class="search" href="#"></a>
-                                            </div>
-                                            <div class="add-to-cart">
-                                                <a title="Add to Cart" href="#add">Add to Cart</a>
-                                            </div>
-                                        </div>
-                                        <div class="right-block">
-                                            <h5 class="product-name"><a href="#">Maecenas consequat mauris</a></h5>
-                                            <div class="product-star">
-                                                <i class="fa fa-star"></i>
-                                                <i class="fa fa-star"></i>
-                                                <i class="fa fa-star"></i>
-                                                <i class="fa fa-star"></i>
-                                                <i class="fa fa-star-half-o"></i>
-                                            </div>
-                                            <div class="content_price">
-                                                <span class="price product-price">$38,95</span>
-                                                <span class="price old-price">$52,00</span>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </li>
-                                <li>
-                                    <div class="product-container">
-                                        <div class="left-block">
-                                            <a href="#">
-                                                <img class="img-responsive" alt="product" src="{{$static_ft}}/data/p36.jpg" />
-                                            </a>
-                                            <div class="quick-view">
-                                                    <a title="Add to my wishlist" class="heart" href="#"></a>
-                                                    <a title="Add to compare" class="compare" href="#"></a>
-                                                    <a title="Quick view" class="search" href="#"></a>
-                                            </div>
-                                            <div class="add-to-cart">
-                                                <a title="Add to Cart" href="#add">Add to Cart</a>
-                                            </div>
-                                        </div>
-                                        <div class="right-block">
-                                            <h5 class="product-name"><a href="#">Maecenas consequat mauris</a></h5>
-                                            <div class="product-star">
-                                                <i class="fa fa-star"></i>
-                                                <i class="fa fa-star"></i>
-                                                <i class="fa fa-star"></i>
-                                                <i class="fa fa-star"></i>
-                                                <i class="fa fa-star-half-o"></i>
-                                            </div>
-                                            <div class="content_price">
-                                                <span class="price product-price">$38,95</span>
-                                                <span class="price old-price">$52,00</span>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </li>
-                            </ul>
+                            {{/foreach}}
                         </div>
                         <!-- ./box product -->
                     </div>
