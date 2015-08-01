@@ -38,18 +38,30 @@
                     </div>
                 </div>
                 <div class="col-md-8">
-                  <div class="col-md-8">
-                    {{form_label({{$lang.category}},'category')}}
-                    <select class="form-control" name="category" id="category">
-                        {{foreach $category as $keys => $values}}
-                            {{if isset($product->category) && $values->category == $product->category}}
-                                <option selected="selected" value="{{$values->id}}">{{$values->name}}</option>
-                            {{else}}
-                                <option value="{{$values->id}}">{{$values->name}}</option>
-                            {{/if}}
-                        {{/foreach}}
-                    </select>
-                  </div>
+                    <div class="col-md-6">
+                        {{form_label({{$lang.type}},'product_type')}}
+                        <select class="form-control" name="product_type" id="product_type">
+                            {{foreach $type as $key => $vals}}
+                                {{if isset($product->product_type) && $key == $product->product_type}}
+                                    <option selected="selected" value="{{$key}}">{{$vals}}</option>
+                                {{else}}
+                                    <option value="{{$key}}">{{$vals}}</option>
+                                {{/if}}
+                            {{/foreach}}
+                        </select>
+                    </div>
+                    <div class="col-md-6">
+                        {{form_label({{$lang.category}},'category')}}
+                        <select class="form-control" name="category" id="category">
+                            {{foreach $category as $keys => $values}}
+                                {{if isset($product->category) && $values->category == $product->category}}
+                                    <option selected="selected" value="{{$values->id}}">{{$values->name}}</option>
+                                {{else}}
+                                    <option value="{{$values->id}}">{{$values->name}}</option>
+                                {{/if}}
+                            {{/foreach}}
+                        </select>
+                    </div>
                 </div>
                 <div class="col-md-12 form-group">
                       {{form_label({{$lang.product_name}},'product_name')}}
@@ -113,10 +125,9 @@
                       
                   <div class="col-md-12">
                     <div class="box box-solid box-success">
-                      <div class="box-header">
-                        <h3 class="box-title">{{$lang.bid}} {{$lang.product}}</h3>
-                      </div>
-
+                        <div class="box-header">
+                          <h3 class="box-title">{{$lang.bid}} {{$lang.product}}</h3>
+                        </div>
                         <div class="box-body input-group">
                             <div class="input-group-addon">{{form_label({{$lang.begin_price}},'begin_price')}}</div>
                             {{form_input(["class"=>"form-control","id"=>"begin_price","placeholder"=>"","name"=>"begin_price",value=>"{{if isset($product->begin_price )}}{{$product->begin_price}}{{/if}}"])}}
@@ -128,13 +139,89 @@
                             {{form_input(["class"=>"form-control","id"=>"begin_time","placeholder"=>"","name"=>"begin_time",value=>"{{if isset($product->begin_time )}}{{$product->begin_time}}{{/if}}"])}}
                           <div class="input-group-addon">{{$lang.ext_time}}</div>
                         </div>
-
                         <div class="box-body input-group">
                             <div class="input-group-addon"><label for="end_time">{{$lang.end_time}}</label></div>
                             {{form_input(["class"=>"form-control","id"=>"end_time","placeholder"=>"","name"=>"end_time",value=>"{{if isset($product->end_time )}}{{$product->end_time}}{{/if}}"])}}
                           <div class="input-group-addon">{{$lang.ext_time}}</div>
                         </div>
-
+                    </div>
+                  </div>
+                        
+                  <div class="col-md-12">
+                    <div class="box box-solid box-primary">
+                      <div class="box-header">
+                        <h3 class="box-title">{{$lang.parameters}} {{$lang.product}}</h3>
+                      </div>
+                      <!-- /.box-header -->
+                      <div class="box-body">
+                            <table class="table table-striped">
+                              <thead>
+                                    <tr>
+                                      <th>#</th>
+                                      <th>{{$lang.name}}</th>
+                                      <th>{{$lang.parameters}}</th>
+                                    </tr>
+                              </thead>
+                              <tbody>
+                                    <tr>
+                                      <th scope="row">1</th>
+                                      <td><label for="classification">Classification</label></td>
+                                      <td><input type="text" class="form-control" id="classification" name="classification" placeholder="" value="{{if isset($parameters->classification ) && $parameters->classification}}{{$parameters->classification}}{{/if}}"></td>
+                                    </tr>
+                                    <tr>
+                                      <th scope="row">2</th>
+                                      <td><label for="manufacturer">Manufacturer</label></td>
+                                      <td><input type="text" class="form-control" id="manufacturer" placeholder="" name="manufacturer" value="{{if isset($parameters->manufacturer ) && $parameters->manufacturer}}{{$parameters->manufacturer}}{{/if}}"></td>
+                                    </tr>
+                                    <tr>
+                                      <th scope="row">3</th>
+                                      <td><label for="model">Model</label></td>
+                                      <td><input type="text" class="form-control" id="model" placeholder="" name="model" value="{{if isset($parameters->model ) && $parameters->model}}{{$parameters->model}}{{/if}}"></td>
+                                    </tr>
+                                    <tr>
+                                      <th scope="row">4</th>
+                                      <td><label for="shaft">Shaft</label></td>
+                                      <td><input type="text" class="form-control" id="shaft" placeholder="" name="shaft" value="{{if isset($parameters->shaft)}}{{$parameters->shaft}}{{/if}}"></td>
+                                    </tr>
+                                    <tr>
+                                      <th scope="row">5</th>
+                                      <td><label for="count">Count</label></td>
+                                      <td><input type="text" class="form-control" id="count" placeholder="" name="count" value="{{if isset($parameters->count)}}{{$parameters->count}}{{/if}}"></td>
+                                    </tr>
+                                    <tr>
+                                      <th scope="row">6</th>
+                                      <td><label for="loft">Loft</label></td>
+                                      <td><input type="text" class="form-control" id="loft" placeholder="" name="loft" value="{{if isset($parameters->loft)}}{{$parameters->loft}}{{/if}}"></td>
+                                    </tr>
+                                    <tr>
+                                      <th scope="row">7</th>
+                                      <td><label for="hardness">Hardness</label></td>
+                                      <td><input type="text" class="form-control" id="hardness" placeholder="" name="hardness" value="{{if isset($parameters->hardness)}}{{$parameters->hardness}}{{/if}}"></td>
+                                    </tr>
+                                    <tr>
+                                      <th scope="row">8</th>
+                                      <td><label for="gross">Gross weight</label></td>
+                                      <td><input type="text" class="form-control" id="gross" placeholder="" name="gross" value="{{if isset($parameters->gross)}}{{$parameters->gross}}{{/if}}"></td>
+                                    </tr>
+                                    <tr>
+                                      <th scope="row">9</th>
+                                      <td><label for="balance">Balance</label></td>
+                                      <td><input type="text" class="form-control" id="balance" placeholder="" name="balance" value="{{if isset($parameters->balance)}}{{$parameters->balance}}{{/if}}"></td>
+                                    </tr>
+                                    <tr>
+                                      <th scope="row">10</th>
+                                      <td><label for="l-price">List price</label></td>
+                                      <td><input type="text" class="form-control" id="l-price" placeholder="" name="l-price" value="{{if isset($parameters->price)}}{{$parameters->price}}{{/if}}"></td>
+                                    </tr>
+                                    <tr>
+                                      <th scope="row">11</th>
+                                      <td><label for="club">Club rank</label></td>
+                                      <td><input type="text" class="form-control" id="club" placeholder="" name="club" value="{{if isset($parameters->club)}}{{$parameters->club}}{{/if}}"></td>
+                                    </tr>
+                              </tbody>
+                            </table>
+                      </div>
+                      <!-- /.box-body -->
                     </div>
                   </div>
                         

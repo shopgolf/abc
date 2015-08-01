@@ -33,6 +33,15 @@ class MY_Model extends CI_Model{
 		);
                 
                 $this->post_list = array($this->lang->line('dich_vu'));
+                
+                $this->product_type = array(
+			'1'	=> $this->lang->line('product'),
+			'2'	=> $this->lang->line('accessory')			
+		);
+	}
+        
+        public function product_type(){
+		return $this->product_type;
 	}
         
         public function post_list(){
