@@ -74,7 +74,7 @@
                                         <i class="fa fa-star-half-o"></i>
                                     </div>
                                 </div>
-                                <h4><a href="" title="{{$value->product_name}}">{{CutName($value->product_name,30)}}</a></h4>
+                                <h4><a href="" title="{{$value->product_name}}">{{Cutname($value->product_name,30)}}</a></h4>
                                 <p>Giá: {{number_format($value->net_price,0,'','.')}}.VNĐ</p>
                             </div>
                         </li>
@@ -87,95 +87,83 @@
             <div class="box-product-list">
                 <div class="tab-container">
                     <div id="tab-1" class="tab-panel active">
+                        {{foreach $data_old_product as $key => $value}}
                         <!--new product-->
                         <ul class="product-list owl-carousel nav-center" data-dots="false" data-loop="true" data-nav = "true" data-margin = "10" data-responsive='{"0":{"items":1},"600":{"items":3},"1000":{"items":4}}'>
-                            {{if $data != NULL}}
-                            {{$k= 0}}
-                            {{foreach $data as $key => $value}}
-                                {{$k = $k + 1}}
-                                {{$image = json_decode($value->image)}}
-                                <li>
-                                    <div class="left-block">
-                                        <a href="{{$site_url}}{{$value->seo_url}}-p{{$value->id}}.html" title="{{$value->product_name}}"><img class="img-responsive" alt="product" src="{{$UPLOAD_DIR}}data/{{$image[0]}}" /></a>
-                                        <div class="quick-view">
-                                                <a title="Add to my wishlist" class="heart" href="#"></a>
-                                                <a title="Add to compare" class="compare" href="#"></a>
-                                                <a title="Quick view" class="search" href="{{$site_url}}{{$value->seo_url}}-p{{$value->id}}.html"></a>
-                                        </div>
-                                        <div class="add-to-cart">
-                                            <a title="BUY" href="javascript:void(0)">BUY</a>
-                                        </div>
+                            {{foreach $value as $k => $v}}
+                            {{$image = json_decode($v->image)}}
+                            <li>
+                                <div class="left-block">
+                                    <a href="{{$site_url}}{{$v->seo_url}}-p{{$v->id}}.html" title="{{$v->product_name}}"><img class="img-responsive" alt="product" src="{{$UPLOAD_DIR}}data/{{$image[0]}}" /></a>
+                                    <div class="quick-view">
+                                            <a title="Add to my wishlist" class="heart" href="#"></a>
+                                            <a title="Add to compare" class="compare" href="#"></a>
+                                            <a title="Quick view" class="search" href="{{$site_url}}{{$v->seo_url}}-p{{$v->id}}.html"></a>
                                     </div>
-                                    <div class="right-block">
-                                        <h5 class="product-name"><a href="{{$site_url}}{{$value->seo_url}}-p{{$value->id}}.html" title="{{$value->product_name}}">{{$value->product_name}}</a></h5>
-                                        <div class="content_price">
-                                            <span class="price product-price">{{number_format($value->net_price,0,'','.')}}.VNĐ</span>
-                                        </div>
-                                        <div class="product-star">
-                                            <i class="fa fa-star"></i>
-                                            <i class="fa fa-star"></i>
-                                            <i class="fa fa-star"></i>
-                                            <i class="fa fa-star"></i>
-                                            <i class="fa fa-star-half-o"></i>
-                                        </div>
+                                    <div class="add-to-cart">
+                                        <a title="BUY" href="javascript:void(0)">BUY</a>
                                     </div>
-                                    <div class="price-percent-reduction2">
-                                       SALE
+                                </div>
+                                <div class="right-block">
+                                    <h5 class="product-name"><a href="{{$site_url}}{{$v->seo_url}}-p{{$v->id}}.html" title="{{$v->product_name}}">{{$v->product_name}}</a></h5>
+                                    <div class="content_price">
+                                        <span class="price product-price">{{number_format($v->net_price,0,'','.')}}.VNĐ</span>
                                     </div>
-                                </li>
-                                {{if $k%4 == 0 }}
-                                    </ul>
-                                    <ul class="product-list owl-carousel nav-center" data-dots="false" data-loop="true" data-nav = "true" data-margin = "10" data-responsive='{"0":{"items":1},"600":{"items":3},"1000":{"items":4}}'>
-                                {{/if}}
-                            {{/foreach}}
-                            {{/if}}
+                                    <div class="product-star">
+                                        <i class="fa fa-star"></i>
+                                        <i class="fa fa-star"></i>
+                                        <i class="fa fa-star"></i>
+                                        <i class="fa fa-star"></i>
+                                        <i class="fa fa-star-half-o"></i>
+                                    </div>
+                                </div>
+                                <div class="price-percent-reduction2">
+                                   SALE
+                                </div>
+                            </li>
+                             {{/foreach}}       
                         </ul>
+                        {{/foreach}}
                         <!-- end new product-->
                     </div>
                     <div id="tab-2" class="tab-panel">
                         <!--old-product-->
+                        {{foreach $data_old_product as $key => $value}}
                         <ul class="product-list owl-carousel nav-center" data-dots="false" data-loop="true" data-nav = "true" data-margin = "10" data-responsive='{"0":{"items":1},"600":{"items":3},"1000":{"items":4}}'>
-                            {{if $data != NULL}}
-                            {{$k= 0}}
-                            {{foreach $data_old_product as $key => $value}}
-                                {{$k = $k + 1}}
-                                {{$image = json_decode($value->image)}}
-                                <li>
-                                    <div class="left-block">
-                                        <a href="#"><img class="img-responsive" alt="product" src="{{$UPLOAD_DIR}}data/{{$image[0]}}" /></a>
-                                        <div class="quick-view">
-                                                <a title="Add to my wishlist" class="heart" href="#"></a>
-                                                <a title="Add to compare" class="compare" href="#"></a>
-                                                <a title="Quick view" class="search" href="{{$site_url}}{{$value->seo_url}}-p{{$value->id}}.html"></a>
-                                        </div>
-                                        <div class="add-to-cart">
-                                            <a title="BUY" href="{{$site_url}}">BUY</a>
-                                        </div>
+                            {{foreach $value as $k => $v}}
+                            {{$image = json_decode($v->image)}}
+                            <li>
+                                <div class="left-block">
+                                    <a href="#"><img class="img-responsive" alt="product" src="{{$UPLOAD_DIR}}data/{{$image[0]}}" /></a>
+                                    <div class="quick-view">
+                                            <a title="Add to my wishlist" class="heart" href="#"></a>
+                                            <a title="Add to compare" class="compare" href="#"></a>
+                                            <a title="Quick view" class="search" href="{{$site_url}}{{$v->seo_url}}-p{{$v->id}}.html"></a>
                                     </div>
-                                    <div class="right-block">
-                                        <h5 class="product-name"><a href="#">{{$value->product_name}}</a></h5>
-                                        <div class="content_price">
-                                            <span class="price product-price">{{number_format($value->net_price,0,'','.')}}.VNĐ</span>
-                                        </div>
-                                        <div class="product-star">
-                                            <i class="fa fa-star"></i>
-                                            <i class="fa fa-star"></i>
-                                            <i class="fa fa-star"></i>
-                                            <i class="fa fa-star"></i>
-                                            <i class="fa fa-star-half-o"></i>
-                                        </div>
+                                    <div class="add-to-cart">
+                                        <a title="BUY" href="{{$site_url}}">BUY</a>
                                     </div>
-                                    <div class="price-percent-reduction2">
-                                       SALE
+                                </div>
+                                <div class="right-block">
+                                    <h5 class="product-name"><a href="#">{{$v->product_name}}</a></h5>
+                                    <div class="content_price">
+                                        <span class="price product-price">{{number_format($v->net_price,0,'','.')}}.VNĐ</span>
                                     </div>
-                                </li>
-                                {{if $k%4 == 0 }}
-                                    </ul>
-                                    <ul class="product-list owl-carousel nav-center" data-dots="false" data-loop="true" data-nav = "true" data-margin = "10" data-responsive='{"0":{"items":1},"600":{"items":3},"1000":{"items":4}}'>
-                                {{/if}}
-                            {{/foreach}}
-                            {{/if}}
+                                    <div class="product-star">
+                                        <i class="fa fa-star"></i>
+                                        <i class="fa fa-star"></i>
+                                        <i class="fa fa-star"></i>
+                                        <i class="fa fa-star"></i>
+                                        <i class="fa fa-star-half-o"></i>
+                                    </div>
+                                </div>
+                                <div class="price-percent-reduction2">
+                                   SALE
+                                </div>
+                            </li>
+                            {{/foreach}}            
                         </ul>
+                        {{/foreach}}
                     </div>
                 </div>
             </div>
@@ -208,15 +196,13 @@
                     </div>
                     <div id="carousel-id-2" class="carousel slide" data-ride="carousel">
                         <div class="carousel-inner">
-                            <div class="item active">
+                           {{foreach $data_checkout as $key => $value}}
+                            <div class="item {{if $key == 0  }} active{{/if}}">
                                 <ul>
-                                    {{if $data_checkout != NULL}}
-                                    {{$k= 0}}
-                                    {{foreach $data_checkout as $key => $value}}
-                                        {{$k = $k +1}}
-                                        {{$image = json_decode($value->image)}}
+                                    {{foreach  $value as $k => $v}}
+                                        {{$image = json_decode($v->image)}}
                                     <li>
-                                        <a href="{{$site_url}}{{$value->seo_url}}-p{{$value->id}}.html" class="img-top-view"><img src="{{$UPLOAD_DIR}}data/{{$image[0]}}" alt=""></a>
+                                        <a href="{{$site_url}}{{$v->seo_url}}-p{{$v->id}}.html" class="img-top-view"><img src="{{$UPLOAD_DIR}}data/{{$image[0]}}" alt=""></a>
                                         <div class="view-list">
                                             <div class="rating"> <div class="product-star">
                                                     <i class="fa fa-star"></i>
@@ -225,20 +211,14 @@
                                                     <i class="fa fa-star"></i>
                                                     <i class="fa fa-star-half-o"></i>
                                                 </div></div>
-                                            <h4><a href="{{$site_url}}{{$value->seo_url}}-p{{$value->id}}.html">{{CutName($value->product_name,50)}}</a></h4>
+                                            <h4><a href="{{$site_url}}{{$v->seo_url}}-p{{$v->id}}.html">{{$v->product_name}}</a></h4>
                                             <p>Giá: 500.000 VNĐ</p>
                                         </div>
                                     </li>
-                                    {{if $k%3 == 0 }}
-                                        </ul>
-                                        </div>
-                                        <div class="item">
-                                        <ul>
-                                    {{/if}}
                                     {{/foreach}}
-                                    {{/if}} 
                                 </ul>
                             </div>
+                            {{/foreach}}
                         </div>
                         <a class="left carousel-control" href="#carousel-id-2" data-slide="prev"><i class="fa fa-angle-left"></i></a>
                         <a class="right carousel-control" href="#carousel-id-2" data-slide="next"><i class="fa fa-angle-right"></i></a>

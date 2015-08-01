@@ -73,4 +73,10 @@ $string = '<div class="icheckbox_flat-blue" style="position: relative;"><input t
 		return json_encode($ouput);
 	}
 
+	public function get_data(){
+		$this->db->select('name,id,seo_url');
+		$query = $this->db->get($this->table_name);
+		return $query->result();
+	}
+
 }

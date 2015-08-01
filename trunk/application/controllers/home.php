@@ -9,6 +9,7 @@ class Home extends CI_controller
 				require_once(APPPATH . 'modules/frontend/autoload.php');//load cai file autoload.php file nay dung chung nen include 1 lan thoi
                 
                 $this->load->model('product_model');//call model home
+                $this->load->model('maker_model');//call model home
 
                 //day la thu vien common.js day nhung cai linh tinh thi bo vao day 
                 $this->load->library('bookinglib');
@@ -25,15 +26,18 @@ class Home extends CI_controller
 		$data_old_product     = $this->product_model->new_product($field,$limit = 12,$offset = FALSE,$order_by = 'RANDOM',$param = 'id');
 		$data_topview_product = $this->product_model->new_product($field,$limit = 8,$offset = FALSE,$order_by = 'DESC',$param = 'view');
 		$data_checkout        = $this->product_model->new_product($field,$limit = 6,$offset = FALSE,$order_by = 'DESC',$param = 'checkout');
+		$data_maker           = $this->maker_model->get_data();
+		//pre(array_chunk($data_checkout, 3));
 		$this->smarty->assign(array(
 			'title'                => 'With one',
 			'menu_home'            => 'templates/frontend/menu_home.tpl',
 			'content'              => 'frontend/home/index.tpl',
 			'page_class'           => 'home',
-			'data'                 => $data, 
-			'data_old_product'     => $data_old_product, 
+			'data'                 => array_chunk($data,4), 
+			'data_old_product'     => array_chunk($data_old_product,4), 
 			'data_topview_product' => $data_topview_product, 
-			'data_checkout'        => $data_checkout, 
+			'data_checkout'        => array_chunk($data_checkout, 3), 
+			'data_maker'           => $data_maker, 
 		));
 		$this->smarty->display('templates/frontend/layout.tpl');//hien thi template cai nay e bit ma
 	}

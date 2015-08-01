@@ -1999,6 +1999,8 @@ span.notify-right{
 .product-list li .product-name{
     text-align: center;
     padding-bottom: 5px;
+    height: 15px;
+    overflow: hidden;
 }
 .product-list li .product-name a:hover{
   color: #0088cc;
@@ -5074,6 +5076,7 @@ span.notify-right{
   margin-top: 30px;
 }
 .option3 .product-list li .price-percent-reduction2{
+  padding: 10px 0px;
   right: -8px;
 }
 
@@ -5194,12 +5197,15 @@ span.notify-right{
   font-size: 16px;
   color: #bbbbbb;
 }
+.box-product-adv .top-view .view-list{
+  width: 140px;
+}
 .view-list{
    min-height: 70px;
    padding: 5px 0px;
    margin-left: 5px;
    line-height: 13px;
-   width: 140px;
+  
 }
 .view-list h4 a{
   font-size: 13px;
