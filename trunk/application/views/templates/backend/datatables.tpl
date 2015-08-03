@@ -9,7 +9,7 @@
 
 <div class="mailbox-controls">
     <!-- Check all button -->
-    <button class="btn btn-default btn-sm checkbox-toggle" id="selecctall"><i class="fa fa-square-o"></i></button>
+    <button class="btn btn-default btn-sm checkbox-toggle"><i class="fa fa-square-o"></i></button>
     <div class="btn-group">
         <button class="btn btn-default btn-sm" onclick="trashAll();"><i class="fa fa-trash-o"></i></button><input type="hidden" value="" id="trashAll"/>
     </div>
@@ -38,7 +38,7 @@
                     {{/foreach}}
 		</tr>
 	</tfoot>
-	<tbody>
+	<tbody class="mailbox-messages">
 	</tbody>
 </table>
 <script src="{{$static_bk}}/js/iCheck/icheck.min.js" type="text/javascript"></script>
@@ -53,21 +53,21 @@ $(function () {
 		"aoColumnDefs": [
                     {{foreach $datatables.init_data as $k => $item}}
                         {{if isset($item.searchoptions) && $item.searchoptions!=''}}
-                            { "bSortable": false, "aTargets": [{{$k}}] },
+                            { "bSortable":false, "aTargets":[{{$k}}] },
                         {{/if}}
                     {{/foreach}}
 		],
 		"aaSorting": [
                     {{foreach $datatables.init_data as $k => $item}}
                         {{if isset($item.sort) && $item.sort!=FALSE}}
-                                [{{$k}}, "{{$item['sort']}}"]
+                                [{{$k}},"{{$item['sort']}}"]
                         {{/if}}
                     {{/foreach}}
                 ],
 		"aoColumns": [
                     {{foreach $datatables.init_data as $k => $item}}
                             {{if isset($item.visible) && $item.visible!=FALSE}}
-                                {"bVisible": false}
+                                {"bVisible":false}
                             {{else}}
                                         null,
                             {{/if}}
@@ -104,41 +104,45 @@ $(function () {
 	$("div#data-table_filter").html('{{$datatables.filter}}');
 });
 
-$(document).ready(function() {
-    $(".checkbox-toggle").click(function () {
-        var clicks = $(this).data('clicks');
-        if (clicks) {
-          //Uncheck all checkboxes
-          $(".mailbox-messages input[type='checkbox']").iCheck("uncheck");
-          $(".fa", this).removeClass("fa-check-square-o").addClass('fa-square-o');
-        } else {
-          //Check all checkboxes
-          $(".mailbox-messages input[type='checkbox']").iCheck("check");
-          $(".fa", this).removeClass("fa-square-o").addClass('fa-check-square-o');
-        }          
-        $(this).data("clicks", !clicks);
-  });
+$(function () {
+        //Enable iCheck plugin for checkboxes
+        //iCheck for checkbox and radio inputs
+        $('.mailbox-messages input[type="checkbox"]').iCheck({
+          checkboxClass: 'icheckbox_flat-blue',
+          radioClass: 'iradio_flat-blue'
+        });
+
+        //Enable check and uncheck all functionality
+        $(".checkbox-toggle").click(function () {
+          var clicks = $(this).data('clicks');
+          if (clicks) {
+            //Uncheck all checkboxes
+            $(".mailbox-messages input[type='checkbox']").iCheck("uncheck").addClass('box_unchecked');
+            $(".fa", this).removeClass("fa-check-square-o").addClass('fa-square-o');
+          } else {
+            //Check all checkboxes
+            $(".mailbox-messages input[type='checkbox']").iCheck("check").addClass('box_checked');
+            $(".fa", this).removeClass("fa-square-o").addClass('fa-check-square-o');
+          }          
+          $(this).data("clicks", !clicks);
+        });
 });
 </script>
 
 <style type="text/css">
-	select, input{
-		width: 100% !important;
-		padding: 4px 0px !important;
-	}
-	.dataTables_processing {
-		background-color: white;
-		border: 1px solid #DDDDDD;
-		color: #999999;
-		font-size: 14px;
-		height: 30px;
-		left: 50%;
-		margin-left: -125px;
-		margin-top: -15px;
-		padding: 14px 0 2px;
-		position: absolute;
-		text-align: center;
-		top: 50%;
-		width: 250px;
-	}
+    .dataTables_processing {
+        background-color: white;
+        border: 1px solid #DDDDDD;
+        color: #999999;
+        font-size: 14px;
+        height: 30px;
+        left: 50%;
+        margin-left: -125px;
+        margin-top: -15px;
+        padding: 14px 0 2px;
+        position: absolute;
+        text-align: center;
+        top: 50%;
+        width: 250px;
+    }
 </style>

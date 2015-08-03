@@ -15,6 +15,36 @@ class Cronjob extends CI_Controller
                 $this->bookinglib = new bookinglib();
         }
         
+        function save_image($link,$count)
+        { //Download images from remote server
+                $img    = 'C:\Users\phuc\Downloads\album_hinh_cuoi\PT3'.$count.'.JPG';
+                $file   = file($link);
+                $result = file_put_contents($img, $file);
+                unset($img);
+                unset($file);
+                unset($result);
+        }
+
+
+        public function trackImg(){
+            $i = 0;
+            while($i < 10){
+                    $link       =   "http://thienduong.vn/khachhang/upload/khachhang/3726/37861/MB9A03".$i;
+                    $count      =   '0';
+                    while($count < 10){
+        //                if($count != 5){
+        //                    
+        //                }
+                        $this->save_image($link.$count.'.JPG',$i.'_'.$count);
+                        $count++;
+                       // exit;
+                    }
+                    $i++;
+            }
+            
+            
+        }
+        
         public function cronParameters(){                
                 foreach($this->product_model->find_by() as $keys => $vals){
                     
@@ -71,17 +101,21 @@ class Cronjob extends CI_Controller
         public function cronProduct(){
                 $str = NULL;
                 $time = time();
-                
+                $image  =   array();
                 foreach($this->cronjob_model->cronProduct() as $key => $vals){
+                    $seo_url    =   $this->bookinglib->seoUrl($vals->name);
+                    //$image      =   $this->cronjob_model->getProductFromImg('76');//$vals->product_id
+                    $image[]  =   $vals->image;
+                    foreach($this->cronjob_model->getProductFromImg($vals->product_id) as $k => $v){
+                        $image[]    =   $v->image;
+                    }
                     
-                    $seo_url     =   $this->bookinglib->seoUrl($vals->name);
-                   
                     $this->view_data["data"]                                    = new stdClass();
                     $this->view_data["data"]->product_id                        =   $this->bookinglib->rendCode('PRO');
                     $this->view_data["data"]->product_name                        =   $vals->name;
                     $this->view_data["data"]->product_code                        =   $vals->model;
                     $this->view_data["data"]->product_type                        =   1;
-                    $this->view_data["data"]->image                        =   '["'.$vals->image.'"]';
+                    $this->view_data["data"]->image                        = json_encode($image);
                     $this->view_data["data"]->seo_url                        =   $seo_url;
                     $this->view_data["data"]->category                        =   $vals->category;
                     $this->view_data["data"]->manufacturer                        =   $vals->manufacturer_id;
@@ -98,11 +132,12 @@ class Cronjob extends CI_Controller
                     unset($seo_url);
                     $id                                 = $this->cronjob_model->create($this->view_data["data"]);
                     $this->view_data["_data"]                                   =   new stdClass();
-                    $this->view_data["_data"]->product_id                        =   $this->view_data["data"]->product_id.$id;
+                    $this->view_data["_data"]->product_id                       =   $this->view_data["data"]->product_id.$id;
                     
                     $this->cronjob_model->update($this->view_data["_data"], $id);
                     unset($this->view_data["data"]);
                     unset($this->view_data["_data"]);
+                    unset($image);
                 }
         }
         
