@@ -115,6 +115,7 @@ class Product extends BACKEND_Controller {
                         $this->view_data["product"]->begin_price                        = $this->input->post('begin_price_fake');
                         $this->view_data["product"]->begin_time                         = strtotime($this->input->post('begin_time'));
                         $this->view_data["product"]->end_time                           = strtotime($this->input->post('end_time'));
+                        $this->view_data["product"]->parameters                         = $this->input->post('parameters');
                         $this->view_data["product"]->info                               = $this->input->post('info');
                         
                         $this->view_data["product"]->owner                              = $this->session->userdata['user_id'];

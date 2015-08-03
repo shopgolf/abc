@@ -10,7 +10,7 @@ class Cronjob_model extends MY_Model{
 	
 	public function __construct(){
 		parent::__construct();
-		$this->table_name = 'px_parameters';
+		$this->table_name = 'px_product';
 	}
         
         public function insertCategory($params){
@@ -29,7 +29,7 @@ class Cronjob_model extends MY_Model{
 
 
         public function cronProduct(){//model = product_Code
-                $this->db->select('wp.model,wp.quantity,wp.image,wp.manufacturer_id,wp.price,wp.date_added,wp.date_modified, wpd.name,wpd.description,wpd.meta_keyword,wpd.meta_description,wpd.tag,wptc.category_id AS category');
+                $this->db->select('wp.model,wp.product_id,wp.quantity,wp.image,wp.manufacturer_id,wp.price,wp.date_added,wp.date_modified, wpd.name,wpd.description,wpd.meta_keyword,wpd.meta_description,wpd.tag,wptc.category_id AS category');
                 $this->db->from('withoneoc_product AS wp');
                 $this->db->join('withoneoc_product_description AS wpd','wpd.product_id = wp.product_id','inner');
                 $this->db->join('withoneoc_product_to_category AS wptc','wptc.product_id = wp.product_id','inner');
@@ -43,5 +43,13 @@ class Cronjob_model extends MY_Model{
             $sql = "select * from withoneoc_manufacturer";
             $query  = $this->db->query($sql);
             return $query->result();
+        }
+        
+        public function getProductFromImg($product_id){
+                $this->db->select('image');
+                $this->db->from('withoneoc_product_image');
+                $this->db->where('product_id',$product_id);
+                $query = $this->db->get();
+                return $query->result();            
         }
 }
