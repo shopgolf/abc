@@ -72,11 +72,11 @@
                 </div>
 
                 <!-- search form (Optional) -->
-                <form action="#" method="get" class="sidebar-form">
+                <form action="{{$link_bk}}/product.html" method="post" accept-charset="utf-8" class="sidebar-form">
                     <div class="input-group">
-                        <input type="text" name="q" class="form-control" placeholder="Search..." />
+                        <input type="text" name="product_name" class="form-control" placeholder="Tìm kiếm sản phẩm..." />
                         <span class="input-group-btn">
-                          <button type='submit' name='search' id='search-btn' class="btn btn-flat"><i class="fa fa-search"></i></button>
+                          <button type='submit' name='submit' id='submit' value="search" class="btn btn-flat"><i class="fa fa-search"></i></button>
                         </span>
                     </div>
                 </form>
@@ -125,11 +125,18 @@
                             <li><a href="{{$link_bk}}/maker.html"><i class="glyphicon glyphicon-list-alt text-info"></i> Danh sách hãng</a></li>
                         </ul>
                     </li>
-                     <li class="treeview">
+                    <li class="treeview">
                         <a href="#"><i class='fa fa-building'></i> <span>{{$lang.page_news}}</span> <i class="fa fa-angle-left pull-right"></i></a>
                         <ul class="treeview-menu">
                             <li><a href="{{$link_bk}}/post/index/add.html"><i class="glyphicon glyphicon-plus-sign text-success"></i> {{$lang.add}} {{$lang.page_news}}</a></li>
                             <li><a href="{{$link_bk}}/post.html"><i class="glyphicon glyphicon-list-alt text-info"></i> {{$lang.list}} {{$lang.page_news}}</a></li>
+                        </ul>
+                    </li>
+                    <li class="treeview">
+                        <a href="#"><i class='fa fa-building'></i> <span>{{$lang.menu_advertising}}</span> <i class="fa fa-angle-left pull-right"></i></a>
+                        <ul class="treeview-menu">
+                            <li><a href="{{$link_bk}}/advertising/index/add.html"><i class="glyphicon glyphicon-plus-sign text-success"></i> {{$lang.add}} {{$lang.menu_advertising}}</a></li>
+                            <li><a href="{{$link_bk}}/advertising.html"><i class="glyphicon glyphicon-list-alt text-info"></i> {{$lang.list}} {{$lang.menu_advertising}}</a></li>
                         </ul>
                     </li>
                     <li class="treeview">

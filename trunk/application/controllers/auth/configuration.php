@@ -45,7 +45,7 @@ class Configuration extends BACKEND_Controller {
 		}
         }
         
-       public function upload($params1,$params2){
+        public function upload($params1,$params2){
             if($params1 && $params2){
                 preg_match('/data:image\/([^;]*);base64,(.*)/', $params1, $matches);
                 $ext        =   $matches[1];
@@ -57,6 +57,7 @@ class Configuration extends BACKEND_Controller {
         
         public function add(){
             if($this->input->server('REQUEST_METHOD')=='POST'){
+                
                         $this->view_data["configuration"]                                     = new stdClass();
                         $this->view_data["configuration"]->title                          = $this->input->post('title');
                         $this->view_data["configuration"]->company                        = $this->input->post('company');
@@ -66,6 +67,9 @@ class Configuration extends BACKEND_Controller {
                         $this->view_data["configuration"]->phone                        = $this->input->post('phone');
                         $this->view_data["configuration"]->email                        = $this->input->post('email');
                         $this->view_data["configuration"]->youtube                        = $this->input->post('youtube');
+                        $this->view_data["configuration"]->account_name                        = $this->input->post('account_name');
+                        $this->view_data["configuration"]->bank_name                        = $this->input->post('bank_name');
+                        $this->view_data["configuration"]->tax_codes                        = $this->input->post('tax_codes');
                         
                         $this->load->helper('form');
                         $this->load->helper('character');
@@ -82,7 +86,7 @@ class Configuration extends BACKEND_Controller {
                             ),array(
                                 'field'   => 'keyword',
                                 'label'   =>  $this->lang->line('seo_keyword'),
-                                'rules'   => 'required|trim|max_length[100]|xss_clean'
+                                'rules'   => 'trim|max_length[100]|xss_clean'
                             ),array(
                                 'field'   => 'description',
                                 'label'   =>  $this->lang->line('description'),
@@ -109,13 +113,16 @@ class Configuration extends BACKEND_Controller {
                         $this->form_validation->set_rules($rules);
 
                         if ($this->form_validation->run()==TRUE){
-                                if($this->input->post('saveimg')){
-                                    $this->view_data["configuration"]->logo              = $this->upload($this->input->post('saveimg'),$this->input->post('image'));   
+                                if($this->input->post('savelogo_site')){
+                                    $this->view_data["configuration"]->logo_site              = $this->upload($this->input->post('savelogo_site'),$this->input->post('logo_site'));
+                                }
+                                
+                                if($this->input->post('savelogo_bank')){
+                                    $this->view_data["configuration"]->logo_bank              = $this->upload($this->input->post('savelogo_bank'),$this->input->post('logo_bank'));
                                 }
                                 
                                 if($this->input->post('id')){
-                                        //edit data
-					$this->configuration_model->update($this->view_data["configuration"], $params);
+					$this->configuration_model->update($this->view_data["configuration"], $this->input->post('id'));
                                         $logAction                              = '[UpdateConfigurationSuccess] '.$this->lang->line('update_configuration_success');
 				}else{
 					$params                                 = $this->configuration_model->create($this->view_data["configuration"]);

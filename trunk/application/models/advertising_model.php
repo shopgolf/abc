@@ -13,98 +13,60 @@ class Advertising_model extends MY_Model{
 	public function __construct(){
 		parent::__construct();
 		$this->table_name = 'advertising';
-
-		$this->type_list = array(
-				'image'     => $this->lang->line('image'),
-				'youtube'   => $this->lang->line('youtube'),
-				'flash'     => $this->lang->line('flash'),
-				'code'      => $this->lang->line('code'),
-		);
 	}
-
-	public function get_type_list(){
-		return $this->type_list;
-	}
-
+        
 	public function init_data($right){
 		return array(
                                 array(
 						'name' => 'number',
-						'label' => $this->lang->line('number'),
+						'label' => '',
 						'width' => '5%',
 						'sort'  => 'DESC',
-						'searchoptions' => array(
-								'type' 	=> 'text',
-						)
+						'searchoptions' => FALSE
 				),array(
 						'name' => 'title',
-						'label' => $this->lang->line('advertising_title'),
+						'label' => $this->lang->line('title'),
 						'width' => '20%',
 						'sort'  => FALSE,
-						'searchoptions' => array(
-								'type' 	=> 'text',
-						)
+						'searchoptions' => FALSE
 				),array(
 						'name' 	=> 'link_detail',
 						'label' => $this->lang->line('link_detail'),
-						'width' => '30%',
+						'width' => '15%',
 						'sort'  => FALSE,
-						'searchoptions' => array(
-								'type' 	=> 'text',
-						)
+						'searchoptions' => FALSE
 				),array(
-						'name' 	=> 'link_img',
-						'label' => $this->lang->line('link_img'),
-						'width' => '30%',
-						'sort'  => FALSE,
-						'searchoptions' => array(
-								'type' 	=> 'text',
-						)
-				),array(
-						'name' 	=> 'active',
-						'label' => $this->lang->line('advertising_active'),
+						'name' 	=> 'image',
+						'label' => $this->lang->line('image'),
 						'width' => '10%',
 						'sort'  => FALSE,
-						'searchoptions' => array(
-							'type' 	=> 'select',
-							'values' => $this->datatables->values_encode(
-								$this->active_list
-							),
-						)
+						'searchoptions' => FALSE
+				),array(
+						'name' 	=> 'status',
+						'label' => $this->lang->line('status'),
+						'width' => '10%',
+						'sort'  => FALSE,
+						'searchoptions' => FALSE
 				),array(
 						'name'  => 'created',
 						'width' => '10%',
-						'sort'  => 'DESC',
+						'sort'  => FALSE,
 						'label' => $this->lang->line('created'),
-						'searchoptions' => false
-				),array(
-						'name'  => 'updated',
-						'width' => '10%',
-						'sort'  => 'DESC',
-						'label' => $this->lang->line('updated'),
-						'searchoptions' => false
+						'searchoptions' => FALSE
 				),array(
 						'name' 	=> 'button',
-						'width' => '10%',
+						'width' => '15%',
 						'sort'  => FALSE,
-                                                'label'  => $right['add']==TRUE?'<div class="btn-group">
-						<a style="width: 82px;" href="'.site_url('auth/advertising/index/add').'" class="btn btn btn-success">'.$this->lang->line('create').'</a>
-						</div>':"",
+                                                'label'  => "",
 						'searchoptions' => false
 				)
 		);
 	}
 
-	/*
-	 * datatables data
-	* return json
-	*/
 	public function json_data($controller, $right){
 		$this->datatables
-		->select('id,title,description,link_detail,link_img,active,created,updated,creator_id')
+		->select('id,title,description,link,image,status,created,lastupdated')
 		->from($this->table_name);
-		//$this->datatables->order_by('created', 'desc');
-		//->unset_column('id');
 
 		$this->datatables->set_produce_output(false);
 		$ouput = $datatables = $this->datatables->generate();
@@ -112,16 +74,15 @@ class Advertising_model extends MY_Model{
 		$ouput['aaData'] = array();
 		foreach($datatables['aaData'] as $item){
                     $ouput['aaData'][] = array(
-                        $item['id'],
+                        "<input type='checkbox' value='".$item['id']."' onclick=get_Checked_Checkbox_By_Name('checkCol') name='checkCol' id='checkCol' class='checkbox' />",
                         $item['title'],
-                        $item['link'],
-                        $item['active'],
+                        '<a href="/'.$item['link'].'">Click here</a>',
+                        '<img style="width:100%" src="/'.UPLOAD_DIR.'banner/'.$item['image'].'" />',
+                        ($item['status']==1)?$this->lang->line('active'):$this->lang->line('unactive'),
                         $item['created'],
-                        $item['updated'],
                         $this->add_button($controller, $right, $item),
                     );
 		}
-
 		return json_encode($ouput);
 	}
 }

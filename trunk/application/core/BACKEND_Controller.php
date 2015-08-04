@@ -48,6 +48,8 @@ class BACKEND_Controller extends MY_Controller {
 			
 			$action = $this->uri->rsegment(3);
 			$this->view_data['flash_message']	= $this->session->flashdata('flash_message');
+                        
+                        $this->load->view('auth/hook/hook', array('controller'    =>  $this->controller));
 
 			switch ($action) {
 				case 'edit':
