@@ -30,7 +30,7 @@ class Product_model extends MY_Model{
 				),array(
 						'name' => 'product_name',
 						'label' => $this->lang->line('product_name'),
-						'width' => '10%',
+						'width' => '15%',
 						'sort'  => FALSE,
 						'searchoptions' => FALSE
 				),array(
@@ -47,7 +47,7 @@ class Product_model extends MY_Model{
 						'searchoptions' => FALSE
 				),array(
 						'name'  => 'button',
-						'width' => '10%',
+						'width' => '6%',
 						'sort'  => FALSE,
 						'label'  => $this->lang->line('action'),
 						'searchoptions' => FALSE
@@ -56,14 +56,24 @@ class Product_model extends MY_Model{
 	}
 	
 	public function json_data($controller, $right){
+                if($this->session->userdata('s_product')){
+                    $arr_status = json_decode($this->session->userdata('s_product'));
+                }
+                
 		$this->datatables
-		->select("id,product_code,product_name,net_price,image")
-		->from($this->table_name);
+		->select("tbl.id,tbl.product_code,tbl.product_name,tbl.net_price,tbl.image")
+		->from($this->table_name.' AS tbl');
+                
+                if(isset($arr_status) && $arr_status->product_name != ''){
+                    $this->datatables->where('tbl.product_name REGEXP ("'.$arr_status->product_name.'")');
+                }
 	
 		$this->datatables->set_produce_output(false);
 		$ouput = $datatables = $this->datatables->generate();
 		unset($ouput['aaData']);
 		$ouput['aaData'] = array();
+                
+                $this->session->unset_userdata('s_product');
                 
 		foreach($datatables['aaData'] as $item){
                     $img = json_decode($item['image']);

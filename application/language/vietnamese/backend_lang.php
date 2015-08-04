@@ -2,8 +2,8 @@
 $lang['site_name']                              =   'Withone Shop';
 $lang['logo']					= 'Shop';
 //status
-$lang['active']					= 'Có';
-$lang['deactive']				= 'Không';
+$lang['active']					= 'Kích hoạt';
+$lang['deactive']				= 'Không kích hoạt';
 
 $lang['action']					= 'Chức năng';
 
@@ -94,9 +94,11 @@ $lang['net_price']            =   'Giá đầu';
 $lang['final_price']            =   'Giá cuối';
 $lang['deleteInfo']             =   'Vui lòng chọn thông tin cần xóa';
 
-$lang['site_title']             = 'Title Website';
+$lang['site']                   = 'Website';
+$lang['site_title']             = 'Title '.$lang['site'];
+$lang['site_name']              = 'Tên '.$lang['site'];
 $lang['input_text']             = 'Nhập Thông Tin';
-$lang['site_logo']              = 'Logo';
+$lang['site_logo']              = 'Logo '.$lang['site'];
 $lang['product']                =   'Sản phẩm';
 $lang['hotdeal_list']           =   'Sản phẩm mua nhiều';
 $lang['soldout_list']           =   'Sản phẩm hết hàng';
@@ -126,3 +128,4 @@ $lang['type']                   =   'Thể loại';
 $lang['dich_vu']                =   'Dịch vụ';
 $lang['content']                =   'Nội dung';
 $lang['accessory']              =   'Phụ kiện';
+$lang['status']                 =   'Trạng thái';
