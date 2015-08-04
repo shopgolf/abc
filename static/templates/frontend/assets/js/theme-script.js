@@ -414,3 +414,11 @@
         }
     }
 })(jQuery); // End of use strict
+/*send footer*/
+jQuery(document).ready(function($) {
+    $('#send').click(function(event) {
+        var target = $(this).attr('data-info');
+        $('html, body').animate({scrollTop: $('#'+target).offset().top}, 1000);
+        return false;
+    });
+});

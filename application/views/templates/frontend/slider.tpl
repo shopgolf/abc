@@ -8,18 +8,13 @@
                     <div id="wowslider-container1">
                         <div class="ws_images">
                             <ul>
+                                {{$k = 0 }}
+                                {{foreach $data_slider as $value}}
+                                {{$k = $k + 1}}
                                 <li class="item">
-                                    <img src="{{$static_ft}}/images/slider.jpg" alt="slider" title="slider" id="wows1_0"/>
+                                    <a href="{{$site_url}}{{$value->link}}" title="{{$value->title}}" target="_blank"><img src="{{$UPLOAD_DIR}}banner/{{$value->image}}" alt="{{$value->title}}" title="{{$value->title}}" id="wows{{$k}}_0"/></a>
                                 </li>
-                                <li class="item">
-                                    <img src="{{$static_ft}}/images/slider2.jpg" alt="slider2" title="slider2" id="wows1_1"/>
-                                </li>
-                                <li class="item">
-                                    <img src="{{$static_ft}}/images/slider3.jpg" alt="jquery photo gallery" title="slider3" id="wows1_2"/>
-                                </li>
-                                <li class="item">
-                                    <img src="{{$static_ft}}/images/slider4.jpg" alt="slider4" title="slider4" id="wows1_3"/>
-                                </li>
+                                {{/foreach}}
                             </ul>
                         </div>
                     </div>  

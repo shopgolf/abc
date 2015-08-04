@@ -11,6 +11,7 @@ class Home extends CI_controller
                 $this->load->model('product_model');//call model home
                 $this->load->model('maker_model');//call model home
                 $this->load->model('post_model');//call model home
+                $this->load->model('advertising_model');//call model home
 
                 //day la thu vien common.js day nhung cai linh tinh thi bo vao day 
                 $this->load->library('bookinglib');
@@ -22,7 +23,7 @@ class Home extends CI_controller
 	}
 
 	public function index(){
-		$field = array('id','seo_url','product_name','net_price','image','product_code');
+		$field                = array('id','seo_url','product_name','net_price','image','product_code');
 		$data                 = $this->product_model->new_product($field,$limit = 12,$offset = FALSE,$order_by = 'DESC',$param = 'id',$where=array('status'=>1));
 		$data_old_product     = $this->product_model->new_product($field,$limit = 12,$offset = FALSE,$order_by = 'RANDOM',$param = 'id',$where=array('status'=>1));
 		$data_topview_product = $this->product_model->new_product($field,$limit = 8,$offset = FALSE,$order_by = 'DESC',$param = 'view',$where=array('status'=>1));
@@ -30,7 +31,8 @@ class Home extends CI_controller
 		$data_maker           = $this->maker_model->get_data();
 		$field_post           = array('id','seo_url','title','description','feature_img'); 		
 		$data_post			  = $this->post_model->data_post($field_post,$limit = 3,$offset = FALSE,$order_by = 'DESC',$param = 'id');	
-		//pre($data_post);
+		$data_slider          = $this->advertising_model->get_slider();
+		//pre($data_slider);
 		$this->smarty->assign(array(
 			'title'                => 'With one',
 			'menu_home'            => 'templates/frontend/menu_home.tpl',
@@ -42,6 +44,7 @@ class Home extends CI_controller
 			'data_checkout'        => array_chunk($data_checkout, 3), 
 			'data_maker'           => $data_maker, 
 			'data_post'            => $data_post, 
+			'data_slider'          => $data_slider, 
 		));
 		$this->smarty->display('templates/frontend/layout.tpl');//hien thi template cai nay e bit ma
 	}
