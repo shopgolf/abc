@@ -36,7 +36,7 @@ class Product_model extends MY_Model{
 				),array(
 						'name' => 'price',
 						'label' => $this->lang->line('price'),
-						'width' => '10%',
+						'width' => '5%',
 						'sort'  => FALSE,
 						'searchoptions' => FALSE
 				),array(
