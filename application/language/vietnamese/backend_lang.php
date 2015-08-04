@@ -1,4 +1,5 @@
 <?php
+$lang['site_name']                              =   'Withone Shop';
 $lang['logo']					= 'Shop';
 //status
 $lang['active']					= 'Có';

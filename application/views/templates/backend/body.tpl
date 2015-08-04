@@ -37,7 +37,7 @@
                                     <img src="{{$static_bk}}/images/cirlce.png" class="user-image" alt="User Image" />
                                     <p>
                                         {{$userinfo->username}}
-                                        <small>Web Developer</small>
+                                        <small>{{$lang.site_name}}</small>
                                     </p>
                                 </li>
                                 <li class="user-footer">
@@ -108,7 +108,7 @@
                         <a href="#"><i class='fa fa-building'></i> <span>{{$lang.cart}}</span> <i class="fa fa-angle-left pull-right"></i></a>
                         <ul class="treeview-menu">
                             <li><a href="{{$link_bk}}/stats.html"><i class="glyphicon glyphicon-info-sign"></i> {{$lang.stats_cart}}</a></li>
-                            <li><a href="{{$link_bk}}/orderSuccess.html"><i class="glyphicon glyphicon-check text-success"></i> {{$lang.paid}}</a></li>
+                            <li><a href="{{$link_bk}}/ordersuccess.html"><i class="glyphicon glyphicon-check text-success"></i> {{$lang.paid}}</a></li>
                         </ul>
                     </li>
                     <li class="treeview">
