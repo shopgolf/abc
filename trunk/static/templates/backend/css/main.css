@@ -50,19 +50,3 @@
     height: 42px;
     width: 100%;
 }
-input[type=checkbox], input[type=radio],.box_unchecked,.box_checked{
-        display: inline-block;
-        vertical-align: middle;
-        margin: 0;
-        padding: 0;
-        width: 20px;
-        height: 20px;
-        border: none;
-        cursor: pointer;
-}
-.box_checked{
-        background: url(/static/templates/backend/images/blue.png) no-repeat;
-}
-input[type=checkbox], input[type=radio]{
-        background: url(/static/templates/backend/images/blue.png) 0 0;
-}
