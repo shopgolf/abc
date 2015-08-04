@@ -85,4 +85,11 @@ class Advertising_model extends MY_Model{
 		}
 		return json_encode($ouput);
 	}
+
+	public function get_slider(){
+		$this->db->select('image,link,id,title');
+		$this->db->where('status',1);
+		$query = $this->db->get($this->table_name);
+		return $query->result();
+	}
 }
