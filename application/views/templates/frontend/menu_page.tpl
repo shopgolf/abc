@@ -166,6 +166,22 @@
                                         </li>
                                     </ul>
                                 </li>
+                                <li><a href="category.html">{{$lang.fittings}}</a></li>
+                                <li class="dropdown">
+                                    <a href="category.html" class="dropdown-toggle" data-toggle="dropdown">{{$lang.auction}}</a>
+                                    <ul class="dropdown-menu container-fluid">
+                                        <li class="block-container">
+                                            <ul class="block">
+                                                <li class="link_container"><a href="#">Mobile</a></li>
+                                                <li class="link_container"><a href="#">Tablets</a></li>
+                                                <li class="link_container"><a href="#">Laptop</a></li>
+                                                <li class="link_container"><a href="#">Memory Cards</a></li>
+                                                <li class="link_container"><a href="#">Accessories</a></li>
+                                            </ul>
+                                        </li>
+                                    </ul> 
+                                </li>
+                               
                                 <li><a href="category.html" class="dropdown-toggle" data-toggle="dropdown">{{$lang.sevices}}</a></li>
                                 <li class="dropdown">
                                     <a href="category.html" class="dropdown-toggle" data-toggle="dropdown">{{$lang.golf_Simulators}}</a>
@@ -273,73 +289,8 @@
 
                                     </ul>
                                 </li>
-                                <li class="dropdown">
-                                    <a href="category.html" class="dropdown-toggle" data-toggle="dropdown">{{$lang.auction}}</a>
-                                    <ul class="dropdown-menu container-fluid">
-                                        <li class="block-container">
-                                            <ul class="block">
-                                                <li class="link_container"><a href="#">Mobile</a></li>
-                                                <li class="link_container"><a href="#">Tablets</a></li>
-                                                <li class="link_container"><a href="#">Laptop</a></li>
-                                                <li class="link_container"><a href="#">Memory Cards</a></li>
-                                                <li class="link_container"><a href="#">Accessories</a></li>
-                                            </ul>
-                                        </li>
-                                    </ul> 
-                                </li>
-                                <li><a href="category.html">{{$lang.fittings}}</a></li>
                                 <li><a href="category.html">{{$lang.club}}</a></li>
                                 <li><a href="category.html">{{$lang.guide}}</a></li>
-                            </ul>
-                            <ul class="nav navbar-nav navbar-right">
-                                <li class="group-button-header">
-                                     <div class="btn-cart" id="cart-block">
-                                        <a title="My cart" href="cart.html">{{$lang.cart}}</a>
-                                        <span class="notify notify-right">10</span>
-                                        <div class="cart-block">
-                                            <div class="cart-block-content">
-                                                <h5 class="cart-title">2 Items in my cart</h5>
-                                                <div class="cart-block-list">
-                                                    <ul>
-                                                        <li class="product-info">
-                                                            <div class="p-left">
-                                                                <a href="#" class="remove_link"></a>
-                                                                <a href="#">
-                                                                <img class="img-responsive" src="{{$static_ft}}/data/product-100x122.jpg" alt="p10">
-                                                                </a>
-                                                            </div>
-                                                            <div class="p-right">
-                                                                <p class="p-name">Donec Ac Tempus</p>
-                                                                <p class="p-rice">61,19 €</p>
-                                                                <p>Qty: 1</p>
-                                                            </div>
-                                                        </li>
-                                                        <li class="product-info">
-                                                            <div class="p-left">
-                                                                <a href="#" class="remove_link"></a>
-                                                                <a href="#">
-                                                                <img class="img-responsive" src="{{$static_ft}}/data/product-s5-100x122.jpg" alt="p10">
-                                                                </a>
-                                                            </div>
-                                                            <div class="p-right">
-                                                                <p class="p-name">Donec Ac Tempus</p>
-                                                                <p class="p-rice">61,19 €</p>
-                                                                <p>Qty: 1</p>
-                                                            </div>
-                                                        </li>
-                                                    </ul>
-                                                </div>
-                                                <div class="toal-cart">
-                                                    <span>Total</span>
-                                                    <span class="toal-price pull-right">122.38 €</span>
-                                                </div>
-                                                <div class="cart-buttons">
-                                                    <a href="{{$site_url}}gio-hang.html" class="btn-check-out">{{$lang.checkout}}</a>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </li>
                             </ul>
                         </div><!--/.nav-collapse -->
                     </div>

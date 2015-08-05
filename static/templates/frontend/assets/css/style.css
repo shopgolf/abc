@@ -5358,8 +5358,8 @@ span.notify-right{
   color: #485ac8;
 }
 .product-list li img{
-  max-height: 250px;
-  min-height: 250px;
+  max-height: 210px;
+  min-height: 210px;
 }
 /*category-page*/
 .category-page .box-vertical-megamenus{
