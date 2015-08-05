@@ -10,11 +10,21 @@ class Cronjob extends CI_Controller
                 $this->load->model('cronjob_model');
                 $this->load->model('parameters_model');
                 $this->load->model('product_model');
+                $this->load->model('category_model');
                 
                 $this->load->library('bookinglib');
                 $this->bookinglib = new bookinglib();
         }
         
+        public function removeChar(){
+                foreach($this->category_model->find_by() as $keys => $vals){
+                    $this->view_data["_data"]               =   new stdClass();
+                    $this->view_data["_data"]->description  =   $vals->keyword;
+                    $this->category_model->update($this->view_data["_data"], $vals->id);
+                    echo $vals->id.' update success!<br/>';
+                }
+        }
+                
         function save_image($link,$count)
         { //Download images from remote server
                 $img    = 'C:\Users\phuc\Downloads\album_hinh_cuoi\PT3'.$count.'.JPG';
@@ -32,17 +42,11 @@ class Cronjob extends CI_Controller
                     $link       =   "http://thienduong.vn/khachhang/upload/khachhang/3726/37861/MB9A03".$i;
                     $count      =   '0';
                     while($count < 10){
-        //                if($count != 5){
-        //                    
-        //                }
                         $this->save_image($link.$count.'.JPG',$i.'_'.$count);
                         $count++;
-                       // exit;
                     }
                     $i++;
             }
-            
-            
         }
         
         public function cronParameters(){                

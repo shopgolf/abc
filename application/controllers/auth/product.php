@@ -19,7 +19,6 @@ class Product extends BACKEND_Controller {
 			$this->session->set_userdata('redirect_uri', current_url());redirect('auth');
 		}
                 
-                $this->load->model('parameters_model');
                 $this->load->model('checkout_model');
                 $this->load->model('product_model');
                 $this->set_controller('product');
@@ -184,18 +183,14 @@ class Product extends BACKEND_Controller {
                                 $this->view_data["parameters"]->club      = trim($this->input->post('club'));
                                 
                                 if($params){
-                                        //edit data
 					$this->product_model->update($this->view_data["product"], $params);
-                                        $this->parameters_model->update($this->view_data["parameters"], $params);
                                         $logAction                                      = '[UpdateProductSuccess] '.$this->lang->line('update_product_success');
 				}else{
                                         $this->view_data['product']->product_id         = $this->bookinglib->rendCode('PRO');
 					$params                                         = $this->product_model->create($this->view_data["product"]);
-                                        $this->view_data["parameters"]->id              = $params;
-                                        $this->parameters_model->create($this->view_data["parameters"]);
+
                                         $logAction                                      = '[AddProductSuccess] '.$this->lang->line('add_product_success');
 				}
-                                //param
                                 
 				if($logAction){
 					$this->session->set_flashdata('flash_message', $this->lang->line('update_successful'));
@@ -207,7 +202,6 @@ class Product extends BACKEND_Controller {
             
             if(isset($params)){
                     $product_query	= $this->product_model->find_by(array('id'=>$params));
-                    $parameters         = $this->parameters_model->find_by(array('id'=>$params));
                     
                     if(!isset($product_query[0])){
                             $this->session->set_flashdata('flash_message', $this->lang->line('not_exists'));
@@ -216,16 +210,14 @@ class Product extends BACKEND_Controller {
                     }
                     $product_query[0]->image            =   json_decode($product_query[0]->image);
                     $this->smarty->assign(array(
-                        'parameters'    =>  $parameters[0],
                         'product'       =>  $product_query[0],
                         'count_img'     =>  count($product_query[0]->image)
                     ));
             }
             $this->load->model('category_model');
-            
             $this->smarty->assign(array(
                 'type'          =>  $this->product_model->product_type(),
-                'category'      =>  $this->category_model->find_by(),
+                'category'      =>  $this->category_model->getCategoryById(array('parent_category'=>'NULL')),
                 'js'            =>  array(
                     base_url().'static/templates/backend/js/main.js',
                     base_url().'third_party/tiny_mce/jquery.tinymce.js',
@@ -242,4 +234,20 @@ class Product extends BACKEND_Controller {
 
             $this->smarty->display('auth/product/edit');
 	}
+        
+        public function getCategoryChild(){
+            if($this->input->server('REQUEST_METHOD')=='POST'){
+                $this->load->model('category_model');
+                $category_child =   $this->category_model->find_by(array('parent_category'=>$this->input->post('category')));
+                if($category_child){
+                    $list = array();
+                    foreach($category_child as $keys => $vals){
+                        $list[$vals->id]        =   $vals->name;
+                    }
+                    die(json_encode($list));
+                } else {
+                    die("");
+                }
+            }
+        }
 }

@@ -357,4 +357,19 @@ class MY_Model extends CI_Model{
 		}
 		return $button;
 	}
+        
+        public function getCategoryById($params){
+            $this->db->select("pxc.*");
+            $this->db->from('px_category AS pxc');
+
+            if(isset($params['parent_category'])){
+                $this->db->where('pxc.parent_category IS NULL');
+            }
+            if(isset($params['child_category'])){
+                $this->db->where('pxc.parent_category IS NOT NULL');
+            }
+
+            $query = $this->db->get();
+            return $query->result();
+        }
 }

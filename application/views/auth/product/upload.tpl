@@ -43,6 +43,8 @@ $(document).ready(function()
             showDelete: true,
             showProgress: true,
             acceptFiles: "jpeg,png,gif",
+            statusBarWidth:475,
+            dragdropWidth:480,
             deleteCallback: function (data) {
                 setTimeout(function () {
                     $.ajax({

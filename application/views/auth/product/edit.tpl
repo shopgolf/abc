@@ -21,177 +21,182 @@
         </div>
     {{/if}}
     <span class="error_box"></span>
-    <!-- Title, seo, keyword, desctition-->
         {{form_open('',["enctype"=>"multipart/form-data","name"=>"validate_scl"])}}
-      <div class="row">
-        <div class="col-md-6">
-          <div class="box box-success">
-            <div class="box-header with-border">
-              <h3 class="box-title">{{$lang.normal_info}}</h3>
-            </div>
-            <div class="box-body">
-              <div class="row">
-                <div class="col-md-4 form-group">
-                    {{form_label({{$lang.product_code}},'product_code')}}
-                    <div class="input-group"> <span class="input-group-addon"><i class="glyphicon glyphicon-pencil text-aqua"></i></span>
-                      {{form_input(["class"=>"form-control","id"=>"product_code","placeholder"=>"{{$lang.product_code}}","name"=>"product_code",value=>"{{if isset($product->product_code)}}{{$product->product_code}}{{/if}}"])}}
-                    </div>
-                </div>
-                <div class="col-md-8">
-                    <div class="col-md-6">
-                        {{form_label({{$lang.type}},'product_type')}}
-                        <select class="form-control" name="product_type" id="product_type">
-                            {{foreach $type as $key => $vals}}
-                                {{if isset($product->product_type) && $key == $product->product_type}}
-                                    <option selected="selected" value="{{$key}}">{{$vals}}</option>
-                                {{else}}
-                                    <option value="{{$key}}">{{$vals}}</option>
-                                {{/if}}
-                            {{/foreach}}
-                        </select>
-                    </div>
-                    <div class="col-md-6">
-                        {{form_label({{$lang.category}},'category')}}
-                        <select class="form-control" name="category" id="category">
-                            {{foreach $category as $keys => $values}}
-                                {{if isset($product->category) && $values->category == $product->category}}
-                                    <option selected="selected" value="{{$values->id}}">{{$values->name}}</option>
-                                {{else}}
-                                    <option value="{{$values->id}}">{{$values->name}}</option>
-                                {{/if}}
-                            {{/foreach}}
-                        </select>
-                    </div>
-                </div>
-                <div class="col-md-12 form-group">
-                      {{form_label({{$lang.product_name}},'product_name')}}
-                        <div class="input-group"> <span class="input-group-addon"><i class="glyphicon glyphicon-pencil text-aqua"></i></span>
-                          {{form_input(["class"=>"form-control","id"=>"product_name","placeholder"=>"{{$lang.product_name}}","name"=>"product_name",value=>"{{if isset($product->product_name)}}{{$product->product_name}}{{/if}}"])}}
-                        </div>
-                </div>
-                <div class="col-md-12 form-group">
-                    {{form_label({{$lang.product_url_seo}},'product_url_seo')}}
-                    <div class="input-group"> <span class="input-group-addon"><i class="glyphicon glyphicon-pencil text-aqua"></i></span>
-                        {{form_input(["class"=>"form-control","id"=>"product_url_seo","placeholder"=>"{{$lang.product_url_seo}}","name"=>"product_url_seo",value=>"{{if isset($product->seo_url)}}{{$product->seo_url}}{{/if}}"])}}
-                    </div>
-                </div>
-                <div class="col-md-12 form-group">
-                    {{form_label({{$lang.seo_keyword}},'seo_keyword')}}
-                    <div class="input-group"> <span class="input-group-addon"><i class="glyphicon glyphicon-pencil text-yellow"></i></span>
-                      {{form_input(["class"=>"form-control","id"=>"seo_keyword","placeholder"=>"{{$lang.seo_keyword}}","name"=>"seo_keyword",value=>"{{if isset($product->keyword)}}{{$product->keyword}}{{/if}}"])}}
-                    </div>                  
-                </div>
-                <div class="col-md-12 form-group">
-                    {{form_label({{$lang.seo_metadata}},'seo_metadata')}}
-                    <div class="input-group"> <span class="input-group-addon"><i class="glyphicon glyphicon-pencil text-yellow"></i></span>
-                      {{form_textarea(["rows"=>"4","class"=>"form-control","id"=>"seo_metadata","placeholder"=>"{{$lang.seo_metadata}}","name"=>"seo_metadata",value=>"{{if isset($product->description)}}{{$product->description}}{{/if}}"])}}
-                    </div>
-                </div>
-                <div class="col-md-12">
-                  <div class="form-group">
-                      <label for="image_product">{{$lang.image}} {{$lang.product}}</label>
-                     {{include file = 'auth/product/upload.tpl'}}
+            <div class="row">
+              <div class="col-md-6">
+                <div class="box box-success">
+                  <div class="box-header with-border">
+                    <h3 class="box-title">{{$lang.normal_info}}</h3>
                   </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="col-md-6">
-          <div class="box box-info">
-            <div class="box-header with-border">
-              <h3 class="box-title">{{$lang.info}} {{$lang.product}}</h3>
-            </div>
-            <div class="box-body">
-              <div class="row">
-                <div class="col-md-12">
-                  <div class="col-md-6">
-                      <div class="form-group input-group">
-                          <div class="input-group-addon">{{form_label({{$lang.net_price}},'net_price')}}</div>
-                            {{form_input(["class"=>"form-control","id"=>"net_price","placeholder"=>"Giá ban đầu sản phẩm","name"=>"net_price",value=>"{{if isset($product->net_price )}}{{$product->net_price}}{{/if}}"])}}
-                            {{form_input(["type"=>"hidden","id"=>"net_price_fake","name"=>"net_price_fake","value"=>"{{if isset($product->net_price )}}{{$product->net_price}}{{/if}}"])}}
-                        <div class="input-group-addon">{{$lang.ext_price}}</div>
+                  <div class="box-body">
+                    <div class="row">
+                        <div class="col-md-6 form-group">
+                            {{form_label({{$lang.product_code}},'product_code')}}
+                            <div class="input-group"> <span class="input-group-addon"><i class="glyphicon glyphicon-pencil text-aqua"></i></span>
+                              {{form_input(["class"=>"form-control","id"=>"product_code","placeholder"=>"{{$lang.product_code}}","name"=>"product_code",value=>"{{if isset($product->product_code)}}{{$product->product_code}}{{/if}}"])}}
+                            </div>
+                        </div>
+                        <div class="col-md-6 form-group">
+                            {{form_label({{$lang.type}},'product_type')}}
+                            <select class="form-control" name="product_type" id="product_type">
+                                {{foreach $type as $key => $vals}}
+                                    {{if isset($product->product_type) && $key == $product->product_type}}
+                                        <option selected="selected" value="{{$key}}">{{$vals}}</option>
+                                    {{else}}
+                                        <option value="{{$key}}">{{$vals}}</option>
+                                    {{/if}}
+                                {{/foreach}}
+                            </select>
+                        </div>
+                        <div class="col-md-6 form-group">
+                            {{form_label({{$lang.category}},'category')}}
+                            <select class="form-control" name="category" id="category">
+                                {{foreach $category as $keys => $values}}
+                                    {{if isset($product->category) && $values->category == $product->category}}
+                                        <option selected="selected" value="{{$values->id}}">{{$values->name}}</option>
+                                    {{else}}
+                                        <option value="{{$values->id}}">{{$values->name}}</option>
+                                    {{/if}}
+                                {{/foreach}}
+                            </select>
+                        </div>
+                        <div class="col-md-6 form-group">
+                            {{form_label({{$lang.product_child_category}},'category')}}
+                            <select class="form-control" name="category_child" id="category_child">
+                                <option value="">--------</option>
+                            </select>
+                        </div>
+                        <div class="col-md-12 form-group">
+                              {{form_label({{$lang.product_name}},'product_name')}}
+                                <div class="input-group"> <span class="input-group-addon"><i class="glyphicon glyphicon-pencil text-aqua"></i></span>
+                                  {{form_input(["class"=>"form-control","id"=>"product_name","placeholder"=>"{{$lang.product_name}}","name"=>"product_name",value=>"{{if isset($product->product_name)}}{{$product->product_name}}{{/if}}"])}}
+                                </div>
+                        </div>
+                      <div class="col-md-12 form-group">
+                          {{form_label({{$lang.product_url_seo}},'product_url_seo')}}
+                          <div class="input-group"> <span class="input-group-addon"><i class="glyphicon glyphicon-pencil text-aqua"></i></span>
+                              {{form_input(["class"=>"form-control","id"=>"product_url_seo","placeholder"=>"{{$lang.product_url_seo}}","name"=>"product_url_seo",value=>"{{if isset($product->seo_url)}}{{$product->seo_url}}{{/if}}"])}}
+                          </div>
                       </div>
-                  </div>
-                      
-                  <div class="col-md-6">
-                      <div class="form-group input-group">
-                            <div class="input-group-addon">{{form_label({{$lang.final_price}},'final_price')}}</div>
-                            {{form_input(["class"=>"form-control","id"=>"final_price","placeholder"=>"Giá cuối sản phẩm","name"=>"final_price",value=>"{{if isset($product->final_price )}}{{$product->final_price}}{{/if}}"])}}
-                            {{form_input(["type"=>"hidden","id"=>"final_price_fake","name"=>"final_price_fake","value"=>"{{if isset($product->final_price )}}{{$product->final_price}}{{/if}}"])}}
-                        <div class="input-group-addon">{{$lang.ext_price}}</div>
+                      <div class="col-md-12 form-group">
+                          {{form_label({{$lang.seo_keyword}},'seo_keyword')}}
+                          <div class="input-group"> <span class="input-group-addon"><i class="glyphicon glyphicon-pencil text-yellow"></i></span>
+                            {{form_input(["class"=>"form-control","id"=>"seo_keyword","placeholder"=>"{{$lang.seo_keyword}}","name"=>"seo_keyword",value=>"{{if isset($product->keyword)}}{{$product->keyword}}{{/if}}"])}}
+                          </div>                  
                       </div>
-                  </div>
-                      
-                  <div class="col-md-12">
-                    <div class="box box-solid box-success">
-                        <div class="box-header">
-                          <h3 class="box-title">{{$lang.bid}} {{$lang.product}}</h3>
-                        </div>
-                        <div class="box-body input-group">
-                            <div class="input-group-addon">{{form_label({{$lang.begin_price}},'begin_price')}}</div>
-                            {{form_input(["class"=>"form-control","id"=>"begin_price","placeholder"=>"","name"=>"begin_price",value=>"{{if isset($product->begin_price )}}{{$product->begin_price}}{{/if}}"])}}
-                            {{form_input(["type"=>"hidden","id"=>"begin_price_fake","name"=>"begin_price_fake","value"=>"{{if isset($product->begin_price)}}{{$product->begin_price}}{{/if}}"])}}
-                          <div class="input-group-addon">{{$lang.ext_price}}</div>
-                        </div>
-                        <div class="box-body input-group">
-                            <div class="input-group-addon">{{form_label({{$lang.begin_time}},'begin_time')}}</div>
-                            {{form_input(["class"=>"form-control","id"=>"begin_time","placeholder"=>"","name"=>"begin_time",value=>"{{if isset($product->begin_time )}}{{$product->begin_time}}{{/if}}"])}}
-                          <div class="input-group-addon">{{$lang.ext_time}}</div>
-                        </div>
-                        <div class="box-body input-group">
-                            <div class="input-group-addon"><label for="end_time">{{$lang.end_time}}</label></div>
-                            {{form_input(["class"=>"form-control","id"=>"end_time","placeholder"=>"","name"=>"end_time",value=>"{{if isset($product->end_time )}}{{$product->end_time}}{{/if}}"])}}
-                          <div class="input-group-addon">{{$lang.ext_time}}</div>
-                        </div>
+                      <div class="col-md-12 form-group">
+                          {{form_label({{$lang.seo_metadata}},'seo_metadata')}}
+                          <div class="input-group"> <span class="input-group-addon"><i class="glyphicon glyphicon-pencil text-yellow"></i></span>
+                            {{form_textarea(["rows"=>"4","class"=>"form-control","id"=>"seo_metadata","placeholder"=>"{{$lang.seo_metadata}}","name"=>"seo_metadata",value=>"{{if isset($product->description)}}{{$product->description}}{{/if}}"])}}
+                          </div>
+                      </div>
                     </div>
                   </div>
                 </div>
               </div>
-            </div>
-          </div>
-        </div>
-                        
-        <div class="col-md-12">
-          <div class="box box-info">
-            <div class="box-header">
-              <div class="box-header with-border">
-                <h3 class="box-title">{{$lang.parameters}} {{$lang.product}}</h3>
-                <div class="box-tools pull-right">
-                  <button class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i></button>
-                  <button class="btn btn-box-tool" data-widget="remove"><i class="fa fa-times"></i></button>
-                </div>
-              </div>
-            </div>
-            <div class="box-body pad">
-              <textarea name="parameters" cols="40" rows="10" id="parameters" class="tinymcefull">{{if isset($product->parameters)}}{{$product->parameters}}{{/if}}</textarea>
-            </div>
-          </div>
-        </div>
+              <div class="col-md-6">
+                <div class="box box-info">
+                  <div class="box-header with-border">
+                    <h3 class="box-title">{{$lang.info}} {{$lang.product}}</h3>
+                  </div>
+                  <div class="box-body">
+                    <div class="row">
+                      <div class="col-md-12">
+                        <div class="col-md-6">
+                            <div class="form-group input-group">
+                                <div class="input-group-addon">{{form_label({{$lang.net_price}},'net_price')}}</div>
+                                  {{form_input(["class"=>"form-control","id"=>"net_price","placeholder"=>"Giá ban đầu sản phẩm","name"=>"net_price",value=>"{{if isset($product->net_price )}}{{$product->net_price}}{{/if}}"])}}
+                                  {{form_input(["type"=>"hidden","id"=>"net_price_fake","name"=>"net_price_fake","value"=>"{{if isset($product->net_price )}}{{$product->net_price}}{{/if}}"])}}
+                              <div class="input-group-addon">{{$lang.ext_price}}</div>
+                            </div>
+                        </div>
 
-        <div class="col-md-12">
-          <div class="box box-info">
-            <div class="box-header">
-              <div class="box-header with-border">
-                <h3 class="box-title">{{$lang.product_detail}}</h3>
-                <div class="box-tools pull-right">
-                  <button class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i></button>
-                  <button class="btn btn-box-tool" data-widget="remove"><i class="fa fa-times"></i></button>
+                        <div class="col-md-6">
+                            <div class="form-group input-group">
+                                  <div class="input-group-addon">{{form_label({{$lang.final_price}},'final_price')}}</div>
+                                  {{form_input(["class"=>"form-control","id"=>"final_price","placeholder"=>"Giá cuối sản phẩm","name"=>"final_price",value=>"{{if isset($product->final_price )}}{{$product->final_price}}{{/if}}"])}}
+                                  {{form_input(["type"=>"hidden","id"=>"final_price_fake","name"=>"final_price_fake","value"=>"{{if isset($product->final_price )}}{{$product->final_price}}{{/if}}"])}}
+                              <div class="input-group-addon">{{$lang.ext_price}}</div>
+                            </div>
+                        </div>
+
+                        <div class="col-md-12">
+                          <div class="box box-solid box-success">
+                              <div class="box-header">
+                                <h3 class="box-title">{{$lang.bid}} {{$lang.product}}</h3>
+                              </div>
+                              <div class="box-body input-group">
+                                  <div class="input-group-addon">{{form_label({{$lang.begin_price}},'begin_price')}}</div>
+                                  {{form_input(["class"=>"form-control","id"=>"begin_price","placeholder"=>"","name"=>"begin_price",value=>"{{if isset($product->begin_price )}}{{$product->begin_price}}{{/if}}"])}}
+                                  {{form_input(["type"=>"hidden","id"=>"begin_price_fake","name"=>"begin_price_fake","value"=>"{{if isset($product->begin_price)}}{{$product->begin_price}}{{/if}}"])}}
+                                <div class="input-group-addon">{{$lang.ext_price}}</div>
+                              </div>
+                              <div class="box-body input-group">
+                                  <div class="input-group-addon">{{form_label({{$lang.begin_time}},'begin_time')}}</div>
+                                  {{form_input(["class"=>"form-control","id"=>"begin_time","placeholder"=>"","name"=>"begin_time",value=>"{{if isset($product->begin_time )}}{{$product->begin_time}}{{/if}}"])}}
+                                <div class="input-group-addon">{{$lang.ext_time}}</div>
+                              </div>
+                              <div class="box-body input-group">
+                                  <div class="input-group-addon"><label for="end_time">{{$lang.end_time}}</label></div>
+                                  {{form_input(["class"=>"form-control","id"=>"end_time","placeholder"=>"","name"=>"end_time",value=>"{{if isset($product->end_time )}}{{$product->end_time}}{{/if}}"])}}
+                                <div class="input-group-addon">{{$lang.ext_time}}</div>
+                              </div>
+                          </div>
+                        </div>
+                              
+                            <div class="col-md-12">
+                              <div class="form-group">
+                                      <label for="image_product">{{$lang.image}} {{$lang.product}}</label>
+                                 {{include file = 'auth/product/upload.tpl'}}
+                              </div>
+                            </div>
+                              
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="col-md-12">
+                <div class="box box-info">
+                  <div class="box-header">
+                    <div class="box-header with-border">
+                      <h3 class="box-title">{{$lang.parameters}} {{$lang.product}}</h3>
+                      <div class="box-tools pull-right">
+                        <button class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i></button>
+                        <button class="btn btn-box-tool" data-widget="remove"><i class="fa fa-times"></i></button>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="box-body pad">
+                    <textarea name="parameters" cols="40" rows="10" id="parameters" class="tinymcefull">{{if isset($product->parameters)}}{{$product->parameters}}{{/if}}</textarea>
+                  </div>
+                </div>
+              </div>
+
+              <div class="col-md-12">
+                <div class="box box-info">
+                  <div class="box-header">
+                    <div class="box-header with-border">
+                      <h3 class="box-title">{{$lang.product_detail}}</h3>
+                      <div class="box-tools pull-right">
+                        <button class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i></button>
+                        <button class="btn btn-box-tool" data-widget="remove"><i class="fa fa-times"></i></button>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="box-body pad">
+                    <textarea name="info" cols="40" rows="10" id="info" class="tinymcefull">{{if isset($product->info)}}{{$product->info}}{{/if}}</textarea>
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-12">
+                <div class="col-md-3 pull-right">
+                  <button class="btn btn-block btn-success btn-lg" onclick="return validateForm();">{{$lang.completed}}</button>
                 </div>
               </div>
             </div>
-            <div class="box-body pad">
-              <textarea name="info" cols="40" rows="10" id="info" class="tinymcefull">{{if isset($product->info)}}{{$product->info}}{{/if}}</textarea>
-            </div>
-          </div>
-        </div>
-        <div class="col-md-12">
-          <div class="col-md-3 pull-right">
-            <button class="btn btn-block btn-success btn-lg" onclick="return validateForm();">{{$lang.completed}}</button>
-          </div>
-        </div>
-      </div>
-          {{form_input(["type"=>"hidden","id"=>"id","name"=>"id","value"=>"{{if isset($product->id)}}{{$product->id}}{{/if}}"])}}
+        {{form_input(["type"=>"hidden","id"=>"id","name"=>"id","value"=>"{{if isset($product->id)}}{{$product->id}}{{/if}}"])}}
     {{form_close()}}
     <span class="error_box"></span>
     <!-- /.row -->
@@ -279,7 +284,52 @@ $(document).ready(function() {
             });
         }, 1000);
     });
+    
+    $("#category").on('change',function(e){
+        setTimeout(function () {
+            $.ajax({
+                url : '/auth/product/getCategoryChild/',
+                type: "POST",
+                data : {category : $("#category").val()},
+                cache: true,
+                beforeSend: function(){
+
+                },
+                success:function(data) 
+                {
+                    if(data){
+                        var json = JSON.parse(data);
+                        emptySelectBoxById('category_child',json);
+                        delete json;
+                    } else {
+                        document.getElementById('category_child').innerHTML = "<option value=''>Không có</option>";
+                    }
+                },
+                error: function() 
+                {
+                    alert("Lỗi! Contact Admin!");
+                }
+            });
+        },1000);
+        e.preventDefault();	//STOP default action
+   });
+    
 });
+
+function emptySelectBoxById(eid, value) {
+    if(value){
+        var text = "";
+        $.each(value, function(k, v) {
+                //display the key and value pair
+                if(k != ""){
+                    text += "<option value='" + k + "'>" + v + "</option>";
+                }
+        });
+        document.getElementById(eid).innerHTML = text;
+        delete text;
+    }
+}
+
 function validateForm(){
     new FormValidator('validate_scl', [{
         name: 'product_code',
