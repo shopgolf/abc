@@ -32,7 +32,7 @@ class Advertising_model extends MY_Model{
 				),array(
 						'name' 	=> 'link_detail',
 						'label' => $this->lang->line('link_detail'),
-						'width' => '15%',
+						'width' => '5%',
 						'sort'  => FALSE,
 						'searchoptions' => FALSE
 				),array(
@@ -49,13 +49,13 @@ class Advertising_model extends MY_Model{
 						'searchoptions' => FALSE
 				),array(
 						'name'  => 'created',
-						'width' => '10%',
+						'width' => '15%',
 						'sort'  => FALSE,
 						'label' => $this->lang->line('created'),
 						'searchoptions' => FALSE
 				),array(
 						'name' 	=> 'button',
-						'width' => '15%',
+						'width' => '11%',
 						'sort'  => FALSE,
                                                 'label'  => "",
 						'searchoptions' => false

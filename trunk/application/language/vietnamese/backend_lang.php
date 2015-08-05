@@ -129,3 +129,4 @@ $lang['dich_vu']                =   'Dịch vụ';
 $lang['content']                =   'Nội dung';
 $lang['accessory']              =   'Phụ kiện';
 $lang['status']                 =   'Trạng thái';
+$lang['options']                =   'Tùy chọn';

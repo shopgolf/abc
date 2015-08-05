@@ -19,3 +19,4 @@ $lang['product_promotion']          =   'Sản phẩm khuyến mãi';
 $lang['product_bid']                =   'Sản phẩm đang đấu giá';
 $lang['product_bided']              =   'Sản phẩm đã đấu giá';
 $lang['product_url_seo']            =   'Đường dẫn Seo';
+$lang['product_child_category']     =   'Danh mục con';
