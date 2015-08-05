@@ -67,11 +67,7 @@
                             <div class="view-list">
                                 <div class="rating">
                                     <div class="product-star">
-                                        <i class="fa fa-star"></i>
-                                        <i class="fa fa-star"></i>
-                                        <i class="fa fa-star"></i>
-                                        <i class="fa fa-star"></i>
-                                        <i class="fa fa-star-half-o"></i>
+                                        {{$value->product_code}}
                                     </div>
                                 </div>
                                 <h4><a href="{{$site_url}}{{$value->seo_url}}-p{{$value->id}}.html" title="{{$value->product_name}}">{{Cutname($value->product_name,30)}}</a></h4>
@@ -110,11 +106,7 @@
                                         <span class="price product-price">{{number_format($v->net_price,0,'','.')}}.VNĐ</span>
                                     </div>
                                     <div class="product-star">
-                                        <i class="fa fa-star"></i>
-                                        <i class="fa fa-star"></i>
-                                        <i class="fa fa-star"></i>
-                                        <i class="fa fa-star"></i>
-                                        <i class="fa fa-star-half-o"></i>
+                                       {{$v->product_code}}
                                     </div>
                                 </div>
                                 <div class="price-percent-reduction2">
@@ -150,11 +142,7 @@
                                         <span class="price product-price">{{number_format($v->net_price,0,'','.')}}.VNĐ</span>
                                     </div>
                                     <div class="product-star">
-                                        <i class="fa fa-star"></i>
-                                        <i class="fa fa-star"></i>
-                                        <i class="fa fa-star"></i>
-                                        <i class="fa fa-star"></i>
-                                        <i class="fa fa-star-half-o"></i>
+                                        {{$v->product_code}}
                                     </div>
                                 </div>
                                 <div class="price-percent-reduction2">
@@ -205,11 +193,7 @@
                                         <a href="{{$site_url}}{{$v->seo_url}}-p{{$v->id}}.html" class="img-top-view"><img src="{{$UPLOAD_DIR}}product/{{$image[0]}}" alt=""></a>
                                         <div class="view-list">
                                             <div class="rating"> <div class="product-star">
-                                                    <i class="fa fa-star"></i>
-                                                    <i class="fa fa-star"></i>
-                                                    <i class="fa fa-star"></i>
-                                                    <i class="fa fa-star"></i>
-                                                    <i class="fa fa-star-half-o"></i>
+                                                  {{$v->product_code}}
                                                 </div></div>
                                             <h4><a href="{{$site_url}}{{$v->seo_url}}-p{{$v->id}}.html">{{$v->product_name}}</a></h4>
                                             <p>{{number_format($v->net_price,0,'','.')}}.VNĐ</p>
