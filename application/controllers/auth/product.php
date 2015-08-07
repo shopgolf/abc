@@ -161,7 +161,7 @@ class Product extends BACKEND_Controller {
                             ),array(
                                 'field'   => 'info',
                                 'label'   =>  $this->lang->line('product_detail'),
-                                'rules'   => 'required|trim|max_length[255]|xss_clean'
+                                'rules'   => 'required|trim|xss_clean'
                             )
                         );
                         $this->form_validation->set_error_delimiters('<p><strong>'.$this->lang->line('error').' : </strong> ',' </p>');

@@ -65,5 +65,20 @@ class CI_Smarty3 extends Smarty {
             show_error('Unable to load the requested file: ' . $filePath);
         }
     }
+    
+    function view_tmp($name, $location = 'pagecontent') {
+        if (substr_count($name, ".") == 0) {
+            $filePath = APPPATH . "views/templates/" . $this->lang . $name . '.tpl';
+        } else {
+            $filePath = APPPATH . "views/templates/" . $this->lang . $name;
+        }
+        //echo $filePath;
+        if (file_exists($filePath)) {
+            $content = $this->fetch($filePath);
+            return $content;
+        } else {
+            show_error('Unable to load the requested file: ' . $filePath);
+        }
+    }
 
 }

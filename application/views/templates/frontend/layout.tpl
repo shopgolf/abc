@@ -28,7 +28,7 @@
 <!-- HEADER -->
 <div id="header" class="header">
     {{include file = 'templates/frontend/header.tpl'}}
-    {{include file = $menu_home}}
+    {{$menu_home}}
 </div>
     {{include file = $content}}
     {{include file = 'templates/frontend/footer.tpl'}}

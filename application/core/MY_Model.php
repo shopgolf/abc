@@ -366,7 +366,10 @@ class MY_Model extends CI_Model{
                 $this->db->where('pxc.parent_category IS NULL');
             }
             if(isset($params['child_category'])){
-                $this->db->where('pxc.parent_category IS NOT NULL');
+                $this->db->where('pxc.parent_category',$params['child_category']);
+            }
+            if(isset($params['category_id'])){
+                $this->db->where('pxc.id',$params['category_id']);
             }
 
             $query = $this->db->get();

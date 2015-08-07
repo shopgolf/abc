@@ -11,10 +11,37 @@ class Cronjob extends CI_Controller
                 $this->load->model('parameters_model');
                 $this->load->model('product_model');
                 $this->load->model('category_model');
+                $this->load->model('menu_model');
                 
                 $this->load->library('bookinglib');
                 $this->bookinglib = new bookinglib();
         }
+		
+		public function sqlejection(){
+				
+		}
+        
+        public function cronMenuCate(){
+                $category = $this->category_model->find_by();
+                $arr = array();
+                foreach($category as $keys => $vals){
+                    if(in_array($vals->id,array('149','150','151','152'))){
+                        $child_category = $this->category_model->getCategoryById(array('child_category'=>$vals->id));
+                        $str = array();
+                        foreach($child_category as $values){
+                            $str[] = $values->id;
+                        }
+
+                        $this->view_data                =   new stdClass();
+                        $this->view_data->name          =   $vals->name;
+                        $this->view_data->category      =   json_encode($str);
+                        $this->view_data->lastupdated   =   date("Y-m-d H:i:s",time());
+                        $this->menu_model->create($this->view_data);
+                        unset($this->view_data);   
+                    }
+                }                
+        }
+        
         
         public function removeChar(){
                 foreach($this->category_model->find_by() as $keys => $vals){

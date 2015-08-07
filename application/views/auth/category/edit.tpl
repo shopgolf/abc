@@ -35,6 +35,18 @@
 {{form_label({{$lang.category_name}},'category_name')}}
 {{form_input(["class"=>"form-control","id"=>"category_name","placeholder"=>"{{$lang.category_name}}","name"=>"category_name",value=>"{{if isset($category->name)}}{{$category->name}}{{/if}}"])}}
                                 </div>
+                            <div class="col-md-12 form-group">
+{{form_label({{$lang.parent_category}},'parent_category')}}
+                            <select class="form-control" name="category" id="category">
+                                {{foreach $category as $keys => $values}}
+                                    {{if isset($product->category) && $values->category == $product->category}}
+                                        <option selected="selected" value="{{$values->id}}">{{$values->name}}</option>
+                                    {{else}}
+                                        <option value="{{$values->id}}">{{$values->name}}</option>
+                                    {{/if}}
+                                {{/foreach}}
+                            </select>
+                            </div>
                                 <div class="col-md-12 form-group has-error">
 {{form_label({{$lang.seo_url}},'seo_url')}}
 {{form_input(["readonly"=>"true","class"=>"form-control","id"=>"seo_url","placeholder"=>"{{$lang.seo_url}}","name"=>"seo_url",value=>"{{if isset($category->seo_url)}}{{$category->seo_url}}{{/if}}"])}}
