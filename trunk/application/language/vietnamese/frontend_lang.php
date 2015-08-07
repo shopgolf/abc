@@ -1,7 +1,7 @@
 <?php
-//file frontend_lang la file de minh note nhung cai ngon ngu , trang nao minh cung su dung, nen minh ghi vao day cho no chung 1 cai de lam
 /*header*/
-$lang['login']               = 'Đăng nhập'; 
+$lang['login']               = 'Đăng nhập';
+$lang['site_name']           = 'Withone';
 /*Menu*/
 $lang['home']                = 'Trang chủ';
 $lang['golf_clubs']          = 'Gậy golf';
@@ -49,6 +49,3 @@ $lang['map']                 = 'Chỉ đường';
 /*News*/
 $lang['news']				 = 'Tin tức';
 $lang['list_news']			 = 'Danh sanh tin tức';
-
-
-

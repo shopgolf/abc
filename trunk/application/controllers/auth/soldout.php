@@ -12,7 +12,7 @@ if (!defined('BASEPATH')){
 class Soldout extends BACKEND_Controller {
     public function __construct() {
         parent::__construct();
-        $this->load->language('product');
+        $this->load->language('soldout');
         require_once(APPPATH . 'modules/backend/autoload.php');
         if($this->is_logged_in() == FALSE) {
                 $this->session->set_userdata('redirect_uri', current_url());redirect('auth');

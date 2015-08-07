@@ -215,6 +215,7 @@ $(document).ready(function() {
             $('#product_code').addClass( 'alert-error' );
             $('#product_code').parent().addClass( 'alert-error' );
         } else {
+            $("#product_name").focus();
             $('#product_code').removeClass( 'alert-error' );
             $('#product_code').parent().removeClass( 'alert-error' );
         }
@@ -226,6 +227,7 @@ $(document).ready(function() {
                 $('#product_name').addClass( 'alert-error' );
                 $('#product_name').parent().addClass( 'alert-error' );
         } else {
+                $("#net_price").focus();
                 $('#product_name').removeClass( 'alert-error' );
                 $('#product_name').parent().removeClass( 'alert-error' );
         }
@@ -237,6 +239,7 @@ $(document).ready(function() {
             $('#net_price').addClass( 'alert-error' );
             $('#net_price').parent().addClass( 'alert-error' );
         } else {
+            $("#net_price").focus();
             $('#net_price').removeClass( 'alert-error' );
             $('#net_price').parent().removeClass( 'alert-error' );
         }
@@ -274,7 +277,9 @@ $(document).ready(function() {
                     if(data['error'] == 1){
                         alert("{{$lang.error_contacts_ad}}");
                     } else {
-                        document.getElementById("product_url_seo").value       = data['response'];
+                        document.getElementById("product_url_seo").value        = data['response'];
+                        document.getElementById("seo_keyword").value            = $("#product_name").val();
+                        document.getElementById("seo_metadata").value           = $("#product_name").val();
                     }
                 },
                 error: function() 
