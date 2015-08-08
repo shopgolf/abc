@@ -15,16 +15,13 @@ foreach($menu as $key => $val){
         );
         
         if($val->id == 5){
-            
-            foreach($list_category as $x => $y){                
-                foreach($this->home_model->getCategoryById(array('child_category'=>$y)) as $ks => $vs){
-                  $child_category[]         =   $vs->name;
-                }
-                $c_child_category[$x]           =   $child_category;
-                unset($child_category);
+            foreach($this->home_model->getCategoryById(array('child_category'=>$v)) as $ks => $vs){
+              $child_category[]             =   $vs->name;
             }
-            $arr->child_category  =   $c_child_category;
+            $c_child_category[$k]           =   $child_category;
+            $arr->child_category            =   $c_child_category;
             
+            unset($child_category);
         } else {
             $arr->child_category  =   '';
         }
