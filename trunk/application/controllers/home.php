@@ -36,6 +36,7 @@ class Home extends CI_controller
                 require_once APPPATH . 'modules/frontend/menu.php';
                 
 		$this->smarty->assign(array(
+                        'title'                => $this->lang->language['site_name'],
 			'page_class'           => 'home',
                         'menu_home'            => $menu_home,
                         'content'              => 'frontend/home/index.tpl',

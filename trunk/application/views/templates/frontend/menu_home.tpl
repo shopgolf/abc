@@ -14,18 +14,45 @@
                             <ul class="nav navbar-nav menu">
                                 <li class="active"><a href="{{$site_url}}">{{$lang.home}}</a></li>
                                 {{foreach $lists as $keys => $values}}
-                                    <li class="dropdown">
-                                        <a href="category.html" class="dropdown-toggle" data-toggle="dropdown">{{$values->name}}</a>
-                                        <ul class="dropdown-menu container-fluid">
-                                            <li class="block-container">
-                                                <ul class="block">
-                                                    {{foreach $values->category as $k => $v}}
-                                                        <li class="link_container"><a href="#">{{$v}}</a></li>
-                                                    {{/foreach}}
-                                                </ul>
-                                            </li>
-                                        </ul>
-                                    </li>
+                                    {{if $values->child_category == ""}}
+                                        <li class="dropdown">
+                                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">{{$values->name}}</a>
+                                            <ul class="dropdown-menu container-fluid">
+                                                <li class="block-container">
+                                                    <ul class="block">
+                                                        {{foreach $values->category as $k => $v}}
+                                                            <li class="link_container"><a href="{{$v.seo_url}}">{{$v.category_name}}</a></li>
+                                                        {{/foreach}}
+                                                    </ul>
+                                                </li>
+                                            </ul>
+                                        </li>
+                                    {{else}}
+                                        <li class="dropdown">
+                                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">{{$values->name}}</a>
+                                            <ul class="dropdown-menu mega_dropdown" role="menu" style="width: 830px;">
+                                                {{foreach $values->child_category as $m => $n}}
+                                                    <li class="block-container col-sm-3">
+                                                        <ul class="block">
+                                                            <li class="img_container">
+                                                                <a href="#">
+                                                                    <img class="img-responsive" src="{{$static_ft}}/data/men.png" alt="sport">
+                                                                </a>
+                                                            </li>
+                                                            <li class="link_container group_header">
+                                                                <a href="#">dddddddddddd</a>
+                                                            </li>
+
+                                                            {{foreach $n as $h => $t}}
+                                                                <li class="link_container"><a href="{{$v.seo_url}}">{{$v.category_name}}</a></li>
+                                                            {{/foreach}}
+                                                        </ul>
+                                                    </li>
+                                                {{/foreach}}
+                                            </ul>
+                                        </li>
+                                    {{/if}}
+                                    
                                 {{/foreach}}
                             </ul>
                         </div><!--/.nav-collapse -->
