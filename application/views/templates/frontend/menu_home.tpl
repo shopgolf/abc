@@ -40,11 +40,14 @@
                                                                 </a>
                                                             </li>
                                                             <li class="link_container group_header">
-                                                                <a href="#">dddddddddddd</a>
+                                                                {{foreach $values->category as $q => $p}}
+                                                                    {{if $q == $m}}
+                                                                        <a href="{{$site_url}}{{$p.seo_url}}">{{$p.category_name}}</a>
+                                                                    {{/if}}
+                                                                {{/foreach}}
                                                             </li>
-
                                                             {{foreach $n as $h => $t}}
-                                                                <li class="link_container"><a href="{{$v.seo_url}}">{{$v.category_name}}</a></li>
+                                                                <li class="link_container"><a href="#">{{$t}}</a></li>
                                                             {{/foreach}}
                                                         </ul>
                                                     </li>
