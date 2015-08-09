@@ -88,16 +88,16 @@
                         <ul class="product-list owl-carousel nav-center" data-dots="false" data-loop="true" data-nav = "true" data-margin = "10" data-responsive='{"0":{"items":1},"600":{"items":3},"1000":{"items":4}}'>
                             {{foreach $value as $k => $v}}
                             {{$image = json_decode($v->image)}}
-                            <li>
+                            <li class="wapper-tooltip">
                                 <div class="left-block">
-                                    <a href="{{$site_url}}{{$v->seo_url}}-p{{$v->id}}.html" title="{{$v->product_name}}"><img class="img-responsive" alt="product" src="{{$UPLOAD_DIR}}product/{{$image[0]}}" /></a>
+                                    <a href="{{$site_url}}{{$v->seo_url}}-p{{$v->id}}.html"   title="{{$v->product_name}}"><img class="img-responsive" alt="product" src="{{$UPLOAD_DIR}}product/{{$image[0]}}" /></a>
                                     <div class="quick-view">
                                             <a title="Add to my wishlist" class="heart" href="#"></a>
                                             <a title="Add to compare" class="compare" href="#"></a>
                                             <a title="Quick view" class="search" href="{{$site_url}}{{$v->seo_url}}-p{{$v->id}}.html"></a>
                                     </div>
                                     <div class="add-to-cart">
-                                        <a title="BUY" href="javascript:void(0)">BUY</a>
+                                        <a title="BUY" href="javascript:void(0)" >BUY</a>
                                     </div>
                                 </div>
                                 <div class="right-block">
@@ -112,6 +112,7 @@
                                 <div class="price-percent-reduction2">
                                    SALE
                                 </div>
+                                <div class="tooltip-me"><p>{{$v->product_code}}</p></div>
                             </li>
                              {{/foreach}}       
                         </ul>
@@ -124,7 +125,7 @@
                         <ul class="product-list owl-carousel nav-center" data-dots="false" data-loop="true" data-nav = "true" data-margin = "10" data-responsive='{"0":{"items":1},"600":{"items":3},"1000":{"items":4}}'>
                             {{foreach $value as $k => $v}}
                             {{$image = json_decode($v->image)}}
-                            <li>
+                            <li class="wapper-tooltip">
                                 <div class="left-block">
                                     <a href="#"><img class="img-responsive" alt="product" src="{{$UPLOAD_DIR}}product/{{$image[0]}}" /></a>
                                     <div class="quick-view">
@@ -148,6 +149,7 @@
                                 <div class="price-percent-reduction2">
                                    SALE
                                 </div>
+                                <div class="tooltip-me"><p>{{$v->product_code}}</p></div>
                             </li>
                             {{/foreach}}            
                         </ul>
