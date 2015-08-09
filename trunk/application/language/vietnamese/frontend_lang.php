@@ -4,6 +4,7 @@ $lang['login']               = 'Đăng nhập';
 $lang['site_name']           = 'Withone';
 /*Menu*/
 $lang['home']                = 'Trang chủ';
+$lang['with_one']                  = 'With one';
 $lang['golf_clubs']          = 'Gậy golf';
 $lang['golf_Simulators']     = 'Máy tập golf';
 $lang['sevices']             = 'Dịch vụ';
