@@ -33,6 +33,18 @@ class Home extends CI_controller
 		$field_post           = array('id','seo_url','title','description','feature_img'); 		
 		$data_post            = $this->post_model->data_post($field_post,$limit = 3,$offset = FALSE,$order_by = 'DESC',$param = 'id');	
 		$data_slider          = $this->advertising_model->get_slider();                
+//                $this->bookinglib->getContentDes($data_post[0]->description)
+                foreach($data_post as $key => $value){
+                    $lis                =   new stdClass();
+                    $lis->id            = $value->id;
+                    $lis->seo_url       = $value->seo_url;
+                    $lis->title         = $value->title;
+                    $lis->description   = $this->bookinglib->getContentDes($value->description);
+                    $lis->feature_img   = $value->feature_img;
+                    
+                    $_data_post[]   =   $lis;
+                    unset($lis);
+                }
                 
 		$this->smarty->assign(array(
                         'title'                => $this->lang->language['site_name'],
@@ -42,7 +54,7 @@ class Home extends CI_controller
 			'data_topview_product' => $data_topview_product, 
 			'data_checkout'        => array_chunk($data_checkout, 3), 
 			'data_maker'           => $data_maker, 
-			'data_post'            => $data_post, 
+			'data_post'            => $_data_post, 
 			'data_slider'          => $data_slider, 
 		));
                 

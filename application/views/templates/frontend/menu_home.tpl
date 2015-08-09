@@ -42,7 +42,7 @@
                                                                 {{/foreach}}
                                                             </li>
                                                             {{foreach $n as $h => $t}}
-                                                                <li class="link_container"><a href="#">{{$t}}</a></li>
+                                                                <li class="link_container"><a href="{{$t.seo_url}}">{{$t.name}}</a></li>
                                                             {{/foreach}}
                                                         </ul>
                                                     </li>
