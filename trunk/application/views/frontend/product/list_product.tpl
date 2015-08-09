@@ -189,13 +189,6 @@
                                 </div>
                                 <div class="right-block">
                                     <h5 class="product-name"><a href="{{$site_url}}{{$value->seo_url}}-p{{$value->id}}.html">{{$value->product_name}}</a></h5>
-                                    <div class="product-star">
-                                        <i class="fa fa-star"></i>
-                                        <i class="fa fa-star"></i>
-                                        <i class="fa fa-star"></i>
-                                        <i class="fa fa-star"></i>
-                                        <i class="fa fa-star-half-o"></i>
-                                    </div>
                                     <div class="content_price">
                                         <span class="price product-price">{{number_format($value->net_price,0,'','.')}}.VNĐ</span>
                                         <span class="price old-price">$52,00</span>
