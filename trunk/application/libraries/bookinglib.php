@@ -286,5 +286,29 @@ class bookinglib {
     function seoUrl($string){
             return trim(preg_replace('/-quot/','',preg_replace('/ +/', '-', preg_replace('/[^A-Za-z0-9 ]/', ' ', $this->removeSignText($string,true)))));
     }
+    
+    function getContentDes($text) { 
+        $content =      str_replace("\n","",strip_tags(preg_replace("/<img[^>]+\>/i", "", $text)));
+        $content =      $this->shorten_string($content,100);
+        return $content;
+    }
+
+    function shorten_string($string, $wordsreturned)
+    {
+            $retval = $string;  //  Just in case of a problem
+            $array = explode(" ", $string);
+            /*  Already short enough, return the whole thing*/
+            if (count($array)<=$wordsreturned)
+            {
+                    $retval = $string;
+            }
+            /*  Need to chop of some words*/
+            else
+            {
+                    array_splice($array, $wordsreturned);
+                    $retval = implode(" ", $array)." ...";
+            }
+            return $retval;
+    }
 
 }

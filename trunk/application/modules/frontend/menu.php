@@ -16,7 +16,10 @@ foreach($menu as $key => $val){
         
         if($val->id == 5){
             foreach($this->home_model->getCategoryById(array('child_category'=>$v)) as $ks => $vs){
-              $child_category[]             =   $vs->name;
+              $child_category[]             =   array(
+                  'name'            =>  $vs->name,
+                  'seo_url'         =>  $vs->seo_url
+              );
             }
             
             $c_child_category[$k]           =   $child_category;
