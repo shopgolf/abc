@@ -36,7 +36,7 @@ class MY_Model extends CI_Model{
                 
                 $this->product_type = array(
 			'1'	=> $this->lang->line('product'),
-			'2'	=> $this->lang->line('accessory')			
+			'2'	=> $this->lang->line('accessory')
 		);
 	}
         
@@ -362,14 +362,26 @@ class MY_Model extends CI_Model{
             $this->db->select("pxc.*");
             $this->db->from('px_category AS pxc');
 
-            if(isset($params['parent_category'])){
+            if(isset($params['parent_category_null'])){
                 $this->db->where('pxc.parent_category IS NULL');
+            }
+            if(isset($params['parent_category_not_null'])){
+                $this->db->where('pxc.parent_category IS NOT NULL');
             }
             if(isset($params['child_category'])){
                 $this->db->where('pxc.parent_category',$params['child_category']);
             }
             if(isset($params['category_id'])){
                 $this->db->where('pxc.id',$params['category_id']);
+            }
+            if(isset($params['random'])){
+                $this->db->order_by('pxc.id', 'RANDOM');
+            }
+            if(isset($params['limit'])){
+                $this->db->limit($params['limit']);
+            }
+            if(isset($params['type'])){
+                $this->db->where('pxc.type',$params['type']);
             }
 
             $query = $this->db->get();

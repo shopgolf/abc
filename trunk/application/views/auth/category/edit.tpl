@@ -31,39 +31,49 @@
                         {{/if}}
                         <span class="error_box"></span>
                         {{form_open("",["name"=>"validate_scl"])}}
-                                <div class="col-md-12 form-group">
-{{form_label({{$lang.category_name}},'category_name')}}
-{{form_input(["class"=>"form-control","id"=>"category_name","placeholder"=>"{{$lang.category_name}}","name"=>"category_name",value=>"{{if isset($category->name)}}{{$category->name}}{{/if}}"])}}
-                                </div>
                             <div class="col-md-12 form-group">
-{{form_label({{$lang.parent_category}},'parent_category')}}
-                            <select class="form-control" name="category" id="category">
-                                {{foreach $category as $keys => $values}}
-                                    {{if isset($product->category) && $values->category == $product->category}}
-                                        <option selected="selected" value="{{$values->id}}">{{$values->name}}</option>
-                                    {{else}}
-                                        <option value="{{$values->id}}">{{$values->name}}</option>
-                                    {{/if}}
-                                {{/foreach}}
-                            </select>
+                                {{form_label({{$lang.category_name}},'category_name')}}
+                                {{form_input(["class"=>"form-control","id"=>"category_name","placeholder"=>"{{$lang.category_name}}","name"=>"category_name",value=>"{{if isset($category->name)}}{{$category->name}}{{/if}}"])}}
                             </div>
-                                <div class="col-md-12 form-group has-error">
-{{form_label({{$lang.seo_url}},'seo_url')}}
-{{form_input(["readonly"=>"true","class"=>"form-control","id"=>"seo_url","placeholder"=>"{{$lang.seo_url}}","name"=>"seo_url",value=>"{{if isset($category->seo_url)}}{{$category->seo_url}}{{/if}}"])}}
-                                </div>
-                                <div class="col-md-12 form-group has-success">
-{{form_label({{$lang.seo_keyword}},'keyword',['class'=>'control-label fa fa-check'])}}
-{{form_input(["readonly"=>"true","class"=>"form-control","id"=>"keyword","placeholder"=>"{{$lang.seo_keyword}}","name"=>"keyword",value=>"{{if isset($category->keyword)}}{{$category->keyword}}{{/if}}"])}}
-                                </div>
-                                <div class="col-md-12 form-group has-warning">
-{{form_label({{$lang.category_description}},'description',['class'=>'control-label fa fa-check'])}}
-{{form_textarea(["class"=>"tinymcefull","readonly"=>"true","rows"=>"5","id"=>"description","placeholder"=>"{{$lang.category_description}}","name"=>"description",value=>"{{if isset($category->description)}}{{$category->description}}{{/if}}"])}}
-                                </div>
+                            
+                            <div class="col-md-12 form-group">
+                                {{form_label({{$lang.type}},'product_type')}}
+                                <select class="form-control" name="product_type" id="product_type">
+                                    {{foreach $type as $key => $vals}}
+                                        {{if isset($category->type) && $key == $category->type}}
+                                            <option selected="selected" value="{{$key}}">{{$vals}}</option>
+                                        {{else}}
+                                            <option value="{{$key}}">{{$vals}}</option>
+                                        {{/if}}
+                                    {{/foreach}}
+                                </select>
+                            </div>
+
+                            <div class="col-md-12 form-group">
+                                {{form_label({{$lang.parent_category}},'parent_category')}}
+                                <select class="form-control" name="category" id="category">
+                                    {{foreach $list_category as $keys => $values}}
+                                            <option value="{{$values->id}}">{{$values->name}}</option>
+                                    {{/foreach}}
+                                </select>
+                            </div>
+                            <div class="col-md-12 form-group has-error">
+                                {{form_label({{$lang.seo_url}},'seo_url')}}
+                                {{form_input(["readonly"=>"true","class"=>"form-control","id"=>"seo_url","placeholder"=>"{{$lang.seo_url}}","name"=>"seo_url",value=>"{{if isset($category->seo_url)}}{{$category->seo_url}}{{/if}}"])}}
+                            </div>
+                            <div class="col-md-12 form-group has-success">
+                                {{form_label({{$lang.seo_keyword}},'keyword',['class'=>'control-label fa fa-check'])}}
+                                {{form_input(["readonly"=>"true","class"=>"form-control","id"=>"keyword","placeholder"=>"{{$lang.seo_keyword}}","name"=>"keyword",value=>"{{if isset($category->keyword)}}{{$category->keyword}}{{/if}}"])}}
+                            </div>
+                            <div class="col-md-12 form-group has-warning">
+                                {{form_label({{$lang.category_description}},'description',['class'=>'control-label fa fa-check'])}}
+                                {{form_textarea(["class"=>"tinymcefull","readonly"=>"true","rows"=>"5","id"=>"description","placeholder"=>"{{$lang.category_description}}","name"=>"description",value=>"{{if isset($category->description)}}{{$category->description}}{{/if}}"])}}
+                            </div>
                                 
-                                <div class="col-md-6">
-                                    <button class="btn btn-success glyphicon glyphicon-floppy-disk" onclick="return validateForm();">{{$lang.save}}</button>
-                                </div>
-                         {{form_close()}}
+                            <div class="col-md-6">
+                                <button class="btn btn-success glyphicon glyphicon-floppy-disk" onclick="return validateForm();">{{$lang.save}}</button>
+                            </div>
+                            {{form_close()}}
                   </div>
               </div>
           </div>

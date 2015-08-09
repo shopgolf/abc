@@ -13,6 +13,7 @@ class Home extends CI_controller
                 $this->load->model('post_model');
                 $this->load->model('advertising_model');
                 $this->load->model('menu_model');
+                $this->load->model('category_model');
 
                 $this->load->library('bookinglib');
                 $this->bookinglib = new bookinglib();
@@ -33,13 +34,9 @@ class Home extends CI_controller
 		$data_post            = $this->post_model->data_post($field_post,$limit = 3,$offset = FALSE,$order_by = 'DESC',$param = 'id');	
 		$data_slider          = $this->advertising_model->get_slider();                
                 
-                require_once APPPATH . 'modules/frontend/menu.php';
-                
 		$this->smarty->assign(array(
                         'title'                => $this->lang->language['site_name'],
 			'page_class'           => 'home',
-                        'menu_home'            => $menu_home,
-                        'content'              => 'frontend/home/index.tpl',
 			'data'                 => array_chunk($data,4), 
 			'data_old_product'     => array_chunk($data_old_product,4), 
 			'data_topview_product' => $data_topview_product, 
@@ -47,6 +44,14 @@ class Home extends CI_controller
 			'data_maker'           => $data_maker, 
 			'data_post'            => $data_post, 
 			'data_slider'          => $data_slider, 
+		));
+                
+                require_once APPPATH . 'modules/frontend/menu.php';
+                require_once APPPATH . 'modules/frontend/slider.php';
+                
+                $this->smarty->assign(array(
+                        'menu_home'            => $menu_home,
+                        'content'              => $content
 		));
 
 		$this->smarty->display('templates/frontend/layout');//hien thi template cai nay e bit ma

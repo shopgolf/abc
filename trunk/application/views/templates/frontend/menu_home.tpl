@@ -34,11 +34,6 @@
                                                 {{foreach $values->child_category as $m => $n}}
                                                     <li class="block-container col-sm-3">
                                                         <ul class="block">
-                                                            <li class="img_container">
-                                                                <a href="#">
-                                                                    <img class="img-responsive" src="{{$static_ft}}/data/men.png" alt="sport">
-                                                                </a>
-                                                            </li>
                                                             <li class="link_container group_header">
                                                                 {{foreach $values->category as $q => $p}}
                                                                     {{if $q == $m}}

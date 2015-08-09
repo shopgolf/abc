@@ -30,7 +30,7 @@
     {{include file = 'templates/frontend/header.tpl'}}
     {{$menu_home}}
 </div>
-    {{include file = $content}}
+    {{$content}}
     {{include file = 'templates/frontend/footer.tpl'}}
 <a href="#" class="scroll_top" title="Scroll to Top" style="display: inline;">Scroll</a>
 <!-- Script-->
