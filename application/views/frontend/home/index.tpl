@@ -1,4 +1,4 @@
-{{include file = 'templates/frontend/slider.tpl'}}
+{{$slider}}
 <!-- servives -->
 <div class="services-wapper">
     <div class="container">

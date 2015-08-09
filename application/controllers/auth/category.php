@@ -58,9 +58,11 @@ class Category extends BACKEND_Controller {
 		if($this->input->server('REQUEST_METHOD')=='POST'){
                         $this->view_data["category"]                                     = new stdClass();
                         $this->view_data["category"]->name                               = $this->input->post('category_name');
+                        $this->view_data["category"]->type                               = $this->input->post('type');
                         $this->view_data["category"]->keyword                            = $this->input->post('keyword');
                         $this->view_data["category"]->seo_url                            = $this->input->post('seo_url');
                         $this->view_data["category"]->description                        = $this->input->post('description');
+                        $this->view_data["category"]->parent_category                    = $this->input->post('category');
                         $this->view_data["category"]->owner                              = $this->session->userdata['user_id'];
                         $this->view_data["category"]->lastupdated                        = time();
                         
@@ -109,18 +111,18 @@ class Category extends BACKEND_Controller {
             
             if(isset($params)){
                     $category_query	= $this->category_model->find_by(array('id'=>$params));
-                    
                     if(!isset($category_query[0])){
                             $this->session->set_flashdata('flash_message', $this->lang->line('not_exists'));
                             redirect(site_url('auth/category'));
                             exit();
                     }
-                    $this->smarty->assign(array(
-                        'category'       =>  $category_query[0]
-                    ));
+                    
+                    $this->smarty->assign(array('category'=>$category_query[0]));
             }
             
             $this->smarty->assign(array(
+                'list_category' =>  $this->category_model->getCategoryById(array('parent_category_null'=>true,'type'=>1)),
+                'type'          =>  $this->category_model->product_type(),
                 'js'            =>  array(
                     base_url().'static/templates/backend/js/main.js',
                     base_url().'third_party/tiny_mce/jquery.tinymce.js',

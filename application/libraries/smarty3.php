@@ -18,11 +18,6 @@ class CI_Smarty3 extends Smarty {
         $this->cache_lifetime = 3600;
         $this->left_delimiter = '{{';
         $this->right_delimiter = '}}';
-        //$this->debugging = TRUE;
-        //global $URI;
-        //if (!empty($URI->segments[1])) {
-          //  $this->lang = $URI->segments[1] . '/';
-        //}
     }
 
     function display($html) {
@@ -38,46 +33,17 @@ class CI_Smarty3 extends Smarty {
         }
     }
 
-    function view($name, $location = 'pagecontent') {
-        if (substr_count($name, ".") == 0) {
-            $filePath = APPPATH . "views/" . $this->lang . $name . '.tpl';
+    function view_tmp($filePath, $location = 'pagecontent') {
+        if (substr_count($filePath, ".") == 0) {
+            $_filePath = APPPATH.'views/'.$filePath . '.tpl';
         } else {
-            $filePath = APPPATH . "views/" . $this->lang . $name;
+            $_filePath = APPPATH.'views/'.$filePath;
         }
-        //echo $filePath;
-        if (file_exists($filePath)) {
-            $content = $this->fetch($filePath);
-            $this->assign($location, $content);
-        } else {
-            show_error('Unable to load the requested file: ' . $filePath);
-        }
-    }
-
-    function get_contents($html) {
-        if (substr_count($html, ".") == 0) {
-            $filePath = APPPATH . "views/" . $this->lang . $html . '.tpl';
-        } else {
-            $filePath = APPPATH . "views/" . $this->lang . $html;
-        }
-        if (file_exists($filePath)) {
-            return $this->fetch($filePath);
-        } else {
-            show_error('Unable to load the requested file: ' . $filePath);
-        }
-    }
-    
-    function view_tmp($name, $location = 'pagecontent') {
-        if (substr_count($name, ".") == 0) {
-            $filePath = APPPATH . "views/templates/" . $this->lang . $name . '.tpl';
-        } else {
-            $filePath = APPPATH . "views/templates/" . $this->lang . $name;
-        }
-        //echo $filePath;
-        if (file_exists($filePath)) {
-            $content = $this->fetch($filePath);
+        if (file_exists($_filePath)) {
+            $content = $this->fetch($_filePath);
             return $content;
         } else {
-            show_error('Unable to load the requested file: ' . $filePath);
+            show_error('Unable to load the requested file: ' . $_filePath);
         }
     }
 

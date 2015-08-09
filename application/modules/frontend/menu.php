@@ -18,6 +18,7 @@ foreach($menu as $key => $val){
             foreach($this->home_model->getCategoryById(array('child_category'=>$v)) as $ks => $vs){
               $child_category[]             =   $vs->name;
             }
+            
             $c_child_category[$k]           =   $child_category;
             $arr->child_category            =   $c_child_category;
             
@@ -39,4 +40,4 @@ foreach($menu as $key => $val){
 $this->smarty->assign(array(
         'lists'          =>       $lists
 ));
-$menu_home  =   $this->smarty->view_tmp('frontend/menu_home','menu_home');
+$menu_home  =   $this->smarty->view_tmp('templates/frontend/menu_home','menu_home');
