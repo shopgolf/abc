@@ -21,3 +21,5 @@ $lang['product_bided']              =   'Sản phẩm đã đấu giá';
 $lang['product_url_seo']            =   'Đường dẫn Seo';
 $lang['product_child_category']     =   'Danh mục con';
 $lang['hotdeal_list']               =   'Danh sách '.$lang['product_hotdeal'];
+
+$lang['hang_moi_ve']                =   'hang-moi-ve';

@@ -1,6 +1,4 @@
 <?php if (!defined('BASEPATH')) exit('No direct script access allowed');
-//error_reporting(E_ALL);
-//ini_set("display_errors", 1);
 class Home extends CI_controller
 {	
 	public function __construct() {
@@ -33,7 +31,7 @@ class Home extends CI_controller
 		$field_post           = array('id','seo_url','title','description','feature_img'); 		
 		$data_post            = $this->post_model->data_post($field_post,$limit = 3,$offset = FALSE,$order_by = 'DESC',$param = 'id');	
 		$data_slider          = $this->advertising_model->get_slider();                
-//                $this->bookinglib->getContentDes($data_post[0]->description)
+
                 foreach($data_post as $key => $value){
                     $lis                =   new stdClass();
                     $lis->id            = $value->id;
@@ -60,12 +58,6 @@ class Home extends CI_controller
                 
                 require_once APPPATH . 'modules/frontend/menu.php';
                 require_once APPPATH . 'modules/frontend/slider.php';
-                
-                $this->smarty->assign(array(
-                        'menu_home'            => $menu_home,
-                        'content'              => $content
-		));
-
 		$this->smarty->display('templates/frontend/layout');//hien thi template cai nay e bit ma
 	}
 }

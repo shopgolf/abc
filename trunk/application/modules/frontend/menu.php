@@ -1,21 +1,19 @@
 <?php
-$menu   = $this->menu_model->find_by(array('status'=>1));
-
 $lists              = array();
 $child_category     = array();
-foreach($menu as $key => $val){
+foreach($this->menu_model->find_by(array('status'=>1)) as $key => $val){
     
     $arr                =   new stdClass();
     $list_category      =   json_decode($val->category);
     foreach($list_category as $k => $v){
-        $category       =   $this->home_model->getCategoryById(array('category_id'=>$v));
+        $category       =   $this->menu_model->getCategoryById(array('category_id'=>$v));
         $cate[]         =   array(
             'category_name'     =>      $category[0]->name,
             'seo_url'           =>      $category[0]->seo_url
         );
         
         if($val->id == 5){
-            foreach($this->home_model->getCategoryById(array('child_category'=>$v)) as $ks => $vs){
+            foreach($this->menu_model->getCategoryById(array('child_category'=>$v)) as $ks => $vs){
               $child_category[]             =   array(
                   'name'            =>  $vs->name,
                   'seo_url'         =>  $vs->seo_url
@@ -43,4 +41,16 @@ foreach($menu as $key => $val){
 $this->smarty->assign(array(
         'lists'          =>       $lists
 ));
-$menu_home  =   $this->smarty->view_tmp('templates/frontend/menu_home','menu_home');
+
+switch($this->router->fetch_class()){
+    case "home":
+        $menu  =   $this->smarty->view_tmp('templates/frontend/menu_home','menu_home');
+        break;
+    case "product":
+        $menu  =   $this->smarty->view_tmp('templates/frontend/menu_page','menu_page');
+        break;
+}
+
+$this->smarty->assign(array(
+    'menu' 	 => $menu
+));

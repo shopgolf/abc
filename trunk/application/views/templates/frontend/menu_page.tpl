@@ -5,80 +5,49 @@
             <div class="col-sm-3" id="box-vertical-megamenus">
                 <div class="box-vertical-megamenus">
                 <h4 class="title">
-                    <span class="title-menu">Danh mục</span>
+                    <span class="title-menu">{{$lang.category}}</span>
                     <span class="btn-open-mobile pull-right"><i class="fa fa-bars"></i></span>
                 </h4>
                 <div class="vertical-menu-content is-home">
                     <ul class="vertical-menu-list">
-                        <li><a href="#"><img class="icon-menu" alt="Funky roots" src="{{$static_ft}}/data/12.png">Driver</a></li>
-                        <li>
-                            <a class="parent" href="#"><img class="icon-menu" alt="Funky roots" src="{{$static_ft}}/data/13.png">Utility</a>
-                            <div class="vertical-dropdown-menu">
-                                <div class="vertical-groups col-sm-12">
-                                    <div class="mega-group col-sm-4">
-                                        <h4 class="mega-group-header"><span>Tennis</span></h4>
-                                        <ul class="group-link-default">
-                                            <li><a href="#">Tennis</a></li>
-                                            <li><a href="#">Coats &amp; Jackets</a></li>
-                                            <li><a href="#">Blouses &amp; Shirts</a></li>
-                                            <li><a href="#">Tops &amp; Tees</a></li>
-                                            <li><a href="#">Hoodies &amp; Sweatshirts</a></li>
-                                            <li><a href="#">Intimates</a></li>
-                                        </ul>
-                                    </div>
-                                    <div class="mega-group col-sm-4">
-                                        <h4 class="mega-group-header"><span>Swimming</span></h4>
-                                        <ul class="group-link-default">
-                                            <li><a href="#">Dresses</a></li>
-                                            <li><a href="#">Coats &amp; Jackets</a></li>
-                                            <li><a href="#">Blouses &amp; Shirts</a></li>
-                                            <li><a href="#">Tops &amp; Tees</a></li>
-                                            <li><a href="#">Hoodies &amp; Sweatshirts</a></li>
-                                            <li><a href="#">Intimates</a></li>
-                                        </ul>
-                                    </div>
-                                    <div class="mega-group col-sm-4">
-                                        <h4 class="mega-group-header"><span>Shoes</span></h4>
-                                        <ul class="group-link-default">
-                                            <li><a href="#">Dresses</a></li>
-                                            <li><a href="#">Coats &amp; Jackets</a></li>
-                                            <li><a href="#">Blouses &amp; Shirts</a></li>
-                                            <li><a href="#">Tops &amp; Tees</a></li>
-                                            <li><a href="#">Hoodies &amp; Sweatshirts</a></li>
-                                            <li><a href="#">Intimates</a></li>
-                                        </ul>
-                                    </div>
-                                    <div class="mega-custom-html col-sm-12">
-                                        <a href="#"><img src="{{$static_ft}}/data/banner-megamenu.jpg" alt="Banner"></a>
-                                    </div>
-                                </div>
-                            </div>
-                        </li>
-                        <li>
-                            <a href="#">
-                                <img class="icon-menu" alt="Funky roots" src="{{$static_ft}}/data/21.png">Fairway
-                            </a>
-                        </li>
-                         <li>
-                            <a href="#">
-                                <img class="icon-menu" alt="Funky roots" src="{{$static_ft}}/data/17.png">Iron
-                            </a>
-                        </li>
-                        <li>
-                            <a href="#">
-                                <img class="icon-menu" alt="Funky roots" src="{{$static_ft}}/data/14.png">Wedge
-                            </a>
-                        </li>
-                        <li>
-                            <a href="#">
-                                <img class="icon-menu" alt="Funky roots" src="{{$static_ft}}/data/19.png">Putter
-                            </a>
-                        </li>
-                        <li>
-                            <a href="#">
-                                <img class="icon-menu" alt="Funky roots" src="{{$static_ft}}/data/20.png">Lefty
-                            </a>
-                        </li>
+                        {{foreach $lists as $keys => $values}}
+                            {{if $values->child_category == ""}}
+                                <li class="dropdown">
+                                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">{{$values->name}}</a>
+                                    <ul class="dropdown-menu container-fluid">
+                                        <li class="block-container">
+                                            <ul class="block">
+                                                {{foreach $values->category as $k => $v}}
+                                                    <li class="link_container"><a href="{{$v.seo_url}}">{{$v.category_name}}</a></li>
+                                                {{/foreach}}
+                                            </ul>
+                                        </li>
+                                    </ul>
+                                </li>
+                            {{else}}
+                                <li class="dropdown">
+                                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">{{$values->name}}</a>
+                                    <ul class="dropdown-menu mega_dropdown" role="menu" style="width: 830px;">
+                                        {{foreach $values->child_category as $m => $n}}
+                                            <li class="block-container col-sm-3">
+                                                <ul class="block">
+                                                    <li class="link_container group_header">
+                                                        {{foreach $values->category as $q => $p}}
+                                                            {{if $q == $m}}
+                                                                <a href="{{$site_url}}{{$p.seo_url}}">{{$p.category_name}}</a>
+                                                            {{/if}}
+                                                        {{/foreach}}
+                                                    </li>
+                                                    {{foreach $n as $h => $t}}
+                                                        <li class="link_container"><a href="{{$t.seo_url}}">{{$t.name}}</a></li>
+                                                    {{/foreach}}
+                                                </ul>
+                                            </li>
+                                        {{/foreach}}
+                                    </ul>
+                                </li>
+                            {{/if}}
+                        {{/foreach}}
                     </ul>
                 </div> 
             </div>
