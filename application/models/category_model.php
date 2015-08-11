@@ -59,7 +59,6 @@ class Category_model extends MY_Model{
 		unset($ouput['aaData']);
 		$ouput['aaData'] = array();
                 $count = 1;
-$string = '<div class="icheckbox_flat-blue" style="position: relative;"><input type="checkbox" style="position: absolute; opacity: 0;"><ins class="iCheck-helper" style="position: absolute; top: 0%; left: 0%; display: block; width: 100%; height: 100%; margin: 0px; padding: 0px; border: 0px; opacity: 0; background: rgb(255, 255, 255);"></ins></div>';
 		foreach($datatables['aaData'] as $item){
                     $ouput['aaData'][] = array(
                         "<input type='checkbox' value='".$item['id']."' onclick=get_Checked_Checkbox_By_Name('checkCol') name='checkCol' id='checkCol' class='checkbox' />",
@@ -72,11 +71,4 @@ $string = '<div class="icheckbox_flat-blue" style="position: relative;"><input t
 	
 		return json_encode($ouput);
 	}
-
-	public function get_data(){
-		$this->db->select('name,id,seo_url');
-		$query = $this->db->get($this->table_name);
-		return $query->result();
-	}
-
 }
