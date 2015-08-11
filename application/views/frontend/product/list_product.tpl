@@ -13,14 +13,14 @@
             <div class="column col-xs-12 col-sm-3" id="left_column">
                 <!-- block category -->
                 <div class="block left-module">
-                    <p class="title_block">Product types</p>
+                    <p class="title_block">{{$lang.product_types}}</p>
                     <div class="block_content">
                         <!-- layered -->
                         <div class="layered layered-category">
                             <div class="layered-content">
                                 <ul class="tree-menu">
                                     {{foreach $data_category as $key=> $value}}
-                                    <li><span></span><a href="{{$site_url}}{{$value->seo_url}}-c{{$value->id}}.html">{{$value->name}}</a></li>
+                                    <li><span></span><a href="{{$site_url}}category/{{$value->seo_url}}.html">{{$value->name}}</a></li>
                                     {{/foreach }}
                                 </ul>
                             </div>
