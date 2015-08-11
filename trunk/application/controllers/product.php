@@ -33,15 +33,14 @@ class Product extends CI_controller
 		$this->smarty->display('templates/frontend/layout');
 	}
 
-	public function new_products_go()
+	public function new_products_go($params1=NULL)
 	{
-		$this->pagination->initialize(pagination(base_url().$this->lang->language['hang_moi_ve'],$total = 100));                
+		$this->pagination->initialize(pagination(base_url().$this->lang->language['hang_moi_ve'],$total = 100));
                 require_once APPPATH . 'modules/frontend/list_product.php';
 		
                 $this->smarty->assign(array(
-			'title'         => 'Hàng mới về',
-			'page_class'    => 'category-page',
-			'pagination'    => $this->pagination->create_links() 
+			'title'         => $this->lang->language['title_hang_moi_ve'],
+			'page_class'    => 'category-page'
 		));
 		$this->smarty->display('templates/frontend/layout');
 	}
@@ -49,7 +48,7 @@ class Product extends CI_controller
 	public function order()
 	{
 		$this->smarty->assign(array(
-			'title' 	 => 'Giỏ hàng',
+			'title'      => 'Giỏ hàng',
 			'menu_home'  => 'templates/frontend/menu_page.tpl',
 			'content'    => 'frontend/product/order.tpl',
 			'page_class' => 'category-page',
