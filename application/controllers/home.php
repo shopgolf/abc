@@ -22,7 +22,7 @@ class Home extends CI_controller
 	}
 
 	public function index(){
-		$field                = array('id','seo_url','product_name','net_price','image','product_code');
+		$field                = array('id','seo_url','product_name','net_price','image','product_code','description');
 		$data                 = $this->product_model->new_product($field,$limit = 12,$offset = FALSE,$order_by = 'DESC',$param = 'id',$where=array('status'=>1));
 		$data_old_product     = $this->product_model->new_product($field,$limit = 12,$offset = FALSE,$order_by = 'RANDOM',$param = 'id',$where=array('status'=>1));
 		$data_topview_product = $this->product_model->new_product($field,$limit = 8,$offset = FALSE,$order_by = 'DESC',$param = 'view',$where=array('status'=>1));
