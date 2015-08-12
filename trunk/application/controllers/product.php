@@ -70,7 +70,7 @@ class Product extends CI_controller
 	public function top_view_product(){
 		$field         = array('id','seo_url','product_name','net_price','image','product_code','description');
 		$url           = base_url().'xem-nhieu';
-		$config        =  pagination($url,$total = 100);
+		$config        = pagination($url,$total = 100);
 		$start         = $this->uri->segment(2);
 		$this->pagination->initialize($config);
 		$data          = $this->product_model->new_product($field,$limit = 18,$offset = $start,$order_by = 'DESC',$param = 'view',$where=array('status'=>1));

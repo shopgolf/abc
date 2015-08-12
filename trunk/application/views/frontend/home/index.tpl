@@ -112,7 +112,7 @@
                                 <div class="price-percent-reduction2">
                                    SALE
                                 </div>
-                                <div class="tooltip-me"><p>{{$v->product_code}}</p></div>
+                                <div class="tooltip-me">{{$v->description}}</div>
                             </li>
                              {{/foreach}}       
                         </ul>

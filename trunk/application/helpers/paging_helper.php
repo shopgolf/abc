@@ -57,7 +57,7 @@ function paging($url = '', $total, $per_page = 10, $uri_segment = 4, $num_links 
 	return $config;
 }
 
-function pagination($url = '',$total,$per_page = 12,$uri_segment = 2){
+function pagination($url = '',$total,$per_page = 1,$uri_segment = 2){
 		$config                    = array();
 		$config['base_url']        = $url; 
 		$config['total_rows']      = $total;

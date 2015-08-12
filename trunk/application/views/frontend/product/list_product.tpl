@@ -73,35 +73,6 @@
                     </div>
                 </div>
                 <!-- ./SPECIAL -->
-                <!-- TAGS -->
-                <div class="block left-module">
-                    <p class="title_block">TAGS</p>
-                    <div class="block_content">
-                        <div class="tags">
-                            <a href="#"><span class="level1">actual</span></a>
-                            <a href="#"><span class="level2">adorable</span></a>
-                            <a href="#"><span class="level3">change</span></a>
-                            <a href="#"><span class="level4">consider</span></a>
-                            <a href="#"><span class="level3">phenomenon</span></a>
-                            <a href="#"><span class="level4">span</span></a>
-                            <a href="#"><span class="level1">spanegs</span></a>
-                            <a href="#"><span class="level5">spanegs</span></a>
-                            <a href="#"><span class="level1">actual</span></a>
-                            <a href="#"><span class="level2">adorable</span></a>
-                            <a href="#"><span class="level3">change</span></a>
-                            <a href="#"><span class="level4">consider</span></a>
-                            <a href="#"><span class="level2">gives</span></a>
-                            <a href="#"><span class="level3">change</span></a>
-                            <a href="#"><span class="level2">gives</span></a>
-                            <a href="#"><span class="level1">good</span></a>
-                            <a href="#"><span class="level3">phenomenon</span></a>
-                            <a href="#"><span class="level4">span</span></a>
-                            <a href="#"><span class="level1">spanegs</span></a>
-                            <a href="#"><span class="level5">spanegs</span></a>
-                        </div>
-                    </div>
-                </div>
-                <!-- ./TAGS -->
             </div>
             <!-- ./left colunm -->
             <!-- Center colunm-->
@@ -172,7 +143,7 @@
                         {{if $data != NULL}}
                         {{foreach $data as $key => $value}}
                             {{$image = json_decode($value->image)}}
-                        <li class="col-sx-12 col-sm-4">
+                        <li class="col-sx-12 col-sm-4 wapper-tooltip">
                             <div class="product-container">
                                 <div class="left-block">
                                     <a href="{{$site_url}}{{$value->seo_url}}-p{{$value->id}}.html">
@@ -193,6 +164,9 @@
                                         <span class="price product-price">{{number_format($value->net_price,0,'','.')}}.VNĐ</span>
                                         <span class="price old-price">$52,00</span>
                                     </div>
+                                    <div class="product-star">
+                                       {{$value->product_code}}
+                                    </div>
                                     <div class="info-orther">
                                         <p>Item Code: #453217907</p>
                                         <p class="availability">Availability: <span>In stock</span></p>
@@ -201,6 +175,7 @@
                                         </div>
                                     </div>
                                 </div>
+                                <div class="tooltip-me">{{$value->description}}</div>
                             </div>
                         </li>
                         {{/foreach}}
