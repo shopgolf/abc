@@ -27,7 +27,7 @@
                     <div class="vertical-menu-content is-home">
                         <ul class="vertical-menu-list">
                             {{foreach $slide_category as $key => $value}}
-                                <li><a href="{{$value->seo_url}}"><img class="icon-menu" alt="Funky roots" src="{{$static_ft}}/data/{{$key+1}}.png">{{$value->name}}</a></li>
+                                <li><a href="{{$bookinglib->build_url($value->seo_url,NULL)}}"><img class="icon-menu" alt="{{$value->name}}" title="{{$value->name}}" src="{{$static_ft}}/data/{{$key+1}}.png">{{$value->name}}</a></li>
                             {{/foreach}}
                         </ul>
                     </div>
