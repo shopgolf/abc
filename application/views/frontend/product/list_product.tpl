@@ -20,7 +20,7 @@
                             <div class="layered-content">
                                 <ul class="tree-menu">
                                     {{foreach $data_category as $key=> $value}}
-                                            <li><span></span><a href="{{$bookinglib->build_url($value->seo_url,NULL,NULL)}}">{{$value->name}}</a></li>
+                                            <li><span></span><a href="{{$bookinglib->build_url($value->seo_url,NULL)}}">{{$value->name}}</a></li>
                                     {{/foreach }}
                                 </ul>
                             </div>
@@ -146,20 +146,20 @@
                         <li class="col-sx-12 col-sm-4 wapper-tooltip">
                             <div class="product-container">
                                 <div class="left-block">
-                                    <a href="{{$site_url}}{{$value->seo_url}}-p{{$value->id}}.html">
+                                    <a href="{{$bookinglib->build_url($value->seo_url,NULL)}}">
                                         <img class="img-responsive" alt="product" src="{{$UPLOAD_DIR}}product/{{$image[0]}}" />
                                     </a>
                                     <div class="quick-view">
                                             <a title="Add to my wishlist" class="heart" href="#"></a>
                                             <a title="Add to compare" class="compare" href="#"></a>
-                                            <a title="Quick view" class="search" href="{{$site_url}}{{$value->seo_url}}-p{{$value->id}}.html"></a>
+                                            <a title="Quick view" class="search" href="{{$bookinglib->build_url($value->seo_url,NULL)}}"></a>
                                     </div>
                                     <div class="add-to-cart">
                                         <a title="Add to Cart" href="#add">Add to Cart</a>
                                     </div>
                                 </div>
                                 <div class="right-block">
-                                    <h5 class="product-name"><a href="{{$site_url}}{{$value->seo_url}}-p{{$value->id}}.html">{{$value->product_name}}</a></h5>
+                                    <h5 class="product-name"><a href="{{$bookinglib->build_url($value->seo_url,NULL)}}">{{$value->product_name}}</a></h5>
                                     <div class="content_price">
                                         <span class="price product-price">{{number_format($value->net_price,0,'','.')}}.VNĐ</span>
                                         <span class="price old-price">$52,00</span>
