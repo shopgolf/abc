@@ -383,7 +383,7 @@ class MY_Model extends CI_Model {
 
     public function getProCateById($where=NULL,$order=NULL,$limit=NULL) {
 //        $this->db->cache_on();
-        $this->db->select("pro.id,pro.seo_url AS pro_url,pro.product_name,pro.net_price,pro.image,pro.product_code,pro.description, cat.seo_url AS cat_url");
+        $this->db->select("pro.*, cat.seo_url AS cat_url");
         $this->db->from('px_product AS pro');
         $this->db->join('px_category AS cat','cat.id = pro.category','LEFT');
         

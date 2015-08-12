@@ -1,14 +1,13 @@
 <?php
-$special_products                   =   $this->product_model->find_by(array('status'=>1),'product_id,product_code,product_name,seo_url,image,net_price',TRUE,array('key'=>'checkout','value'=>'DESC',1));
-$json                               =   json_decode($special_products->image);
-$special_products->image            =   $json[0];
-$special_products->product_link     =   $this->bookinglib->build_url($special_products->seo_url);
-
+$special_products                   =   $this->product_model->getProCateById(array('status'=>1),array('key'=>'checkout','value'=>'DESC'),1);
+$json                               =   json_decode($special_products[0]->image);
+$special_products[0]->image         =   $json[0];
+$special_products[0]->product_link  =   $this->bookinglib->build_url($special_products[0]->cat_url,$special_products[0]->seo_url);
 $this->smarty->assign(array(
-    'data_category'         => $this->category_model->find_by('','name,id,seo_url'),
-    'data'                  => $this->product_model->find_by(array('status'=>1),"id,seo_url,product_name,net_price,image,product_code,description",FALSE,array('key'=>'id','value'=>'DESC'),'18'),
+    'data_category'         => $this->category_model->find_by(FALSE,'name,id,seo_url'),
+    'data'                  => $this->product_model->getProCateById(array('status'=>1),array('key'=>'id','value'=>'DESC'),18),
     'pagination'            => $this->pagination->create_links(),
-    'special_products'      => $special_products
+    'special_products'      => $special_products[0]
 ));
 
 $this->smarty->assign(array(

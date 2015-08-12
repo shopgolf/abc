@@ -46,13 +46,13 @@
                         <ul class="products-block">
                             <li>
                                 <div class="products-block-left">
-                                    <a href="{{$product_link}}">
+                                    <a href="{{$special_products->product_link}}">
                                         <img src="{{$UPLOAD_DIR}}product/{{$special_products->image}}" alt="{{$special_products->product_name}}" title="{{$special_products->product_name}}"/>
                                     </a>
                                 </div>
                                 <div class="products-block-right">
                                     <p class="product-name">
-                                        <a href="{{$product_link}}">{{$special_products->product_name}}</a>
+                                        <a href="{{$special_products->product_link}}">{{$special_products->product_name}}</a>
                                     </p>
                                     <p class="product-price">{{$special_products->net_price|number_format:0:".":","}} VNĐ</p>
                                     <p class="product-star">
@@ -67,7 +67,7 @@
                         </ul>
                         <div class="products-block">
                             <div class="products-block-bottom">
-                                <a class="link-all" href="#">{{$lang.detail}}</a>
+                                <a class="link-all" href="{{$special_products->product_link}}">{{$lang.detail}}</a>
                             </div>
                         </div>
                     </div>
