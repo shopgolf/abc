@@ -12,9 +12,6 @@ class Home extends CI_controller
                 $this->load->model('advertising_model');
                 $this->load->model('menu_model');
                 $this->load->model('category_model');
-
-                $this->load->library('bookinglib');
-                $this->bookinglib = new bookinglib();
                 
                 $this->smarty->assign(array(
                     'lang'          =>  $this->lang->language

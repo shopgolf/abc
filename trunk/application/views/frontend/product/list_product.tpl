@@ -20,7 +20,7 @@
                             <div class="layered-content">
                                 <ul class="tree-menu">
                                     {{foreach $data_category as $key=> $value}}
-                                    <li><span></span><a href="{{$site_url}}category/{{$value->seo_url}}.html">{{$value->name}}</a></li>
+                                            <li><span></span><a href="{{$bookinglib->build_url($value->seo_url,NULL,NULL)}}">{{$value->name}}</a></li>
                                     {{/foreach }}
                                 </ul>
                             </div>

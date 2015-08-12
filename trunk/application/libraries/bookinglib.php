@@ -316,7 +316,7 @@ class bookinglib {
             return $res;
     }
     
-    function build_url($category,$seo_url,$ext='.html'){
+    function build_url($category=NULL,$seo_url=NULL,$ext='.html'){
             return base_url().$category.'/'.$seo_url.$ext;
     }
 }
