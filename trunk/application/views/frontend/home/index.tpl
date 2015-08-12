@@ -90,18 +90,18 @@
                             {{$image = json_decode($v->image)}}
                             <li class="wapper-tooltip">
                                 <div class="left-block">
-                                    <a href="{{$site_url}}{{$v->seo_url}}-p{{$v->id}}.html"   title="{{$v->product_name}}"><img class="img-responsive" alt="product" src="{{$UPLOAD_DIR}}product/{{$image[0]}}" /></a>
+                                    <a href="{{$bookinglib->build_url($v->cat_url,$v->seo_url)}}"   title="{{$v->product_name}}"><img class="img-responsive" alt="product" src="{{$UPLOAD_DIR}}product/{{$image[0]}}" /></a>
                                     <div class="quick-view">
                                             <a title="Add to my wishlist" class="heart" href="#"></a>
                                             <a title="Add to compare" class="compare" href="#"></a>
-                                            <a title="Quick view" class="search" href="{{$site_url}}{{$v->seo_url}}-p{{$v->id}}.html"></a>
+                                            <a title="Quick view" class="search" href="{{$bookinglib->build_url($v->cat_url,$v->seo_url)}}"></a>
                                     </div>
                                     <div class="add-to-cart">
                                         <a title="BUY" href="javascript:void(0)" >BUY</a>
                                     </div>
                                 </div>
                                 <div class="right-block">
-                                    <h5 class="product-name"><a href="{{$site_url}}{{$v->seo_url}}-p{{$v->id}}.html" title="{{$v->product_name}}">{{$v->product_name}}</a></h5>
+                                    <h5 class="product-name"><a href="{{$bookinglib->build_url($v->cat_url,$v->seo_url)}}" title="{{$v->product_name}}">{{$v->product_name}}</a></h5>
                                     <div class="content_price">
                                         <span class="price product-price">{{number_format($v->net_price,0,'','.')}}.VNĐ</span>
                                     </div>
@@ -131,7 +131,7 @@
                                     <div class="quick-view">
                                             <a title="Add to my wishlist" class="heart" href="#"></a>
                                             <a title="Add to compare" class="compare" href="#"></a>
-                                            <a title="Quick view" class="search" href="{{$site_url}}{{$v->seo_url}}-p{{$v->id}}.html"></a>
+                                            <a title="Quick view" class="search" href="{{$bookinglib->build_url($v->cat_url,$v->seo_url)}}"></a>
                                     </div>
                                     <div class="add-to-cart">
                                         <a title="BUY" href="{{$site_url}}">BUY</a>
@@ -192,12 +192,12 @@
                                     {{foreach  $value as $k => $v}}
                                         {{$image = json_decode($v->image)}}
                                     <li>
-                                        <a href="{{$site_url}}{{$v->seo_url}}-p{{$v->id}}.html" class="img-top-view"><img src="{{$UPLOAD_DIR}}product/{{$image[0]}}" alt=""></a>
+                                        <a href="{{$bookinglib->build_url($v->cat_url,$v->seo_url)}}" class="img-top-view"><img src="{{$UPLOAD_DIR}}product/{{$image[0]}}" alt=""></a>
                                         <div class="view-list">
                                             <div class="rating"> <div class="product-star">
                                                   {{$v->product_code}}
                                                 </div></div>
-                                            <h4><a href="{{$site_url}}{{$v->seo_url}}-p{{$v->id}}.html">{{$v->product_name}}</a></h4>
+                                            <h4><a href="{{$bookinglib->build_url($v->cat_url,$v->seo_url)}}">{{$v->product_name}}</a></h4>
                                             <p>{{number_format($v->net_price,0,'','.')}}.VNĐ</p>
                                         </div>
                                     </li>
