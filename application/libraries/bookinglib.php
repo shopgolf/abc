@@ -310,5 +310,13 @@ class bookinglib {
             }
             return $retval;
     }
-
+    
+    function percents($val1, $val2, $precision){
+            $res = round( ($val1 / $val2) * 100, $precision );
+            return $res;
+    }
+    
+    function build_url($seo_url,$ext='.html'){
+            return base_url().$seo_url.$ext;
+    }
 }
