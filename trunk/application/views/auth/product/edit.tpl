@@ -239,7 +239,6 @@ $(document).ready(function() {
             $('#net_price').addClass( 'alert-error' );
             $('#net_price').parent().addClass( 'alert-error' );
         } else {
-            $("#net_price").focus();
             $('#net_price').removeClass( 'alert-error' );
             $('#net_price').parent().removeClass( 'alert-error' );
         }
@@ -279,7 +278,7 @@ $(document).ready(function() {
                     } else {
                         document.getElementById("product_url_seo").value        = data['response'];
                         document.getElementById("seo_keyword").value            = $("#product_name").val();
-                        document.getElementById("seo_metadata").value           = $("#product_name").val();
+                        //document.getElementById("seo_metadata").value           = $("#product_name").val();
                     }
                 },
                 error: function() 

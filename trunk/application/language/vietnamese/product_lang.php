@@ -25,3 +25,5 @@ $lang['hotdeal_list']               =   'Danh sách '.$lang['product_hotdeal'];
 $lang['hang_moi_ve']                =   'hang-moi-ve';
 $lang['title_hang_moi_ve']          =   'Hàng mới về';
 $lang['product_types']              =   'Product types';
+$lang['special_products']           =   'Special products';
+$lang['detail']                     =   'Chi tiết';

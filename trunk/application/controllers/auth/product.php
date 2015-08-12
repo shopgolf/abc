@@ -120,6 +120,12 @@ class Product extends BACKEND_Controller {
                         $this->view_data["product"]->owner                              = $this->session->userdata['user_id'];
                         $this->view_data["product"]->lastupdated                        = date("Y-m-d H:i:s",time());
                         
+                        if($this->input->post('final_price_fake')){
+                            $this->view_data["product"]->pecent = $this->bookinglib->percents($this->input->post('final_price_fake'),$this->input->post('net_price_fake'),0);
+                        }
+                        //percentage(1, 3, 0)
+                        
+                        
                         if($this->input->post('begin_price') && $this->input->post('begin_time') && $this->input->post('end_time')){
                             $this->view_data["product"]->bid   =   1;
                         } else {
@@ -215,9 +221,10 @@ class Product extends BACKEND_Controller {
                     ));
             }
             $this->load->model('category_model');
+            
             $this->smarty->assign(array(
                 'type'          =>  $this->product_model->product_type(),
-                'category'      =>  $this->category_model->getCategoryById(array('parent_category'=>'NULL')),
+                'category'      =>  $this->category_model->getCategoryById(array('parent_category_null'=>true,'type'=>1)),
                 'js'            =>  array(
                     base_url().'static/templates/backend/js/main.js',
                     base_url().'third_party/tiny_mce/jquery.tinymce.js',

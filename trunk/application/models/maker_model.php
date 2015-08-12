@@ -72,11 +72,4 @@ class Maker_model extends MY_Model{
 	
 		return json_encode($ouput);
 	}
-
-	public function get_data(){
-		$this->db->select('name,logo');
-		$query = $this->db->get($this->table_name);
-		return $query->result();
-	}
-
 }

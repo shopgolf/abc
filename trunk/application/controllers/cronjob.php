@@ -130,12 +130,10 @@ class Cronjob extends CI_Controller
         }
         
         public function cronProduct(){
-                $str = NULL;
-                $time = time();
                 $image  =   array();
+
                 foreach($this->cronjob_model->cronProduct() as $key => $vals){
                     $seo_url    =   $this->bookinglib->seoUrl($vals->name);
-                    //$image      =   $this->cronjob_model->getProductFromImg('76');//$vals->product_id
                     $image[]  =   $vals->image;
                     foreach($this->cronjob_model->getProductFromImg($vals->product_id) as $k => $v){
                         $image[]    =   $v->image;
@@ -143,8 +141,8 @@ class Cronjob extends CI_Controller
                     
                     $this->view_data["data"]                                    = new stdClass();
                     $this->view_data["data"]->product_id                        =   $this->bookinglib->rendCode('PRO');
-                    $this->view_data["data"]->product_name                        =   $vals->name;
-                    $this->view_data["data"]->product_code                        =   $vals->model;
+                    $this->view_data["data"]->product_name                        =   trim($vals->name);
+                    $this->view_data["data"]->product_code                        =   trim($vals->model);
                     $this->view_data["data"]->product_type                        =   1;
                     $this->view_data["data"]->image                        = json_encode($image);
                     $this->view_data["data"]->seo_url                        =   $seo_url;
@@ -153,9 +151,10 @@ class Cronjob extends CI_Controller
                     $this->view_data["data"]->net_price                        =   $vals->price;
                     $this->view_data["data"]->quantity                        =   $vals->quantity;
                     $this->view_data["data"]->keyword                        =   trim(htmlspecialchars_decode($vals->meta_keyword));
-                    $this->view_data["data"]->description                        =   trim(htmlspecialchars_decode($vals->meta_description));
+                    $this->view_data["data"]->description                        =   trim(htmlspecialchars_decode($vals->meta_keyword));
                     $this->view_data["data"]->info                        =   trim(htmlspecialchars_decode($vals->description));
-                    $this->view_data["data"]->tag                        =   $vals->tag;
+                    $this->view_data["data"]->tag                        =   trim($vals->tag);
+                    $this->view_data["data"]->view                        =   $vals->viewed;
                     $this->view_data["data"]->owner                        =   1;
                     $this->view_data["data"]->created                        =   $vals->date_added;
                     $this->view_data["data"]->lastupdated                        =   $vals->date_modified;
@@ -169,7 +168,54 @@ class Cronjob extends CI_Controller
                     unset($this->view_data["data"]);
                     unset($this->view_data["_data"]);
                     unset($image);
+                    unset($id);
                 }
+        }
+        
+        public function groupByCategory(){
+            $groupByCategory    =   $this->cronjob_model->groupByCategory();
+            foreach($groupByCategory as $key => $val){
+                $str                = new stdClass();
+                $str->product_id    = $val->product_id;
+                $str->category_id   = $val->category_id;
+                
+                $this->cronjob_model->create($str);
+                unset($str);
+            }
+        }
+        
+        public function updateCateNew(){
+            $updateCateNew = $this->cronjob_model->updateCateNew();
+            foreach($updateCateNew as $keys => $vals){
+                $str                =   new stdClass();
+                $str->id          =   trim($vals->id);
+                $str->name          =   trim($vals->name);
+                $str->description          =   strip_tags(htmlspecialchars_decode($vals->description));
+                $str->keyword          =   strip_tags(htmlspecialchars_decode($vals->name));
+                $str->seo_url          =   $this->bookinglib->seoUrl($vals->name);
+                $str->owner          =   1;
+                $str->lastupdated          =   time();
+                
+                $this->cronjob_model->create($str);
+                unset($str);
+            }
+        }
+        
+        public function insertCateNew(){
+            $updateCateNew = $this->category_model->find_by();
+            foreach($updateCateNew as $keys => $vals){
+                $str                =   new stdClass();
+                $str->name          =   trim($vals->name);
+                $str->description          =   strip_tags(htmlspecialchars_decode($vals->description));
+                $str->keyword          =   strip_tags(htmlspecialchars_decode($vals->name));
+                $str->seo_url          =   $this->bookinglib->seoUrl($vals->name);
+                $str->type          =   $vals->type;
+                $str->owner          =   1;
+                $str->lastupdated          =   time();
+                
+                $this->cronjob_model->create($str);
+                unset($str);
+            }
         }
         
 }

@@ -35,7 +35,7 @@ class Product extends CI_controller
 
 	public function new_products_go($params1=NULL)
 	{
-		$this->pagination->initialize(pagination(base_url().$this->lang->language['hang_moi_ve'],$total = 100));
+		$this->pagination->initialize(pagination(base_url().$this->lang->language['hang_moi_ve'],100));
                 require_once APPPATH . 'modules/frontend/list_product.php';
 		
                 $this->smarty->assign(array(
