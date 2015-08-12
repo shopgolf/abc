@@ -1,6 +1,6 @@
 <?php if (!defined('BASEPATH')) exit('No direct script access allowed');
 class Product extends CI_controller
-{	
+{
 	public function __construct() {
 		parent::__construct();
                 $this->load->language('product');
@@ -12,9 +12,6 @@ class Product extends CI_controller
                 $this->load->model('menu_model');
                 
                 $this->load->library("pagination");
-                $this->load->library('bookinglib');
-                $this->bookinglib = new bookinglib();
-                
                 $this->smarty->assign(array(
                     'lang'          =>  $this->lang->language
                 ));
