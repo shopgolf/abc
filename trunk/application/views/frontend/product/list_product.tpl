@@ -41,20 +41,20 @@
                 <!--./left silde-->
                 <!-- SPECIAL -->
                 <div class="block left-module">
-                    <p class="title_block">SPECIAL PRODUCTS</p>
+                    <p class="title_block">{{$lang.special_products}}</p>
                     <div class="block_content">
                         <ul class="products-block">
                             <li>
                                 <div class="products-block-left">
-                                    <a href="#">
-                                        <img src="{{$static_ft}}/data/product-100x122.jpg" alt="SPECIAL PRODUCTS">
+                                    <a href="{{$product_link}}">
+                                        <img src="{{$UPLOAD_DIR}}product/{{$special_products->image}}" alt="{{$special_products->product_name}}" title="{{$special_products->product_name}}"/>
                                     </a>
                                 </div>
                                 <div class="products-block-right">
                                     <p class="product-name">
-                                        <a href="#">Woman Within Plus Size Flared</a>
+                                        <a href="{{$product_link}}">{{$special_products->product_name}}</a>
                                     </p>
-                                    <p class="product-price">$38,95</p>
+                                    <p class="product-price">{{$special_products->net_price|number_format:0:".":","}} VNĐ</p>
                                     <p class="product-star">
                                         <i class="fa fa-star"></i>
                                         <i class="fa fa-star"></i>
@@ -67,7 +67,7 @@
                         </ul>
                         <div class="products-block">
                             <div class="products-block-bottom">
-                                <a class="link-all" href="#">All Products</a>
+                                <a class="link-all" href="#">{{$lang.detail}}</a>
                             </div>
                         </div>
                     </div>
