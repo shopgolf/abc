@@ -13,6 +13,18 @@ class Product_model extends MY_Model{
 		$this->table_name = 'px_product';
 	}
         
+        public function listTadBotHome(){
+                $this->db->select("count(*), cat.id,cat.name, cat.seo_url AS cat_url");
+                $this->db->from($this->table_name." AS tbl");
+                $this->db->join("px_category AS cat","cat.id = tbl.category","LEFT");
+                $this->db->group_by("tbl.category");
+                $this->db->having("count(*) >= 12");
+                
+                $query = $this->db->get();
+                return $query->result();
+        }
+
+
         public function init_data($right){
 		return array(
                                 array(
