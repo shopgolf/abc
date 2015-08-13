@@ -50,3 +50,5 @@ $lang['map']                 = 'Chỉ đường';
 /*News*/
 $lang['news']				 = 'Tin tức';
 $lang['list_news']			 = 'Danh sanh tin tức';
+$lang['vn_currency']            =   "VNĐ";
+$lang['rates']                  =   'Giá';

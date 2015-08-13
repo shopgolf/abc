@@ -71,7 +71,7 @@
                                     </div>
                                 </div>
                                 <h4><a href="{{$bookinglib->build_url($value->cat_url,$value->seo_url)}}" title="{{$value->product_name}}">{{Cutname($value->product_name,30)}}</a></h4>
-                                <p>Giá: {{number_format($value->net_price,0,'','.')}}.VNĐ</p>
+                                <p>{{$lang.rates}}: {{number_format($value->net_price,0,'','.')}}.VNĐ</p>
                             </div>
                         </li>
                         {{/foreach}}
@@ -251,24 +251,22 @@
         </div>
         <div class="box-product-content">
             <div class="tab-container top-view">
-                {{foreach $bot_tab_list_pro.response as $key => $value}}
-                    {{if $key == 0}}
-                        {{$active = "active"}}
-                    {{else}}
-                        {{$active = ""}}
-                    {{/if}}
-                    <div id="tab-{{$key}}" class="tab-panel {{$active}}">
+                
+                {{foreach $bot_tab_list_pro as $keys => $values}}
+                    <div id="tab-7" class="tab-panel active ">
                         <ul>
-                            <li>
-                                <a href="" class="img-top-view"><img class="img-responsive" src="{{$static_ft}}/images/16600150563714-200x200.jpg" alt=""></a>
-                                <div class="view-list">
-                                    <div class="rating"><a href="" title="">{{$value->product_name}}</a></div>
-                                    <p>{{$value->net_price}}</p>
-                                </div>
-                            </li>
+                            {{foreach $values.response as $ks => $vls}}
+                                <li>
+                                    <a href="{{$bookinglib->build_url($values.cat_url,$vls->seo_url)}}" class="img-top-view"><img class="img-responsive" src="http://teampat.net/static/templates/frontend/assets/images/16600150563714-200x200.jpg" alt=""></a>
+                                    <div class="view-list">
+                                        <div class="rating"><a href="{{$bookinglib->build_url($values.cat_url,$vls->seo_url)}}" title="{{$vls->product_name}}">{{$vls->product_name}}</a></div>
+                                        <p>{{$lang.rates}}: {{number_format($vls->net_price,0,'','.')}}.{{$lang.vn_currency}}</p>
+                                    </div>
+                                </li>
+                            {{/foreach}}
                         </ul>
                     </div>
-                {{/foreach}}        
+                {{/foreach}}
             </div>
         </div>
     </div>
