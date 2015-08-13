@@ -63,14 +63,14 @@
                         {{foreach $data_topview_product as $value}}
                         {{$image = json_decode($value->image)}}
                         <li>
-                            <a href="{{$site_url}}{{$value->seo_url}}-p{{$value->id}}.html" title="{{$value->product_name}}" class="img-top-view"><img src="{{$UPLOAD_DIR}}product/{{$image[0]}}" alt="{{$value->product_name}}"></a>
+                            <a href="{{$bookinglib->build_url($value->cat_url,$value->seo_url)}}" title="{{$value->product_name}}" class="img-top-view"><img src="{{$UPLOAD_DIR}}product/{{$image[0]}}" alt="{{$value->product_name}}"></a>
                             <div class="view-list">
                                 <div class="rating">
                                     <div class="product-star">
                                         {{$value->product_code}}
                                     </div>
                                 </div>
-                                <h4><a href="{{$site_url}}{{$value->seo_url}}-p{{$value->id}}.html" title="{{$value->product_name}}">{{Cutname($value->product_name,30)}}</a></h4>
+                                <h4><a href="{{$bookinglib->build_url($value->cat_url,$value->seo_url)}}" title="{{$value->product_name}}">{{Cutname($value->product_name,30)}}</a></h4>
                                 <p>Giá: {{number_format($value->net_price,0,'','.')}}.VNĐ</p>
                             </div>
                         </li>
