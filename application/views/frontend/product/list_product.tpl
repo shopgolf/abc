@@ -161,8 +161,12 @@
                                 <div class="right-block">
                                     <h5 class="product-name"><a href="{{$bookinglib->build_url($value->seo_url,NULL)}}">{{$value->product_name}}</a></h5>
                                     <div class="content_price">
-                                        <span class="price product-price">{{number_format($value->net_price,0,'','.')}}.VNĐ</span>
-                                        <span class="price old-price">$52,00</span>
+                                        {{if $value->final_price}}
+                                            <span class="price product-price">{{number_format($value->final_price,0,'','.')}}.{{$lang.vn_currency}}</span>
+                                            <span class="price old-price">{{number_format($value->net_price,0,'','.')}}</span>
+                                        {{else}}
+                                            <span class="price product-price">{{number_format($value->net_price,0,'','.')}}.{{$lang.vn_currency}}</span>
+                                        {{/if}}
                                     </div>
                                     <div class="product-star">
                                        {{$value->product_code}}
