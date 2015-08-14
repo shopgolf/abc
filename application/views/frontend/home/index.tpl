@@ -253,7 +253,12 @@
             <div class="tab-container top-view">
                 
                 {{foreach $bot_tab_list_pro as $keys => $values}}
-                    <div id="tab-7" class="tab-panel active ">
+                    {{if $keys == 0}}
+                        {{$actives = " active"}}
+                    {{else}}
+                        {{$actives = ""}}
+                    {{/if}}
+                    <div id="tab-{{$keys}}" class="tab-panel{{$actives}}">
                         <ul>
                             {{foreach $values.response as $ks => $vls}}
                                 <li>
