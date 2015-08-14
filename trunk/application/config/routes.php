@@ -18,10 +18,12 @@ $route['xem-nhieu']                      = 'product/top_view_product';
 $route['xem-nhieu/(:num)']               = 'product/top_view_product/(:num)';
 $route['ban-chay']                       = 'product/sell_product';
 $route['ban-chay/(:num)']                = 'product/sell_product/(:num)';
-$route['([a-zA-Z0-9-_]+)p(:num)']        = 'product/detail/(:num)';
 $route['([a-zA-Z0-9-_]+)n(:num)']        = 'news/detail/(:num)';
 $route['category/(:any)']                = 'product/category/$1';
 $route['([a-zA-Z0-9-_]+)c(:num)/(:num)'] = 'product/category/(:num)/(:num)';
 $route['tin-tuc']                        = 'news';
 $route['404_override']                   = '';
-//$route['news/(:any)'] 	          = "news/index/$1";
+
+if (strpos($_SERVER['QUERY_STRING'], 'auth') === false) {
+    $route['([a-zA-Z0-9-_]+)/(:any)']        = "product/detail/$1/$2";
+}

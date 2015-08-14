@@ -104,24 +104,23 @@ class Product extends CI_controller
 		$this->smarty->display('templates/frontend/layout');
 	}
 
-	public function detail(){
-		$url          = $this->uri->segment(1);
-		$id           = array_pop(explode('p', $url));
-		$info         = $this->product_model->get_rows($id);
-		//pre($info->info);
-		$cate_id	  = $info->category;
-		$field        = array('id','seo_url','product_name','net_price','image','product_code','description');
-		$data         = $this->product_model->new_product($field,$limit = 5,$offset = FALSE,$order_by = 'DESC',$param = 'checkout',$where=array('status'=>1));
-		$data_related = $this->product_model->new_product($field,$limit = 18,$offset = FALSE,$order_by = 'DESC',$param = 'checkout',$where=array('status'=>1,'category'=> $cate_id));
+	public function detail($params1=NULL,$params2=NULL){
+                $info               =   $this->product_model->find_by(array('seo_url'=>trim($params2)));
+                if(empty($info)){
+                    redirect(base_url());
+                }
+                $data               =   $this->product_model->getProCateById(array('status'=>1),array('key'=>'checkout','value'=>'DESC'),5);
+                $data_related       =   $this->product_model->getProCateById(array('status'=>1,'category'=>$info[0]->category),array('key'=>'checkout','value'=>'DESC'),5);
+                
 		$this->smarty->assign(array(
-			'title'        => 'Sản phẩm bán chạy',
-			'menu_home'    => 'templates/frontend/menu_page.tpl',
-			'content'      => 'frontend/product/detail.tpl',
-			'page_class'   => ' product-page right-sidebar category-page ',
-			'info'         => $info,
+			'title'        => $this->lang->language['detail'].''.$this->lang->language['product'],
+			'page_class'   => 'product-page right-sidebar category-page ',
+			'info'         => $info[0],
 			'data'         => $data,
 			'data_related' => array_chunk($data_related,3),
 		));
+                
+                require_once APPPATH . 'modules/frontend/detail_product.php';
 		$this->smarty->display('templates/frontend/layout');
 	}
 
