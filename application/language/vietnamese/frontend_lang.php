@@ -53,3 +53,7 @@ $lang['list_news']			 = 'Danh sanh tin tức';
 $lang['vn_currency']            =   "VNĐ";
 $lang['rates']                  =   'Giá';
 $lang['detail']                 =   'Chi tiết';
+$lang['product_detail']         =   'Chi tiết sản phẩm';
+$lang['product_related']        =   'Sản phẩm liên quan';
+$lang['product_new']            =   'Sản phẩm mới';
+$lang['buy']                    =   'Mua';
