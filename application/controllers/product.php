@@ -35,7 +35,7 @@ class Product extends CI_controller
 		$this->pagination->initialize(pagination(base_url().$this->lang->language['hang_moi_ve'],100));
                 require_once APPPATH . 'modules/frontend/list_product.php';
 		
-                $this->smarty->assign(array(
+        $this->smarty->assign(array(
 			'title'         => $this->lang->language['title_hang_moi_ve'],
 			'page_class'    => 'category-page'
 		));
@@ -115,6 +115,7 @@ class Product extends CI_controller
 		$this->smarty->assign(array(
 			'title'        => $this->lang->language['detail'].''.$this->lang->language['product'],
 			'page_class'   => 'product-page right-sidebar category-page ',
+			'data_category' => $this->category_model->getCategoryById(array('parent_category_not_null'=>true,'type'=>1,'random'=>TRUE)),
 			'info'         => $info[0],
 			'data'         => $data,
 			'data_related' => array_chunk($data_related,3),
