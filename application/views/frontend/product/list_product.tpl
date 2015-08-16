@@ -86,7 +86,7 @@
                     <div class="subcategories">
                         <form class="" action="" method="post">
                             <select  class="search-cate " name="" id="">
-                                <option value="">-- Giá Tiền -- </option>
+                                <option value="">-- Loại gậy -- </option>
                                 <option value="">10000000 - 20000000 VNĐ</option>
                                 <option value="">2000000 - 40000000 VNĐ</option>
                             </select>
