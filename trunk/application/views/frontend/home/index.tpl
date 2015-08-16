@@ -83,7 +83,7 @@
             <div class="box-product-list">
                 <div class="tab-container">
                     <div id="tab-1" class="tab-panel active">
-                        {{foreach $data_old_product as $key => $value}}
+                        {{foreach $data as $key => $value}}
                         <!--new product-->
                         <ul class="product-list owl-carousel nav-center" data-dots="false" data-loop="true" data-nav = "true" data-margin = "10" data-responsive='{"0":{"items":1},"600":{"items":3},"1000":{"items":4}}'>
                             {{foreach $value as $k => $v}}
