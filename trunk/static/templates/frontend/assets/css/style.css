@@ -2767,6 +2767,7 @@ span.notify-right{
   margin: 0;
   padding-bottom: 17px;
   line-height: normal;
+  padding-left: 300px;
 }
 .breadcrumb .navigation-pipe:before{
     content: "\f105";
