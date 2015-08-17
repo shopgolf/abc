@@ -185,21 +185,40 @@
                                     <span class="old-price">$52.00</span>
                                     <span class="discount">-30%</span>
                                 </div>
-                                <div class="info-orther">
-                                    <p>Item Code:{{$info->product_code}}</p>
+                                <div class="form-option">
+                                    <div class="attributes">
+                                        <div class="attribute-label">Qty:</div>
+                                        <div class="attribute-list product-qty">
+                                            <div class="qty">
+                                                <input id="option-product-qty" type="text" value="1">
+                                            </div>
+                                            <div class="btn-plus">
+                                                <a href="#" class="btn-plus-up">
+                                                    <i class="fa fa-caret-up"></i>
+                                                </a>
+                                                <a href="#" class="btn-plus-down">
+                                                    <i class="fa fa-caret-down"></i>
+                                                </a>
+                                            </div>
+                                        </div>
+                                    </div>
                                 </div>
-                                <div class="product-desc">
-                                   {{$info->parameters}}
-                                </div>
+                                    
+                                {{if $info->parameters}}
+                                 <div class="product-desc">
+                                     {{$info->parameters}}
+                                 </div>
+                                {{/if}}
+                                   
                                 <div class="form-action">
                                     <div class="button-group">
-                                        <a class="btn-add-cart" href="#">Add to cart</a>
+                                        <a class="btn-add-cart" href="#">{{$lang.add_to_cart}}</a>
                                     </div>
                                 </div>
                             </div>
                         </div>
                         <!-- tab product -->
-                        <div class="product-tab">
+                        <!---<div class="product-tab">
                             <ul class="nav-tab">
                                 <li class="active">
                                     <a aria-expanded="false" data-toggle="tab" href="#product-detail">Product Details</a>
@@ -210,7 +229,7 @@
                                    
                                 </div>
                             </div>
-                        </div>
+                        </div>-->
                         <!-- ./tab product -->
                         <!-- box product -->
                         <div class="page-product-box">

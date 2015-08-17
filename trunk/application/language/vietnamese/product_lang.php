@@ -27,3 +27,4 @@ $lang['title_hang_moi_ve']          =   'Hàng mới về';
 $lang['product_types']              =   'Product types';
 $lang['special_products']           =   'Special products';
 $lang['detail']                     =   'Chi tiết';
+$lang['add_to_cart']                =   "Mua hàng";
