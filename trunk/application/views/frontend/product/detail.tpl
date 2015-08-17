@@ -180,40 +180,43 @@
                             </div>
                             <div class="pb-right-column col-xs-12 col-sm-6">
                                 <h1 class="product-name">{{$info->product_name}}</h1>
+                                
                                 <div class="product-price-group">
                                     {{if $info->final_price}}
                                         <span class="price">{{number_format($info->final_price,0,'','.')}}.{{$lang.vn_currency}}</span>
                                         <span class="old-price">{{number_format($info->net_price,0,'','.')}}.{{$lang.vn_currency}}</span>
                                         <span class="discount">-{{$lang.percent}}%</span>
                                     {{else}}
-                                        <span class="price">{{number_format($info->net_price,0,'','.')}}.VNĐ</span>
+                                        <span class="price">{{number_format($info->net_price,0,'','.')}}.{{$lang.vn_currency}}</span>
                                     {{/if}}
                                 </div>
-                                <div class="form-option">
-                                    <div class="attributes">
-                                        <div class="attribute-label">Qty:</div>
-                                        <div class="attribute-list product-qty">
-                                            <div class="qty">
-                                                <input id="option-product-qty" type="text" value="1">
-                                            </div>
-                                            <div class="btn-plus">
-                                                <a href="#" class="btn-plus-up">
-                                                    <i class="fa fa-caret-up"></i>
-                                                </a>
-                                                <a href="#" class="btn-plus-down">
-                                                    <i class="fa fa-caret-down"></i>
-                                                </a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                    
-                                {{if $info->parameters}}
+                                                                    
+                                {{if $info->info}}
                                  <div class="product-desc">
-                                     {{$info->parameters}}
+                                     {{$info->info}}
                                  </div>
                                 {{/if}}
-                                   
+                                
+                                <div class="form-option">
+                                    {{if $info->quantity > 0 }}
+                                        Số lượng trong kho: {{$info->quantity}}
+                                    {{else}}
+                                    HẾT HÀNG!!!!
+                                    {{/if}}
+                                </div>
+                                     
+                                {{if $info->tag}}
+                                 <div class="product-desc">
+                                     {{$lang.keyword}} : {{$info->tag}}
+                                 </div>
+                                {{/if}}
+                                
+                                {{if $info->bid}}
+                                <div class="form-option">
+                                    Sản phẩm đang được đấu giá! Tham gia ngay!
+                                </div>
+                                {{/if}}
+                                
                                 <div class="form-action">
                                     <div class="button-group">
                                         <a class="btn-add-cart" href="#">{{$lang.add_to_cart}}</a>
