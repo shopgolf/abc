@@ -1,4 +1,6 @@
 <?php if (!defined('BASEPATH')) exit('No direct script access allowed');
+error_reporting(E_ALL);
+ini_set("display_errors", 1);
 class Product extends CI_controller
 {
 	public function __construct() {
@@ -30,8 +32,10 @@ class Product extends CI_controller
 		$this->smarty->display('templates/frontend/layout');
 	}
 
-	public function new_products_go($params1=NULL)
+	public function new_products_go($params1=3)
 	{
+		
+		$offset = ($params1-1) * 18;
 		$this->pagination->initialize(pagination(base_url().$this->lang->language['hang_moi_ve'],100));
                 require_once APPPATH . 'modules/frontend/list_product.php';
 		
