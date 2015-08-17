@@ -57,3 +57,4 @@ $lang['product_detail']         =   'Chi tiết sản phẩm';
 $lang['product_related']        =   'Sản phẩm liên quan';
 $lang['product_new']            =   'Sản phẩm mới';
 $lang['buy']                    =   'Mua';
+$lang['keyword']                =   'Từ khóa';
