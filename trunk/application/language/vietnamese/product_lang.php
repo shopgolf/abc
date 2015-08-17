@@ -28,3 +28,5 @@ $lang['product_types']              =   'Product types';
 $lang['special_products']           =   'Special products';
 $lang['detail']                     =   'Chi tiết';
 $lang['add_to_cart']                =   "Mua hàng";
+$lang['title-xem-nhieu']            =   "Sản phẩm xem nhiều";
+$lang['xem_nhieu']                  =   "xem-nhieu";

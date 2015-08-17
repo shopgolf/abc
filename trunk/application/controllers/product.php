@@ -34,11 +34,11 @@ class Product extends CI_controller
 
 	public function new_products_go($params1=3)
 	{
-		
-		$offset = ($params1-1) * 18;
+		$offset      = ($params1-1) * 18;
 		$this->pagination->initialize(pagination(base_url().$this->lang->language['hang_moi_ve'],100));
-                require_once APPPATH . 'modules/frontend/list_product.php';
-		
+		$order       = 'id';
+		$order_value = 'DESC';
+        require_once APPPATH . 'modules/frontend/list_product.php';
         $this->smarty->assign(array(
 			'title'         => $this->lang->language['title_hang_moi_ve'],
 			'page_class'    => 'category-page'
@@ -68,42 +68,29 @@ class Product extends CI_controller
 		$this->smarty->display('templates/frontend/layout');
 	}
 
-	public function top_view_product(){
-		$field         = array('id','seo_url','product_name','net_price','image','product_code','description');
-		$url           = base_url().'xem-nhieu';
-		$config        = pagination($url,$total = 100);
-		$start         = $this->uri->segment(2);
-		$this->pagination->initialize($config);
-		$data          = $this->product_model->new_product($field,$limit = 18,$offset = $start,$order_by = 'DESC',$param = 'view',$where=array('status'=>1));
-		$data_category = $this->category_model->get_data();
+	public function top_view_product($params1=3){
+		//pre($params1);
+		$offset      = ($params1-1) * 18;
+		$this->pagination->initialize(pagination(base_url().$this->lang->language['xem_nhieu'],100));
+		$order       = 'view';
+		$order_value = 'DESC';
+        require_once APPPATH . 'modules/frontend/list_product.php';
 		$this->smarty->assign(array(
-			'title'         => 'Sản phẩm xem nhiều',
-			'menu_home'     => 'templates/frontend/menu_page.tpl',
-			'content'       => 'frontend/product/list_product.tpl',
-			'page_class'    => 'category-page',
-			'data'          => $data,
-			'data_category' => $data_category,
-			'pagination'    => $this->pagination->create_links() 
+			'title'         => $this->lang->language['title-xem-nhieu'],
+			'page_class'    => 'category-page'
 		));
 		$this->smarty->display('templates/frontend/layout');
 	}
 
-	public function sell_product(){
-		$field         = array('id','seo_url','product_name','net_price','image','product_code','description');
-		$url           = base_url().'ban-chay';	
-		$config        =  pagination($url,$total = 100);
-		$start         = $this->uri->segment(2);
-		$this->pagination->initialize($config);
-		$data          = $this->product_model->new_product($field,$limit = 18,$offset = $start,$order_by = 'DESC',$param = 'checkout',$where=array('status'=>1));
-		$data_category = $this->category_model->get_data();
+	public function sell_product($params1=3){
+		$offset      = ($params1-1) * 18;
+		$this->pagination->initialize(pagination(base_url().$this->lang->language['xem_nhieu'],100));
+		$order       = 'checkout';
+		$order_value = 'DESC';
+        require_once APPPATH . 'modules/frontend/list_product.php';
 		$this->smarty->assign(array(
-			'title'         => 'Sản phẩm bán chạy',
-			'menu_home'     => 'templates/frontend/menu_page.tpl',
-			'content'       => 'frontend/product/list_product.tpl',
-			'page_class'    => 'category-page',
-			'data'          => $data,
-			'data_category' => $data_category,
-			'pagination'    => $this->pagination->create_links() 
+			'title'         => $this->lang->language['title-xem-nhieu'],
+			'page_class'    => 'category-page'
 		));
 		$this->smarty->display('templates/frontend/layout');
 	}

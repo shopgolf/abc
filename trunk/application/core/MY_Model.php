@@ -399,7 +399,10 @@ class MY_Model extends CI_Model {
         }
         
         $query = $this->db->get();
-        //echo $this->db->last_query();exit;
+        if($order['key'] == 'id'){
+            echo $this->db->last_query();exit;
+        }
+      
         return $query->result();
     }
 
