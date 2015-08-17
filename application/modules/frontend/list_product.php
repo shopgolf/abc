@@ -7,7 +7,7 @@ $special_products[0]->product_link  =   $this->bookinglib->build_url($special_pr
 $this->smarty->assign(array(
     'build_url'             => $this->bookinglib->build_url(),
     'data_category'         => $this->category_model->getCategoryById(array('parent_category_not_null'=>true,'type'=>1,'random'=>TRUE)),
-    'data'                  => $this->product_model->getProCateById(array('status'=>1),array('key'=>'id','value'=>'DESC'),18),
+    'data'                  => $this->product_model->getProCateById(array('status'=>1),array('key'=>$order,'value'=>$order_value),'18,18'),
     'pagination'            => $this->pagination->create_links(),
     'special_products'      => $special_products[0]
 ));
