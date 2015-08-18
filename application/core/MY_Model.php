@@ -41,6 +41,50 @@ class MY_Model extends CI_Model {
             '1' => $this->lang->line('product'),
             '2' => $this->lang->line('accessory')
         );
+
+        $this->hardness = array(
+            '1' => 'R',
+            '2' => 'R1',
+            '3' => 'R2',
+            '4' => 'SR',
+            '5' => 'S',
+            '6' => 'X'
+        );
+        
+        $this->club_rank = array(
+            '1' => 'A',
+            '2' => 'B',
+            '3' => 'C',
+            '4' => 'A+',
+            '5' => 'B+',
+            '6' => 'B-',
+            '7' => 'C+',
+            '8' => 'C-',
+        );
+        
+        $this->loft = array(
+            '1' => '8',
+            '2' => '8.5',
+            '3' => '9',
+            '4' => '9.5',
+            '5' => '10',
+            '6' => '10.5',
+            '7' => '11',
+            '8' => '11.5',
+            '9' => '12',
+        );
+    }
+
+    public function hardness(){
+        return $this->hardness;
+    }
+
+    public function club_rank(){
+        return $this->club_rank;
+    }
+
+    public function loft(){
+        return $this->loft;
     }
 
     public function product_type() {

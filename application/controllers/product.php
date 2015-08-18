@@ -1,6 +1,6 @@
 <?php if (!defined('BASEPATH')) exit('No direct script access allowed');
-error_reporting(E_ALL);
-ini_set("display_errors", 1);
+//error_reporting(E_ALL);
+//ini_set("display_errors", 1);
 class Product extends CI_controller
 {
 	public function __construct() {
@@ -41,7 +41,7 @@ class Product extends CI_controller
         require_once APPPATH . 'modules/frontend/list_product.php';
         $this->smarty->assign(array(
 			'title'         => $this->lang->language['title_hang_moi_ve'],
-			'page_class'    => 'category-page'
+			'page_class'    => 'category-page',
 		));
 		$this->smarty->display('templates/frontend/layout');
 	}
