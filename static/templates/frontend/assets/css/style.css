@@ -5380,6 +5380,7 @@ span.notify-right{
     margin-right: 20px;
 }
 .search-cate{
+  max-width: 200px;
   min-width: 200px;
   border: 1px solid #26C281;
   margin:10px 0px 10px 0px;

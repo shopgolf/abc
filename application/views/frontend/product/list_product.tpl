@@ -85,43 +85,42 @@
                     </div>
                     <div class="subcategories">
                         <form class="" action="" method="post">
-                            <select  class="search-cate " name="" id="">
+                            <select  class="search-cate " name="type" id="">
                                 <option value="">-- Loại gậy -- </option>
                                 <option value="">10000000 - 20000000 VNĐ</option>
                                 <option value="">2000000 - 40000000 VNĐ</option>
                             </select>
-                            <select  class="search-cate" name="" id="">
+                            <select  class="search-cate" name="maker" id="">
                                 <option value="">-- Hãng sản xuất--</option>
                                 <option value="">AKIRA</option>
                                 <option value="">FOOTJOY</option>
                             </select>
-                            <select  class="search-cate" name="" id="">
+                            <select  class="search-cate" name="hardness" id="">
                                <option value="">-- Hardness -- </option>
                                 {{foreach $hardness as $k => $v}}
                                     <option value="{{$k}}" name="hardness"> {{$v}} </option>
                                 {{/foreach}}    
                             </select>
-                            <select  class="search-cate" name="" id="">
-                               <option value="">-- Độ gậy -- </option>
-                                {{foreach $hardness as $k => $v}}
-                                    <option value="">2000000 - 40000000 VNĐ</option>
+                            <select  class="search-cate" name="loft" id="">
+                                <option value="">-- Độ gậy -- </option>
+                                {{foreach $loft as $k => $v}}
+                                    <option value="{{$k}}">{{$v}}</option>
                                 {{/foreach}}    
                             </select>
-                            <select  class="search-cate" name="" id="">
-                                <option value="">-- Giá Tiền -- </option>
-                                <option value="">10000000 - 20000000 VNĐ</option>
-                                <option value="">2000000 - 40000000 VNĐ</option>
+                            <select  class="search-cate" name="club_rank" id="">
+                                <option value="">-- Tình trạng -- </option>
+                                {{foreach $club_rank as $k => $v}}
+                                    <option value="{{$k}}">{{$v}}</option>
+                                {{/foreach}}  
                             </select>
-                            <select  class="search-cate" name="" id="">
-                                <option value="">-- Giá Tiền -- </option>
-                                <option value="">10000000 - 20000000 VNĐ</option>
-                                <option value="">2000000 - 40000000 VNĐ</option>
-                            </select>
-                            <select  class="search-cate" name="" id="">
-                                <option value="">-- Giá Tiền -- </option>
-                                <option value="">10000000 - 20000000 VNĐ</option>
-                                <option value="">2000000 - 40000000 VNĐ</option>
-                            </select>
+                         
+                            <div style="float:left;margin-right:5px;padding:0px 10px" class="search-cate" >      
+                                <input type="text" name="price_start" size="20">  
+                            </div>
+
+                            <div style="float:left;margin-right:5px;padding:0px 10px" class="search-cate" >
+                                <input type="text" name="price_end" size="20">  
+                            </div>
                             <button type="submit">Tìm Kiếm</button>
                         </form>
                     </div>
