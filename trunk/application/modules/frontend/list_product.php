@@ -9,7 +9,10 @@ $this->smarty->assign(array(
     'data_category'         => $this->category_model->getCategoryById(array('parent_category_not_null'=>true,'type'=>1,'random'=>TRUE)),
     'data'                  => $this->product_model->getProCateById(array('status'=>1),array('key'=>$order,'value'=>$order_value),18,$offset),
     'pagination'            => $this->pagination->create_links(),
-    'special_products'      => $special_products[0]
+    'special_products'      => $special_products[0],
+    'hardness'              => $this->product_model->hardness(),
+    'club_rank'             => $this->product_model->club_rank(),
+    'loft'                  => $this->product_model->loft(),
 ));
 
 $this->smarty->assign(array(

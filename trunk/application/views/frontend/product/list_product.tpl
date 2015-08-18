@@ -96,14 +96,16 @@
                                 <option value="">FOOTJOY</option>
                             </select>
                             <select  class="search-cate" name="" id="">
-                               <option value="">-- Giá Tiền -- </option>
-                                <option value="">10000000 - 20000000 VNĐ</option>
-                                <option value="">2000000 - 40000000 VNĐ</option>
+                               <option value="">-- Hardness -- </option>
+                                {{foreach $hardness as $k => $v}}
+                                    <option value="{{$k}}" name="hardness"> {{$v}} </option>
+                                {{/foreach}}    
                             </select>
                             <select  class="search-cate" name="" id="">
-                               <option value="">-- Giá Tiền -- </option>
-                                <option value="">10000000 - 20000000 VNĐ</option>
-                                <option value="">2000000 - 40000000 VNĐ</option>
+                               <option value="">-- Độ gậy -- </option>
+                                {{foreach $hardness as $k => $v}}
+                                    <option value="">2000000 - 40000000 VNĐ</option>
+                                {{/foreach}}    
                             </select>
                             <select  class="search-cate" name="" id="">
                                 <option value="">-- Giá Tiền -- </option>

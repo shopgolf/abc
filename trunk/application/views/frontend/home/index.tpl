@@ -110,7 +110,7 @@
                                     </div>
                                 </div>
                                 <div class="price-percent-reduction2">
-                                   SALE
+                                  {{$v->pecent}} %
                                 </div>
                                 <div class="tooltip-me">{{$v->product_name}}</div>
                             </li>
@@ -147,7 +147,7 @@
                                     </div>
                                 </div>
                                 <div class="price-percent-reduction2">
-                                   SALE
+                                   {{$v->pecent}} %
                                 </div>
                                 <div class="tooltip-me"><p>{{$v->product_code}}</p></div>
                             </li>
