@@ -147,7 +147,7 @@
                         <li class="col-sx-12 col-sm-4 wapper-tooltip">
                             <div class="product-container">
                                 <div class="left-block">
-                                    <a href="{{$bookinglib->build_url($value->seo_url,NULL)}}">
+                                    <a href="{{$bookinglib->build_url($value->cat_url,$value->seo_url)}}">
                                         <img class="img-responsive" alt="product" src="{{$UPLOAD_DIR}}product/{{$image[0]}}" />
                                     </a>
                                     <div class="quick-view">
