@@ -21,6 +21,7 @@ class Product extends BACKEND_Controller {
                 
                 $this->load->model('checkout_model');
                 $this->load->model('product_model');
+                $this->load->model('parameters_model');
                 $this->set_controller('product');
                 $this->set_model($this->product_model);
                 $this->load->library('bookinglib');
@@ -116,22 +117,19 @@ class Product extends BACKEND_Controller {
                         $this->view_data["product"]->end_time                           = strtotime($this->input->post('end_time'));
                         $this->view_data["product"]->parameters                         = $this->input->post('parameters');
                         $this->view_data["product"]->info                               = $this->input->post('info');
-                        
                         $this->view_data["product"]->owner                              = $this->session->userdata['user_id'];
                         $this->view_data["product"]->lastupdated                        = date("Y-m-d H:i:s",time());
                         
                         if($this->input->post('final_price_fake')){
                             $this->view_data["product"]->pecent = $this->bookinglib->percents($this->input->post('final_price_fake'),$this->input->post('net_price_fake'),0);
-                        }
-                        //percentage(1, 3, 0)
-                        
+                        }                        
                         
                         if($this->input->post('begin_price') && $this->input->post('begin_time') && $this->input->post('end_time')){
                             $this->view_data["product"]->bid   =   1;
                         } else {
                             $this->view_data["product"]->bid   =   0;
                         }
-                        
+                       
                         $this->load->helper('form');
                         $this->load->helper('character');
                         $this->load->library('form_validation');
@@ -164,10 +162,6 @@ class Product extends BACKEND_Controller {
                                 'field'   => 'final_price',
                                 'label'   =>  $this->lang->line('final_price'),
                                 'rules'   => 'numberic|max_length[15]|xss_clean'
-                            ),array(
-                                'field'   => 'info',
-                                'label'   =>  $this->lang->line('product_detail'),
-                                'rules'   => 'required|trim|xss_clean'
                             )
                         );
                         $this->form_validation->set_error_delimiters('<p><strong>'.$this->lang->line('error').' : </strong> ',' </p>');
@@ -194,7 +188,13 @@ class Product extends BACKEND_Controller {
 				}else{
                                         $this->view_data['product']->product_id         = $this->bookinglib->rendCode('PRO');
 					$params                                         = $this->product_model->create($this->view_data["product"]);
+                                        preg_match_all("'<span style=\"font-family: times new roman,times,serif;\">(.*?)</span>'si", $this->input->post('info'), $match);
+                                        $parammeters                =   new stdClass();
+                                        $parammeters->product_id    =   $this->view_data['product']->product_id;
+                                        $parammeters->loft          =   $match[1][11];
+                                        $parammeters->club_rank     =   $match[1][23];
 
+                                        $this->parameters_model->create($parammeters);
                                         $logAction                                      = '[AddProductSuccess] '.$this->lang->line('add_product_success');
 				}
                                 
