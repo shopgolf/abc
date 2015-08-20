@@ -169,27 +169,11 @@
                     </div>
                   </div>
                   <div class="box-body pad">
-                    <textarea name="parameters" cols="40" rows="10" id="parameters" class="tinymcefull">{{if isset($product->parameters)}}{{$product->parameters}}{{/if}}</textarea>
+                    <textarea name="info" cols="40" rows="10" id="info" class="tinymcefull">{{if isset($product->info)}}{{$product->parameters}}{{/if}}</textarea>
                   </div>
                 </div>
               </div>
 
-              <div class="col-md-12">
-                <div class="box box-info">
-                  <div class="box-header">
-                    <div class="box-header with-border">
-                      <h3 class="box-title">{{$lang.product_detail}}</h3>
-                      <div class="box-tools pull-right">
-                        <button class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i></button>
-                        <button class="btn btn-box-tool" data-widget="remove"><i class="fa fa-times"></i></button>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="box-body pad">
-                    <textarea name="info" cols="40" rows="10" id="info" class="tinymcefull">{{if isset($product->info)}}{{$product->info}}{{/if}}</textarea>
-                  </div>
-                </div>
-              </div>
               <div class="col-md-12">
                 <div class="col-md-3 pull-right">
                   <button class="btn btn-block btn-success btn-lg" onclick="return validateForm();">{{$lang.completed}}</button>
@@ -208,41 +192,45 @@
 {{include file = 'templates/backend/datetimepicker.tpl'}}
 <script type="text/javascript">
 $(document).ready(function() {
-    $("#product_code").focus();
-    $("#product_code").on('blur',function(){
-        if($("#product_code").val() == ""){
+    if($("#product_code").val() == "" && $("#product_name").val() == "" && $("#net_fire").val() == ""){
+    
+    
             $("#product_code").focus();
-            $('#product_code').addClass( 'alert-error' );
-            $('#product_code').parent().addClass( 'alert-error' );
-        } else {
-            $("#product_name").focus();
-            $('#product_code').removeClass( 'alert-error' );
-            $('#product_code').parent().removeClass( 'alert-error' );
-        }
-    });
-    
-    $("#product_name").on('blur',function(){
-        if($("#product_name").val() == ""){
-                $("#product_name").focus();
-                $('#product_name').addClass( 'alert-error' );
-                $('#product_name').parent().addClass( 'alert-error' );
-        } else {
-                $("#net_price").focus();
-                $('#product_name').removeClass( 'alert-error' );
-                $('#product_name').parent().removeClass( 'alert-error' );
-        }
-    });
-    
-    $("#net_price").on('blur',function(){
-        if($("#net_price").val() == ""){
-            $("#net_price").focus();
-            $('#net_price').addClass( 'alert-error' );
-            $('#net_price').parent().addClass( 'alert-error' );
-        } else {
-            $('#net_price').removeClass( 'alert-error' );
-            $('#net_price').parent().removeClass( 'alert-error' );
-        }
-    });
+            $("#product_code").on('blur',function(){
+                if($("#product_code").val() == ""){
+                    $("#product_code").focus();
+                    $('#product_code').addClass( 'alert-error' );
+                    $('#product_code').parent().addClass( 'alert-error' );
+                } else {
+                    $("#product_name").focus();
+                    $('#product_code').removeClass( 'alert-error' );
+                    $('#product_code').parent().removeClass( 'alert-error' );
+                }
+            });
+
+            $("#product_name").on('blur',function(){
+                if($("#product_name").val() == ""){
+                        $("#product_name").focus();
+                        $('#product_name').addClass( 'alert-error' );
+                        $('#product_name').parent().addClass( 'alert-error' );
+                } else {
+                        $("#net_price").focus();
+                        $('#product_name').removeClass( 'alert-error' );
+                        $('#product_name').parent().removeClass( 'alert-error' );
+                }
+            });
+
+            $("#net_price").on('blur',function(){
+                if($("#net_price").val() == ""){
+                    $("#net_price").focus();
+                    $('#net_price').addClass( 'alert-error' );
+                    $('#net_price').parent().addClass( 'alert-error' );
+                } else {
+                    $('#net_price').removeClass( 'alert-error' );
+                    $('#net_price').parent().removeClass( 'alert-error' );
+                }
+            });
+    }
     
     $("#seo_keyword").on('blur',function(){
         $("#seo_metadata").focus();

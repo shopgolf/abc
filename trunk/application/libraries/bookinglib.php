@@ -24,7 +24,7 @@ class bookinglib {
     }
     
     public function rendCode($char){
-        return $char.date("imd").$this->rand_string_limit(2).date("s");
+        return $char.date("imd").$this->rand_string_limit(5).date("s");
     }
     
     
