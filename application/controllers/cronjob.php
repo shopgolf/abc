@@ -17,10 +17,23 @@ class Cronjob extends CI_Controller
                 $this->bookinglib = new bookinglib();
         }
 		
-		public function sqlejection(){
-				
-		}
+        public function explodeInfo(){
+                $info           =   $this->cronjob_model->explodeInfo("clubspec");
+                foreach($info as $key => $value){
+                    preg_match_all("'<span style=\"font-family:times new roman,times,serif\">(.*?)</span>'si", $value->info, $match);
+                    if($match[1][11] != "" && $match[1][23] != ""){
+                        echo '("'.trim($value->product_id).'","'.trim($this->removeSpace($match[1][11])).'","'.trim($this->removeSpace($match[1][23])).'"),';
+                    }
+                    unset($_data);
+                    unset($match);
+                }
+        }
         
+        private function removeSpace($str){
+            return str_replace("&nbsp;", "", $str);
+        }
+
+
         public function cronMenuCate(){
                 $category = $this->category_model->find_by();
                 $arr = array();
