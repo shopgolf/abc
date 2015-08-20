@@ -169,7 +169,7 @@
                     </div>
                   </div>
                   <div class="box-body pad">
-                    <textarea name="info" cols="40" rows="10" id="info" class="tinymcefull">{{if isset($product->info)}}{{$product->parameters}}{{/if}}</textarea>
+                    <textarea name="info" cols="40" rows="10" id="info" class="tinymcefull">{{if isset($product->info)}}{{$product->info}}{{/if}}</textarea>
                   </div>
                 </div>
               </div>
