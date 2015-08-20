@@ -10,8 +10,22 @@ class Cronjob_model extends MY_Model{
 	
 	public function __construct(){
 		parent::__construct();
-		$this->table_name = 'px_product';
+		$this->table_name = 'px_parameters';
 	}
+        
+        public function insertInfo($params){
+            $sql = "INSERT INTO `px_parameters` (`product_id`, `loft`, `club_rank`) VALUES ('{$params->product_id}', '{$params->loft}', '{$params->club_rank}')";
+//            die($sql);
+            $query  = $this->db->query($sql);
+            return $query->result();
+        }
+        
+        public function explodeInfo($params){
+            $sql = "select product_id, info from px_product WHERE info LIKE '%{$params}%'";
+//            die($sql);
+            $query  = $this->db->query($sql);
+            return $query->result();
+        }
         
         public function insertCategory($params){
             $this->db->insert('px_category',$params);
