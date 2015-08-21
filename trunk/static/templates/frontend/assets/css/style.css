@@ -5468,3 +5468,6 @@ span.notify-right{
        -o-transform: translateY(0px);
           transform: translateY(0px);
 }
+.modal-content{
+  border-radius: 0px;
+}
