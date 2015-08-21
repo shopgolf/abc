@@ -36,9 +36,9 @@
     <script type="text/javascript" src="{{$static_ft}}/lib/owl.carousel/owl.carousel.min.js"></script>
     <script type="text/javascript" src="{{$static_ft}}/lib/fancyBox/jquery.fancybox.js"></script>
     <script type="text/javascript" src="{{$static_ft}}/js/theme-script.js"></script>
+    <script type="text/javascript" src="{{$static_ft}}/lib/jquery.elevatezoom.js"></script>
 {{if $controller == "home"}}
 	<script type="text/javascript" src="{{$static_ft}}/lib/select2/js/select2.min.js"></script>
-	<script type="text/javascript" src="{{$static_ft}}/lib/jquery.elevatezoom.js"></script>>
 	<script type="text/javascript" src="{{$static_ft}}/js/jquery.actual.min.js"></script>
 	<script type="text/javascript" src="{{$static_ft}}/js/wowslider.js"></script>
 	<script type="text/javascript" src="{{$static_ft}}/js/script.js"></script>
