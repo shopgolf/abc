@@ -92,9 +92,7 @@
                                 <div class="left-block">
                                     <a href="{{$bookinglib->build_url($v->cat_url,$v->seo_url)}}"   title="{{$v->product_name}}"><img class="img-responsive" alt="product" src="{{$UPLOAD_DIR}}product/{{$image[0]}}" /></a>
                                     <div class="quick-view">
-                                            <a title="Add to my wishlist" class="heart" href="#"></a>
-                                            <a title="Add to compare" class="compare" href="#"></a>
-                                            <a title="Quick view" class="search" data-toggle="modal" data-target=".{{$v->product_id}}" href="javascript:void(0)"></a>
+                                        <a title="Quick view" class="search" data-toggle="modal" data-target=".{{$v->product_id}}" href="javascript:void(0)"></a>
                                     </div>
                                     <div class="add-to-cart">
                                         <a title="BUY" href="javascript:void(0)" >BUY</a>
@@ -128,9 +126,7 @@
                                 <div class="left-block">
                                     <a href="#"><img class="img-responsive" alt="product" src="{{$UPLOAD_DIR}}product/{{$image[0]}}" /></a>
                                     <div class="quick-view">
-                                            <a title="Add to my wishlist" class="heart" href="#"></a>
-                                            <a title="Add to compare" class="compare" href="#"></a>
-                                            <a title="Quick view" href="javascript:void(0)" data-toggle="modal" data-target=".{{$v->product_id}}" class="search"></a>
+                                        <a title="Quick view" href="javascript:void(0)" data-toggle="modal" data-target=".{{$v->product_id}}" class="search"></a>
                                     </div>
                                     <div class="add-to-cart">
                                         <a title="BUY" href="{{$site_url}}">BUY</a>
