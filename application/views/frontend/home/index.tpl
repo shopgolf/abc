@@ -255,8 +255,9 @@
                     <div id="tab-{{$keys}}" class="tab-panel{{$actives}}">
                         <ul>
                             {{foreach $values.response as $ks => $vls}}
+                                 {{$image = json_decode($vls->image)}}
                                 <li>
-                                    <a href="{{$bookinglib->build_url($values.cat_url,$vls->seo_url)}}" class="img-top-view"><img class="img-responsive" src="http://teampat.net/static/templates/frontend/assets/images/16600150563714-200x200.jpg" alt=""></a>
+                                    <a href="{{$bookinglib->build_url($values.cat_url,$vls->seo_url)}}" class="img-top-view"><img class="img-responsive" src="{{$UPLOAD_DIR}}product/{{$image[0]}}" alt="{{$vls->product_name}}"></a>
                                     <div class="view-list">
                                         <div class="rating"><a href="{{$bookinglib->build_url($values.cat_url,$vls->seo_url)}}" title="{{$vls->product_name}}">{{$vls->product_name}}</a></div>
                                         <p>{{$lang.rates}}: {{number_format($vls->net_price,0,'','.')}}.{{$lang.vn_currency}}</p>
