@@ -21,7 +21,8 @@ if($this->db->conn_id != FALSE){
         "lang"          =>  $this->lang->language,
         'site_url'      =>  base_url(),
         "UPLOAD_DIR"    =>  base_url().'static/uploads/',
-        "static_ft"     =>  base_url($static->STATIC_FT)
+        "static_ft"     =>  base_url($static->STATIC_FT),
+        'ship_price'    =>  $static->SHIP_PRICE
     ));
 }
 

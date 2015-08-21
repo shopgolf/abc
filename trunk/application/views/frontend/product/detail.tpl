@@ -86,7 +86,7 @@
                                         </div>
                                     </div>
                                     <div class="product-bottom">
-                                        <a class="btn-add-cart" title="Add to Cart" href="#add">Add to Cart</a>
+                                        <a class="btn-add-cart" title="{{$lang.add_to_cart}}" href="fffffffffff">{{$lang.add_to_cart}}</a>
                                     </div>
                                 </div>
                             </li>
@@ -113,7 +113,7 @@
                                         </div>
                                     </div>
                                     <div class="product-bottom">
-                                        <a class="btn-add-cart" title="Add to Cart" href="#add">Add to Cart</a>
+                                        <a class="btn-add-cart" title="{{$lang.add_to_cart}}" href="aaaaaaaaaaaa">{{$lang.add_to_cart}}</a>
                                     </div>
                                 </div>
                             </li>
@@ -140,7 +140,7 @@
                                         </div>
                                     </div>
                                     <div class="product-bottom">
-                                        <a class="btn-add-cart" title="Add to Cart" href="#add">Add to Cart</a>
+                                        <a class="btn-add-cart" title="{{$lang.add_to_cart}}" href="aaaaaaaaaaaaa">{{$lang.add_to_cart}}</a>
                                     </div>
                                 </div>
                             </li>
@@ -219,26 +219,12 @@
                                 
                                 <div class="form-action">
                                     <div class="button-group">
-                                        <a class="btn-add-cart" href="#">{{$lang.add_to_cart}}</a>
+                                        <a class="btn-add-cart" href="{{$bookinglib->build_url('mua-hang',$info->seo_url)}}?token={{$token}}">{{$lang.add_to_cart}}</a>
                                     </div>
                                 </div>
                             </div>
                         </div>
-                        <!-- tab product -->
-                        <!---<div class="product-tab">
-                            <ul class="nav-tab">
-                                <li class="active">
-                                    <a aria-expanded="false" data-toggle="tab" href="#product-detail">Product Details</a>
-                                </li>
-                            </ul>
-                            <div class="tab-container">
-                                <div id="product-detail" class="tab-panel active">
-                                   
-                                </div>
-                            </div>
-                        </div>-->
-                        <!-- ./tab product -->
-                        <!-- box product -->
+                        
                         <div class="page-product-box">
                             <h3 class="heading">Sản phẩm liên quan</h3>
                             {{foreach $data_related as $key => $value}}
@@ -257,7 +243,7 @@
                                                     <a title="Quick view" class="search" href="{{$site_url}}{{$v->seo_url}}-p{{$v->id}}.html"></a>
                                             </div>
                                             <div class="add-to-cart">
-                                                <a title="Add to Cart" href="#add">Add to Cart</a>
+                                                <a title="{{$lang.add_to_cart}}" href="#add">{{$lang.add_to_cart}}</a>
                                             </div>
                                         </div>
                                         <div class="right-block">
