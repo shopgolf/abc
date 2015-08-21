@@ -9,7 +9,6 @@
     <link rel="stylesheet" type="text/css" href="{{$static_ft}}/lib/bootstrap/css/bootstrap.min.css" />
     <link rel="stylesheet" type="text/css" href="{{$static_ft}}/lib/font-awesome/css/font-awesome.min.css" />
     <link rel="stylesheet" type="text/css" href="{{$static_ft}}/lib/select2/css/select2.min.css" />
-    <link rel="stylesheet" type="text/css" href="{{$static_ft}}/lib/jquery.bxslider/jquery.bxslider.css" />
     <link rel="stylesheet" type="text/css" href="{{$static_ft}}/lib/owl.carousel/owl.carousel.css" />
     <link rel="stylesheet" type="text/css" href="{{$static_ft}}/lib/jquery-ui/jquery-ui.css" />
     <link rel="stylesheet" type="text/css" href="{{$static_ft}}/css/animate.css" />
@@ -36,11 +35,7 @@
 <!-- Script-->
 <script type="text/javascript" src="{{$static_ft}}/lib/bootstrap/js/bootstrap.min.js"></script>
 <script type="text/javascript" src="{{$static_ft}}/lib/select2/js/select2.min.js"></script>
-<script type="text/javascript" src="{{$static_ft}}/lib/jquery.bxslider/jquery.bxslider.min.js"></script>
 <script type="text/javascript" src="{{$static_ft}}/lib/owl.carousel/owl.carousel.min.js"></script>
-<!-- COUNTDOWN -->
-<script type="text/javascript" src="{{$static_ft}}/lib/countdown/jquery.plugin.js"></script>
-<script type="text/javascript" src="{{$static_ft}}/lib/countdown/jquery.countdown.js"></script>
 <!-- ./COUNTDOWN -->
 <script type="text/javascript" src="{{$static_ft}}/lib/jquery.elevatezoom.js"></script>
 <script type="text/javascript" src="{{$static_ft}}/lib/fancyBox/jquery.fancybox.js"></script>
