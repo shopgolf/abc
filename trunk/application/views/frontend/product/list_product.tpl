@@ -152,9 +152,7 @@
                                         <img class="img-responsive" alt="product" src="{{$UPLOAD_DIR}}product/{{$image[0]}}" />
                                     </a>
                                     <div class="quick-view">
-                                            <a title="Add to my wishlist" class="heart" href="#"></a>
-                                            <a title="Add to compare" class="compare" href="#"></a>
-                                            <a title="Quick view" class="search" href="{{$bookinglib->build_url($value->seo_url,NULL)}}"></a>
+                                            <a title="Quick view" class="search" data-toggle="modal" data-target=".{{$value->product_id}}" href="javascript:void(0)"></a>
                                     </div>
                                     <div class="add-to-cart">
                                         <a title="Add to Cart" href="#add">Add to Cart</a>
@@ -181,7 +179,19 @@
                                         </div>
                                     </div>
                                 </div>
-                                <div class="tooltip-me">{{$value->description}}</div>
+                            </div>
+                            <div class="modal fade bs-example-modal-sm {{$value->product_id}}" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel">
+                              <div class="modal-dialog modal-sm">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                                        <h4 class="modal-title" id="myModalLabel">{{$value->product_name}}</h4>
+                                    </div>
+                                    <div class="modal-body">
+                                        {{$value->description}}
+                                    </div>
+                                </div>
+                              </div>
                             </div>
                         </li>
                         {{/foreach}}

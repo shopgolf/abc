@@ -13,7 +13,7 @@ $this->smarty->assign(array(
     'hardness'              => $this->product_model->hardness(),
     'club_rank'             => $this->product_model->club_rank(),
     'loft'                  => $this->product_model->loft(),
-    'maker'                 => $this->maker_model->find_by($where = false,'name,id',$order_by = NULL, $limit = NULL),
+    'maker'                 => $this->maker_model->find_by(false,'name,id',$order_by = NULL, $limit = NULL),
 ));
 
 $this->smarty->assign(array(

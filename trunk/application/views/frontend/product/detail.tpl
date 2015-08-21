@@ -238,9 +238,7 @@
                                                 <img class="img-responsive" alt="product" src="{{$UPLOAD_DIR}}product/{{$image[0]}}" />
                                             </a>
                                             <div class="quick-view">
-                                                    <a title="Add to my wishlist" class="heart" href="#"></a>
-                                                    <a title="Add to compare" class="compare" href="#"></a>
-                                                    <a title="Quick view" class="search" href="{{$site_url}}{{$v->seo_url}}-p{{$v->id}}.html"></a>
+                                                <a title="Quick view" class="search" data-toggle="modal" data-target=".{{$v->product_id}}" href="{{$site_url}}{{$v->seo_url}}-p{{$v->id}}.html"></a>
                                             </div>
                                             <div class="add-to-cart">
                                                 <a title="{{$lang.add_to_cart}}" href="#add">{{$lang.add_to_cart}}</a>
@@ -256,8 +254,7 @@
                                                 {{$v->product_code}}
                                             </div>
                                         </div>
-                                    </div>
-                                    <div class="tooltip-me"><p>{{$v->product_code}}</p></div>
+                                    </div>  
                                 </li>
                                 {{/foreach}}
                             </ul>
@@ -272,3 +269,20 @@
         <!-- ./row-->
     </div>
 </div>
+{{foreach $data_related as $key => $value}}
+  {{foreach $value as $k => $v}}
+        <div class="modal fade bs-example-modal-sm {{$v->product_id}}" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel">
+          <div class="modal-dialog modal-sm">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    <h4 class="modal-title" id="myModalLabel">{{$v->product_name}}</h4>
+                </div>
+                <div class="modal-body">
+                    {{$v->description}}
+                </div>
+            </div>
+          </div>
+        </div>
+  {{/foreach}}
+{{/foreach}}
