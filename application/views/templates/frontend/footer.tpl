@@ -93,14 +93,9 @@
                      <div class="row">
                          <div class="col-sm-8">
                              <div class="footer-coppyright">
-                                 Copyright © 2015 withone. All Rights Reserved. Designed by: DA TEAM
+                                 Copyright © 2015 withone.
                              </div>
 
-                         </div>
-                         <div class="col-sm-4">
-                             <div class="footer-payment-logo">
-                                 <img src="{{$static_ft}}/data/option3/payment-logo.png" alt="payment logo">
-                             </div>
                          </div>
                      </div>
                  </div>
