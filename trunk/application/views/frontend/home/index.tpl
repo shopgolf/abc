@@ -83,18 +83,18 @@
             <div class="box-product-list">
                 <div class="tab-container">
                     <div id="tab-1" class="tab-panel active">
-                        {{foreach $data_old_product as $key => $value}}
+                        {{foreach $data as $key => $value}}
                         <!--new product-->
                         <ul class="product-list owl-carousel nav-center" data-dots="false" data-loop="true" data-nav = "true" data-margin = "10" data-responsive='{"0":{"items":1},"600":{"items":3},"1000":{"items":4}}'>
                             {{foreach $value as $k => $v}}
                             {{$image = json_decode($v->image)}}
-                            <li class="wapper-tooltip">
+                            <li>
                                 <div class="left-block">
                                     <a href="{{$bookinglib->build_url($v->cat_url,$v->seo_url)}}"   title="{{$v->product_name}}"><img class="img-responsive" alt="product" src="{{$UPLOAD_DIR}}product/{{$image[0]}}" /></a>
                                     <div class="quick-view">
                                             <a title="Add to my wishlist" class="heart" href="#"></a>
                                             <a title="Add to compare" class="compare" href="#"></a>
-                                            <a title="Quick view" class="search" href="{{$bookinglib->build_url($v->cat_url,$v->seo_url)}}"></a>
+                                            <a title="Quick view" class="search" data-toggle="modal" data-target=".{{$v->product_id}}" href="javascript:void(0)"></a>
                                     </div>
                                     <div class="add-to-cart">
                                         <a title="BUY" href="javascript:void(0)" >BUY</a>
@@ -112,7 +112,6 @@
                                 <div class="price-percent-reduction2">
                                   {{$v->pecent}} %
                                 </div>
-                                <div class="tooltip-me">{{$v->product_name}}</div>
                             </li>
                              {{/foreach}}       
                         </ul>
@@ -131,7 +130,7 @@
                                     <div class="quick-view">
                                             <a title="Add to my wishlist" class="heart" href="#"></a>
                                             <a title="Add to compare" class="compare" href="#"></a>
-                                            <a title="Quick view" class="search" href="{{$bookinglib->build_url($v->cat_url,$v->seo_url)}}"></a>
+                                            <a title="Quick view" href="javascript:void(0)" data-toggle="modal" data-target=".{{$v->product_id}}" class="search"></a>
                                     </div>
                                     <div class="add-to-cart">
                                         <a title="BUY" href="{{$site_url}}">BUY</a>
@@ -148,8 +147,7 @@
                                 </div>
                                 <div class="price-percent-reduction2">
                                    {{$v->pecent}} %
-                                </div>
-                                <div class="tooltip-me"><p>{{$v->product_code}}</p></div>
+                                </div>  
                             </li>
                             {{/foreach}}            
                         </ul>
@@ -278,3 +276,38 @@
 </div>
 <!--end recommendation-->
 <!-- Footer -->
+{{foreach $data as $key => $value}}
+  {{foreach $value as $k => $v}}
+        <div class="modal fade bs-example-modal-sm {{$v->product_id}}" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel">
+          <div class="modal-dialog modal-sm">
+            <div class="modal-content">
+              <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title" id="myModalLabel">{{$v->product_name}}</h4>
+              </div>
+                <div class="modal-body">
+                    {{$v->description}}
+                </div>
+            </div>
+          </div>
+        </div>
+  {{/foreach}}
+{{/foreach}}
+
+{{foreach $data_old_product as $key => $value}}
+  {{foreach $value as $k => $v}}
+        <div class="modal fade bs-example-modal-sm {{$v->product_id}}" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel">
+          <div class="modal-dialog modal-sm">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    <h4 class="modal-title" id="myModalLabel">{{$v->product_name}}</h4>
+                </div>
+                <div class="modal-body">
+                    {{$v->description}}
+                </div>
+            </div>
+          </div>
+        </div>
+  {{/foreach}}
+{{/foreach}}

@@ -12,6 +12,7 @@ class Product extends CI_controller
                 $this->load->model('producttype_model');
                 $this->load->model('category_model');
                 $this->load->model('menu_model');
+                $this->load->model('maker_model');
                 
                 $this->load->library("pagination");
                 $this->smarty->assign(array(
@@ -69,7 +70,6 @@ class Product extends CI_controller
 	}
 
 	public function top_view_product($params1=3){
-		//pre($params1);
 		$offset      = ($params1-1) * 18;
 		$this->pagination->initialize(pagination(base_url().$this->lang->language['xem_nhieu'],100));
 		$order       = 'view';
@@ -96,12 +96,12 @@ class Product extends CI_controller
 	}
 
 	public function detail($params1=NULL,$params2=NULL){
-                $info               =   $this->product_model->find_by(array('seo_url'=>trim($params2)));
-                if(empty($info)){
-                    redirect(base_url());
-                }
-                $data               =   $this->product_model->getProCateById(array('status'=>1),array('key'=>'checkout','value'=>'DESC'),5);
-                $data_related       =   $this->product_model->getProCateById(array('status'=>1,'category'=>$info[0]->category),array('key'=>'checkout','value'=>'DESC'),5);
+        $info               =   $this->product_model->find_by(array('seo_url'=>trim($params2)));
+        if(empty($info)){
+            redirect(base_url());
+        }
+        $data               =   $this->product_model->getProCateById(array('status'=>1),array('key'=>'checkout','value'=>'DESC'),5);
+        $data_related       =   $this->product_model->getProCateById(array('status'=>1,'category'=>$info[0]->category),array('key'=>'checkout','value'=>'DESC'),5);
                 
 		$this->smarty->assign(array(
 			'title'        => $this->lang->language['detail'].''.$this->lang->language['product'],
@@ -111,30 +111,26 @@ class Product extends CI_controller
 			'data'         => $data,
 			'data_related' => array_chunk($data_related,3),
 		));
-                
+                 
                 require_once APPPATH . 'modules/frontend/detail_product.php';
 		$this->smarty->display('templates/frontend/layout');
 	}
 
-	public function category(){
-		$field         = array('id','seo_url','product_name','net_price','image','product_code','description');
-		$url_cate           = $this->uri->segment(1);
-		$cate_id       = array_pop(explode('c', $url_cate));
-		$url           = base_url().$url_cate;	
-		$config        = pagination($url,$total = 100);
-		$start         = $this->uri->segment(2);
-		$this->pagination->initialize($config);
-		$data          = $this->product_model->new_product($field,$limit = 18,$offset = $start,$order_by = 'DESC',$param = 'checkout',$where=array('status'=>1,'category'=>$cate_id));
-		$data_category = $this->category_model->get_data();
-		$this->smarty->assign(array(
-			'title'         => 'Sản phẩm bán chạy',
-			'menu_home'     => 'templates/frontend/menu_page.tpl',
-			'content'       => 'frontend/product/list_product.tpl',
+	public function category($params1=3){
+		//pre( $this->uri->segment(2));
+		$offset      = ($params1-1) * 18;
+		$this->pagination->initialize(pagination(base_url().$this->lang->language['hang_moi_ve'],100));
+		$order       = 'id';
+		$order_value = 'DESC';
+        require_once APPPATH . 'modules/frontend/list_product.php';
+        $this->smarty->assign(array(
+			'title'         => $this->lang->language['title_hang_moi_ve'],
 			'page_class'    => 'category-page',
-			'data'          => $data,
-			'data_category' => $data_category,
-			'pagination'    => $this->pagination->create_links() 
 		));
 		$this->smarty->display('templates/frontend/layout');
+	}
+
+	public function fillter_list(){
+		pre("ok");
 	}
 }

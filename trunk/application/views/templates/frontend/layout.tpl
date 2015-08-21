@@ -34,7 +34,6 @@
     {{include file = 'templates/frontend/footer.tpl'}}
 <a href="#" class="scroll_top" title="Scroll to Top" style="display: inline;">Scroll</a>
 <!-- Script-->
-<script type="text/javascript" src="{{$static_ft}}/lib/jquery/jquery-1.11.2.min.js"></script>
 <script type="text/javascript" src="{{$static_ft}}/lib/bootstrap/js/bootstrap.min.js"></script>
 <script type="text/javascript" src="{{$static_ft}}/lib/select2/js/select2.min.js"></script>
 <script type="text/javascript" src="{{$static_ft}}/lib/jquery.bxslider/jquery.bxslider.min.js"></script>
@@ -51,3 +50,4 @@
 <script type="text/javascript" src="{{$static_ft}}/js/script.js"></script>
 <!-- End WOWSlider.com BODY section -->
 </body>
+</html>
