@@ -84,7 +84,7 @@
                         <span class="trapezoid"></span>
                     </div>
                     <div class="subcategories">
-                        <form class="" action="" method="post">
+                        <form class="" action="{{$site_url}}loc-san-pham.html" method="post">
                             <select  class="search-cate " name="type" id="">
                                 <option value="">-- Loại gậy -- </option>
                                 <option value="">10000000 - 20000000 VNĐ</option>
@@ -92,8 +92,9 @@
                             </select>
                             <select  class="search-cate" name="maker" id="">
                                 <option value="">-- Hãng sản xuất--</option>
-                                <option value="">AKIRA</option>
-                                <option value="">FOOTJOY</option>
+                                {{foreach $maker as $k => $v}}
+                                    <option value="{{$k}}">{{$v}}</option>
+                                {{/foreach}}
                             </select>
                             <select  class="search-cate" name="hardness" id="">
                                <option value="">-- Hardness -- </option>
