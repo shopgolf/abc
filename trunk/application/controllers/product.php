@@ -49,6 +49,7 @@ class Product extends CI_controller
 
 	public function order($params1=NULL)
 	{
+                $this->load->model('checkout_model');
                 require_once APPPATH . 'modules/frontend/order.php';
                 
 		$this->smarty->assign(array(

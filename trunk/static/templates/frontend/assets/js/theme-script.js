@@ -5,7 +5,7 @@
      --------------------------------------------- */
     $(window).load(function() {
         // auto width megamenu
-        auto_width_megamenu();
+        //auto_width_megamenu();
         resizeTopmenu();
     });
     /* ---------------------------------------------

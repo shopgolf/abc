@@ -9,7 +9,6 @@
             <span class="page-heading-title2">{{$lang.checkout}}</span>
         </h2>
         
-    <span class="error_box"></span>
     {{form_open('',["name"=>"validate_scl"])}}
         <div class="page-content checkout-page">
             <h3 class="checkout-sep">1. {{$lang.normal_info}} {{$lang.product}}</h3>
@@ -17,17 +16,18 @@
                 <ul>       
                     <li class="row">
                         <div class="col-sm-6">
-                            <label for="product_code" class="required">{{$lang.product_code}}</label>
-                            <input class="input form-control" type="text" name="" id="product_code" value="{{$data->product_code}}" readonly="true">
+                            {{form_label({{$lang.product_code}},'product_code')}}
+                            {{form_input(['value'=>"{{$data->product_code}}",'name'=>'product_code','id'=>"product_code","class"=>"input form-control","required"=>"required","readonly"=>"true"])}}
                         </div>
-                        <input type="hidden" name="" id="c_i_d" value="{{$data->product_id}}">
+                        <input type="hidden" name="c_i_d" id="c_i_d" value="{{$data->product_id}}">
                         <div class="col-sm-6">
-                            <label for="product_name" class="required">{{$lang.product_name}}</label>
-                            <input class="input form-control" type="text" name="" id="product_name" value="{{$data->product_name}}" readonly="true">
+                            {{form_label({{$lang.product_name}},'product_name')}}
+                            {{form_input(['value'=>"{{$data->product_name}}",'name'=>'product_name','id'=>"product_name","class"=>"input form-control","required"=>"required","readonly"=>"true"])}}
                         </div>
                         <div class="col-sm-12">
-                            <label for="ship_price" class="required">{{$lang.ship_price}}</label>
-                            <input class="input form-control" type="text" name="" id="ship_price" value="{{number_format($ship_price,0,'',',')}} {{$lang.vn_currency}}" readonly="true">
+                            {{form_label({{$lang.ship_price}},'ship_price')}}
+                            {{form_input(['value'=>"{{number_format($ship_price,0,'',',')}} {{$lang.vn_currency}}",'name'=>'ship_price','id'=>"ship_price","class"=>"input form-control","readonly"=>"true"])}}
+                            {{form_input(['type'=>'hidden','value'=>"$ship_price",'name'=>'ship_price_fake','id'=>"ship_price_fake","class"=>"input form-control"])}}
                         </div>
                     </li>
                 </ul>
@@ -35,28 +35,40 @@
             
             <h3 class="checkout-sep">{{$lang.your_info}}</h3>
             <div class="box-border">
+                
+                {{if isset($validation) && $validation}}
+                    <div class="bs-example">
+                        <div class="alert alert-danger fade in">
+                            <a href="#" class="close" data-dismiss="alert">&times;</a>
+                            {{$validation}}
+                        </div>
+                    </div>
+                {{/if}}
+                
+                <span class="error_box"></span>
                 <ul>       
                     <li class="row">
                         <div class="col-sm-6">
-                            <label for="cu_name" class="required">{{$lang.yourname}}</label>
-                            <input class="input form-control" type="text" name="cu_name" id="cu_name">
+                            {{form_label({{$lang.yourname}},'cu_name')}}
+                            {{form_input(['value'=>"",'name'=>'cu_name','id'=>"cu_name","class"=>"input form-control","required"=>"required"])}}
                         </div>
 
                         <div class="col-sm-6">
-                            <label for="cu_phone" class="required">{{$lang.phone}}</label>
-                            <input class="input form-control" type="text" name="cu_phone" id="cu_phone">
+                            {{form_label({{$lang.phone}},'cu_phone')}}
+                            {{form_input(['value'=>"",'name'=>'cu_phone','id'=>"cu_phone","class"=>"input form-control","onkeypress"=>"checkNumInt(event)","maxlength"=>"11","required"=>"required"])}}
+                            
                         </div>
                     </li>
 
                     <li class="row">
                         <div class="col-sm-6">
-                            <label for="email">{{$lang.email}}</label>
-                            <input class="input form-control" type="text" name="" id="email">
+                            {{form_label({{$lang.email}},'cu_email')}}
+                            {{form_input(['value'=>"",'name'=>'cu_email','id'=>"cu_email","class"=>"input form-control","required"=>"required"])}}
                         </div>
 
                         <div class="col-sm-6">
-                            <label for="cu_address" class="required">{{$lang.address}}</label>
-                            <input class="input form-control" type="text" name="" id="cu_address">
+                            {{form_label({{$lang.address}},'cu_address')}}
+                            {{form_input(['value'=>"",'name'=>'cu_address','id'=>"cu_address","class"=>"input form-control","required"=>"required"])}}
                         </div>
                     </li>
                 </ul>
@@ -67,8 +79,8 @@
                 <ul>       
                     <li class="row">
                          <div class="col-sm-12">
-                                <label for="quantity" class="required">{{$lang.quantity}}</label>
-                                <input class="input form-control" type="text" name="" id="quantity" value="{{$data->quantity}}">
+                            {{form_label({{$lang.quantity}},'quantity')}}
+                            {{form_input(['value'=>"1",'name'=>'quantity','id'=>"quantity","class"=>"input form-control","required"=>"required"])}}
                         </div>
                         {{if $data->final_price}} 
                                 {{$sum_price = $data->final_price}}
@@ -76,12 +88,13 @@
                                 {{$sum_price = $data->net_price}}
                         {{/if}}
                         <div class="col-xs-12">
-                                <label for="net_fare" class="required">{{$lang.net_fare}}</label>
-                                <input class="input form-control" type="text" name="" id="net_fare" value="{{number_format($sum_price,0,'',',')}} {{$lang.vn_currency}}" readonly="true">
+                            {{form_label({{$lang.net_fare}},'net_fare')}}
+                            {{form_input(['value'=>"{{number_format($sum_price,0,'',',')}} {{$lang.vn_currency}}",'name'=>'net_fare','id'=>"net_fare","class"=>"input form-control","readonly"=>"true"])}}                                    
                         </div>
                         <div class="col-xs-12">
-                                <label for="order_price" class="required">{{$lang.order_price}}</label>
-                                <input class="input form-control" type="text" name="" id="order_price" value="" readonly="true">
+                                {{form_label({{$lang.order_price}},'order_price')}}
+                                {{form_input(['value'=>"{{number_format($sum_price,0,'',',')}} {{$lang.vn_currency}}",'name'=>'order_price','id'=>"order_price","class"=>"input form-control","readonly"=>"true"])}}
+                                {{form_input(["type"=>"hidden",'value'=>"{{$sum_price}}",'name'=>'order_price_fake','id'=>"order_price_fake"])}}
                         </div>
                     </li>
                 </ul>
@@ -92,21 +105,25 @@
     </div>
 </div>
 
-<script type="text/javascript" src="http://shoppings.dev/static/templates/backend/js/validate.min.js"></script>
+<script type="text/javascript" src="http://shoppings.dev/static/templates/backend/js/validate1.min.js"></script>
 <script type="text/javascript">
 function validateForm(){
     new FormValidator('validate_scl', [{
-        name: 'title',
-        display: '{{$lang.title}}',
+        name: 'cu_name',
+        display: '{{$lang.yourname}}',
         rules: 'required',
         class:'alert'
     }, {
-        name: 'link',
-        display: '{{$lang.link_detail}}',
+        name: 'cu_phone',
+        display: '{{$lang.phone}}',
         rules: 'required'
     }, {
-        name: 'saveimage',
-        display: '{{$lang.image}}',
+        name: 'cu_email',
+        display: '{{$lang.email}}',
+        rules: 'required'
+    }, {
+        name: 'cu_address',
+        display: '{{$lang.address}}',
         rules: 'required'
     }], function(errors, evt) {
         /*
@@ -138,4 +155,45 @@ function validateForm(){
         }
     });
 }
+
+function FormatNumber(x) {
+    if (typeof x === "undefined") {
+        return '';
+    } else {
+    return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",") + ' VNĐ';
+    }
+};
+///,|VNĐ|\s/g
+function UnFormatNumber(x) {
+    if (typeof x === "undefined") {
+        return '';
+    } else {
+    return x.toString().replace(/,|VNĐ|\s/g, "");
+    }
+};
+
+function checkNumInt(e)
+{
+    if (window.event)
+        keycode = window.event.keyCode;
+    else if (e)
+        keycode = e.which;
+    if (keycode>31 && (keycode < 48 || keycode > 57))
+    {
+        e.cancelBubble = true
+        e.preventDefault? e.preventDefault() : e.returnValue = false;
+    }
+}
+
+$(document).ready(function() {
+   $("#quantity").on('blur',function(){
+       if($(this).val() < 0){
+           alert("Số lượng phải lớn hơn 0!");$(this).focus();return false;
+       } else {
+           document.getElementById("order_price").value             = FormatNumber(UnFormatNumber($('#net_fare').val()) * $("#quantity").val());
+           document.getElementById("order_price_fake").value        = UnFormatNumber($('#order_price').val());
+       }
+   });
+   
+});
 </script>
