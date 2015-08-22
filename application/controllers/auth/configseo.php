@@ -49,7 +49,6 @@ class Congifseo extends BACKEND_Controller {
                         $this->view_data["configseo"]->agent_code                       = $this->session->userdata['agent_code'];
                         $this->view_data["configseo"]->lastupdated                      = date("Y-m-d H:i:s",time());
 
-                        $this->load->helper('form');
                         $this->load->helper('character');
                         $this->load->helper('form');
                         $this->load->library('form_validation');

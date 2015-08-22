@@ -39,3 +39,4 @@ $lang['accept']                     =   'Xác nhận';
 $lang['info_order']                 =   '3.Thông tin đặt hàng';
 $lang['yourname']                   =   'Họ Tên';
 $lang['your_info']                  =   '2.Vui lòng nhập thông tin của bạn';
+$lang['error']                      =   'Lỗi';
