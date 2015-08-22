@@ -39,26 +39,26 @@ class Product extends CI_controller
 		$this->pagination->initialize(pagination(base_url().$this->lang->language['hang_moi_ve'],100));
 		$order       = 'id';
 		$order_value = 'DESC';
-        require_once APPPATH . 'modules/frontend/list_product.php';
-        $this->smarty->assign(array(
+                require_once APPPATH . 'modules/frontend/list_product.php';
+                $this->smarty->assign(array(
 			'title'         => $this->lang->language['title_hang_moi_ve'],
 			'page_class'    => 'category-page',
 		));
 		$this->smarty->display('templates/frontend/layout');
 	}
 
-	public function order()
+	public function order($params1=NULL)
 	{
+                require_once APPPATH . 'modules/frontend/order.php';
+                
 		$this->smarty->assign(array(
-			'title'      => 'Giỏ hàng',
-			'menu_home'  => 'templates/frontend/menu_page.tpl',
-			'content'    => 'frontend/product/order.tpl',
+			'title'      => $this->lang->language['add_to_cart'],
 			'page_class' => 'category-page',
 		));
 		$this->smarty->display('templates/frontend/layout');
 	}
 
-	public function checkout()
+	public function checkout($params1=NULL,$params2=NULL)
 	{
 		$this->smarty->assign(array(
 			'title' 	 => 'Thanh toán',
@@ -74,7 +74,7 @@ class Product extends CI_controller
 		$this->pagination->initialize(pagination(base_url().$this->lang->language['xem_nhieu'],100));
 		$order       = 'view';
 		$order_value = 'DESC';
-        require_once APPPATH . 'modules/frontend/list_product.php';
+                require_once APPPATH . 'modules/frontend/list_product.php';
 		$this->smarty->assign(array(
 			'title'         => $this->lang->language['title-xem-nhieu'],
 			'page_class'    => 'category-page'
@@ -110,6 +110,7 @@ class Product extends CI_controller
 			'info'         => $info[0],
 			'data'         => $data,
 			'data_related' => array_chunk($data_related,3),
+                        'token'        => md5('shop'.$info[0]->product_id)
 		));
                  
                 require_once APPPATH . 'modules/frontend/detail_product.php';
