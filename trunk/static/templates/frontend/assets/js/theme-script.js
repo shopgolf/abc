@@ -73,7 +73,7 @@
             return false;
         })
         /** SELECT CATEGORY **/
-        $('.header-search-box .select-category').select2();
+        ///$('.header-search-box .select-category').select2();
         /* Toggle nav menu*/
         $(document).on('click','.toggle-menu',function(){
             $(this).closest('.nav-menu').find('.navbar-collapse').toggle();
@@ -278,7 +278,7 @@
      --------------------------------------------- */
     $(window).resize(function(){
         // auto width megamenu
-        auto_width_megamenu();
+        //auto_width_megamenu();
         // Remove menu ontop
         remove_menu_ontop();
         // resize top menu
