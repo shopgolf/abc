@@ -135,4 +135,15 @@ class Product extends CI_controller
 	public function fillter_list(){
 		pre("ok");
 	}
+        
+        public function orderSuccess()
+	{
+		
+		$this->smarty->assign(array(
+			'title'      => $this->lang->language['add_to_cart'],
+                        'content'    => 'Đơn hàng đã được đặt',
+			'page_class' => 'category-page',
+		));
+		$this->smarty->display('templates/frontend/layout');
+	}
 }
