@@ -20,6 +20,7 @@ $route['category/(:any)']                = 'product/category/$1';
 $route['([a-zA-Z0-9-_]+)c(:num)/(:num)'] = 'product/category/(:num)/(:num)';
 $route['tin-tuc']                        = 'news';
 $route['404_override']                   = '';
+$route['xac-nhan-don-hang']                     = 'product/orderSuccess';
 
 if (strpos($_SERVER['QUERY_STRING'], 'auth') === false) {
     $route['([a-zA-Z0-9-_]+)/(:any)']        = "product/detail/$1/$2";
