@@ -35,7 +35,11 @@ class Product extends CI_controller
 
 	public function new_products_go($params1=NULL)
 	{
-		$offset      = ($params1-1) * 18;
+		if($params1 == NULL){
+			$offset = 0;
+		}else{
+				$offset      = ($params1-1) * 18;
+		}
 		$this->pagination->initialize(pagination(base_url().$this->lang->language['hang_moi_ve'],100));
 		$order       = 'id';
 		$order_value = 'DESC';
@@ -72,7 +76,11 @@ class Product extends CI_controller
 	}
 
 	public function top_view_product($params1=NULL){
-		$offset      = ($params1-1) * 18;
+		if($params1 == NULL){
+			$offset = 0;
+		}else{
+			$offset      = ($params1-1) * 18;
+		}
 		$this->pagination->initialize(pagination(base_url().$this->lang->language['xem_nhieu'],100));
 		$order       = 'view';
 		$order_value = 'DESC';
@@ -86,7 +94,11 @@ class Product extends CI_controller
 	}
 
 	public function sell_product($params1=NULL){
-		$offset      = ($params1-1) * 18;
+		if($params1 == NULL){
+			$offset = 0;
+		}else{
+				$offset      = ($params1-1) * 18;
+		}
 		$this->pagination->initialize(pagination(base_url().$this->lang->language['xem_nhieu'],100));
 		$order       = 'checkout';
 		$order_value = 'DESC';
