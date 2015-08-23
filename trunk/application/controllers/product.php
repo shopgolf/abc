@@ -43,7 +43,7 @@ class Product extends CI_controller
 		$this->pagination->initialize(pagination(base_url().$this->lang->language['hang_moi_ve'],100));
 		$order       = 'id';
 		$order_value = 'DESC';
-		$where= array('status'=>1);
+		$where= array('pro.status'=>1);
                 require_once APPPATH . 'modules/frontend/list_product.php';
                 $this->smarty->assign(array(
 			'title'         => $this->lang->language['title_hang_moi_ve'],
@@ -84,7 +84,7 @@ class Product extends CI_controller
 		$this->pagination->initialize(pagination(base_url().$this->lang->language['xem_nhieu'],100));
 		$order       = 'view';
 		$order_value = 'DESC';
-        $where= array('status'=>1);
+        $where= array('pro.status'=>1);
                 require_once APPPATH . 'modules/frontend/list_product.php';
 		$this->smarty->assign(array(
 			'title'         => $this->lang->language['title-xem-nhieu'],
@@ -102,7 +102,7 @@ class Product extends CI_controller
 		$this->pagination->initialize(pagination(base_url().$this->lang->language['xem_nhieu'],100));
 		$order       = 'checkout';
 		$order_value = 'DESC';
-		$where= array('status'=>1);
+		$where= array('pro.status'=>1);
         require_once APPPATH . 'modules/frontend/list_product.php';
 		$this->smarty->assign(array(
 			'title'         => $this->lang->language['title-xem-nhieu'],
@@ -134,11 +134,16 @@ class Product extends CI_controller
 	}
 
 	public function category($params1=NULL,$params2=NULL){
-		$offset      = ($params1-1) * 18;
-		$this->pagination->initialize(pagination(base_url().$this->lang->language['hang_moi_ve'],100));
+		if($params2 == NULL){
+			$offset = 0;
+		}else{
+			$offset = ($params2-1) * 18;
+		}
+		//pre($params1);
+		$this->pagination->initialize(pagination(base_url().'danh-muc/'.$params1,100));
 		$order       = 'id';
 		$order_value = 'DESC';
-		//$where= array('status'=>1,'seo_url =' => );
+		$where= array('pro.status '=>1,'cat.seo_url' => $params1);
         require_once APPPATH . 'modules/frontend/list_product.php';
         $this->smarty->assign(array(
 			'title'         => $this->lang->language['title_hang_moi_ve'],

@@ -15,7 +15,6 @@ $this->smarty->assign(array(
     'loft'                  => $this->product_model->loft(),
     'maker'                 => $this->maker_model->find_by(false,'name,id',$order_by = NULL, $limit = NULL),
 ));
-
 $this->smarty->assign(array(
     'content' 	 => $this->smarty->view_tmp('frontend/product/list_product','list_product')
 ));
