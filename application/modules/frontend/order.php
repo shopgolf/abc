@@ -59,7 +59,7 @@ if($this->input->server('REQUEST_METHOD')=='POST'){
                         'agent_code'        => $this->session->userdata['agent_code']
                     );
                     $this->user_model->insertUserAdminLog($paramAdminLog);
-                    redirect(base_url());
+                    redirect(base_url('xac-nhan.html'));
             }
     }
     

@@ -20,6 +20,7 @@ $route['danh-muc/(:any)']                = 'product/category/$1';
 $route['danh-muc/(:any)/(:any)']         = 'product/category/$1/$2';
 $route['([a-zA-Z0-9-_]+)c(:num)/(:num)'] = 'product/category/(:num)/(:num)';
 $route['tin-tuc']                        = 'news';
+$route['xac-nhan']                       = 'news';
 $route['404_override']                   = '';
 $route['xac-nhan-don-hang']              = 'product/orderSuccess';
 
