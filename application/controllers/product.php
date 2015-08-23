@@ -33,12 +33,13 @@ class Product extends CI_controller
 		$this->smarty->display('templates/frontend/layout');
 	}
 
-	public function new_products_go($params1=3)
+	public function new_products_go($params1=NULL)
 	{
 		$offset      = ($params1-1) * 18;
 		$this->pagination->initialize(pagination(base_url().$this->lang->language['hang_moi_ve'],100));
 		$order       = 'id';
 		$order_value = 'DESC';
+		$where= array('status'=>1);
                 require_once APPPATH . 'modules/frontend/list_product.php';
                 $this->smarty->assign(array(
 			'title'         => $this->lang->language['title_hang_moi_ve'],
@@ -70,11 +71,12 @@ class Product extends CI_controller
 		$this->smarty->display('templates/frontend/layout');
 	}
 
-	public function top_view_product($params1=3){
+	public function top_view_product($params1=NULL){
 		$offset      = ($params1-1) * 18;
 		$this->pagination->initialize(pagination(base_url().$this->lang->language['xem_nhieu'],100));
 		$order       = 'view';
 		$order_value = 'DESC';
+        $where= array('status'=>1);
                 require_once APPPATH . 'modules/frontend/list_product.php';
 		$this->smarty->assign(array(
 			'title'         => $this->lang->language['title-xem-nhieu'],
@@ -83,11 +85,12 @@ class Product extends CI_controller
 		$this->smarty->display('templates/frontend/layout');
 	}
 
-	public function sell_product($params1=3){
+	public function sell_product($params1=NULL){
 		$offset      = ($params1-1) * 18;
 		$this->pagination->initialize(pagination(base_url().$this->lang->language['xem_nhieu'],100));
 		$order       = 'checkout';
 		$order_value = 'DESC';
+		$where= array('status'=>1);
         require_once APPPATH . 'modules/frontend/list_product.php';
 		$this->smarty->assign(array(
 			'title'         => $this->lang->language['title-xem-nhieu'],
@@ -118,12 +121,12 @@ class Product extends CI_controller
 		$this->smarty->display('templates/frontend/layout');
 	}
 
-	public function category($params1=3){
-		pre($params1);
+	public function category($params1=NULL,$params2=NULL){
 		$offset      = ($params1-1) * 18;
 		$this->pagination->initialize(pagination(base_url().$this->lang->language['hang_moi_ve'],100));
 		$order       = 'id';
 		$order_value = 'DESC';
+		//$where= array('status'=>1,'seo_url =' => );
         require_once APPPATH . 'modules/frontend/list_product.php';
         $this->smarty->assign(array(
 			'title'         => $this->lang->language['title_hang_moi_ve'],
