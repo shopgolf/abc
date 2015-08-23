@@ -18,7 +18,7 @@
                                         <li class="block-container">
                                             <ul class="block">
                                                 {{foreach $values->category as $k => $v}}
-                                                    <li class="link_container"><a href="{{$bookinglib->build_url($v.seo_url,NULL)}}">{{$v.category_name}}</a></li>
+                                                    <li class="link_container"><a href="{{$bookinglib->build_url($menu_rewrite,$v.seo_url)}}">{{$v.category_name}}</a></li>
                                                 {{/foreach}}
                                             </ul>
                                         </li>
@@ -34,12 +34,12 @@
                                                     <li class="link_container group_header">
                                                         {{foreach $values->category as $q => $p}}
                                                             {{if $q == $m}}
-                                                                <a href="{{$site_url}}{{$p.seo_url}}">{{$p.category_name}}</a>
+                                                                <a href="{{$bookinglib->build_url($menu_rewrite,$p.seo_url)}}">{{$p.category_name}}</a>
                                                             {{/if}}
                                                         {{/foreach}}
                                                     </li>
                                                     {{foreach $n as $h => $t}}
-                                                        <li class="link_container"><a href="{{$t.seo_url}}">{{$t.name}}</a></li>
+                                                        <li class="link_container"><a href="{{$bookinglib->build_url($menu_rewrite,$t.seo_url)}}">{{$t.name}}</a></li>
                                                     {{/foreach}}
                                                 </ul>
                                             </li>

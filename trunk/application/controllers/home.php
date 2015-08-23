@@ -50,7 +50,7 @@ class Home extends CI_controller
 			'page_class'           => 'home',
 			'data'                 => array_chunk($this->product_model->getProCateById(array('status'=>1),array('key'=>'id','value'=>'DESC'),12),4), 
 			'data_old_product'     => array_chunk($this->product_model->getProCateById(array('status'=>1),array('key'=>'id','value'=>'RANDOM'),12),4), 
-			'data_topview_product' => $this->product_model->getProCateById(array('status'=>1),array('key'=>'id','value'=>'DESC'),8), 
+			'data_topview_product' => $this->product_model->getProCateById(array('status'=>1),array('key'=>'view','value'=>'DESC'),8), 
 			'data_checkout'        => array_chunk($this->product_model->getProCateById(array('status'=>1),array('key'=>'checkout','value'=>'DESC'),6), 3),
 			'data_maker'           => $this->maker_model->find_by(),
 			'data_post'            => $_data_post,
