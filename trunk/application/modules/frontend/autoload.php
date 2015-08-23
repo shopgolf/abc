@@ -23,7 +23,8 @@ if($this->db->conn_id != FALSE){
         "UPLOAD_DIR"    =>  base_url().'static/uploads/',
         "static_ft"     =>  base_url($static->STATIC_FT),
         'ship_price'    =>  $static->SHIP_PRICE,
-        'controller'    =>  $this->uri->segment(1)
+        'controller'    =>  $this->uri->segment(1),
+        'menu_rewrite'  =>  'danh-muc'
     ));
 }
 

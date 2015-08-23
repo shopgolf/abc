@@ -26,7 +26,7 @@
                     <img alt="services" src="{{$static_ft}}/data/s3.png" />
                 </div>
                 
-                <div class="info" >
+                <div class="info">
                     <a href="#"><h3>24/7 support</h3></a>
                     <span>Online consultations</span>
                 </div>
