@@ -15,7 +15,7 @@ class Checkout_model extends MY_Model{
         
         public function selectCartCheckOut($offset=NULL,$limit=NULL,$status=NULL){
 		$this->db->cache_on();
-		$this->db->select("tbl.id,tbl.product_id,tbl.quantity,tbl.createdTime,pd.product_code,pd.info");
+		$this->db->select("tbl.*,pd.product_code,pd.product_name,pd.info");
 		$this->db->from($this->table_name.' AS tbl');
                 $this->db->join('px_product AS pd','pd.product_id = tbl.product_id','inner');
                 
