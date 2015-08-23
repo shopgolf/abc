@@ -431,8 +431,8 @@ class MY_Model extends CI_Model {
         $this->db->from('px_product AS pro');
         $this->db->join('px_category AS cat','cat.id = pro.category','LEFT');
         
-        if(isset($where['status'])){
-            $this->db->where('pro.status',$where['status']);
+        if(isset($where)){
+            $this->db->where($where);
         }
         if($order){
             $this->db->order_by('pro.'.$order['key'],$order['value']);
@@ -445,7 +445,7 @@ class MY_Model extends CI_Model {
 		}
         
         $query = $this->db->get();
-        //echo $this->db->last_query();exit;
+       // echo $this->db->last_query();exit;
       
         return $query->result();
     }
