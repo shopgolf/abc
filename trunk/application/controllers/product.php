@@ -20,6 +20,7 @@ class Product extends CI_controller
                 ));
                 
                 require_once APPPATH . 'modules/frontend/menu.php';
+                require_once APPPATH . 'modules/frontend/sidebar_left.php';
 	}
 
 	public function index()
