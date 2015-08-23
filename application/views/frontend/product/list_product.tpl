@@ -208,23 +208,6 @@
                           </ul>
                         </nav>
                     </div>
-                    <div class="show-product-item">
-                        <select name="">
-                            <option value="">Show 18</option>
-                            <option value="">Show 20</option>
-                            <option value="">Show 50</option>
-                            <option value="">Show 100</option>
-                        </select>
-                    </div>
-                    <div class="sort-product">
-                        <select>
-                            <option value="">Product Name</option>
-                            <option value="">Price</option>
-                        </select>
-                        <div class="sort-product-icon">
-                            <i class="fa fa-sort-alpha-asc"></i>
-                        </div>
-                    </div>
                 </div>
             </div>
             <!-- ./ Center colunm -->
