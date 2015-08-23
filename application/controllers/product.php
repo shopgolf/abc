@@ -119,7 +119,7 @@ class Product extends CI_controller
 	}
 
 	public function category($params1=3){
-		//pre( $this->uri->segment(2));
+		pre($params1);
 		$offset      = ($params1-1) * 18;
 		$this->pagination->initialize(pagination(base_url().$this->lang->language['hang_moi_ve'],100));
 		$order       = 'id';
