@@ -24,7 +24,8 @@ if($this->db->conn_id != FALSE){
         "static_ft"     =>  base_url($static->STATIC_FT),
         'ship_price'    =>  $static->SHIP_PRICE,
         'controller'    =>  $this->uri->segment(1),
-        'menu_rewrite'  =>  'danh-muc'
+        'menu_rewrite'  =>  'danh-muc',
+        'rewrite_s'     =>  'chuyen-muc'
     ));
 }
 
