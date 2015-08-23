@@ -10,70 +10,7 @@
         <!-- row -->
         <div class="row">
             <!-- Left colunm -->
-            <div class="column col-xs-12 col-sm-3" id="left_column">
-                <!-- block category -->
-                <div class="block left-module">
-                    <p class="title_block">{{$lang.product_types}}</p>
-                    <div class="block_content">
-                        <!-- layered -->
-                        <div class="layered layered-category">
-                            <div class="layered-content">
-                                <ul class="tree-menu">
-                                    {{foreach $data_category as $key=> $value}}
-                                            <li><span></span><a href="{{$bookinglib->build_url($value->seo_url,NULL)}}">{{$value->name}}</a></li>
-                                    {{/foreach }}
-                                </ul>
-                            </div>
-                        </div>
-                        <!-- ./layered -->
-                    </div>
-                </div>
-                <!-- ./block category  -->
-                <!-- left silide -->
-                <div class="col-left-slide left-module">
-                    <ul class="owl-carousel owl-style2" data-loop="true" data-nav = "false" data-margin = "30" data-autoplayTimeout="1000" data-autoplayHoverPause = "true" data-items="1" data-autoplay="true">
-                        <li><a href="#"><img src="{{$static_ft}}/data/slide-left.jpg" alt="slide-left"></a></li>
-                        <li><a href="#"><img src="{{$static_ft}}/data/slide-left2.jpg" alt="slide-left"></a></li>
-                        <li><a href="#"><img src="{{$static_ft}}/data/slide-left3.png" alt="slide-left"></a></li>
-                    </ul>
-
-                </div>
-                <!--./left silde-->
-                <!-- SPECIAL -->
-                <div class="block left-module">
-                    <p class="title_block">{{$lang.special_products}}</p>
-                    <div class="block_content">
-                        <ul class="products-block">
-                            <li>
-                                <div class="products-block-left">
-                                    <a href="{{$special_products->product_link}}">
-                                        <img src="{{$UPLOAD_DIR}}product/{{$special_products->image}}" alt="{{$special_products->product_name}}" title="{{$special_products->product_name}}"/>
-                                    </a>
-                                </div>
-                                <div class="products-block-right">
-                                    <p class="product-name">
-                                        <a href="{{$special_products->product_link}}">{{$special_products->product_name}}</a>
-                                    </p>
-                                    <p class="product-price">{{$special_products->net_price|number_format:0:".":","}} VNĐ</p>
-                                    <p class="product-star">
-                                        <i class="fa fa-star"></i>
-                                        <i class="fa fa-star"></i>
-                                        <i class="fa fa-star"></i>
-                                        <i class="fa fa-star"></i>
-                                        <i class="fa fa-star-half-o"></i>
-                                    </p>
-                                </div>
-                            </li>
-                        </ul>
-                        <div class="products-block">
-                            <div class="products-block-bottom">
-                                <a class="link-all" href="{{$special_products->product_link}}">{{$lang.detail}}</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <!-- ./SPECIAL -->
-            </div>
+            {{$sidebar_left}}
             <!-- ./left colunm -->
             <!-- Center colunm-->
             <div class="center_column col-xs-12 col-sm-9" id="center_column">
@@ -93,28 +30,28 @@
                             <select  class="search-cate" name="maker" id="">
                                 <option value="">-- Hãng sản xuất--</option>
                                 {{foreach $maker as $k => $v}}
-                                    <option value="{{$k}}">{{$v}}</option>
+                                <option value="{{$k}}">{{$v}}</option>
                                 {{/foreach}}
                             </select>
                             <select  class="search-cate" name="hardness" id="">
-                               <option value="">-- Hardness -- </option>
+                                <option value="">-- Hardness -- </option>
                                 {{foreach $hardness as $k => $v}}
-                                    <option value="{{$k}}" name="hardness"> {{$v}} </option>
+                                <option value="{{$k}}" name="hardness"> {{$v}} </option>
                                 {{/foreach}}    
                             </select>
                             <select  class="search-cate" name="loft" id="">
                                 <option value="">-- Độ gậy -- </option>
                                 {{foreach $loft as $k => $v}}
-                                    <option value="{{$k}}">{{$v}}</option>
+                                <option value="{{$k}}">{{$v}}</option>
                                 {{/foreach}}    
                             </select>
                             <select  class="search-cate" name="club_rank" id="">
                                 <option value="">-- Tình trạng -- </option>
                                 {{foreach $club_rank as $k => $v}}
-                                    <option value="{{$k}}">{{$v}}</option>
+                                <option value="{{$k}}">{{$v}}</option>
                                 {{/foreach}}  
                             </select>
-                         
+
                             <div style="float:left;margin-right:5px;padding:0px 10px" class="search-cate" >      
                                 <input type="text" name="price_start" size="20">  
                             </div>
@@ -144,7 +81,7 @@
                     <ul class="row product-list grid">
                         {{if $data != NULL}}
                         {{foreach $data as $key => $value}}
-                            {{$image = json_decode($value->image)}}
+                        {{$image = json_decode($value->image)}}
                         <li class="col-sx-12 col-sm-4 wapper-tooltip">
                             <div class="product-container">
                                 <div class="left-block">
@@ -152,7 +89,7 @@
                                         <img class="img-responsive" alt="product" src="{{$UPLOAD_DIR}}product/{{$image[0]}}" />
                                     </a>
                                     <div class="quick-view">
-                                            <a title="Quick view" class="search" data-toggle="modal" data-target=".{{$value->product_id}}" href="javascript:void(0)"></a>
+                                        <a title="Quick view" class="search" data-toggle="modal" data-target=".{{$value->product_id}}" href="javascript:void(0)"></a>
                                     </div>
                                     <div class="add-to-cart">
                                         <a title="Add to Cart" href="#add">Add to Cart</a>
@@ -162,36 +99,36 @@
                                     <h5 class="product-name"><a href="{{$bookinglib->build_url($value->seo_url,NULL)}}">{{$value->product_name}}</a></h5>
                                     <div class="content_price">
                                         {{if $value->final_price}}
-                                            <span class="price product-price">{{number_format($value->final_price,0,'','.')}}.{{$lang.vn_currency}}</span>
-                                            <span class="price old-price">{{number_format($value->net_price,0,'','.')}}</span>
+                                        <span class="price product-price">{{number_format($value->final_price,0,'','.')}}.{{$lang.vn_currency}}</span>
+                                        <span class="price old-price">{{number_format($value->net_price,0,'','.')}}</span>
                                         {{else}}
-                                            <span class="price product-price">{{number_format($value->net_price,0,'','.')}}.{{$lang.vn_currency}}</span>
+                                        <span class="price product-price">{{number_format($value->net_price,0,'','.')}}.{{$lang.vn_currency}}</span>
                                         {{/if}}
                                     </div>
                                     <div class="product-star">
-                                       {{$value->product_code}}
+                                        {{$value->product_code}}
                                     </div>
                                     <div class="info-orther">
                                         <p>Item Code: #453217907</p>
                                         <p class="availability">Availability: <span>In stock</span></p>
                                         <div class="product-desc">
-                                          {{$value->description}}
+                                            {{$value->description}}
                                         </div>
                                     </div>
                                 </div>
                             </div>
                             <div class="modal fade bs-example-modal-sm {{$value->product_id}}" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel">
-                              <div class="modal-dialog modal-sm">
-                                <div class="modal-content">
-                                    <div class="modal-header">
-                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                                        <h4 class="modal-title" id="myModalLabel">{{$value->product_name}}</h4>
-                                    </div>
-                                    <div class="modal-body">
-                                        {{$value->description}}
+                                <div class="modal-dialog modal-sm">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                                            <h4 class="modal-title" id="myModalLabel">{{$value->product_name}}</h4>
+                                        </div>
+                                        <div class="modal-body">
+                                            {{$value->description}}
+                                        </div>
                                     </div>
                                 </div>
-                              </div>
                             </div>
                         </li>
                         {{/foreach}}
@@ -203,9 +140,9 @@
                 <div class="sortPagiBar">
                     <div class="bottom-pagination">
                         <nav>
-                          <ul class="pagination">
-                           {{$pagination}}
-                          </ul>
+                            <ul class="pagination">
+                                {{$pagination}}
+                            </ul>
                         </nav>
                     </div>
                 </div>
