@@ -38,7 +38,7 @@ class Product extends CI_controller
 		if($params1 == NULL){
 			$offset = 0;
 		}else{
-				$offset      = ($params1-1) * 18;
+			$offset      = ($params1-1) * 18;
 		}
 		$this->pagination->initialize(pagination(base_url().$this->lang->language['hang_moi_ve'],100));
 		$order       = 'id';
@@ -134,11 +134,15 @@ class Product extends CI_controller
 	}
 
 	public function category($params1=NULL,$params2=NULL){
-		$offset      = ($params1-1) * 18;
+		if($params2 == NULL){
+			$offset = 0;
+		}else{
+			$offset = ($params2-1) * 18;
+		}
 		$this->pagination->initialize(pagination(base_url().$this->lang->language['hang_moi_ve'],100));
 		$order       = 'id';
 		$order_value = 'DESC';
-		//$where= array('status'=>1,'seo_url =' => );
+		$where= array('status'=>1,'seo_url' => $params1);
         require_once APPPATH . 'modules/frontend/list_product.php';
         $this->smarty->assign(array(
 			'title'         => $this->lang->language['title_hang_moi_ve'],
@@ -151,9 +155,8 @@ class Product extends CI_controller
 		pre("ok");
 	}
         
-        public function orderSuccess()
+    public function orderSuccess()
 	{
-		
 		$this->smarty->assign(array(
 			'title'      => $this->lang->language['add_to_cart'],
                         'content'    => 'Đơn hàng đã được đặt',

@@ -434,6 +434,11 @@ class MY_Model extends CI_Model {
         if(isset($where['status'])){
             $this->db->where('pro.status',$where['status']);
         }
+
+        if(isset($where['seo_url'])){
+            $this->db->where('cat.seo_url',$where['seo_url']);
+        }
+
         if($order){
             $this->db->order_by('pro.'.$order['key'],$order['value']);
         }
