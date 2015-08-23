@@ -5,6 +5,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>{{$title}}</title>
+    <meta name="keywords" content="" />
+    <meta name="description" content="" />
+    <meta http-equiv="content-language" content="vi" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="robots" content="" />
+    <meta name='revisit-after' content='1 days' />
     <link href="{{$static_ft}}/images/LOGO Cty.jpg" rel="icon" />
     <link rel="stylesheet" type="text/css" href="{{$static_ft}}/lib/bootstrap/css/bootstrap.min.css" />
     <link rel="stylesheet" type="text/css" href="{{$static_ft}}/lib/font-awesome/css/font-awesome.min.css" />
@@ -19,7 +26,6 @@
     <link rel="stylesheet" type="text/css" href="{{$static_ft}}/css/style.css" />
     <link rel="stylesheet" type="text/css" href="{{$static_ft}}/css/responsive.css" />
     <link rel="stylesheet" type="text/css" href="{{$static_ft}}/css/option3.css" />
-    <title>{{$title}}</title>
     <script type="text/javascript" src="{{$static_ft}}/js/jquery.js"></script>
     <!-- End WOWSlider.com HEAD section -->
 </head>
