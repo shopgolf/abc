@@ -453,7 +453,7 @@ class MY_Model extends CI_Model {
         $query = $this->db->get();
         //echo $this->db->last_query();exit;
         if($total != TRUE){
-            return $this->db->num_rows();
+            return $query->num_rows();
         }
         return $query->result();
     }
