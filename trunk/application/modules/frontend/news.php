@@ -14,5 +14,5 @@ $this->smarty->assign(array(
 ));
 
 $this->smarty->assign(array(
-    'content' 	 => $this->smarty->view_tmp('frontend/news/content','content')
+    'content' 	 => $this->smarty->view_tmp('frontend/news/list_news','content')
 ));
