@@ -12,7 +12,7 @@
                     {{foreach $product->image as $key => $value}}
                         <li id="del_{{$key}}">
                             <input type="hidden" value="{{$value}}" id="{{$value}}" name="files[]"/>
-                            <img width="20%" src="{{$site_url}}{{$UPLOAD_DIR}}/product/{{$value}}" />
+                            <img width="20%" src="{{$site_url}}{{$UPLOAD_DIR}}product/{{$value}}" />
                             <div class="ajax-file-upload-red" id="deleteImg" value="{{$value}}" onclick="deleteImg(this)">{{$lang.delete}}</div>
                         </li>
                     {{/foreach}}

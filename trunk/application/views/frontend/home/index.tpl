@@ -213,15 +213,16 @@
                 <div class="news">
                     <ul>
                         {{foreach $data_post as $value}}
-                        <li>
-                            <a href=""><img src="{{$static_ft}}/images/news.png" alt=""></a>
-                            <div class="news-title">
-                                <h3><a href="{{$bookinglib->build_url({{$lang.tin_tuc}},$value->seo_url)}}" title="{{$value->title}}">{{$value->title}}</a></h3>
-                                <p>
-                                  {{$value->description}}
-                                </p>
-                            </div>
-                        </li>
+                            {{$image = json_decode($value->feature_img)}}
+                            <li>
+                                <a href=""><img src="{{$UPLOAD_DIR}}post/{{$image[0]}}" alt="" width="141px"></a>
+                                <div class="news-title">
+                                    <h3><a href="{{$bookinglib->build_url({{$lang.tin_tuc}},$value->seo_url)}}" title="{{$value->title}}">{{$value->title}}</a></h3>
+                                    <div class="align">
+                                      {{$value->description}}
+                                    </div>
+                                </div>
+                            </li>
                         {{/foreach}}
                     </ul>
                 </div>
