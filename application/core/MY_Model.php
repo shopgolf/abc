@@ -425,7 +425,7 @@ class MY_Model extends CI_Model {
         return $query->result();
     }
 
-    public function getProCateById($where=NULL,$order=NULL,$limit=NULL,$offset=NULL) {
+    public function getProCateById($where=NULL,$order=NULL,$limit=NULL,$offset=NULL,$total = NULL) {
         $this->db->cache_on();
         $this->db->select("pro.*, cat.seo_url AS cat_url");
         $this->db->from('px_product AS pro');
@@ -443,15 +443,18 @@ class MY_Model extends CI_Model {
             $this->db->order_by('pro.'.$order['key'],$order['value']);
         }
         
-        if($offset){
-            $this->db->limit($limit,$offset);
-        } else {
-			$this->db->limit($limit);
-		}
-        
+        if($limit != NULL){
+            if($offset){
+                $this->db->limit($limit,$offset);
+            } else {
+                $this->db->limit($limit);
+            }
+        }   
         $query = $this->db->get();
         //echo $this->db->last_query();exit;
-      
+        if($total != TRUE){
+            return $this->db->num_rows();
+        }
         return $query->result();
     }
 
