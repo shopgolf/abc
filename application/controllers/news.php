@@ -1,41 +1,31 @@
 <?php if (!defined('BASEPATH')) exit('No direct script access allowed');
-//error_reporting(E_ALL);
-//ini_set("display_errors", 1);
 class News extends CI_controller
 {	
 	public function __construct() {
 		parent::__construct();
-                $this->load->language('frontend');//file ngon ngu home_lang.php lat noi sau
-				require_once(APPPATH . 'modules/frontend/autoload.php');//load cai file autoload.php file nay dung chung nen include 1 lan thoi
+                require_once(APPPATH . 'modules/frontend/autoload.php');
                 
-                $this->load->model('home_model');//call model home
-
-                //day la thu vien common.js day nhung cai linh tinh thi bo vao day 
-                $this->load->library('bookinglib');
-                $this->bookinglib = new bookinglib();
+                $this->load->model('news_model');
+                $this->load->model('product_model');
+                $this->load->model('category_model');
+                $this->load->model('menu_model');
                 
                 $this->smarty->assign(array(
                     'lang'          =>  $this->lang->language
                 ));
+                
+                require_once APPPATH . 'modules/frontend/menu.php';
+                require_once APPPATH . 'modules/frontend/sidebar_left.php';
 	}
 
-	public function index(){
+	public function detail($params1){
+            
+                require_once APPPATH . 'modules/frontend/news.php';
 		$this->smarty->assign(array(
-			'title' 	 => 'Tin tức',
-			'menu_home'  => 'templates/frontend/menu_page.tpl',
-			'content'    => 'frontend/news/list_news.tpl',
-			'page_class' => 'category-page',
+			'title'         => $this->lang->language['tin_tuc'],
+			'page_class'    => 'category-page'
 		));
-		$this->smarty->display('templates/frontend/layout.tpl');
-	}
-
-	public function detail(){
-		$this->smarty->assign(array(
-			'title' 	 => 'Tin tức',
-			'menu_home'  => 'templates/frontend/menu_page.tpl',
-			'content'    => 'frontend/news/detail.tpl',
-			'page_class' => 'category-page',
-		));
-		$this->smarty->display('templates/frontend/layout.tpl');
+		$this->smarty->display('templates/frontend/layout');
+                
 	}
 }

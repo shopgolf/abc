@@ -74,3 +74,5 @@ $lang['ext_price']              =   'VNĐ';
 $lang['bid']                    =   'Đấu giá';
 $lang['parameters']             =   'Thông số';
 $lang['tin_tuc']                =   'tin-tuc';
+$lang['product_types']              =   'Product types';
+$lang['special_products']           =   'Special products';

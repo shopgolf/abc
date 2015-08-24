@@ -9,6 +9,8 @@ $this->smarty->assign(array(
     'special_products'      => $special_products[0],
 ));
 
+$sidebar_left = $this->smarty->view_tmp('templates/frontend/sidebar_left','sidebar_left');
+
 $this->smarty->assign(array(
     'sidebar_left' 	 => $this->smarty->view_tmp('templates/frontend/sidebar_left','sidebar_left')
 ));

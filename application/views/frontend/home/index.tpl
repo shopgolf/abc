@@ -216,7 +216,7 @@
                         <li>
                             <a href=""><img src="{{$static_ft}}/images/news.png" alt=""></a>
                             <div class="news-title">
-                                <h3><a href="" title="{{$value->title}}">{{$value->title}}</a></h3>
+                                <h3><a href="{{$bookinglib->build_url({{$lang.tin_tuc}},$value->seo_url)}}" title="{{$value->title}}">{{$value->title}}</a></h3>
                                 <p>
                                   {{$value->description}}
                                 </p>
