@@ -1,8 +1,16 @@
 <?php
-$news = $this->news_model->find_by(array('seo_url'=>trim($params1)));
+if(isset($params1)){
+    $info   = $this->news_model->find_by(array('seo_url'=>trim($params1)));
+    $count  = count($info);
+    $news   = $info[0];
+} else {
+    $news = $this->news_model->find_by();
+    $count= count($news);
+}
 
 $this->smarty->assign(array(
-    'news'      =>      $news[0]
+    'news'      =>      $news,
+    'count'     =>      $count
 ));
 
 $this->smarty->assign(array(
