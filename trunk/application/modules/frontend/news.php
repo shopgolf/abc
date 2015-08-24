@@ -4,8 +4,8 @@ if(isset($params1)){
     $count  = count($info);
     $news   = $info[0];
 } else {
-    $news = $this->news_model->find_by();
-    $count= count($news);
+    $news   = $this->news_model->find_by(FALSE,'*',FALSE,array('key'=>'id','value'=>'DESC'),12);
+    $count  = count($news);
 }
 
 $this->smarty->assign(array(
