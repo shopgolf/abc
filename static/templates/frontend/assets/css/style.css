@@ -5291,6 +5291,7 @@ span.notify-right{
 .special-products .news ul li .news-title{
   max-width: 750px;
   margin-left: 20px;
+  text-align:justify;
 }
 .special-products .news ul li .news-title h3{
   width: 100%;
