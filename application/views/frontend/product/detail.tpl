@@ -185,7 +185,7 @@
                                     {{if $info->final_price}}
                                         <span class="price">{{number_format($info->final_price,0,'','.')}}.{{$lang.vn_currency}}</span>
                                         <span class="old-price">{{number_format($info->net_price,0,'','.')}}.{{$lang.vn_currency}}</span>
-                                        <span class="discount">-{{$lang.percent}}%</span>
+                                        <span class="discount">-{{$lang.pecent}}%</span>
                                     {{else}}
                                         <span class="price">{{number_format($info->net_price,0,'','.')}}.{{$lang.vn_currency}}</span>
                                     {{/if}}
