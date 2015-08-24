@@ -443,9 +443,9 @@ class MY_Model extends CI_Model {
             $this->db->order_by('pro.'.$order['key'],$order['value']);
         }
 
-        if($offset != NULL){
+        if($offset){
             $this->db->limit($limit,$offset);
-        }else if($limit != NULL){
+        }else if($limit){
             $this->db->limit($limit);   
         }
 
