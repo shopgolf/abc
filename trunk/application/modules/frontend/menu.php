@@ -51,6 +51,9 @@ switch($this->router->fetch_class()){
     case "product":
         $menu  =   $this->smarty->view_tmp('templates/frontend/menu_page','menu_page');
         break;
+    case "news":
+        $menu  =   $this->smarty->view_tmp('templates/frontend/menu_page','menu_page');
+        break;
 }
 
 $this->smarty->assign(array(
