@@ -160,9 +160,9 @@ class Product extends CI_controller
 	{
 		$this->smarty->assign(array(
 			'title'      => $this->lang->language['add_to_cart'],
-			'content'    => 'frontend/product/checkout.tpl',
+			'content'    => $this->smarty->view_tmp('frontend/product/ordersuccess','detail'),
 			'page_class' => 'category-page',
 		));
-		$this->smarty->display('templates/frontend/layout');
+	   $this->smarty->display('templates/frontend/layout');
 	}
 }
