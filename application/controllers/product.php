@@ -153,7 +153,7 @@ class Product extends CI_controller
 	}
 
 	public function fillter_list(){
-		pre("ok");
+		
 	}
         
     public function orderSuccess()

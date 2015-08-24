@@ -50,8 +50,11 @@
                                                                 {{/foreach}}
                                                             </li>
                                                             {{foreach $n as $h => $t}}
-                                                                
-                                                                <li class="link_container"><a href="{{$bookinglib->build_url($menu_rewrite,$t.seo_url)}}">{{$t.name}}</a></li>
+                                                                {{if  $t.type == 1}}
+                                                                    <li class="link_container"><a href="{{$bookinglib->build_url($menu_rewrite,$t.seo_url)}}">{{$t.name}}</a></li>
+                                                                {{else}}
+                                                                    <li class="link_container"><a href="{{$bookinglib->build_url($rewrite_s,$t.seo_url)}}">{{$t.name}}</a></li>
+                                                                {{/if}}
                                                             {{/foreach}}
                                                         </ul>
                                                     </li>
