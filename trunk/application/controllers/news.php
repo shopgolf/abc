@@ -17,8 +17,17 @@ class News extends CI_controller
                 require_once APPPATH . 'modules/frontend/menu.php';
                 require_once APPPATH . 'modules/frontend/sidebar_left.php';
 	}
+        
+        public function index(){
+                require_once APPPATH . 'modules/frontend/news.php';
+		$this->smarty->assign(array(
+			'title'         => $this->lang->language['tin_tuc'],
+			'page_class'    => 'category-page'
+		));
+		$this->smarty->display('templates/frontend/layout');
+        }
 
-	public function detail($params1){
+        public function detail($params1){
             
                 require_once APPPATH . 'modules/frontend/news.php';
 		$this->smarty->assign(array(
