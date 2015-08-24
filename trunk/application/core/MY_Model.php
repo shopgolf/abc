@@ -442,17 +442,16 @@ class MY_Model extends CI_Model {
         if($order){
             $this->db->order_by('pro.'.$order['key'],$order['value']);
         }
-        
-        if($limit != NULL){
-            if($offset){
-                $this->db->limit($limit,$offset);
-            } else {
-                $this->db->limit($limit);
-            }
-        }   
+
+        if($limit != NULL && $offset != NULL){
+            $this->db->limit($limit,$offset);
+        }else if($limit != NULL){
+            $this->db->limit($limit);   
+        }
+
         $query = $this->db->get();
         //echo $this->db->last_query();exit;
-        if($total != TRUE){
+        if($total){
             return $query->num_rows();
         }
         return $query->result();
