@@ -140,11 +140,12 @@ class Product extends CI_controller
 		}else{
 			$offset = ($params2-1) * 18;
 		}
-		$this->pagination->initialize(pagination(base_url().$this->lang->language['hang_moi_ve'],100));
 		$order       = 'id';
 		$order_value = 'DESC';
-		$where= array('status'=>1,'seo_url' => $params1);
-        require_once APPPATH . 'modules/frontend/list_product.php';
+		$where= array('status'=>1,'seo_url'=> $params1);
+		$total = $this->product_model->getProCateById($where,array('key'=>$order,'value'=>$order_value),NULL,NULL,TRUE);
+		$this->pagination->initialize(pagination(base_url('danh-muc').'/'.$params1,$total));
+		require_once APPPATH . 'modules/frontend/list_product.php';
         $this->smarty->assign(array(
 			'title'         => $this->lang->language['title_hang_moi_ve'],
 			'page_class'    => 'category-page',
