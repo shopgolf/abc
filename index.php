@@ -3,7 +3,7 @@ session_start();
 include 'application/configs/define.php';
 include 'application/configs/function.php';
 
-define('ENVIRONMENT', 'development');
+define('ENVIRONMENT', 'production');
 
 if (defined('ENVIRONMENT'))
 {
