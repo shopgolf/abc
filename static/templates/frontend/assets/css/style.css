@@ -1,4 +1,4 @@
-/*------------------------------------------------------------------
+f/*------------------------------------------------------------------
 [Table of contents]
 
 1. Common styles
@@ -5472,4 +5472,8 @@ span.notify-right{
 }
 .modal-content{
   border-radius: 0px;
+}
+.modal-header{
+  color: #FFF;
+  background-color: #26C281;
 }
