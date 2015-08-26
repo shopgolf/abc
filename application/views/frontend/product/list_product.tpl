@@ -4,7 +4,7 @@
         <div class="breadcrumb clearfix">
             <a class="home" href="#" title="Return to Home">Home</a>
             <span class="navigation-pipe">&nbsp;</span>
-            <span class="navigation_page">Fashion</span>
+            <span class="navigation_page"></span>
         </div>
         <!-- ./breadcrumb -->
         <!-- row -->
@@ -67,7 +67,7 @@
                 <!-- view-product-list-->
                 <div id="view-product-list" class="view-product-list">
                     <h2 class="page-heading">
-                        <span class="page-heading-title">Drive</span>
+                        <span class="page-heading-title"></span>
                     </h2>
                     <ul class="display-product-option">
                         <li class="view-as-grid selected">
@@ -112,7 +112,7 @@
                                         <p>Item Code: #453217907</p>
                                         <p class="availability">Availability: <span>In stock</span></p>
                                         <div class="product-desc">
-                                            {{$value->description}}
+                                            {{$value->info}}
                                         </div>
                                     </div>
                                 </div>
@@ -125,7 +125,7 @@
                                             <h4 class="modal-title" id="myModalLabel">{{$value->product_name}}</h4>
                                         </div>
                                         <div class="modal-body">
-                                            {{$value->description}}
+                                            {{$value->info}}
                                         </div>
                                     </div>
                                 </div>
