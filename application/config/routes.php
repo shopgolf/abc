@@ -16,6 +16,7 @@ $route['danh-muc/(:any)']                = 'product/category/$1';
 $route['danh-muc/(:any)/(:any)']         = 'product/category/$1/$2';
 $route['([a-zA-Z0-9-_]+)c(:num)/(:num)'] = 'product/category/(:num)/(:num)';
 $route['tin-tuc']                        = 'news/index';
+$route['tin-tuc/(:num)']                 = 'news/index/$1';
 $route['tin-tuc/(:any)']                 = 'news/detail/$1';
 $route['xac-nhan']                       = 'product/orderSuccess';
 $route['404_override']                   = '';

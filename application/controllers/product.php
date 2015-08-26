@@ -121,13 +121,13 @@ class Product extends CI_controller
         $data_related       =   $this->product_model->getProCateById(array('status'=>1,'category'=>$info[0]->category),array('key'=>'checkout','value'=>'DESC'),5);
                 
 		$this->smarty->assign(array(
-			'title'        => $this->lang->language['detail'].''.$this->lang->language['product'],
+			'title'        => $info[0]->product_name,
 			'page_class'   => 'product-page right-sidebar category-page ',
 			'data_category' => $this->category_model->getCategoryById(array('parent_category_not_null'=>true,'type'=>1,'random'=>TRUE)),
 			'info'         => $info[0],
 			'data'         => $data,
 			'data_related' => array_chunk($data_related,3),
-                        'token'        => md5('shop'.$info[0]->product_id)
+            'token'        => md5('shop'.$info[0]->product_id)
 		));
                  
                 require_once APPPATH . 'modules/frontend/detail_product.php';
@@ -154,7 +154,7 @@ class Product extends CI_controller
 	}
 
 	public function fillter_list(){
-		
+		pre("ok");
 	}
         
     public function orderSuccess()

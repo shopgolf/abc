@@ -9,7 +9,7 @@ class News extends CI_controller
         $this->load->model('product_model');
         $this->load->model('category_model');
         $this->load->model('menu_model');
-        
+        $this->load->library("pagination");
         $this->smarty->assign(array(
             'lang'          =>  $this->lang->language
         ));
@@ -19,9 +19,11 @@ class News extends CI_controller
 	}
         
     public function index(){
-        require_once APPPATH . 'modules/frontend/news.php';
 
+        require_once APPPATH . 'modules/frontend/news.php';
+        //$this->pagination->initialize(pagination(base_url('tin-tuc').'/'.$params1,$count));
 		$this->smarty->assign(array(
+            //'pagination'    => $this->pagination->create_links(),
 			'title'         => $this->lang->language['tin_tuc'],
 			'page_class'    => 'category-page'
 		));
@@ -32,7 +34,7 @@ class News extends CI_controller
         
         require_once APPPATH . 'modules/frontend/news.php';
 		$this->smarty->assign(array(
-			'title'         => $this->lang->language['tin_tuc'],
+			'title'         => $news->title,
 			'page_class'    => 'category-page'
 		));
 	    $this->smarty->display('templates/frontend/layout');    
