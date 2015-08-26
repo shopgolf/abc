@@ -41,7 +41,7 @@ class Product extends CI_controller
 		}else{
 			$offset      = ($params1-1) * 18;
 		}
-		$this->pagination->initialize(pagination(base_url().$this->lang->language['hang_moi_ve'],100));
+		$this->pagination->initialize(pagination(base_url().$this->lang->language['hang_moi_ve'],100,18));
 		$order       = 'id';
 		$order_value = 'DESC';
 		$where= array('status'=>1);
@@ -82,7 +82,7 @@ class Product extends CI_controller
 		}else{
 			$offset      = ($params1-1) * 18;
 		}
-		$this->pagination->initialize(pagination(base_url().$this->lang->language['xem_nhieu'],100));
+		$this->pagination->initialize(pagination(base_url().$this->lang->language['xem_nhieu'],100,18));
 		$order       = 'view';
 		$order_value = 'DESC';
         $where= array('status'=>1);
@@ -100,7 +100,7 @@ class Product extends CI_controller
 		}else{
 				$offset      = ($params1-1) * 18;
 		}
-		$this->pagination->initialize(pagination(base_url().$this->lang->language['xem_nhieu'],100));
+		$this->pagination->initialize(pagination(base_url().$this->lang->language['xem_nhieu'],100,18));
 		$order       = 'checkout';
 		$order_value = 'DESC';
 		$where= array('status'=>1);
@@ -143,12 +143,42 @@ class Product extends CI_controller
 		$order       = 'id';
 		$order_value = 'DESC';
 		$where= array('status'=>1,'seo_url'=> $params1);
+		
 		$total = $this->product_model->getProCateById($where,array('key'=>$order,'value'=>$order_value),NULL,NULL,TRUE);
-		$this->pagination->initialize(pagination(base_url('danh-muc').'/'.$params1,$total));
+		$title = $this->category_model->find_by(array('seo_url' => $params1),'name,keyword,description',TRUE,NULL,NULL);
+		$this->pagination->initialize(pagination(base_url('danh-muc').'/'.$params1,$total,18));
 		require_once APPPATH . 'modules/frontend/list_product.php';
         $this->smarty->assign(array(
-			'title'         => $this->lang->language['title_hang_moi_ve'],
-			'page_class'    => 'category-page',
+			'title'        => $title->name,
+			'description'  => $title->description,
+			'keywords'     => $title->keyword,
+			'breadcrumb'   => 'abc',
+			'page_heading' =>  'abc',
+			'page_class'   => 'category-page',
+		));
+		$this->smarty->display('templates/frontend/layout');
+	}
+
+	public function categories($params1=NULL,$params2=NULL){
+		if($params2 == NULL){
+			$offset = 0;
+		}else{
+			$offset = ($params2-1) * 18;
+		}
+		$order       = 'id';
+		$order_value = 'DESC';
+		$where= array('status'=>1,'seo_url'=> $params1);
+		$total = $this->product_model->getProCateById($where,array('key'=>$order,'value'=>$order_value),NULL,NULL,TRUE);
+		$this->pagination->initialize(pagination(base_url('chuyen-muc').'/'.$params1,$total,18));
+		$title = $this->category_model->find_by(array('seo_url' => $params1),'name,keyword,description',TRUE,NULL,NULL);
+		require_once APPPATH . 'modules/frontend/list_product.php';
+        $this->smarty->assign(array(
+			'title'        => $title->name,
+			'breadcrumb'   => 'abc',
+			'page_heading' =>  'abc',
+			'description'  => $title->description,
+			'keywords'     => $title->keyword,
+			'page_class'   => 'category-page',
 		));
 		$this->smarty->display('templates/frontend/layout');
 	}

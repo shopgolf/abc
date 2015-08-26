@@ -4,7 +4,7 @@
         <div class="breadcrumb clearfix">
             <a class="home" href="#" title="Return to Home">Home</a>
             <span class="navigation-pipe">&nbsp;</span>
-            <span class="navigation_page">Fashion</span>
+            <span class="navigation_page"></span>
         </div>
         <!-- ./breadcrumb -->
         <!-- row -->
@@ -67,7 +67,7 @@
                 <!-- view-product-list-->
                 <div id="view-product-list" class="view-product-list">
                     <h2 class="page-heading">
-                        <span class="page-heading-title">Drive</span>
+                        <span class="page-heading-title"></span>
                     </h2>
                     <ul class="display-product-option">
                         <li class="view-as-grid selected">

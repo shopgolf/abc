@@ -1958,7 +1958,7 @@ span.notify-right{
 }
 .product-list li .quick-view a.search:before{
     font: normal normal normal 14px/1 FontAwesome;
-    content: "\f002";
+    content: "\f06e";
 }
 
 .product-list li .quick-view a:hover{

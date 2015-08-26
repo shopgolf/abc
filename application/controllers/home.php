@@ -32,7 +32,6 @@ class Home extends CI_controller
                     $bot_tab['response']        =   $this->product_model->find_by(array('category'=>$values->id,'status'=>1),'product_id,product_name,image,seo_url,net_price,final_price,pecent',FALSE,array('key'=>'view','value'=>'DESC'),12);
                     $bot_tab_list_pro[$keys]             =   $bot_tab;
                 }
-                
                 foreach($this->post_model->find_by(FALSE,'id,seo_url,title,description,feature_img',FALSE,array('key'=>'id','value'=>'DESC'),3) as $key => $value){
                     $lis                =   new stdClass();
                     $lis->id            = $value->id;
@@ -46,7 +45,9 @@ class Home extends CI_controller
                 }
                 
 		$this->smarty->assign(array(
-                        'title'                => $this->lang->language['site_name'],
+            'title'                => $this->lang->language['site_name'],
+            'description'          => 'abc',
+            'keywords'             => 'abc',
 			'page_class'           => 'home',
 			'data'                 => array_chunk($this->product_model->getProCateById(array('status'=>1),array('key'=>'id','value'=>'DESC'),12),4), 
 			'data_old_product'     => array_chunk($this->product_model->getProCateById(array('status'=>1),array('key'=>'id','value'=>'RANDOM'),12),4), 
