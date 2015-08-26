@@ -112,7 +112,7 @@
                                         <p>Item Code: #453217907</p>
                                         <p class="availability">Availability: <span>In stock</span></p>
                                         <div class="product-desc">
-                                            {{$value->description}}
+                                            {{$value->info}}
                                         </div>
                                     </div>
                                 </div>
@@ -125,7 +125,7 @@
                                             <h4 class="modal-title" id="myModalLabel">{{$value->product_name}}</h4>
                                         </div>
                                         <div class="modal-body">
-                                            {{$value->description}}
+                                            {{$value->info}}
                                         </div>
                                     </div>
                                 </div>

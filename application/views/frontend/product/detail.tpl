@@ -279,7 +279,7 @@
                     <h4 class="modal-title" id="myModalLabel">{{$v->product_name}}</h4>
                 </div>
                 <div class="modal-body">
-                    {{$v->description}}
+                    {{$v->info}}
                 </div>
             </div>
           </div>
